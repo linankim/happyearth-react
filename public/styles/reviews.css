@@ -1,0 +1,21 @@
+.reviews {
+	margin-top: 40px;
+}
+
+.reviews form {
+	margin-bottom: 40px;
+}
+
+.review {
+	margin-bottom: 20px;
+}
+
+.review p {
+	margin-bottom: 0;
+}
+
+.review .rating {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+}

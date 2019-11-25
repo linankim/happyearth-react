@@ -1,0 +1,16 @@
+i {
+	color: #a2a2a2;
+}
+
+.fa-heart.fas {
+	color: tomato;
+}
+
+.fa-star,
+.fa-map-marker-alt {
+	color: #00988f;
+}
+
+small i + span {
+	margin-left: 10px;
+}
