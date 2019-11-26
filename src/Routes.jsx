@@ -9,9 +9,9 @@ class Routes extends React.Component {
 		return (
 			<BrowserRouter>
 				<Switch>
-					<Route path="/auth" component={Auth} />
-					<Route path="/login" component={Login} />
-					<Route path="/signup" component={Signup} />
+					<Route path="/Auth" component={Auth} />
+					<Route path="/Login" component={Login} />
+					<Route path="/Signup" component={Signup} />
 				</Switch>
 			</BrowserRouter>
 		)
