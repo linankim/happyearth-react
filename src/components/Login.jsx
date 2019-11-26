@@ -3,7 +3,10 @@ import axios from "axios";
 
 class Login extends React.Component {
   state = {
-    user: {}
+    user: {
+      email: "",
+      password: ""
+    }
   };
 
   // Login button
@@ -16,17 +19,25 @@ class Login extends React.Component {
 
   login = e => {
     e.preventDefault();
-    console.log("whats wrong");
-    axios
-      .post(`${process.env.REACT_APP_API}/login`, this.state.user)
-      .then(res => {
-        this.setState(this.state.user);
-        console.log("this.state.user", this.state.user);
-      })
-      .catch(err => {
-        console.log(err);
-        console.log("no");
-      });
+
+    if (this.state.user.email !== "" && this.state.user.password !== "") {
+      axios
+        .post(`${process.env.REACT_APP_API}/login`, this.state.user)
+        .then(res => {
+          this.setState(this.state.user);
+          if (!res.data.token) {
+            console.log("Problems with login");
+          } else {
+            localStorage.setItem("token", res.data.token);
+            this.props.history.push("/");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      alert("all fields are required");
+    }
   };
 
   render() {
