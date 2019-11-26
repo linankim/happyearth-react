@@ -52,6 +52,7 @@ class Signup extends React.Component {
 				<div className="card small">
 					<div className="content">
 						<div className="logo" style={{ backgroundImage: `` }}></div>
+						<h1>Happy Earth</h1>
 						<form>
 							<div className="group">
 								<label>First Name</label>
