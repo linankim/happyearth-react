@@ -4,12 +4,14 @@ import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Profile from './components/Profile.jsx'
 import Spot from './components/Spot.jsx'
+import Create from './components/Create.jsx'
 
 class Routes extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
 				<Switch>
+					<Route path="/create" component={Create} />
 					<Route path="/Login" component={Login} />
 					<Route path="/Profile" component={Profile} />
 					<Route path="/Signup" component={Signup} />

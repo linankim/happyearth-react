@@ -9,6 +9,9 @@ class Sidebar extends React.Component {
 					<li className="active">
 						<Link to="/profile">Profile</Link>
 					</li>
+					<li className="active">
+						<Link to="/create">Create</Link>
+					</li>
 				</ul>
 			</div>
 		)
