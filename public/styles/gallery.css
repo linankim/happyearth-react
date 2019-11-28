@@ -1,6 +1,6 @@
 .gallery {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	border-bottom: 1px solid #e2e2e2;
 }
 
@@ -46,10 +46,10 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	cursor: pointer;
-	transition: opacity .3s;
+	transition: opacity 0.3s;
 }
 
 .gallery .thumbnail:hover,
 .gallery .thumbnail.selected {
-	opacity: .5;
+	opacity: 0.5;
 }

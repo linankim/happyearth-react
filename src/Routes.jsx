@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Profile from './components/Profile.jsx'
+import Spot from './components/Spot.jsx'
 
 class Routes extends React.Component {
 	render() {
@@ -12,6 +13,7 @@ class Routes extends React.Component {
 					<Route path="/Login" component={Login} />
 					<Route path="/Profile" component={Profile} />
 					<Route path="/Signup" component={Signup} />
+					<Route path="/Spot" component={Spot} />
 				</Switch>
 			</BrowserRouter>
 		)
