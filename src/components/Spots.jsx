@@ -6,12 +6,18 @@ import Nav from './Nav.jsx'
 
 class Spots extends React.Component {
 	state = {
-		spots: [],
+		spots: [
+			{
+				title: '',
+				city: '',
+				country: ''
+			}
+		],
 		spotsClone: [],
 		searchField: ''
 	}
 
-	componentDidMount() {
+	componentDidMount(req, res) {
 		axios
 			.get(`${process.env.REACT_APP_API}/spots`)
 			.then(res => {
@@ -19,7 +25,7 @@ class Spots extends React.Component {
 				console.log('res data >>>>>>>>>', { spots: res.data })
 			})
 			.catch(error => {
-				console.log('errrr>>>>>>>>', error)
+				res.send(error)
 			})
 	}
 

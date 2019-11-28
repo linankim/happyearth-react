@@ -6,16 +6,16 @@ class Card extends React.Component {
 	state = {
 		spot: {}
 	}
-	// UNSAFE_componentWillMount(req, res) {
-	// 	axios
-	// 		.get(`${process.env.REACT_APP_API}/spots}`)
-	// 		.then(res => {
-	// 			this.setState({ spot: res.data })
-	// 		})
-	// 		.catch(error => {
-	// 			console.log(error)
-	// 		})
-	// }
+	componentDidMount() {
+		axios
+			.get(`${process.env.REACT_APP_API}/spots`)
+			.then(spot => {
+				this.setState({ spot: spot.data })
+			})
+			.catch(error => {
+				console.log(error)
+			})
+	}
 
 	render() {
 		return (
