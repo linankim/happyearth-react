@@ -1,24 +1,49 @@
 import React from 'react'
 import Nav from './Nav.jsx'
 import GoogleMap from 'google-map-react'
+import axios from 'axios'
+import { withRouter } from 'react-router-dom'
+import Pin from './Pin.jsx'
 
 class Spot extends React.Component {
 	state = {
 		spot: {
 			selectedImage: '',
-			images: [],
+			pictures: [],
+			title: '',
+			spotters: {
+				name: '',
+				avatar: ''
+			},
+			description: '',
+			typeOfPlace: [],
+			amenities: [],
+			city: '',
+			country: '',
 			key: {
 				key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
 			},
 			center: {
-				lat: 0.0,
-				lng: 0.0
+				lat: 10.987,
+				lng: 9.789
 			},
-			zoom: 0,
-			host: [],
-			type: [],
-			amenities: []
+			zoom: 11
 		}
+	}
+	UNSAFE_componentWillMount() {
+		let spotId = this.props.match.params.id
+		console.log('works')
+		console.log('spotId', spotId)
+		axios
+			.get(`${process.env.REACT_APP_API}/spots/${spotId}`)
+			.then(res => {
+				res.data.selectedImage = res.data.pictures[0]
+				console.log('res.data.selectedImage', res.data.selectedImage)
+				console.log('res', res)
+				this.setState({ spot: res.data })
+				console.log({ spot: res.data })
+			})
+			.catch(err => console.log(err))
 	}
 	toggleLike = () => {}
 	getClass = () => {}
@@ -26,48 +51,49 @@ class Spot extends React.Component {
 		return (
 			<>
 				<Nav />
-				<div>
-					<ul className="grid two">
-						<div className="gallery">
+
+				<div className="grid two">
+					<div className="gallery">
+						<div
+							className="image-main"
+							style={{
+								backgroundImage: `url('${this.state.spot.selectedImage}')`
+							}}
+						>
+							<button className="icon" onClick={() => this.toggleLike()}>
+								<i className={this.getClass()}></i>
+							</button>
+						</div>
+						<div className="thumbnails">
 							<div
-								className="image-main"
+								className="thumbnail selected"
 								style={{
 									backgroundImage: `url('${this.state.spot.selectedImage}')`
 								}}
-							>
-								<button className="icon" onClick={() => this.toggleLike()}>
-									<i className={this.getClass()}></i>
-								</button>
-							</div>
-							<div className="thumbnails">
-								<div
-									className="thumbnail selected"
-									style={{
-										backgroundImage: `url('${this.state.spot.selectedImage}')`
-									}}
-								></div>
-								{this.state.spot.images.map((image, index) => {
-									return (
-										<div
-											className="thumbnail"
-											style={{
-												backgroundImage: `url(${image})`
-											}}
-											key={index}
-											onClick={() => this.clickedImage(image)}
-										></div>
-									)
-								})}
-							</div>
+							></div>
+							{this.state.spot.pictures.map((picture, index) => {
+								return (
+									<div
+										className="thumbnail"
+										style={{
+											backgroundImage: `url(${picture})`
+										}}
+										key={index}
+										onClick={() => this.clickedImage(picture)}
+									></div>
+								)
+							})}
 						</div>
-						<GoogleMap
-							bootstrapURLKeys={this.state.spot.key}
-							center={this.state.spot.center}
-							zoom={this.state.spot.zoom}
-						></GoogleMap>
-					</ul>
+					</div>
+					<GoogleMap
+						className="map"
+						bootstrapURLKeys={this.state.spot.key}
+						center={this.state.spot.center}
+						zoom={this.state.spot.zoom}
+					></GoogleMap>
 				</div>
-				<div className="grid large">
+
+				<div className="grid medium">
 					<div className="grid sidebar-right">
 						<div className="content">
 							<h1>{this.state.spot.title}</h1>
@@ -79,15 +105,15 @@ class Spot extends React.Component {
 							</small>
 							<div className="user">
 								<div className="name">
-									<small>Spoted by</small>
-									<span>{this.state.spot.host.name}</span>
+									<small>Spotted by</small>
+									<span>{this.state.spot.spotters.name}</span>
 								</div>
 							</div>
 							<div className="card specs">
 								<div className="content">
 									<ul className="grid two">
 										<i className="fas fa-fw fa-home"></i>
-										{this.state.spot.type.name}
+										{this.state.spot.typeOfPlace.name}
 									</ul>
 								</div>
 							</div>
@@ -129,4 +155,4 @@ class Spot extends React.Component {
 	}
 }
 
-export default Spot
+export default withRouter(Spot)

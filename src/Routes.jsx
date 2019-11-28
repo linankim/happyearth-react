@@ -14,8 +14,8 @@ class Routes extends React.Component {
 					<Route path="/Login" component={Login} />
 					<Route path="/Profile" component={Profile} />
 					<Route path="/Signup" component={Signup} />
-					<Route path="/Spot" component={Spot} />
 					<Route path="/" component={Spots} />
+					<Route path="/spots/:id" component={Spot} />
 				</Switch>
 			</BrowserRouter>
 		)
