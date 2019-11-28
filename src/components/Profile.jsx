@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Nav from './Nav.jsx'
+import Sidebar from './Sidebar.jsx'
 
 class Profile extends React.Component {
 	state = {
@@ -39,45 +40,48 @@ class Profile extends React.Component {
 			<>
 				<Nav />
 				<div className="grid medium">
-					<div className="content">
-						<h2>My Profile</h2>
-						<form>
-							<div className="group">
-								<label>First Name</label>
-								<input type="text" value={this.state.user.firstName} />
-							</div>
-							<div className="group">
-								<label>Last Name</label>
-								<input type="text" value={this.state.user.lastName} />
-							</div>
-							<div className="group">
-								<label>Email</label>
-								<input type="email" value={this.state.user.email} />
-							</div>
-							<div className="group">
-								<label>Residence Country</label>
-								<input type="text" value={this.state.user.residenceCountry} />
-							</div>
-							<div className="group">
-								<label>Profile Picture</label>
-								<div className="user">
-									<div
-										className="avatar"
-										style={{
-											backgroundImage: `url(${this.state.user.avatar})`
-										}}
-									></div>
-									<div className="name">
-										<input type="file" />
+					<div className="grid sidebar-left">
+						<Sidebar />
+						<div className="content">
+							<h2>My Profile</h2>
+							<form>
+								<div className="group">
+									<label>First Name</label>
+									<input type="text" value={this.state.user.firstName} />
+								</div>
+								<div className="group">
+									<label>Last Name</label>
+									<input type="text" value={this.state.user.lastName} />
+								</div>
+								<div className="group">
+									<label>Email</label>
+									<input type="email" value={this.state.user.email} />
+								</div>
+								<div className="group">
+									<label>Residence Country</label>
+									<input type="text" value={this.state.user.residenceCountry} />
+								</div>
+								<div className="group">
+									<label>Profile Picture</label>
+									<div className="user">
+										<div
+											className="avatar"
+											style={{
+												backgroundImage: `url(${this.state.user.avatar})`
+											}}
+										></div>
+										<div className="name">
+											<input type="file" />
+										</div>
 									</div>
 								</div>
-							</div>
-							<button>Save Changes</button>
-						</form>
-						<hr />
-						<button className="secondary" onClick={this.logout}>
-							Logout
-						</button>
+								<button>Save Changes</button>
+							</form>
+							<hr />
+							<button className="secondary" onClick={this.logout}>
+								Logout
+							</button>
+						</div>
 					</div>
 				</div>
 			</>
