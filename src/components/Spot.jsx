@@ -1,12 +1,20 @@
 import React from 'react'
 import Nav from './Nav.jsx'
 import GoogleMap from 'google-map-react'
+import axios from 'axios'
 
 class Spot extends React.Component {
 	state = {
 		spot: {
 			selectedImage: '',
-			images: [],
+			pictures: [],
+			title: '',
+			spotters: [],
+			description: '',
+			typeOfPlace: [],
+			amenities: [],
+			city: '',
+			country: '',
 			key: {
 				key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
 			},
@@ -14,11 +22,20 @@ class Spot extends React.Component {
 				lat: 0.0,
 				lng: 0.0
 			},
-			zoom: 0,
-			host: [],
-			type: [],
-			amenities: []
+			zoom: 0
 		}
+	}
+	componentWillMount() {
+		let spot = this.state.spot
+		console.log('works')
+		axios
+			.get(`${process.env.REACT_APP_API}/spot`)
+			.then(res => {
+				this.setState({ res: res.spot })
+				console.log({ res: res.spot })
+				console.log('res', res)
+			})
+			.catch(err => console.log(err))
 	}
 	toggleLike = () => {}
 	getClass = () => {}
@@ -46,7 +63,7 @@ class Spot extends React.Component {
 										backgroundImage: `url('${this.state.spot.selectedImage}')`
 									}}
 								></div>
-								{this.state.spot.images.map((image, index) => {
+								{this.state.spot.pictures.map((image, index) => {
 									return (
 										<div
 											className="thumbnail"
@@ -80,14 +97,14 @@ class Spot extends React.Component {
 							<div className="user">
 								<div className="name">
 									<small>Spoted by</small>
-									<span>{this.state.spot.host.name}</span>
+									<span>{this.state.spot.spotters.name}</span>
 								</div>
 							</div>
 							<div className="card specs">
 								<div className="content">
 									<ul className="grid two">
 										<i className="fas fa-fw fa-home"></i>
-										{this.state.spot.type.name}
+										{this.state.spot.typeOfPlace.name}
 									</ul>
 								</div>
 							</div>
