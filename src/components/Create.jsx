@@ -41,7 +41,44 @@ class Create extends React.Component {
 		this.setState({ spot })
 		console.log({ spot })
 	}
-	onChange = () => {}
+	//upload images
+	getFile = e => {
+		let spot = this.state.spot
+		spot.images = e.target.files[0]
+		let data = new FormData()
+		data.append('file', e.target.files[0])
+		data.append('title', this.state.spot.title)
+		data.append('description', this.state.spot.description)
+		data.append('city', this.state.spot.city)
+		data.append('country', this.state.spot.country)
+		data.append('type', this.state.spot.type)
+		data.append('amenity', this.state.spot.amenity)
+		data.append('lat', this.state.spot.lat)
+		data.append('lng', this.state.spot.lng)
+
+		// 		axios
+		// 		.post(`${process.env.CLOUDINARYURL}`, headers:{
+		// 		'Content-Type': ''
+		// 	},data: formData
+		// )
+		// .then(res => console.log(res))
+		// .catch()
+	}
+
+	//create place button
+	createPlace = e => {
+		e.preventDefault()
+		axios
+			.post(`${process.env.REACT_APP_API}/spots`, this.state.spot)
+			.then(res => {
+				res.send(res.data)
+				console.log(res.data)
+			})
+			.catch(err => {
+				console.log(err)
+			})
+	}
+
 	render() {
 		return (
 			<>
@@ -94,7 +131,7 @@ class Create extends React.Component {
 
 								<div className="group">
 									<label>Upload Photos</label>
-									<input type="file" multiple />
+									<input type="file" onChange={this.getFile} multiple />
 								</div>
 								<div className="group">
 									<label>Amenities</label>
