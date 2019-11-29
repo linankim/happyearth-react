@@ -26,9 +26,11 @@ class Nav extends React.Component {
 					to="/places"
 					className="logo"
 					style={{
-						backgroundImage: `url('https://png.pngtree.com/png-clipart/20190123/ourlarge/pngtree-cartoon-hand-painted-watercolor-plant-png-image_538970.jpg')`
+						backgroundImage: `url('')`
 					}}
-				></Link>
+				>
+					<h1>Happy Earth</h1>
+				</Link>
 				<div className="profile">
 					<Link to="/profile" className="button">
 						<div
