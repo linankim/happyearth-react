@@ -5,20 +5,24 @@ import axios from 'axios'
 
 class Create extends React.Component {
 	state = {
+		user: {},
 		spot: {
-			images: [],
-			types: [],
+			file: '',
+			type: '',
 			amenities: []
-		}
+		},
+		amenities: [],
+		types: []
 	}
 	UNSAFE_componentWillMount() {
-		let spot = this.state.spot
+		let types = this.state.types
+		let amenities = this.state.amenities
 		axios
 			.get(`${process.env.REACT_APP_API}/types`)
 			.then(res => {
-				spot.types = res.data
-				this.setState({ spot })
-				console.log('spot', spot)
+				types = res.data
+				this.setState({ types })
+				console.log('types', types)
 			})
 			.catch(err => {
 				console.log(err)
@@ -26,53 +30,101 @@ class Create extends React.Component {
 		axios
 			.get(`${process.env.REACT_APP_API}/amenities`)
 			.then(res => {
-				spot.amenities = res.data
-				this.setState({ spot })
-				console.log({ spot })
+				amenities = res.data
+				this.setState({ amenities })
+				console.log({ amenities })
 			})
 			.catch(err => {
 				console.log(err)
 			})
 	}
 
+	componentDidMount() {
+		let spot = this.state.spot
+		if (!localStorage.getItem('token')) {
+			this.props.history.push('/login')
+		} else {
+			axios
+				.get(`${process.env.REACT_APP_API}/auth`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('token')}`
+					}
+				})
+				.then(user => {
+					this.setState({ user: user.data })
+					this.state.spot.spotters = this.state.user._id
+					console.log('spotter', this.state.spot.spotters)
+					this.setState({ spot })
+					console.log({ spot })
+				})
+				.catch(error => console.log(error))
+		}
+	}
+
+	//setState with input
 	changeField = (e, field) => {
 		let spot = this.state.spot
 		spot[field] = e.target.value
 		this.setState({ spot })
 		console.log({ spot })
 	}
-	//upload images
-	getFile = e => {
-		let spot = this.state.spot
-		spot.images = e.target.files[0]
-		let data = new FormData()
-		data.append('file', e.target.files[0])
-		data.append('title', this.state.spot.title)
-		data.append('description', this.state.spot.description)
-		data.append('city', this.state.spot.city)
-		data.append('country', this.state.spot.country)
-		data.append('type', this.state.spot.type)
-		data.append('amenity', this.state.spot.amenity)
-		data.append('lat', this.state.spot.lat)
-		data.append('lng', this.state.spot.lng)
 
-		// 		axios
-		// 		.post(`${process.env.CLOUDINARYURL}`, headers:{
-		// 		'Content-Type': ''
-		// 	},data: formData
-		// )
-		// .then(res => console.log(res))
-		// .catch()
+	//select Amenities
+	checkBox = e => {
+		let spot = this.state.spot
+		let _id = e.target.value
+		let amenities = spot.amenities
+
+		if (spot.amenities.find(amenity => amenity == _id)) {
+			console.log('no')
+			spot.amenities = spot.amenities.filter(amenity => amenity != _id)
+		} else {
+			console.log('yes')
+			spot.amenities.push(_id)
+			this.setState({ spot: spot.amenities })
+			console.log(spot.amenities)
+
+			console.log({ spot })
+		}
+		this.setState({ spot })
 	}
 
-	//create place button
+	//upload files
+	getFile = e => {
+		let spot = this.state.spot
+		// spot.files = Array.from(e.target.files)
+		// this.setState({ spot }, () => {
+		// 	console.log('state', this.state)
+		// })
+		spot.file = e.target.files[0]
+		this.setState({ spot }, () => {
+			console.log('state', this.state)
+		})
+	}
+
+	//button create place
 	createPlace = e => {
 		e.preventDefault()
+		console.log('state', this.state)
+		let data = new FormData()
+		for (let key in this.state.spot) {
+			console.log('KEY', this.state.spot[key])
+			console.log('TYPE', typeof this.state.spot[key])
+			if (typeof this.state.spot[key] == 'object') {
+				console.log('key', key)
+				this.state.spot[key].forEach(val => {
+					data.append(`${key}[]`, val)
+				})
+			} else {
+				data.append(key, this.state.spot[key])
+				// console.log('data', data)
+			}
+		}
+		console.log({ data })
 		axios
-			.post(`${process.env.REACT_APP_API}/spots`, this.state.spot)
+			.post(`${process.env.REACT_APP_API}/spots`, data)
 			.then(res => {
-				res.send(res.data)
-				console.log(res.data)
+				console.log('i am here', res)
 			})
 			.catch(err => {
 				console.log(err)
@@ -123,7 +175,7 @@ class Create extends React.Component {
 								<div className="group">
 									<label>Type of Place</label>
 									<select onChange={e => this.changeField(e, 'type')}>
-										{this.state.spot.types.map(type => {
+										{this.state.types.map(type => {
 											return <option value={type._id}>{type.name}</option>
 										})}
 									</select>
@@ -135,15 +187,14 @@ class Create extends React.Component {
 								</div>
 								<div className="group">
 									<label>Amenities</label>
-									{this.state.spot.amenities.map(amenity => {
+									{this.state.amenities.map(amenity => {
 										return (
 											<label className="checkbox">
 												<input
 													type="checkbox"
 													value={amenity._id}
-													onChange={e => this.checkBox(e, 'field')}
+													onChange={e => this.checkBox(e)}
 												/>
-
 												<i className={amenity.icon}></i>
 												<span> {amenity.explanation}</span>
 											</label>

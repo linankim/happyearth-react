@@ -85,12 +85,13 @@ class Spot extends React.Component {
 							})}
 						</div>
 					</div>
-					<GoogleMap
-						className="map"
-						bootstrapURLKeys={this.state.spot.key}
-						center={this.state.spot.center}
-						zoom={this.state.spot.zoom}
-					></GoogleMap>
+					<div className="map">
+						<GoogleMap
+							bootstrapURLKeys={this.state.spot.key}
+							center={this.state.spot.center}
+							zoom={this.state.spot.zoom}
+						></GoogleMap>
+					</div>
 				</div>
 
 				<div className="grid medium">
