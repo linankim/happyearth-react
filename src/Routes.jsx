@@ -5,6 +5,7 @@ import Signup from './components/Signup.jsx'
 import Profile from './components/Profile.jsx'
 import Spot from './components/Spot.jsx'
 import Spots from './components/Spots.jsx'
+import Landing from './components/Landing.jsx'
 
 class Routes extends React.Component {
 	render() {
@@ -12,10 +13,11 @@ class Routes extends React.Component {
 			<BrowserRouter>
 				<Switch>
 					<Route path="/spots/:id" component={Spot} />
+					<Route path="/spots" component={Spots} />
 					<Route path="/Login" component={Login} />
 					<Route path="/Profile" component={Profile} />
 					<Route path="/Signup" component={Signup} />
-					<Route path="/" component={Spots} />
+					<Route path="/" component={Landing} />
 				</Switch>
 			</BrowserRouter>
 		)

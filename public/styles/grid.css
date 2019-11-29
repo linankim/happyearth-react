@@ -2,6 +2,11 @@
 	display: grid;
 }
 
+.grid.long {
+	grid-template-columns: 80vw;
+	justify-content: center;
+}
+
 .grid.center {
 	grid-template-columns: 400px;
 	justify-content: center;
