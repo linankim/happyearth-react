@@ -4,6 +4,7 @@ import GoogleMap from 'google-map-react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import Pin from './Pin.jsx'
+import '../styles/buttons.css'
 import '../styles/cards.css'
 import '../styles/forms.css'
 import '../styles/icons.css'
@@ -16,6 +17,7 @@ import '../styles/users.css'
 class Spot extends React.Component {
 	state = {
 		spot: {
+			liked: false,
 			selectedImage: '',
 			images: [],
 			title: '',
@@ -53,13 +55,26 @@ class Spot extends React.Component {
 			})
 			.catch(err => console.log(err))
 	}
+
+	//Main Image
 	clickedImage = image => {
 		let spot = this.state.spot
 		spot.selectedImage = image
 		this.setState({ spot })
 	}
-	toggleLike = () => {}
-	getClass = () => {}
+	//Like button
+	getClass = () => {
+		return this.state.spot.liked
+			? 'fas fa-globe-africa'
+			: 'fas fa-globe-americas'
+	}
+
+	toggleLike = () => {
+		let spot = this.state.spot
+		spot.liked = !spot.liked
+		this.setState({ spot })
+	}
+
 	render() {
 		return (
 			<>

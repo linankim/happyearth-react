@@ -6,6 +6,14 @@ i {
 	color: tomato;
 }
 
+.fa-globe-africa.fas {
+	color: white;
+}
+
+.fa-globe-americas.fas {
+	color: tomato;
+}
+
 .fa-star,
 .fa-map-marker-alt {
 	color: #00988f;
