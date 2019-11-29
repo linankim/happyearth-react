@@ -4,6 +4,14 @@ import GoogleMap from 'google-map-react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import Pin from './Pin.jsx'
+import '../styles/cards.css'
+import '../styles/forms.css'
+import '../styles/icons.css'
+import '../styles/gallery.css'
+import '../styles/googlemap.css'
+import '../styles/grid.css'
+import '../styles/sidebar.css'
+import '../styles/users.css'
 
 class Spot extends React.Component {
 	state = {

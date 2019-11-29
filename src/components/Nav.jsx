@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import '../styles/nav.css'
 class Nav extends React.Component {
 	state = {
 		user: {}
