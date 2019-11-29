@@ -17,7 +17,7 @@ class Spot extends React.Component {
 	state = {
 		spot: {
 			selectedImage: '',
-			pictures: [],
+			images: [],
 			title: '',
 			spotters: {
 				name: '',
@@ -45,13 +45,18 @@ class Spot extends React.Component {
 		axios
 			.get(`${process.env.REACT_APP_API}/spots/${spotId}`)
 			.then(res => {
-				res.data.selectedImage = res.data.pictures[0]
+				res.data.selectedImage = res.data.images[0]
 				console.log('res.data.selectedImage', res.data.selectedImage)
 				console.log('res', res)
 				this.setState({ spot: res.data })
 				console.log({ spot: res.data })
 			})
 			.catch(err => console.log(err))
+	}
+	clickedImage = image => {
+		let spot = this.state.spot
+		spot.selectedImage = image
+		this.setState({ spot })
 	}
 	toggleLike = () => {}
 	getClass = () => {}
@@ -79,15 +84,15 @@ class Spot extends React.Component {
 									backgroundImage: `url('${this.state.spot.selectedImage}')`
 								}}
 							></div>
-							{this.state.spot.pictures.map((picture, index) => {
+							{this.state.spot.images.map((image, index) => {
 								return (
 									<div
 										className="thumbnail"
 										style={{
-											backgroundImage: `url(${picture})`
+											backgroundImage: `url(${image})`
 										}}
 										key={index}
-										onClick={() => this.clickedImage(picture)}
+										onClick={() => this.clickedImage(image)}
 									></div>
 								)
 							})}
