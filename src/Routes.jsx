@@ -11,11 +11,11 @@ class Routes extends React.Component {
 		return (
 			<BrowserRouter>
 				<Switch>
+					<Route path="/spots/:id" component={Spot} />
 					<Route path="/Login" component={Login} />
 					<Route path="/Profile" component={Profile} />
 					<Route path="/Signup" component={Signup} />
 					<Route path="/" component={Spots} />
-					<Route path="/spots/:id" component={Spot} />
 				</Switch>
 			</BrowserRouter>
 		)
