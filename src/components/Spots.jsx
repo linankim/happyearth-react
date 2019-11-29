@@ -6,26 +6,20 @@ import Nav from './Nav.jsx'
 
 class Spots extends React.Component {
 	state = {
-		spots: [
-			{
-				title: '',
-				city: '',
-				country: ''
-			}
-		],
+		spots: [],
 		spotsClone: [],
 		searchField: ''
 	}
 
-	componentDidMount(req, res) {
+	componentDidMount() {
 		axios
 			.get(`${process.env.REACT_APP_API}/spots`)
 			.then(res => {
 				this.setState({ spots: res.data })
-				console.log('res data >>>>>>>>>', { spots: res.data })
+				console.log('res data >>>>>>>>>', res.data)
 			})
 			.catch(error => {
-				res.send(error)
+				console.log({ error })
 			})
 	}
 
@@ -35,7 +29,7 @@ class Spots extends React.Component {
 				<Nav />
 				<div className="grid five large">
 					{this.state.spots.map(spot => (
-						<Card place={spot} key={spot._id} />
+						<Card spot={spot} key={spot.id} />
 					))}
 				</div>
 			</div>
