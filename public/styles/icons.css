@@ -3,12 +3,12 @@ i {
 }
 
 .fa-heart.fas {
-	color: tomato;
+	color: #50805d;
 }
 
 .fa-star,
 .fa-map-marker-alt {
-	color: #00988f;
+	color: #50805d;
 }
 
 small i + span {
