@@ -8,8 +8,10 @@ class Create extends React.Component {
 		user: {},
 		spot: {
 			file: '',
+			images: [],
 			type: '',
-			amenities: []
+			amenities: [],
+			center: {}
 		},
 		amenities: [],
 		types: []
@@ -110,14 +112,14 @@ class Create extends React.Component {
 		for (let key in this.state.spot) {
 			console.log('KEY', this.state.spot[key])
 			console.log('TYPE', typeof this.state.spot[key])
-			if (typeof this.state.spot[key] == 'object') {
+			if (typeof this.state.spot[key] == 'array') {
 				console.log('key', key)
 				this.state.spot[key].forEach(val => {
 					data.append(`${key}[]`, val)
 				})
 			} else {
 				data.append(key, this.state.spot[key])
-				// console.log('data', data)
+				console.log('not working', data)
 			}
 		}
 		console.log({ data })
@@ -205,15 +207,15 @@ class Create extends React.Component {
 									<label>Latitude</label>
 									<input
 										type="number"
-										value={this.state.spot.lat}
-										onChange={e => this.changeField(e, 'lat')}
+										value={this.state.spot.center.lat}
+										onChange={e => this.changeField(e, 'center.lat')}
 									/>
 
 									<label>Longitude</label>
 									<input
 										type="number"
-										value={this.state.spot.lng}
-										onChange={e => this.changeField(e, 'lng')}
+										value={this.state.spot.center.lng}
+										onChange={e => this.changeField(e, 'center.lng')}
 									/>
 								</div>
 								<div className="group"></div>
