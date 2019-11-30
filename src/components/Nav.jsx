@@ -26,8 +26,12 @@ class Nav extends React.Component {
 				<Link
 					to="/places"
 					className="logo"
-					style={{ backgroundImage: `url('images/logo-airbnb.png')` }}
-				></Link>
+					style={{
+						backgroundImage: `url('')`
+					}}
+				>
+					<h1>Happy Earth</h1>
+				</Link>
 				<div className="profile">
 					<Link to="/profile" className="button">
 						<div

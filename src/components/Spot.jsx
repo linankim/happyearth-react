@@ -79,7 +79,6 @@ class Spot extends React.Component {
 		return (
 			<>
 				<Nav />
-
 				<div className="grid two">
 					<div className="gallery">
 						<div

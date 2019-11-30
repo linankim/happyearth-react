@@ -3,6 +3,11 @@
 	border-radius: 6px;
 }
 
+.card .long {
+	width: 500px;
+	height: 100px;
+}
+
 a.card {
 	text-decoration: none;
 	color: black;
