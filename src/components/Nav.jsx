@@ -1,11 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { slide as Menu } from 'react-burger-menu'
 import '../styles/nav.css'
+
+import Sidebar from './Sidebar.jsx'
 
 class Nav extends React.Component {
 	state = {
-		user: {}
+		user: {},
+		menuOpen: false
 	}
 
 	componentDidMount() {
@@ -20,26 +24,26 @@ class Nav extends React.Component {
 				console.log(err)
 			})
 	}
+
 	render() {
 		return (
-			<nav>
-				<Link
-					to="/places"
-					className="logo"
-					style={{ backgroundImage: `url('images/logo-airbnb.png')` }}
-				></Link>
-				<div className="profile">
-					<Link to="/profile" className="button">
-						<div
-							className="avatar"
-							style={{
-								backgroundImage: `url(${this.state.user.avatar})`
-							}}
-						></div>
-						<span>{this.state.user.firstName}</span>
-					</Link>
-				</div>
-			</nav>
+			<>
+				<nav>
+					<Sidebar />
+
+					<div className="profile">
+						<Link to="/profile" className="button">
+							<div
+								className="avatar"
+								style={{
+									backgroundImage: `url(${this.state.user.avatar})`
+								}}
+							></div>
+							<span>{this.state.user.firstName}</span>
+						</Link>
+					</div>
+				</nav>
+			</>
 		)
 	}
 }

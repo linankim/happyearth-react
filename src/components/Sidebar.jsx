@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
+import '../styles/burger.css'
+import '../styles/sidebar.css'
 
 class Sidebar extends React.Component {
 	state = {
@@ -9,15 +11,16 @@ class Sidebar extends React.Component {
 	handleStateChange(state) {
 		this.setState({ menuOpen: state.isOpen })
 	}
+	// closeMenu() {
+	// 	this.setState({ menuOpen: false })
 	closeMenu() {
 		this.setState({ menuOpen: false })
 	}
-	showSettings = e => {
-		e.preventDefault()
-	}
+
 	render() {
 		return (
 			<Menu
+				noOverlay
 				isOpen={this.state.menuOpen}
 				onStateChange={state => this.handleStateChange(state)}
 			>

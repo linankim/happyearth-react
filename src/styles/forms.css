@@ -8,7 +8,7 @@ form input {
 	border: 1px solid #e2e2e2;
 }
 
-form input[type=file] {
+form input[type='file'] {
 	padding: 13px;
 }
 
@@ -79,11 +79,4 @@ form .rating {
 	cursor: pointer;
 	font-size: 14px;
 	margin: 10px 0;
-}
-
-/* React Date Picker */
-
-.react-datepicker-wrapper,
-.react-datepicker__input-container {
-	width: 100%;
 }
