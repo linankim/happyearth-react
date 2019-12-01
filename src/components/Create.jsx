@@ -9,7 +9,7 @@ class Create extends React.Component {
 		spot: {
 			file: '',
 			images: [],
-			type: '',
+			types: '',
 			amenities: [],
 			lat: '',
 			lng: ''
@@ -177,7 +177,7 @@ class Create extends React.Component {
 								</div>
 								<div className="group">
 									<label>Type of Place</label>
-									<select onChange={e => this.changeField(e, 'type')}>
+									<select onChange={e => this.changeField(e, 'types')}>
 										{this.state.types.map(type => {
 											return <option value={type._id}>{type.name}</option>
 										})}
