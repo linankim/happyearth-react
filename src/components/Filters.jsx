@@ -1,10 +1,7 @@
 import React from 'react'
-import Spots from './Spots.jsx'
 
 class Filters extends React.Component {
-	state = {
-		searchField: this.props.searchField
-	}
+	state = {}
 	render() {
 		return (
 			<div className="filters">
@@ -16,10 +13,7 @@ class Filters extends React.Component {
 					<option value="1">Bulk Food</option>
 				</select>
 				<input
-					onChange={e =>
-						this.props.updateSearchField(e, this.state.searchField)
-					}
-					value={this.state.searchField}
+					onChange={e => this.props.updateSearchField(e)}
 					type="text"
 					className="search"
 					placeholder="Search..."
