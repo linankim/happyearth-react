@@ -11,8 +11,6 @@ class Sidebar extends React.Component {
 	handleStateChange(state) {
 		this.setState({ menuOpen: state.isOpen })
 	}
-	// closeMenu() {
-	// 	this.setState({ menuOpen: false })
 	closeMenu() {
 		this.setState({ menuOpen: false })
 	}
@@ -32,9 +30,10 @@ class Sidebar extends React.Component {
 						<li onClick={() => this.closeMenu()} className="active">
 							<Link to="/create">Create</Link>
 						</li>
-						<li onClick={() => this.closeMenu()} className="bm-burger-button">
-							Settings
-						</li>
+						<li
+							onClick={() => this.closeMenu()}
+							className="bm-burger-button"
+						></li>
 					</ul>
 				</div>
 			</Menu>

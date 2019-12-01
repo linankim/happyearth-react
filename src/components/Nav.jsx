@@ -30,7 +30,6 @@ class Nav extends React.Component {
 			<>
 				<nav>
 					<Sidebar />
-
 					<div className="profile">
 						<Link to="/profile" className="button">
 							<div

@@ -1,5 +1,7 @@
 .sidebar {
 	margin-top: 50px;
+	width: 100px;
+	background-color: white;
 }
 
 .sidebar ul {
