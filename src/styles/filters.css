@@ -1,6 +1,8 @@
 .filters {
+	background-color: rgba(255, 255, 255, 0.5);
 	padding: 10px 50px;
 	border-bottom: 1px solid #e2e2e2;
+	height: 50px;
 }
 
 .filters button {
@@ -22,7 +24,7 @@
 
 .filters select {
 	height: 34px;
-	width: auto;
+	width: 300px;
 	font-size: 14px;
 	background: white;
 	border: 1px solid #e2e2e2;
