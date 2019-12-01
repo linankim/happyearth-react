@@ -26,7 +26,7 @@ class Spot extends React.Component {
 				avatar: ''
 			},
 			description: '',
-			typeOfPlace: [],
+			types: [],
 			amenities: [],
 			city: '',
 			country: '',
@@ -89,12 +89,6 @@ class Spot extends React.Component {
 							</button>
 						</div>
 						<div className="thumbnails">
-							<div
-								className="thumbnail selected"
-								style={{
-									backgroundImage: `url('${this.state.spot.selectedImage}')`
-								}}
-							></div>
 							{this.state.spot.images.map((image, index) => {
 								return (
 									<div
@@ -109,11 +103,12 @@ class Spot extends React.Component {
 							})}
 						</div>
 					</div>
-					<div className="map">
+					<div>
 						<GoogleMap
 							bootstrapURLKeys={this.state.spot.key}
 							center={this.state.spot.center}
 							zoom={this.state.spot.zoom}
+							className="map"
 						>
 							<Pin spot={this.state.spot} key={this.state.spot._id} />
 						</GoogleMap>
@@ -140,7 +135,7 @@ class Spot extends React.Component {
 								<div className="content">
 									<ul className="grid two">
 										<i className="fas fa-fw fa-home"></i>
-										{this.state.spot.typeOfPlace.name}
+										{this.state.spot.types.name}
 									</ul>
 								</div>
 							</div>
