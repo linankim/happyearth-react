@@ -23,6 +23,20 @@
 	grid-row-gap: 30px;
 }
 
+.grid.three {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	padding: 30px;
+}
+
+.grid.four {
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	padding: 30px;
+}
+
 .grid.five {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
@@ -51,6 +65,16 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	height: 100vh;
+}
+.grid.spots {
+	height: 100vh;
+	align-items: start;
+}
+
+.grid.full {
+	height: 100vh;
+	width: 100vw;
 }
 
 .grid.image > .card {
