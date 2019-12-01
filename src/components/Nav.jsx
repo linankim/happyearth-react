@@ -22,7 +22,7 @@ class Nav extends React.Component {
 	}
 	render() {
 		return (
-			<nav>
+			<nav className="height">
 				<Link
 					to="/places"
 					className="logo"
@@ -30,7 +30,7 @@ class Nav extends React.Component {
 						backgroundImage: `url('')`
 					}}
 				>
-					<h1>Happy Earth</h1>
+					Happy Earth
 				</Link>
 				<div className="profile">
 					<Link to="/profile" className="button">
