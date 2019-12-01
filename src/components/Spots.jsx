@@ -46,7 +46,7 @@ class Spots extends React.Component {
 				<Filters updateSearchField={this.updateSearchField} />
 				<div className="grid five large">
 					{this.state.spots.map(spot => (
-						<Card spot={spot} key={spot.id} />
+						<Card spot={spot} key={spot._id} />
 					))}
 				</div>
 			</div>
