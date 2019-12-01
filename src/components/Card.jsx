@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 class Card extends React.Component {
 	state = {
@@ -11,7 +10,7 @@ class Card extends React.Component {
 		return { backgroundImage: `url('${background}')` }
 	}
 
-	componentWillReceiveProps() {
+	UNSAFE_componentWillReceiveProps() {
 		this.setState({ spot: this.props.spot })
 	}
 

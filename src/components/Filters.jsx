@@ -1,5 +1,4 @@
 import React from 'react'
-import Spots from './Spots.jsx'
 
 class Filters extends React.Component {
 	state = {}

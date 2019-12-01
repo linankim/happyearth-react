@@ -13,7 +13,7 @@ class Spots extends React.Component {
 
 	updateSearchField = e => {
 		console.log('searchfield', e.target.value)
-		if (e.target.value == '') {
+		if (e.target.value === '') {
 			let spots = this.state.spots
 			spots = this.state.spotsClone
 			this.setState({ spots })
