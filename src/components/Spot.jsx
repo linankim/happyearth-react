@@ -135,7 +135,7 @@ class Spot extends React.Component {
 								<div className="content">
 									<ul className="grid two">
 										<i className="fas fa-fw fa-home"></i>
-										{this.state.spot.types.name}
+										{this.state.spot.types._id}
 									</ul>
 								</div>
 							</div>

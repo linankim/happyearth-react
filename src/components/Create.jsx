@@ -8,8 +8,11 @@ class Create extends React.Component {
 		user: {},
 		spot: {
 			file: '',
-			type: '',
-			amenities: []
+			images: [],
+			types: '',
+			amenities: [],
+			lat: '',
+			lng: ''
 		},
 		amenities: [],
 		types: []
@@ -110,14 +113,14 @@ class Create extends React.Component {
 		for (let key in this.state.spot) {
 			console.log('KEY', this.state.spot[key])
 			console.log('TYPE', typeof this.state.spot[key])
-			if (typeof this.state.spot[key] == 'object') {
+			if (typeof this.state.spot[key] == 'object' && key == 'amenities') {
 				console.log('key', key)
 				this.state.spot[key].forEach(val => {
 					data.append(`${key}[]`, val)
 				})
 			} else {
 				data.append(key, this.state.spot[key])
-				// console.log('data', data)
+				console.log('not working', data)
 			}
 		}
 		console.log({ data })
@@ -174,7 +177,7 @@ class Create extends React.Component {
 								</div>
 								<div className="group">
 									<label>Type of Place</label>
-									<select onChange={e => this.changeField(e, 'type')}>
+									<select onChange={e => this.changeField(e, 'types')}>
 										{this.state.types.map(type => {
 											return <option value={type._id}>{type.name}</option>
 										})}
