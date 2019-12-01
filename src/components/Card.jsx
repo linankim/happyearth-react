@@ -6,12 +6,13 @@ class Card extends React.Component {
 	state = {
 		spot: this.props.spot
 	}
-	componentWillMount() {
-		console.log('props', this.props)
-	}
 
 	selectBackground = background => {
 		return { backgroundImage: `url('${background}')` }
+	}
+
+	componentWillReceiveProps() {
+		this.setState({ spot: this.props.spot })
 	}
 
 	render() {
