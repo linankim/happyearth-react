@@ -1,9 +1,14 @@
 nav {
+	background-color: rgba(255, 255, 255, 0.5);
 	padding: 10px 50px;
 	display: grid;
 	grid-template-columns: 60px auto;
 	grid-column-gap: 10px;
 	border-bottom: 1px solid #e2e2e2;
+}
+
+nav .height {
+	height: 40px;
 }
 
 nav .logo {
