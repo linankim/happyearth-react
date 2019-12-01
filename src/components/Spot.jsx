@@ -115,7 +115,7 @@ class Spot extends React.Component {
 							center={this.state.spot.center}
 							zoom={this.state.spot.zoom}
 						>
-							<Pin />
+							<Pin spot={this.state.spot} key={this.state.spot._id} />
 						</GoogleMap>
 					</div>
 				</div>

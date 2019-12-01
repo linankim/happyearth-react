@@ -11,7 +11,11 @@ class Pin extends React.Component {
 	}
 	render() {
 		return (
-			<div className="pin" lat={this.state.lat} lng={this.state.lng}>
+			<div
+				className="pin"
+				lat={this.state.center.lat}
+				lng={this.state.center.lng}
+			>
 				<label>${this.state.title}</label>
 			</div>
 		)
