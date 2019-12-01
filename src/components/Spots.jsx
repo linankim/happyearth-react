@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import Card from './Card.jsx'
 import Nav from './Nav.jsx'
 import Filters from './Filters.jsx'
+import '../styles/grid.css'
+import '../styles/spots.css'
 
 class Spots extends React.Component {
 	state = {
@@ -41,13 +43,17 @@ class Spots extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Nav />
-				<Filters updateSearchField={this.updateSearchField} />
-				<div className="grid five large">
-					{this.state.spots.map(spot => (
-						<Card spot={spot} key={spot._id} />
-					))}
+			<div className="grid image">
+				<div>
+					<Nav />
+					<Filters updateSearchField={this.updateSearchField} />
+					<div>
+						<div className="grid four">
+							{this.state.spots.map(spot => (
+								<Card spot={spot} key={spot._id} />
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		)
