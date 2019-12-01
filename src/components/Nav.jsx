@@ -27,22 +27,28 @@ class Nav extends React.Component {
 
 	render() {
 		return (
-			<>
-				<nav>
-					<Sidebar />
-					<div className="profile">
-						<Link to="/profile" className="button">
-							<div
-								className="avatar"
-								style={{
-									backgroundImage: `url(${this.state.user.avatar})`
-								}}
-							></div>
-							<span>{this.state.user.firstName}</span>
-						</Link>
-					</div>
-				</nav>
-			</>
+			<nav className="height">
+				<Link
+					to="/places"
+					className="logo"
+					style={{
+						backgroundImage: `url('')`
+					}}
+				>
+					Happy Earth
+				</Link>
+				<div className="profile">
+					<Link to="/profile" className="button">
+						<div
+							className="avatar"
+							style={{
+								backgroundImage: `url(${this.state.user.avatar})`
+							}}
+						></div>
+						<span>{this.state.user.firstName}</span>
+					</Link>
+				</div>
+			</nav>
 		)
 	}
 }

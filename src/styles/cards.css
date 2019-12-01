@@ -1,6 +1,7 @@
 .card {
 	border: 1px solid #e2e2e2;
 	border-radius: 6px;
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 a.card {
@@ -72,7 +73,7 @@ a.card {
 }
 
 .card .content small.meta {
-	color: #8a8a8a;
+	color: rgb(37, 120, 69);
 	text-transform: uppercase;
 	font-family: Arial, sans-serif;
 	font-size: 11px;
