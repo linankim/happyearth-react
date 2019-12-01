@@ -26,7 +26,7 @@ class Spot extends React.Component {
 				avatar: ''
 			},
 			description: '',
-			typeOfPlace: [],
+			types: [],
 			amenities: [],
 			city: '',
 			country: '',
@@ -141,7 +141,7 @@ class Spot extends React.Component {
 								<div className="content">
 									<ul className="grid two">
 										<i className="fas fa-fw fa-home"></i>
-										{this.state.spot.typeOfPlace.name}
+										{this.state.spot.types._id}
 									</ul>
 								</div>
 							</div>
