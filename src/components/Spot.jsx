@@ -33,10 +33,7 @@ class Spot extends React.Component {
 			key: {
 				key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
 			},
-			center: {
-				lat: 10.987,
-				lng: 9.789
-			},
+			center: {},
 			zoom: 11
 		}
 	}
@@ -117,7 +114,9 @@ class Spot extends React.Component {
 							bootstrapURLKeys={this.state.spot.key}
 							center={this.state.spot.center}
 							zoom={this.state.spot.zoom}
-						></GoogleMap>
+						>
+							<Pin />
+						</GoogleMap>
 					</div>
 				</div>
 
