@@ -113,7 +113,7 @@ class Create extends React.Component {
 		for (let key in this.state.spot) {
 			console.log('KEY', this.state.spot[key])
 			console.log('TYPE', typeof this.state.spot[key])
-			if (typeof this.state.spot[key] == 'object') {
+			if (typeof this.state.spot[key] == 'object' && key == 'amenities') {
 				console.log('key', key)
 				this.state.spot[key].forEach(val => {
 					data.append(`${key}[]`, val)
