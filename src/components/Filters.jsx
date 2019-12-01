@@ -1,10 +1,11 @@
 import React from 'react'
+import '../styles/filters.css'
 
 class Filters extends React.Component {
 	state = {}
 	render() {
 		return (
-			<div className="filters">
+			<div className="filters select">
 				<select>
 					<option value="1">Restaurant</option>
 					<option value="1">Cafe</option>
