@@ -81,96 +81,101 @@ class Spot extends React.Component {
 						<Sidebar />
 						<div className="grid image">
 							<Nav />
-							<div className="grid two">
-								<div className="gallery">
-									<div
-										className="image-main"
-										style={{
-											backgroundImage: `url('${this.state.spot.selectedImage}')`
-										}}
-									>
-										<button className="icon" onClick={() => this.toggleLike()}>
-											<i className={this.getClass()}></i>
-										</button>
-									</div>
-									<div className="thumbnails">
-										{this.state.spot.images.map((image, index) => {
-											return (
-												<div
-													className="thumbnail"
-													style={{
-														backgroundImage: `url(${image})`
-													}}
-													key={index}
-													onClick={() => this.clickedImage(image)}
-												></div>
-											)
-										})}
-									</div>
-								</div>
-								<div>
-									<GoogleMap
-										bootstrapURLKeys={this.state.spot.key}
-										center={this.state.spot.center}
-										zoom={this.state.spot.zoom}
-										className="map"
-									>
-										<Pin spot={this.state.spot} key={this.state.spot._id} />
-									</GoogleMap>
-								</div>
-							</div>
-							<div className="grid medium transparent">
-								<div className="content">
-									<h1>{this.state.spot.title}</h1>
-									<small>
-										<i className="fas fa-map-marker-alt"></i>
-										<span>
-											{this.state.spot.city}, {this.state.spot.country}
-										</span>
-									</small>
-									<div className="user">
-										<div className="name">
-											<small>Spotted by</small>
-											<span>{this.state.spot.spotters.name}</span>
+							<div className="grid scroll">
+								<div className="grid two">
+									<div className="gallery">
+										<div
+											className="image-main"
+											style={{
+												backgroundImage: `url('${this.state.spot.selectedImage}')`
+											}}
+										>
+											<button
+												className="icon"
+												onClick={() => this.toggleLike()}
+											>
+												<i className={this.getClass()}></i>
+											</button>
 										</div>
-									</div>
-									<div className="card specs">
-										<div className="content">
-											<ul className="grid two">
-												<i className="fas fa-fw fa-home"></i>
-												{this.state.spot.types._id}
-											</ul>
-										</div>
-									</div>
-									<p>{this.state.spot.description}</p>
-									<h3>Amenities</h3>
-									<div className="card specs">
-										<ul className="grid two">
-											{this.state.spot.amenities.map((amenity, index) => {
+										<div className="thumbnails">
+											{this.state.spot.images.map((image, index) => {
 												return (
-													<div className="content" key={index}>
-														<li>
-															<i className={amenity.icon}> </i>
-															{amenity.name}
-														</li>
-													</div>
+													<div
+														className="thumbnail"
+														style={{
+															backgroundImage: `url(${image})`
+														}}
+														key={index}
+														onClick={() => this.clickedImage(image)}
+													></div>
 												)
 											})}
-										</ul>
+										</div>
 									</div>
-									<div className="reviews">
-										<h2>Rating</h2>
-										<form>
-											<div className="group">
-												<div className="rating">
-													<i className="far fa-star"></i>
-													<i className="far fa-star"></i>
-													<i className="far fa-star"></i>
-													<i className="far fa-star"></i>
-													<i className="far fa-star"></i>
-												</div>
+									<div>
+										<GoogleMap
+											bootstrapURLKeys={this.state.spot.key}
+											center={this.state.spot.center}
+											zoom={this.state.spot.zoom}
+											className="map"
+										>
+											<Pin spot={this.state.spot} key={this.state.spot._id} />
+										</GoogleMap>
+									</div>
+								</div>
+								<div className="grid medium">
+									<div className="content">
+										<h1>{this.state.spot.title}</h1>
+										<small>
+											<i className="fas fa-map-marker-alt"></i>
+											<span>
+												{this.state.spot.city}, {this.state.spot.country}
+											</span>
+										</small>
+										<div className="user">
+											<div className="name">
+												<small>Spotted by</small>
+												<span>{this.state.spot.spotters.name}</span>
 											</div>
-										</form>
+										</div>
+										<div className="card specs">
+											<div className="content">
+												<ul className="grid two">
+													<i className="fas fa-fw fa-home"></i>
+													{this.state.spot.types._id}
+												</ul>
+											</div>
+										</div>
+										<p>{this.state.spot.description}</p>
+										<h3>Amenities</h3>
+										<div className="card specs">
+											<ul className="grid two">
+												{this.state.spot.amenities.map((amenity, index) => {
+													return (
+														<div className="content" key={index}>
+															<li>
+																<i className={amenity.icon}> </i>
+																{amenity.name}
+															</li>
+														</div>
+													)
+												})}
+											</ul>
+										</div>
+										<div className="reviews">
+											<h2>Rating</h2>
+											<form>
+												<div className="group">
+													<div className="rating">
+														<i className="far fa-star"></i>
+														<i className="far fa-star"></i>
+														<i className="far fa-star"></i>
+														<i className="far fa-star"></i>
+														<i className="far fa-star"></i>
+													</div>
+												</div>
+											</form>
+										</div>
 									</div>
 								</div>
 							</div>
