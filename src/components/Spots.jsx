@@ -6,6 +6,7 @@ import Nav from './Nav.jsx'
 import Filters from './Filters.jsx'
 import '../styles/grid.css'
 import '../styles/spots.css'
+import Sidebar from './Sidebar.jsx'
 
 class Spots extends React.Component {
 	state = {
@@ -43,15 +44,20 @@ class Spots extends React.Component {
 
 	render() {
 		return (
-			<div className="grid image">
-				<div>
-					<Nav />
-					<Filters updateSearchField={this.updateSearchField} />
-					<div>
-						<div className="grid four">
-							{this.state.spots.map(spot => (
-								<Card spot={spot} key={spot._id} />
-							))}
+			<div className="grid ">
+				<div className="grid sidebar-left">
+					<Sidebar />
+					<div className="grid image">
+						<div>
+							<Nav />
+							<Filters updateSearchField={this.updateSearchField} />
+							<div>
+								<div className="grid three">
+									{this.state.spots.map(spot => (
+										<Card spot={spot} key={spot._id} />
+									))}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
