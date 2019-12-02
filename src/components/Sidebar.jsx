@@ -14,6 +14,10 @@ class Sidebar extends React.Component {
 	closeMenu() {
 		this.setState({ menuOpen: false })
 	}
+	logoutButton(e) {
+		e.preventDefault()
+		localStorage.removeItem('token')
+	}
 
 	render() {
 		return (
@@ -30,10 +34,9 @@ class Sidebar extends React.Component {
 						<li onClick={() => this.closeMenu()} className="active">
 							<Link to="/create">Create</Link>
 						</li>
-						<li
-							onClick={() => this.closeMenu()}
-							className="bm-burger-button"
-						></li>
+						<li onClick={e => this.logoutButton(e)} className="active">
+							<Link to="/">Logout</Link>
+						</li>
 					</ul>
 				</div>
 			</Menu>

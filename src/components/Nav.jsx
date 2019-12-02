@@ -29,7 +29,7 @@ class Nav extends React.Component {
 		return (
 			<nav className="height">
 				<Link
-					to="/places"
+					to="/"
 					className="logo"
 					style={{
 						backgroundImage: `url('')`
