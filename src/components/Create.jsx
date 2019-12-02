@@ -209,14 +209,14 @@ class Create extends React.Component {
 									<input
 										type="number"
 										value={this.state.spot.lat}
-										onChange={e => this.changeField(e, 'center.lat')}
+										onChange={e => this.changeField(e, 'lat')}
 									/>
 
 									<label>Longitude</label>
 									<input
 										type="number"
 										value={this.state.spot.lng}
-										onChange={e => this.changeField(e, 'center.lng')}
+										onChange={e => this.changeField(e, 'lng')}
 									/>
 								</div>
 								<div className="group"></div>
