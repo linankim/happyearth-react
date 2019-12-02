@@ -6,12 +6,13 @@ class Filters extends React.Component {
 	render() {
 		return (
 			<div className="filters select">
-				<select>
-					<option value="1">Restaurant</option>
-					<option value="1">Cafe</option>
-					<option value="1">Bar</option>
-					<option value="1">Water Refill Station</option>
-					<option value="1">Bulk Food</option>
+				<select onChange={e => this.props.filterByType(e)}>
+					<option value="All">All</option>
+					<option value="Restaurant">Restaurant</option>
+					<option value="Cafe">Cafe</option>
+					<option value="Bar">Bar</option>
+					<option value="Water Refill Station">Water Refill Station</option>
+					<option value="Bulk Food">Bulk Food</option>
 				</select>
 				<input
 					onChange={e => this.props.updateSearchField(e)}
