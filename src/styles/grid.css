@@ -12,13 +12,25 @@
 
 .grid.sidebar-left {
 	grid-template-columns: 200px auto;
-	grid-column-gap: 100px;
+	grid-column-gap: 0px;
 }
 
 .grid.two {
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 30px;
-	grid-row-gap: 10px;
+	padding: 10px;
+	height: calc(100vh - 142px); /* subtract nav & filter */
+	overflow-y: auto;
+}
+
+.grid.scroll {
+	overflow-y: auto;
+	height: calc(100vh - 142px); /* subtract nav & filter */
+}
+.grid.twocards {
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 30px;
+	grid-row-gap: 30px;
 	padding: 30px;
 }
 
