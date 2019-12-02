@@ -7,11 +7,16 @@ import Filters from './Filters.jsx'
 import '../styles/grid.css'
 import '../styles/spots.css'
 import Sidebar from './Sidebar.jsx'
+import GoogleMap from 'google-map-react'
+import Pin from './Pin.jsx'
 
 class Spots extends React.Component {
 	state = {
 		spots: [],
-		spotsClone: []
+		spotsClone: [],
+		key: {
+			key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
+		}
 	}
 
 	updateSearchField = e => {
@@ -28,6 +33,20 @@ class Spots extends React.Component {
 			})
 			this.setState({ spots: filteredSpots })
 		}
+	}
+
+	filterByType = e => {
+		console.log('this.state.spots', this.state.spots)
+		let selected = e.target.value
+		console.log(e.target.value)
+		let spotsClone = this.state.spotsClone
+		let spotsFound
+		if (selected !== 'All') {
+			spotsFound = spotsClone.filter(s => s.types.name === selected)
+		} else {
+			spotsFound = spotsClone
+		}
+		this.setState({ spots: spotsFound })
 	}
 
 	componentDidMount() {
@@ -50,13 +69,18 @@ class Spots extends React.Component {
 					<div className="grid image">
 						<div>
 							<Nav />
-							<Filters updateSearchField={this.updateSearchField} />
-							<div>
-								<div className="grid three">
+							<Filters
+								updateSearchField={this.updateSearchField}
+								filterByType={this.filterByType}
+							/>
+
+							<div className="grid two">
+								<div className="grid twocards">
 									{this.state.spots.map(spot => (
 										<Card spot={spot} key={spot._id} />
 									))}
 								</div>
+								<div></div>
 							</div>
 						</div>
 					</div>
