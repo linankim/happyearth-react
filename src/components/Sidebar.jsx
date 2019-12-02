@@ -6,40 +6,61 @@ import '../styles/sidebar.css'
 
 class Sidebar extends React.Component {
 	state = {
-		menuOpen: false
-	}
-	handleStateChange(state) {
-		this.setState({ menuOpen: state.isOpen })
-	}
-	closeMenu() {
-		this.setState({ menuOpen: false })
+		localStorage: false
 	}
 	logoutButton(e) {
 		e.preventDefault()
 		localStorage.removeItem('token')
 	}
 
+	componentDidMount() {
+		if (!localStorage.getItem('token')) {
+			this.setState({ localStorage: false })
+		} else {
+			this.setState({ localStorage: true })
+		}
+	}
+
 	render() {
 		return (
-			<Menu
-				noOverlay
-				isOpen={this.state.menuOpen}
-				onStateChange={state => this.handleStateChange(state)}
-			>
-				<div className="sidebar">
-					<ul>
-						<li onClick={() => this.closeMenu()} className="active">
-							<Link to="/profile">Profile</Link>
-						</li>
-						<li onClick={() => this.closeMenu()} className="active">
-							<Link to="/create">Create</Link>
-						</li>
-						<li onClick={e => this.logoutButton(e)} className="active">
-							<Link to="/">Logout</Link>
-						</li>
-					</ul>
-				</div>
-			</Menu>
+			<wrapper>
+				{this.state.localStorage ? (
+					<div className="loggedIn">
+						<div className="sidebar">
+							<ul>
+								<li className="active">
+									<Link to="/profile">Profile</Link>
+								</li>
+								<li className="active">
+									<Link to="/create">Create</Link>
+								</li>
+								<li className="active">
+									<Link to="/spots">Spots</Link>
+								</li>
+								<li className="active">
+									<Link to="/">Logout</Link>
+								</li>
+							</ul>
+						</div>
+					</div>
+				) : (
+					<div className="guest">
+						<div className="sidebar">
+							<ul>
+								<li className="active">
+									<Link to="/create">Create</Link>
+								</li>
+								<li className="active">
+									<Link to="/spots">Spots</Link>
+								</li>
+								<li className="active">
+									<Link to="/signup">Sign Up</Link>
+								</li>
+							</ul>
+						</div>
+					</div>
+				)}
+			</wrapper>
 		)
 	}
 }

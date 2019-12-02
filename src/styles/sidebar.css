@@ -26,6 +26,6 @@
 }
 
 .sidebar ul li.active a {
-	background: #1a5320;
-	color: white;
+	color: #1a5320;
+	text-decoration: underline;
 }
