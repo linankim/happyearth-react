@@ -34,9 +34,7 @@ class Nav extends React.Component {
 					style={{
 						backgroundImage: `url('')`
 					}}
-				>
-					Happy Earth
-				</Link>
+				></Link>
 				<div className="profile">
 					<Link to="/profile" className="button">
 						<div
