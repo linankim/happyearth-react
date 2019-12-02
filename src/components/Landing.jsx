@@ -10,7 +10,7 @@ class Landing extends React.Component {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.showPosition)
 		} else {
-			return 'Geolocation is not supported by this browser'
+			console.log('Geolocation is not supported by this browser')
 		}
 	}
 
