@@ -1,7 +1,15 @@
 .sidebar {
+	height: 100vh;
 	margin-top: 50px;
 	width: 100px;
 	background-color: white;
+}
+
+.sidebar.image {
+	background-image: url('https://images.pexels.com/photos/1877487/pexels-photo-1877487.jpeg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .sidebar ul {
