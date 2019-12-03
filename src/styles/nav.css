@@ -5,6 +5,7 @@ nav {
 	grid-template-columns: 60px auto;
 	grid-column-gap: 10px;
 	border-bottom: 1px solid #e2e2e2;
+	height: 40px;
 }
 
 nav .height {
