@@ -1,15 +1,13 @@
 import React from 'react'
 import Nav from './Nav.jsx'
-import GoogleMap from 'google-map-react'
+import Map from './Map.jsx'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
-import Pin from './Pin.jsx'
 import Sidebar from './Sidebar.jsx'
 import '../styles/buttons.css'
 import '../styles/cards.css'
 import '../styles/forms.css'
 import '../styles/gallery.css'
-import '../styles/googlemap.css'
 import '../styles/grid.css'
 import '../styles/icons.css'
 import '../styles/sidebar.css'
@@ -31,11 +29,10 @@ class Spot extends React.Component {
 			amenities: [],
 			city: '',
 			country: '',
-			key: {
-				key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
-			},
-			center: {},
-			zoom: 11
+			center: {
+				lat: 59.95,
+				lng: 30.33
+			}
 		},
 		spotter: {}
 	}
@@ -124,15 +121,9 @@ class Spot extends React.Component {
 											})}
 										</div>
 									</div>
-
-									<GoogleMap
-										className="map"
-										bootstrapURLKeys={this.state.spot.key}
-										center={this.state.spot.center}
-										zoom={this.state.spot.zoom}
-									>
-										<Pin spot={this.state.spot} key={this.state.spot._id} />
-									</GoogleMap>
+									<div className="map">
+										<Map spot={this.state.spot} />
+									</div>
 								</div>
 								<div className="grid medium">
 									<div>
