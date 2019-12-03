@@ -34,10 +34,7 @@ class Spot extends React.Component {
 			key: {
 				key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
 			},
-			center: {
-				lat: null,
-				lng: null
-			},
+			center: {},
 			zoom: 11
 		}
 	}
