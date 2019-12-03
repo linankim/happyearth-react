@@ -30,7 +30,7 @@ class Spots extends React.Component {
 			console.log('empty search field', spots)
 		} else {
 			let filteredSpots = this.state.spotsClone.filter(spot => {
-				return spot.title.includes(e.target.value)
+				return spot.title.toLowerCase().includes(e.target.value.toLowerCase())
 				console.log('filteredSpots>>>>', filteredSpots)
 			})
 			this.setState({ spots: filteredSpots })
@@ -65,32 +65,23 @@ class Spots extends React.Component {
 
 	render() {
 		return (
-			<div className="grid ">
+			<div className="grid image">
 				<div className="grid sidebar-left">
 					<Sidebar />
-					<div className="grid image">
-						<div>
-							<Nav />
-							<Filters
-								updateSearchField={this.updateSearchField}
-								filterByType={this.filterByType}
-							/>
+					<div className="grid">
+						<Nav />
+						<Filters
+							updateSearchField={this.updateSearchField}
+							filterByType={this.filterByType}
+						/>
 
-							<div className="grid two">
-								<div className="grid twocards">
-									{this.state.spots.map(spot => (
-										<Card spot={spot} key={spot._id} />
-									))}
-								</div>
-								<div>
-									<GoogleMap
-										className="map"
-										bootstrapURLKeys={this.state.spots.key}
-										center={this.state.spots.center}
-										zoom={this.state.spots.zoom}
-									></GoogleMap>
-								</div>
+						<div className="grid two">
+							<div className="grid twocards">
+								{this.state.spots.map(spot => (
+									<Card spot={spot} key={spot._id} />
+								))}
 							</div>
+							<div></div>
 						</div>
 					</div>
 				</div>

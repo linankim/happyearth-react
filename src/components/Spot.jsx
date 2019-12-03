@@ -36,12 +36,12 @@ class Spot extends React.Component {
 			},
 			center: {},
 			zoom: 11
-		}
+		},
+		spotter: {}
 	}
+
 	UNSAFE_componentWillMount() {
 		let spotId = this.props.match.params.id
-		console.log('works')
-		console.log('spotId', spotId)
 		axios
 			.get(`${process.env.REACT_APP_API}/spots/${spotId}`)
 			.then(res => {
@@ -50,6 +50,18 @@ class Spot extends React.Component {
 				console.log('res', res)
 				this.setState({ spot: res.data })
 				console.log({ spot: res.data })
+				let spotterId = this.state.spot.spotters
+				console.log('spotterId', spotterId)
+				axios
+					.get(`${process.env.REACT_APP_API}/users/${spotterId}`)
+					.then(user => {
+						console.log({ user: user })
+						this.setState({ spotter: user.data })
+						console.log('spotter', { spotter: user.data })
+					})
+					.catch(err => {
+						console.log(err)
+					})
 			})
 			.catch(err => console.log(err))
 	}
@@ -76,10 +88,10 @@ class Spot extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="grid">
+				<div className="grid image">
 					<div className="grid sidebar-left">
 						<Sidebar />
-						<div className="grid image">
+						<div className="grid">
 							<Nav />
 							<div className="grid scroll">
 								<div className="grid two">
@@ -123,35 +135,35 @@ class Spot extends React.Component {
 									</GoogleMap>
 								</div>
 								<div className="grid medium">
-									<div className="content">
-										<h1>{this.state.spot.title}</h1>
-										<small>
-											<i className="fas fa-map-marker-alt"></i>
-											<span>
-												{this.state.spot.city}, {this.state.spot.country}
-											</span>
-										</small>
+									<div>
 										<div className="user">
 											<div className="name">
 												<small>Spotted by</small>
-												<span>{this.state.spot.spotters.name}</span>
+												<span>
+													{this.state.spotter.avatar}
+													{this.state.spotter.firstName}
+													{this.state.spotter.lastName}
+												</span>
 											</div>
 										</div>
-										<div className="card specs">
-											<div className="content">
-												<ul className="grid two">
-													<i className="fas fa-fw fa-home"></i>
-													{this.state.spot.types._id}
-												</ul>
-											</div>
+										<div className="content">
+											<h1>{this.state.spot.title}</h1>
+											<small>
+												<i className="fas fa-map-marker-alt"></i>
+												<span>
+													{this.state.spot.city}, {this.state.spot.country}
+												</span>
+											</small>
 										</div>
-										<p>{this.state.spot.description}</p>
-										<h3>Amenities</h3>
-										<div className="card specs">
-											<ul className="grid two">
-												{this.state.spot.amenities.map((amenity, index) => {
+									</div>
+									<div className="grid twocards">
+										<div>
+											<div className="grid">
+												<h3>Amenities</h3>
+
+												{this.state.spot.amenities.map(amenity => {
 													return (
-														<div className="content" key={index}>
+														<div className="content" key={amenity._id}>
 															<li>
 																<i className={amenity.icon}> </i>
 																{amenity.name}
@@ -159,21 +171,24 @@ class Spot extends React.Component {
 														</div>
 													)
 												})}
-											</ul>
+											</div>
 										</div>
-										<div className="reviews">
-											<h2>Rating</h2>
-											<form>
-												<div className="group">
-													<div className="rating">
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-													</div>
-												</div>
-											</form>
+
+										<div>
+											<div className="grid">
+												<h3>Amenities</h3>
+
+												{this.state.spot.amenities.map(amenity => {
+													return (
+														<div className="content" key={amenity._id}>
+															<li>
+																<i className={amenity.icon}> </i>
+																{amenity.name}
+															</li>
+														</div>
+													)
+												})}
+											</div>
 										</div>
 									</div>
 								</div>
