@@ -16,7 +16,9 @@ class Spots extends React.Component {
 		spotsClone: [],
 		key: {
 			key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
-		}
+		},
+		center: {},
+		zoom: 11
 	}
 
 	updateSearchField = e => {
@@ -80,7 +82,14 @@ class Spots extends React.Component {
 										<Card spot={spot} key={spot._id} />
 									))}
 								</div>
-								<div></div>
+								<div>
+									<GoogleMap
+										className="map"
+										bootstrapURLKeys={this.state.spots.key}
+										center={this.state.spots.center}
+										zoom={this.state.spots.zoom}
+									></GoogleMap>
+								</div>
 							</div>
 						</div>
 					</div>
