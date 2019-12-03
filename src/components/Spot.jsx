@@ -36,12 +36,12 @@ class Spot extends React.Component {
 			},
 			center: {},
 			zoom: 11
-		}
+		},
+		spotter: {}
 	}
+
 	UNSAFE_componentWillMount() {
 		let spotId = this.props.match.params.id
-		console.log('works')
-		console.log('spotId', spotId)
 		axios
 			.get(`${process.env.REACT_APP_API}/spots/${spotId}`)
 			.then(res => {
@@ -50,6 +50,18 @@ class Spot extends React.Component {
 				console.log('res', res)
 				this.setState({ spot: res.data })
 				console.log({ spot: res.data })
+				let spotterId = this.state.spot.spotters
+				console.log('spotterId', spotterId)
+				axios
+					.get(`${process.env.REACT_APP_API}/users/${spotterId}`)
+					.then(user => {
+						console.log({ user: user })
+						this.setState({ spotter: user.data })
+						console.log('spotter', { spotter: user.data })
+					})
+					.catch(err => {
+						console.log(err)
+					})
 			})
 			.catch(err => console.log(err))
 	}
@@ -146,9 +158,9 @@ class Spot extends React.Component {
 											<div className="grid">
 												<h3>Amenities</h3>
 
-												{this.state.spot.amenities.map((amenity, index) => {
+												{this.state.spot.amenities.map(amenity => {
 													return (
-														<div className="content" key={index}>
+														<div className="content" key={amenity._id}>
 															<li>
 																<i className={amenity.icon}> </i>
 																{amenity.name}
@@ -163,9 +175,9 @@ class Spot extends React.Component {
 											<div className="grid">
 												<h3>Amenities</h3>
 
-												{this.state.spot.amenities.map((amenity, index) => {
+												{this.state.spot.amenities.map(amenity => {
 													return (
-														<div className="content" key={index}>
+														<div className="content" key={amenity._id}>
 															<li>
 																<i className={amenity.icon}> </i>
 																{amenity.name}
