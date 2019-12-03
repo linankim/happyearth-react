@@ -140,7 +140,11 @@ class Spot extends React.Component {
 										<div className="user">
 											<div className="name">
 												<small>Spotted by</small>
-												<span>{this.state.spot.spotters.name}</span>
+												<span>
+													{this.state.spotter.avatar}
+													{this.state.spotter.firstName}
+													{this.state.spotter.lastName}
+												</span>
 											</div>
 										</div>
 										<div className="content">
