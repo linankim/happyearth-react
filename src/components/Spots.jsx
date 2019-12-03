@@ -63,25 +63,23 @@ class Spots extends React.Component {
 
 	render() {
 		return (
-			<div className="grid ">
+			<div className="grid image">
 				<div className="grid sidebar-left">
 					<Sidebar />
-					<div className="grid image">
-						<div>
-							<Nav />
-							<Filters
-								updateSearchField={this.updateSearchField}
-								filterByType={this.filterByType}
-							/>
+					<div className="grid">
+						<Nav />
+						<Filters
+							updateSearchField={this.updateSearchField}
+							filterByType={this.filterByType}
+						/>
 
-							<div className="grid two">
-								<div className="grid twocards">
-									{this.state.spots.map(spot => (
-										<Card spot={spot} key={spot._id} />
-									))}
-								</div>
-								<div></div>
+						<div className="grid two">
+							<div className="grid twocards">
+								{this.state.spots.map(spot => (
+									<Card spot={spot} key={spot._id} />
+								))}
 							</div>
+							<div></div>
 						</div>
 					</div>
 				</div>
