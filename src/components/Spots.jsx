@@ -66,7 +66,7 @@ class Spots extends React.Component {
 			<div className="grid image">
 				<div className="grid sidebar-left">
 					<Sidebar />
-					<div className="grid">
+					<div>
 						<Nav />
 						<Filters
 							updateSearchField={this.updateSearchField}
@@ -74,12 +74,13 @@ class Spots extends React.Component {
 						/>
 
 						<div className="grid two">
-							<div className="grid twocards">
-								{this.state.spots.map(spot => (
-									<Card spot={spot} key={spot._id} />
-								))}
+							<div>
+								<div className="grid twocards">
+									{this.state.spots.map(spot => (
+										<Card spot={spot} key={spot._id} />
+									))}
+								</div>
 							</div>
-							<div></div>
 						</div>
 					</div>
 				</div>
