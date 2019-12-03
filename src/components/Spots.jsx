@@ -28,7 +28,7 @@ class Spots extends React.Component {
 			console.log('empty search field', spots)
 		} else {
 			let filteredSpots = this.state.spotsClone.filter(spot => {
-				return spot.title.includes(e.target.value)
+				return spot.title.toLowerCase().includes(e.target.value.toLowerCase())
 				console.log('filteredSpots>>>>', filteredSpots)
 			})
 			this.setState({ spots: filteredSpots })
