@@ -32,7 +32,7 @@ button.primary,
 }
 
 button.secondary {
-	background: tomato;
+	background: #1a5320;
 	color: white;
 	padding: 14px 20px;
 	font-size: 16px;
@@ -40,8 +40,17 @@ button.secondary {
 	border-radius: 4px;
 }
 
+.button.logout {
+	background: rgb(54, 113, 44);
+	color: #1a5320;
+	padding: 14px 20px;
+	font-size: 16px;
+	border: none;
+	border-radius: 4px;
+}
+
 button.secondary:hover {
-	background: #ff7259;
+	background: #1a5320;
 }
 
 button.small {
