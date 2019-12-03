@@ -76,10 +76,10 @@ class Spot extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="grid">
+				<div className="grid image">
 					<div className="grid sidebar-left">
 						<Sidebar />
-						<div className="grid image">
+						<div className="grid">
 							<Nav />
 							<div className="grid scroll">
 								<div className="grid two">
@@ -124,32 +124,28 @@ class Spot extends React.Component {
 									</div>
 								</div>
 								<div className="grid medium">
-									<div className="content">
-										<h1>{this.state.spot.title}</h1>
-										<small>
-											<i className="fas fa-map-marker-alt"></i>
-											<span>
-												{this.state.spot.city}, {this.state.spot.country}
-											</span>
-										</small>
+									<div>
 										<div className="user">
 											<div className="name">
 												<small>Spotted by</small>
 												<span>{this.state.spot.spotters.name}</span>
 											</div>
 										</div>
-										<div className="card specs">
-											<div className="content">
-												<ul className="grid two">
-													<i className="fas fa-fw fa-home"></i>
-													{this.state.spot.types._id}
-												</ul>
-											</div>
+										<div className="content">
+											<h1>{this.state.spot.title}</h1>
+											<small>
+												<i className="fas fa-map-marker-alt"></i>
+												<span>
+													{this.state.spot.city}, {this.state.spot.country}
+												</span>
+											</small>
 										</div>
-										<p>{this.state.spot.description}</p>
-										<h3>Amenities</h3>
-										<div className="card specs">
-											<ul className="grid two">
+									</div>
+									<div className="grid twocards">
+										<div>
+											<div className="grid">
+												<h3>Amenities</h3>
+
 												{this.state.spot.amenities.map((amenity, index) => {
 													return (
 														<div className="content" key={index}>
@@ -160,21 +156,24 @@ class Spot extends React.Component {
 														</div>
 													)
 												})}
-											</ul>
+											</div>
 										</div>
-										<div className="reviews">
-											<h2>Rating</h2>
-											<form>
-												<div className="group">
-													<div className="rating">
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-														<i className="far fa-star"></i>
-													</div>
-												</div>
-											</form>
+
+										<div>
+											<div className="grid">
+												<h3>Amenities</h3>
+
+												{this.state.spot.amenities.map((amenity, index) => {
+													return (
+														<div className="content" key={index}>
+															<li>
+																<i className={amenity.icon}> </i>
+																{amenity.name}
+															</li>
+														</div>
+													)
+												})}
+											</div>
 										</div>
 									</div>
 								</div>
