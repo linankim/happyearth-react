@@ -8,10 +8,10 @@ import Sidebar from './Sidebar.jsx'
 import '../styles/buttons.css'
 import '../styles/cards.css'
 import '../styles/forms.css'
-import '../styles/icons.css'
 import '../styles/gallery.css'
 import '../styles/googlemap.css'
 import '../styles/grid.css'
+import '../styles/icons.css'
 import '../styles/sidebar.css'
 import '../styles/users.css'
 
@@ -34,7 +34,10 @@ class Spot extends React.Component {
 			key: {
 				key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
 			},
-			center: {},
+			center: {
+				lat: null,
+				lng: null
+			},
 			zoom: 11
 		}
 	}
@@ -112,16 +115,15 @@ class Spot extends React.Component {
 											})}
 										</div>
 									</div>
-									<div>
-										<GoogleMap
-											bootstrapURLKeys={this.state.spot.key}
-											center={this.state.spot.center}
-											zoom={this.state.spot.zoom}
-											className="map"
-										>
-											<Pin spot={this.state.spot} key={this.state.spot._id} />
-										</GoogleMap>
-									</div>
+
+									<GoogleMap
+										className="map"
+										bootstrapURLKeys={this.state.spot.key}
+										center={this.state.spot.center}
+										zoom={this.state.spot.zoom}
+									>
+										<Pin spot={this.state.spot} key={this.state.spot._id} />
+									</GoogleMap>
 								</div>
 								<div className="grid medium">
 									<div className="content">
