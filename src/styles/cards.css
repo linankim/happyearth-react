@@ -4,6 +4,15 @@
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
+.cardlanding {
+	border: 1px solid #e2e2e2;
+	border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0.9);
+	height: 150px;
+	width: 1000px;
+	justify-content: center;
+}
+
 a.card {
 	text-decoration: none;
 	color: black;
