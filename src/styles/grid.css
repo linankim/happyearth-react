@@ -18,6 +18,9 @@
 	background-color: rgba(255, 255, 255, 0.85);
 }
 
+.grid.titlespot {
+	margin: 30px;
+}
 .grid.transparent {
 	background-color: rgba(255, 255, 255, 0.85);
 }
@@ -34,7 +37,7 @@
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 30px;
 	padding: 10px;
-	height: 100vh;
+	height: auto;
 	overflow-y: auto;
 }
 
@@ -73,6 +76,12 @@
 .grid.medium {
 	grid-template-columns: 1000px;
 	justify-content: center;
+}
+
+.grid.mediumspot {
+	grid-template-columns: 1000px;
+	justify-content: center;
+	margin: 0px 40px;
 }
 
 .grid.large {
