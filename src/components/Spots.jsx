@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import Card from './Card.jsx'
 import Nav from './Nav.jsx'
 import Filters from './Filters.jsx'
+import Map from './Map.jsx'
 import '../styles/grid.css'
 import '../styles/spots.css'
 import Sidebar from './Sidebar.jsx'
@@ -14,8 +15,9 @@ class Spots extends React.Component {
 	state = {
 		spots: [],
 		spotsClone: [],
-		key: {
-			key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
+		center: {
+			lat: 59.95,
+			lng: 30.33
 		}
 	}
 

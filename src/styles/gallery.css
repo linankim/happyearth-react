@@ -26,10 +26,6 @@
 	border: none;
 }
 
-.gallery .image-main .icon i {
-	color: white;
-}
-
 .gallery .thumbnails {
 	padding: 20px;
 	display: grid;
