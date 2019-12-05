@@ -71,9 +71,11 @@ form.small select {
 	border-radius: 3px;
 }
 
+/*
 h2 + form {
 	margin-top: 50px;
 }
+*/
 
 form .rating {
 	cursor: pointer;
