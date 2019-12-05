@@ -5,20 +5,17 @@ import Card from './Card.jsx'
 import Nav from './Nav.jsx'
 import Filters from './Filters.jsx'
 import Map from './Map.jsx'
+import Pin from './Pin.jsx'
 import '../styles/grid.css'
 import '../styles/spots.css'
 import Sidebar from './Sidebar.jsx'
-import GoogleMap from 'google-map-react'
-import Pin from './Pin.jsx'
 
 class Spots extends React.Component {
 	state = {
+		array: true,
 		spots: [],
 		spotsClone: [],
-		center: {
-			lat: 59.95,
-			lng: 30.33
-		}
+		center: {}
 	}
 
 	updateSearchField = e => {
@@ -52,10 +49,20 @@ class Spots extends React.Component {
 	}
 
 	componentDidMount() {
+		let spot = this.state.spot
 		axios
 			.get(`${process.env.REACT_APP_API}/spots`)
 			.then(res => {
-				this.setState({ spots: res.data, spotsClone: res.data })
+				// spot.center.lat = res.data[0].center.lat
+				// spot.center.lng = res.data[0].center.lng
+				// console.log('res.data[0].center.lat', res.data[0].center.lat)
+				// console.log('res.data[0].center.lng', res.data[0].center.lng)
+				// console.log(res.data)
+				this.setState({
+					spots: res.data,
+					spotsClone: res.data,
+					center: res.data[0].center
+				})
 				console.log('res data >>>>>>>>>', res.data)
 			})
 			.catch(error => {
@@ -81,7 +88,9 @@ class Spots extends React.Component {
 									<Card spot={spot} key={spot._id} />
 								))}
 							</div>
-							<div></div>
+							<div className="map">
+								<Map spots={this.state.spots} center={this.state.center} />
+							</div>
 						</div>
 					</div>
 				</div>
