@@ -40,7 +40,7 @@ class Sidebar extends React.Component {
 								<li className="active">
 									<Link to="/spots">Spots</Link>
 								</li>
-								<li className="active">
+								<li className="active" onClick={e => this.logoutButton(e)}>
 									<Link to="/">Logout</Link>
 								</li>
 							</ul>
