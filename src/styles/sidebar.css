@@ -10,6 +10,11 @@
 	width: 200px;
 }
 
+.sidebar .font {
+	font-family: 'EB Garamond', serif;
+	padding: 10px;
+	font-size: 30px;
+}
 .sidebar h4 {
 	margin: 0px;
 }
