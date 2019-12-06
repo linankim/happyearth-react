@@ -2,13 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import Nav from './Nav.jsx'
 import Sidebar from './Sidebar.jsx'
+import Popup from './Popup.jsx'
 import '../styles/profile.css'
 
 class Profile extends React.Component {
 	state = {
 		user: {
 			file: ''
-		}
+		},
+		showPopup: false
 	}
 
 	componentDidMount() {
@@ -79,6 +81,13 @@ class Profile extends React.Component {
 				console.log({ err })
 				console.log('not working in react')
 			})
+	}
+
+	//alert button
+	alertButton = e => {
+		let showPopup = this.state.showPopup
+		showPopup = !showPopup
+		this.setState({ showPopup })
 	}
 
 	//delete Profile
@@ -160,6 +169,10 @@ class Profile extends React.Component {
 											<button onClick={this.savesChanges()}>
 												Save Changes
 											</button>
+										</div>
+										<div className="group">
+											<button onClick={e => this.alert(e)}></button>
+											{this.state.showPopup ? <Popup /> : null}
 										</div>
 										<div className="group">
 											<button onClick={e => this.deleteProfile(e)}>
