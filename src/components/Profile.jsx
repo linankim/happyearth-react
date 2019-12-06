@@ -58,8 +58,7 @@ class Profile extends React.Component {
 	}
 
 	//save changed profile details
-	savesChanges = e => {
-		e.preventDefault(e)
+	savesChanges = () => {
 		console.log('button pushed')
 		let userId = this.state.user._id
 		let data = new FormData()
@@ -141,7 +140,7 @@ class Profile extends React.Component {
 											</div>
 										</div>
 										<div className="group">
-											<button onClick={e => this.savesChanges(e)}>
+											<button onClick={this.savesChanges()}>
 												Save Changes
 											</button>
 										</div>
