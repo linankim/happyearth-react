@@ -230,9 +230,6 @@ class Create extends React.Component {
 											>
 												Publish this Spot
 											</button>
-											<button className="cancel">
-												<i className="fas fa-times"></i>
-											</button>
 										</form>
 									</div>
 								</div>
