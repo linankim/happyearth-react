@@ -26,8 +26,10 @@
 
 .search {
 	border: none;
-	font-size: 17px;
+	font-size: 19px;
 	width: 60vw;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
 .image {
@@ -38,4 +40,29 @@
 	height: 100vh;
 	background-attachment: fixed;
 	overflow-y: scroll;
+}
+
+.dropdown {
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.6);
+	display: none;
+}
+
+.dropdown .option {
+	padding: 20px;
+	border-top: 1px lightGrey solid;
+	display: none;
+}
+
+.dropdown .option:hover {
+	background: rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.dropdown.open {
+	display: block;
+}
+
+.dropdown.open .option {
+	display: block;
 }
