@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import '../styles/landing.css'
+import Sidebar from './Sidebar.jsx'
 
 class Landing extends React.Component {
 	state = {
@@ -14,9 +15,21 @@ class Landing extends React.Component {
 				console.log({ res })
 				// if length, set state options
 				// else set state options = "Not found"
+				if (res.data.length > 0) {
+					this.setState({ options: res.data })
+					console.log('res.data>>>', res.data)
+				} else {
+					this.setState({
+						options: [
+							{
+								city: 'Not Found'
+							}
+						]
+					})
+				}
 			})
 			.catch(err => {
-				console.log({ err })
+				console.log('errorr >>>', { err })
 				// else set state options = "Not found"
 			})
 		this.setState({ open: true })
@@ -33,36 +46,43 @@ class Landing extends React.Component {
 	}
 	render() {
 		return (
-			<div className="image landinggrid verticalcenter">
-				<row1></row1>
-				<row2 className="landing">
-					<div>
-						<h1>Welcome to Happy Earth</h1>
-						<input
-							type="text"
-							className="search"
-							placeholder="Enter City Name"
-							onChange={this.search}
-						></input>
-						{/*
+			<>
+				<Sidebar />
+				<div className="image landinggrid verticalcenter">
+					<row1></row1>
+					<row2></row2>
+					<row3 className="landing">
+						<div>
+							<div className="font spacing">Welcome to Happy Earth</div>
+							<input
+								type="text"
+								className="search"
+								placeholder="Enter City Name"
+								onChange={this.search}
+							></input>
+							{/*
 							1. insert dropdown with results
 							2. each option has onClick={this.selectOption}
 						*/}
-						<div className={this.dropdownStatus()}>
-							<div className="option" onClick={this.selectOption} id="Lamai">
-								Lamai
-							</div>
-							<div className="option" onClick={this.selectOption} id="Chaweng">
-								Chaweng
-							</div>
-							<div className="option" onClick={this.selectOption} id="test">
-								test
+							<div className={this.dropdownStatus()}>
+								{this.state.options.map(option => {
+									return (
+										<div
+											className="option"
+											onClick={this.selectOption}
+											id={option.city}
+										>
+											{option.city}
+										</div>
+									)
+								})}
 							</div>
 						</div>
-					</div>
-				</row2>
-				<row3></row3>
-			</div>
+					</row3>
+					<row4></row4>
+					<row5></row5>
+				</div>
+			</>
 		)
 	}
 }
