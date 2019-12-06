@@ -10,7 +10,7 @@
 
 .landinggrid {
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .verticalcenter {
@@ -38,7 +38,6 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100vh;
-	background-attachment: fixed;
 	overflow-y: scroll;
 }
 
@@ -65,4 +64,9 @@
 
 .dropdown.open .option {
 	display: block;
+}
+.landing .font {
+	font-family: 'EB Garamond', serif;
+	padding: 10px;
+	font-size: 40px;
 }
