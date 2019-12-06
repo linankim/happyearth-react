@@ -1,0 +1,68 @@
+.landing {
+	border: 1px solid #e2e2e2;
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.9);
+	height: 130px;
+	width: 60vw;
+	align-content: center;
+	padding: 10px 20px;
+}
+
+.landinggrid {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+}
+
+.verticalcenter {
+	display: grid;
+	justify-content: center;
+}
+
+.landing.vercenter {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+
+.search {
+	border: none;
+	font-size: 19px;
+	width: 60vw;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.image {
+	background-image: url('https://images.pexels.com/photos/1779746/pexels-photo-1779746.jpeg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-attachment: fixed;
+	overflow-y: scroll;
+}
+
+.dropdown {
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.6);
+	display: none;
+}
+
+.dropdown .option {
+	padding: 20px;
+	border-top: 1px lightGrey solid;
+	display: none;
+}
+
+.dropdown .option:hover {
+	background: rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.dropdown.open {
+	display: block;
+}
+
+.dropdown.open .option {
+	display: block;
+}
