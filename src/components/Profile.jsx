@@ -85,6 +85,7 @@ class Profile extends React.Component {
 
 	//alert button
 	alertButton = e => {
+		e.preventDefault()
 		let showPopup = this.state.showPopup
 		showPopup = !showPopup
 		this.setState({ showPopup })
@@ -165,20 +166,19 @@ class Profile extends React.Component {
 												</div>
 											</div>
 										</div>
-										<div className="group">
+										<span className="group">
 											<button onClick={this.savesChanges()}>
 												Save Changes
 											</button>
-										</div>
-										<div className="group">
-											<button onClick={e => this.alert(e)}></button>
-											{this.state.showPopup ? <Popup /> : null}
-										</div>
-										<div className="group">
-											<button onClick={e => this.deleteProfile(e)}>
+										</span>
+										<span className="group">
+											<button onClick={e => this.alertButton(e)}>
+												{this.state.showPopup ? (
+													<Popup deleteProfile={this.deleteProfile} />
+												) : null}
 												Delete Profile
 											</button>
-										</div>
+										</span>
 									</form>
 								</div>
 							</wrapper>
