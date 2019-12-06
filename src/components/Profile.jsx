@@ -82,6 +82,23 @@ class Profile extends React.Component {
 			})
 	}
 
+	//delete Profile
+	deleteProfile = e => {
+		e.preventDefault()
+		let userId = this.state.user._id
+		axios
+			.delete(`${process.env.REACT_APP_API}/users/${userId}`)
+			.then(res => {
+				console.log('working')
+				console.log(res)
+				localStorage.removeItem('token')
+				this.props.history.push('/')
+			})
+			.catch(err => {
+				console.log(err)
+			})
+	}
+
 	render() {
 		return (
 			<>
@@ -143,6 +160,11 @@ class Profile extends React.Component {
 										<div className="group">
 											<button onClick={e => this.savesChanges(e)}>
 												Save Changes
+											</button>
+										</div>
+										<div className="group">
+											<button onClick={e => this.deleteProfile(e)}>
+												Delete Profile
 											</button>
 										</div>
 									</form>
