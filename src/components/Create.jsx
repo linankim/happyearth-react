@@ -128,6 +128,8 @@ class Create extends React.Component {
 			.post(`${process.env.REACT_APP_API}/spots`, data)
 			.then(res => {
 				console.log('i am here', res)
+				let spotId = res.data.spot._id
+				this.props.history.push(`/spots/${spotId}`)
 			})
 			.catch(err => {
 				console.log(err)
