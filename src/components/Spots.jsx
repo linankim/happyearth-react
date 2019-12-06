@@ -52,8 +52,9 @@ class Spots extends React.Component {
 	}
 
 	componentDidMount() {
+		let cityName = this.props.location.search.split('=')[1]
 		axios
-			.get(`${process.env.REACT_APP_API}/spots`)
+			.get(`${process.env.REACT_APP_API}/spots?city=${cityName}`)
 			.then(res => {
 				this.setState({ spots: res.data, spotsClone: res.data })
 				console.log('res data >>>>>>>>>', res.data)
