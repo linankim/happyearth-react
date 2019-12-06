@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
-import '../styles/burger.css'
 import '../styles/sidebar.css'
 
 class Sidebar extends React.Component {
@@ -29,7 +28,7 @@ class Sidebar extends React.Component {
 						<div className="sidebar image">
 							<ul>
 								<li>
-									<h4>Happy Earth</h4>
+									<div className="font">Happy Earth</div>
 								</li>
 								<li className="active">
 									<Link to="/profile">Profile</Link>
