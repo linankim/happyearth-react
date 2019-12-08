@@ -88,103 +88,98 @@ class Spot extends React.Component {
 				<div className="grid image">
 					<div className="grid sidebar-left">
 						<Sidebar />
-						<div className="grid">
-							<Nav />
-							<div className="grid scroll">
-								<div className="grid two">
-									<div className="gallery">
-										<div
-											className="image-main"
-											style={{
-												backgroundImage: `url('${this.state.spot.selectedImage}')`
-											}}
-										>
-											<button
-												className="icon"
-												onClick={() => this.toggleLike()}
-											>
-												<i className={this.getClass()}></i>
-											</button>
+
+						<div className="grid scroll">
+							<div className="grid two">
+								<div className="gallery">
+									<div
+										className="image-main"
+										style={{
+											backgroundImage: `url('${this.state.spot.selectedImage}')`
+										}}
+									>
+										<button className="icon" onClick={() => this.toggleLike()}>
+											<i className={this.getClass()}></i>
+										</button>
+									</div>
+									<div className="thumbnails">
+										{this.state.spot.images.map((image, index) => {
+											return (
+												<div
+													className="thumbnail"
+													style={{
+														backgroundImage: `url(${image})`
+													}}
+													key={index}
+													onClick={() => this.clickedImage(image)}
+												></div>
+											)
+										})}
+									</div>
+								</div>
+								<div className="map">
+									<Map spot={this.state.spot} />
+								</div>
+							</div>
+							<div className="grid mediumspot transparent">
+								<div>
+									<div className="user">
+										<div className="name">
+											<small>Spotted by</small>
+											<span>
+												<div
+													className="avatar"
+													style={{
+														backgroundImage: `url(${this.state.spotter.avatar})`
+													}}
+												></div>
+												{this.state.spotter.firstName}
+												{this.state.spotter.lastName}
+											</span>
 										</div>
-										<div className="thumbnails">
-											{this.state.spot.images.map((image, index) => {
+									</div>
+									<div className="grid titlespot transparent">
+										<h1>{this.state.spot.title}</h1>
+										<small className="padding">
+											<i className="fas fa-map-marker-alt"></i>
+											<span>
+												{this.state.spot.city}, {this.state.spot.country}
+											</span>
+										</small>
+									</div>
+								</div>
+								<div className="grid twocards">
+									<div>
+										<div className="grid transparent">
+											<h3>Eat In</h3>
+
+											{this.state.spot.amenities.map(amenity => {
 												return (
-													<div
-														className="thumbnail"
-														style={{
-															backgroundImage: `url(${image})`
-														}}
-														key={index}
-														onClick={() => this.clickedImage(image)}
-													></div>
+													<div className="content" key={amenity._id}>
+														<li>
+															<i className={amenity.icon}> </i>
+															{amenity.name}
+														</li>
+													</div>
 												)
 											})}
 										</div>
 									</div>
-									<div className="map">
-										<Map spot={this.state.spot} />
-									</div>
-								</div>
-								<div className="grid mediumspot transparent">
+
 									<div>
-										<div className="user">
-											<div className="name">
-												<small>Spotted by</small>
-												<span>
-													<div
-														className="avatar"
-														style={{
-															backgroundImage: `url(${this.state.spotter.avatar})`
-														}}
-													></div>
-													{this.state.spotter.firstName}
-													{this.state.spotter.lastName}
-												</span>
-											</div>
-										</div>
-										<div className="grid titlespot transparent">
-											<h1>{this.state.spot.title}</h1>
-											<small className="padding">
-												<i className="fas fa-map-marker-alt"></i>
-												<span>
-													{this.state.spot.city}, {this.state.spot.country}
-												</span>
-											</small>
-										</div>
-									</div>
-									<div className="grid twocards">
-										<div>
-											<div className="grid transparent">
-												<h3>Eat In</h3>
+										<div className="grid transparent">
+											<h3>Take Away</h3>
 
-												{this.state.spot.amenities.map(amenity => {
-													return (
-														<div className="content" key={amenity._id}>
-															<li>
-																<i className={amenity.icon}> </i>
-																{amenity.name}
-															</li>
-														</div>
-													)
-												})}
-											</div>
-										</div>
-
-										<div>
-											<div className="grid transparent">
-												<h3>Take Away</h3>
-
-												{this.state.spot.amenities.map(amenity => {
-													return (
-														<div className="content" key={amenity._id}>
-															<li>
-																<i className={amenity.icon}> </i>
-																{amenity.name}
-															</li>
-														</div>
-													)
-												})}
-											</div>
+											{this.state.spot.amenities.map(amenity => {
+												return (
+													<div className="content" key={amenity._id}>
+														<li>
+															<i className={amenity.icon}> </i>
+															{amenity.name}
+														</li>
+													</div>
+												)
+											})}
 										</div>
 									</div>
 								</div>
