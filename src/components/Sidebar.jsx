@@ -47,16 +47,19 @@ class Sidebar extends React.Component {
 					</div>
 				) : (
 					<div className="guest">
-						<div className="sidebar">
+						<div className="sidebar image">
 							<ul>
 								<li>
-									<h4>Happy Earth</h4>
+									<div className="font">Happy Earth</div>
 								</li>
 								<li className="active">
 									<Link to="/create">Create</Link>
 								</li>
 								<li className="active">
 									<Link to="/spots">Spots</Link>
+								</li>
+								<li className="active">
+									<Link to="/login">Login</Link>
 								</li>
 								<li className="active">
 									<Link to="/signup">Sign Up</Link>
