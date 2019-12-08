@@ -43,7 +43,6 @@ class Profile extends React.Component {
 					<div className="grid sidebar-left">
 						<Sidebar />
 						<div className="grid">
-							<Nav />
 							<wrapper className="grid center">
 								<div className="grid form transparent">
 									<form>
