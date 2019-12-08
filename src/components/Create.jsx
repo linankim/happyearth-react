@@ -174,7 +174,7 @@ class Create extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="grid">
+				<div className="grid image">
 					<div className="grid sidebar-left">
 						<Sidebar />
 						<div>
@@ -258,52 +258,31 @@ class Create extends React.Component {
 													)
 												})}
 											</div>
+											<div className="group">
+												<label>Latitude</label>
+												<input
+													type="number"
+													value={this.state.spot.lat}
+													onChange={e => this.changeField(e, 'lat')}
+												/>
+
+												<label>Longitude</label>
+												<input
+													type="number"
+													value={this.state.spot.lng}
+													onChange={e => this.changeField(e, 'lng')}
+												/>
+											</div>
+											<button
+												className="primary"
+												onClick={e => this.createPlace(e, this.state.spot)}
+											>
+												Publish this Spot
+											</button>
 										</form>
 									</div>
 								</div>
 							</div>
-							<div className="group">
-								<label>Upload Photos</label>
-								<input type="file" onChange={this.getFile} multiple />
-							</div>
-							<div className="group">
-								<label>Amenities</label>
-								{this.state.amenities.map(amenity => {
-									return (
-										<label className="checkbox">
-											<input
-												type="checkbox"
-												value={amenity._id}
-												onChange={e => this.checkBox(e)}
-											/>
-											<i className={amenity.icon}></i>
-											<span> {amenity.explanation}</span>
-										</label>
-									)
-								})}
-							</div>
-							<div className="group">
-								<label>Latitude</label>
-								<input
-									type="number"
-									value={this.state.spot.lat}
-									onChange={e => this.changeField(e, 'lat')}
-								/>
-
-								<label>Longitude</label>
-								<input
-									type="number"
-									value={this.state.spot.lng}
-									onChange={e => this.changeField(e, 'lng')}
-								/>
-							</div>
-							<div className="group"></div>
-							<button
-								className="primary"
-								onClick={e => this.createPlace(e, this.state.spot)}
-							>
-								Publish this Spot
-							</button>
 						</div>
 					</div>
 				</div>
