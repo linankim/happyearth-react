@@ -34,7 +34,9 @@ class Spot extends React.Component {
 			center: {
 				lat: 59.95,
 				lng: 30.33
-			}
+			},
+			toggleEatins: false,
+			toggleTakeaways: false
 		},
 		spotter: {}
 	}
@@ -151,39 +153,42 @@ class Spot extends React.Component {
 									</div>
 								</div>
 								<div className="grid twocards">
-									<div>
-										<div className="grid transparent">
-											<h3>Eat In</h3>
+									{this.state.spot.toggleEatins ? (
+										<div>
+											<div className="grid transparent">
+												<h3>Eat In</h3>
 
-											{this.state.spot.eatins.map(eatin => {
-												return (
-													<div className="content" key={eatin._id}>
-														<li>
-															<i className={eatin.icon}> </i>
-															{eatin.explanation}
-														</li>
-													</div>
-												)
-											})}
+												{this.state.spot.eatins.map(eatin => {
+													return (
+														<div className="content" key={eatin._id}>
+															<li>
+																<i className={eatin.icon}> </i>
+																{eatin.explanation}
+															</li>
+														</div>
+													)
+												})}
+											</div>
 										</div>
-									</div>
-								</div>
+									) : null}
+									{this.state.spot.toggleTakeaways ? (
+										<div>
+											<div className="grid transparent">
+												<h3>Take Away</h3>
 
-								<div>
-									<div className="grid transparent">
-										<h3>Take Away</h3>
-
-										{this.state.spot.takeaways.map(takeaway => {
-											return (
-												<div className="content" key={takeaway._id}>
-													<li>
-														<i className={takeaway.icon}> </i>
-														{takeaway.explanation}
-													</li>
-												</div>
-											)
-										})}
-									</div>
+												{this.state.spot.takeaways.map(takeaway => {
+													return (
+														<div className="content" key={takeaway._id}>
+															<li>
+																<i className={takeaway.icon}> </i>
+																{takeaway.explanation}
+															</li>
+														</div>
+													)
+												})}
+											</div>
+										</div>
+									) : null}
 								</div>
 							</div>
 						</div>
