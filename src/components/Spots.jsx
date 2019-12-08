@@ -70,7 +70,6 @@ class Spots extends React.Component {
 				<div className="grid sidebar-left">
 					<Sidebar />
 					<div>
-						<Nav />
 						<Filters
 							updateSearchField={this.updateSearchField}
 							filterByType={this.filterByType}
