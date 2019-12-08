@@ -10,16 +10,19 @@ class Create extends React.Component {
 			file: '',
 			images: [],
 			types: '',
-			amenities: [],
+			eatins: [],
+			takeaways: [],
 			lat: '',
 			lng: ''
 		},
-		amenities: [],
+		eatins: [],
+		takeaways: [],
 		types: []
 	}
 	UNSAFE_componentWillMount() {
 		let types = this.state.types
-		let amenities = this.state.amenities
+		let eatins = this.state.eatins
+		let takeaways = this.state.takeaways
 		axios
 			.get(`${process.env.REACT_APP_API}/types`)
 			.then(res => {
@@ -31,11 +34,21 @@ class Create extends React.Component {
 				console.log(err)
 			})
 		axios
-			.get(`${process.env.REACT_APP_API}/amenities`)
+			.get(`${process.env.REACT_APP_API}/eatins`)
 			.then(res => {
-				amenities = res.data
-				this.setState({ amenities })
-				console.log({ amenities })
+				eatins = res.data
+				this.setState({ eatins })
+				console.log({ eatins })
+			})
+			.catch(err => {
+				console.log(err)
+			})
+		axios
+			.get(`${process.env.REACT_APP_API}/takeaways`)
+			.then(res => {
+				takeaways = res.data
+				this.setState({ takeaways })
+				console.log({ takeaways })
 			})
 			.catch(err => {
 				console.log(err)
@@ -72,20 +85,39 @@ class Create extends React.Component {
 		console.log({ spot })
 	}
 
-	//select Amenities
+	//select Takeaways
 	checkBox = e => {
 		let spot = this.state.spot
 		let _id = e.target.value
-		let amenities = spot.amenities
+		let takeaways = spot.takeaways
 
-		if (spot.amenities.find(amenity => amenity == _id)) {
+		if (spot.takeaways.find(takeaway => takeaway == _id)) {
 			console.log('no')
-			spot.amenities = spot.amenities.filter(amenity => amenity != _id)
+			spot.takeaways = spot.takeaways.filter(takeaway => takeaway != _id)
 		} else {
 			console.log('yes')
-			spot.amenities.push(_id)
-			this.setState({ spot: spot.amenities })
-			console.log(spot.amenities)
+			spot.takeaways.push(_id)
+			this.setState({ spot: spot.takeaways })
+			console.log(spot.takeaways)
+			console.log({ spot })
+		}
+		this.setState({ spot })
+	}
+
+	//select Eatins
+	checkBox2 = e => {
+		let spot = this.state.spot
+		let _id = e.target.value
+		let eatins = spot.eatins
+
+		if (spot.eatins.find(eatin => eatin == _id)) {
+			console.log('no')
+			spot.eatins = spot.eatins.filter(eatin => eatin != _id)
+		} else {
+			console.log('yes')
+			spot.eatins.push(_id)
+			this.setState({ spot: spot.eatins })
+			console.log(spot.eatins)
 
 			console.log({ spot })
 		}
@@ -113,7 +145,10 @@ class Create extends React.Component {
 		for (let key in this.state.spot) {
 			console.log('KEY', this.state.spot[key])
 			console.log('TYPE', typeof this.state.spot[key])
-			if (typeof this.state.spot[key] == 'object' && key == 'amenities') {
+			if (
+				(typeof this.state.spot[key] == 'object' && key == 'eatins') ||
+				key == 'takeaways'
+			) {
 				console.log('key', key)
 				this.state.spot[key].forEach(val => {
 					data.append(`${key}[]`, val)
@@ -193,17 +228,33 @@ class Create extends React.Component {
 												<input type="file" onChange={this.getFile} multiple />
 											</div>
 											<div className="group">
-												<label>Amenities</label>
-												{this.state.amenities.map(amenity => {
+												<label>Take away</label>
+												{this.state.takeaways.map(takeaway => {
 													return (
 														<label className="checkbox">
 															<input
 																type="checkbox"
-																value={amenity._id}
+																value={takeaway._id}
 																onChange={e => this.checkBox(e)}
 															/>
-															<i className={amenity.icon}></i>
-															<span> {amenity.explanation}</span>
+															<i className={takeaway.icon}></i>
+															<span> {takeaway.explanation}</span>
+														</label>
+													)
+												})}
+											</div>
+											<div className="group">
+												<label>Eat In</label>
+												{this.state.eatins.map(eatin => {
+													return (
+														<label className="checkbox">
+															<input
+																type="checkbox"
+																value={eatin._id}
+																onChange={e => this.checkBox2(e)}
+															/>
+															<i className={eatin.icon}></i>
+															<span> {eatin.explanation}</span>
 														</label>
 													)
 												})}
