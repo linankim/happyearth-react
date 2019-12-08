@@ -44,6 +44,10 @@ class Landing extends React.Component {
 			return 'dropdown'
 		}
 	}
+
+	componentWillMount() {
+		console.log('this.state.options', this.state.options)
+	}
 	render() {
 		return (
 			<>
