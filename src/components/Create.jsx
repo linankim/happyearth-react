@@ -178,8 +178,7 @@ class Create extends React.Component {
 					<div className="grid sidebar-left">
 						<Sidebar />
 						<div>
-							<Nav />
-							<div className="grid center">
+							<div className="grid center image">
 								<div className="grid createform">
 									<div className="content">
 										<h2>Create a new Spot</h2>
