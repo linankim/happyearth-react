@@ -125,21 +125,26 @@ class Spot extends React.Component {
 										<Map spot={this.state.spot} />
 									</div>
 								</div>
-								<div className="grid medium">
+								<div className="grid mediumspot transparent">
 									<div>
 										<div className="user">
 											<div className="name">
 												<small>Spotted by</small>
 												<span>
-													{this.state.spotter.avatar}
+													<div
+														className="avatar"
+														style={{
+															backgroundImage: `url(${this.state.spotter.avatar})`
+														}}
+													></div>
 													{this.state.spotter.firstName}
 													{this.state.spotter.lastName}
 												</span>
 											</div>
 										</div>
-										<div className="content">
+										<div className="grid titlespot transparent">
 											<h1>{this.state.spot.title}</h1>
-											<small>
+											<small className="padding">
 												<i className="fas fa-map-marker-alt"></i>
 												<span>
 													{this.state.spot.city}, {this.state.spot.country}
@@ -149,8 +154,8 @@ class Spot extends React.Component {
 									</div>
 									<div className="grid twocards">
 										<div>
-											<div className="grid">
-												<h3>Amenities</h3>
+											<div className="grid transparent">
+												<h3>Eat In</h3>
 
 												{this.state.spot.amenities.map(amenity => {
 													return (
@@ -166,8 +171,8 @@ class Spot extends React.Component {
 										</div>
 
 										<div>
-											<div className="grid">
-												<h3>Amenities</h3>
+											<div className="grid transparent">
+												<h3>Take Away</h3>
 
 												{this.state.spot.amenities.map(amenity => {
 													return (

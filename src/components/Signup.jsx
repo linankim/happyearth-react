@@ -4,6 +4,7 @@ import axios from 'axios'
 class Signup extends React.Component {
 	state = {
 		user: {
+			file: '',
 			firstName: '',
 			lastName: '',
 			email: '',
@@ -21,9 +22,17 @@ class Signup extends React.Component {
 		console.log({ user })
 	}
 
+	addFile = e => {
+		let user = this.state.user
+		user.file = e.target.files[0]
+		console.log('e.target.files[0]', e.target.files[0])
+		this.setState({ user }, () => {})
+	}
+
 	signup = e => {
 		e.preventDefault()
 		console.log('>>>>>>>>>>', `${process.env.REACT_APP_API}/signup`)
+		console.log('state', this.state)
 		if (
 			this.state.user.firstName !== '' &&
 			this.state.user.lastName !== '' &&
@@ -31,12 +40,24 @@ class Signup extends React.Component {
 			this.state.user.password !== '' &&
 			this.state.user.residenceCountry !== ''
 		) {
+			let data = new FormData()
+			console.log('i am at this point')
+			for (let key in this.state.user) {
+				console.log('KEY', this.state.user[key])
+				data.append(key, this.state.user[key])
+				console.log('i am here', data)
+			}
+			console.log({ data })
 			axios
-				.post(`${process.env.REACT_APP_API}/signup`, this.state.user)
+				.post(`${process.env.REACT_APP_API}/signup`, data)
 				.then(res => {
 					console.log(res)
-					localStorage.setItem('token', res.data.token)
-					this.props.history.push('/')
+					if (res.data.token) {
+						localStorage.setItem('token', res.data.token)
+						this.props.history.push('/')
+					} else {
+						alert('email adress already in use')
+					}
 				})
 				.catch(err => {
 					console.log({ err })

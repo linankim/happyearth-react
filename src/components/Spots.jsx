@@ -50,8 +50,9 @@ class Spots extends React.Component {
 
 	componentDidMount() {
 		let spot = this.state.spot
+		let cityName = this.props.location.search.split('=')[1]
 		axios
-			.get(`${process.env.REACT_APP_API}/spots`)
+			.get(`${process.env.REACT_APP_API}/spots?city=${cityName}`)
 			.then(res => {
 				// spot.center.lat = res.data[0].center.lat
 				// spot.center.lng = res.data[0].center.lng
@@ -75,7 +76,7 @@ class Spots extends React.Component {
 			<div className="grid image">
 				<div className="grid sidebar-left">
 					<Sidebar />
-					<div className="grid">
+					<div>
 						<Nav />
 						<Filters
 							updateSearchField={this.updateSearchField}
@@ -83,10 +84,12 @@ class Spots extends React.Component {
 						/>
 
 						<div className="grid two">
-							<div className="grid twocards">
-								{this.state.spots.map(spot => (
-									<Card spot={spot} key={spot._id} />
-								))}
+							<div>
+								<div className="grid twocards">
+									{this.state.spots.map(spot => (
+										<Card spot={spot} key={spot._id} />
+									))}
+								</div>
 							</div>
 							<div className="map">
 								<Map spots={this.state.spots} center={this.state.center} />

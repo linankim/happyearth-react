@@ -9,6 +9,18 @@
 	border-radius: 3px;
 }
 
+.grid.createform {
+	margin: 30px 0px;
+	width: 600px;
+	height: 1200px;
+	padding: 30px;
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+.grid.titlespot {
+	margin: 30px;
+}
 .grid.transparent {
 	background-color: rgba(255, 255, 255, 0.85);
 }
@@ -25,7 +37,7 @@
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 30px;
 	padding: 10px;
-	height: 100vh;
+	height: auto;
 	overflow-y: auto;
 }
 
@@ -38,6 +50,7 @@
 	grid-column-gap: 30px;
 	grid-row-gap: 30px;
 	padding: 30px;
+	overflow-y: auto;
 }
 
 .grid.three {
@@ -65,6 +78,12 @@
 	justify-content: center;
 }
 
+.grid.mediumspot {
+	grid-template-columns: 1000px;
+	justify-content: center;
+	margin: 0px 40px;
+}
+
 .grid.large {
 	padding: 30px 50px;
 }
@@ -84,6 +103,7 @@
 	background-repeat: no-repeat;
 	height: 100vh;
 	background-attachment: fixed;
+	overflow-y: scroll;
 }
 
 .grid.image2 {

@@ -1,0 +1,25 @@
+.popup {
+	position: absolute;
+	width: 700px;
+	height: 150px;
+	align-items: center;
+	border-color: rgb(37, 120, 69);
+	border-width: medium;
+	border-style: solid;
+	top: 0;
+	left: 190px;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: white;
+}
+.popup\_inner {
+	position: absolute;
+	left: 25%;
+	right: 25%;
+	top: 25%;
+	bottom: 25%;
+	margin: auto;
+	border-radius: 20px;
+	background: white;
+}
