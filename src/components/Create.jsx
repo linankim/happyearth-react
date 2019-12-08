@@ -13,7 +13,9 @@ class Create extends React.Component {
 			eatins: [],
 			takeaways: [],
 			lat: '',
-			lng: ''
+			lng: '',
+			toggleEatins: false,
+			toggleTakeaways: false
 		},
 		eatins: [],
 		takeaways: [],
@@ -81,6 +83,22 @@ class Create extends React.Component {
 	changeField = (e, field) => {
 		let spot = this.state.spot
 		spot[field] = e.target.value
+		this.setState({ spot })
+		console.log({ spot })
+	}
+
+	//toggle eatins
+	toggleEatin = e => {
+		let spot = this.state.spot
+		spot.toggleEatins = !spot.toggleEatins
+		this.setState({ spot })
+		console.log({ spot })
+	}
+
+	//toggle takeaways
+	toggleTakeaway = e => {
+		let spot = this.state.spot
+		spot.toggleTakeaways = !spot.toggleTakeaways
 		this.setState({ spot })
 		console.log({ spot })
 	}
@@ -226,37 +244,54 @@ class Create extends React.Component {
 												<label>Upload Photos</label>
 												<input type="file" onChange={this.getFile} multiple />
 											</div>
+											<div>Click on take away and / or eat in</div>
 											<div className="group">
-												<label>Take away</label>
-												{this.state.takeaways.map(takeaway => {
-													return (
-														<label className="checkbox">
-															<input
-																type="checkbox"
-																value={takeaway._id}
-																onChange={e => this.checkBox(e)}
-															/>
-															<i className={takeaway.icon}></i>
-															<span> {takeaway.explanation}</span>
-														</label>
-													)
-												})}
+												<label className="checkbox">
+													<input
+														type="checkbox"
+														onChange={e => this.toggleTakeaway(e)}
+													/>
+													Take away
+												</label>
+												{this.state.spot.toggleTakeaways
+													? this.state.takeaways.map(takeaway => {
+															return (
+																<label className="checkbox">
+																	<input
+																		type="checkbox"
+																		value={takeaway._id}
+																		onChange={e => this.checkBox(e)}
+																	/>
+																	<i className={takeaway.icon}></i>
+																	<span> {takeaway.explanation}</span>
+																</label>
+															)
+													  })
+													: null}
 											</div>
 											<div className="group">
-												<label>Eat In</label>
-												{this.state.eatins.map(eatin => {
-													return (
-														<label className="checkbox">
-															<input
-																type="checkbox"
-																value={eatin._id}
-																onChange={e => this.checkBox2(e)}
-															/>
-															<i className={eatin.icon}></i>
-															<span> {eatin.explanation}</span>
-														</label>
-													)
-												})}
+												<label className="checkbox">
+													<input
+														type="checkbox"
+														onChange={e => this.toggleEatin(e)}
+													/>
+													Eat In
+												</label>
+												{this.state.spot.toggleEatins
+													? this.state.eatins.map(eatin => {
+															return (
+																<label className="checkbox">
+																	<input
+																		type="checkbox"
+																		value={eatin._id}
+																		onChange={e => this.checkBox2(e)}
+																	/>
+																	<i className={eatin.icon}></i>
+																	<span> {eatin.explanation}</span>
+																</label>
+															)
+													  })
+													: null}
 											</div>
 											<div className="group">
 												<label>Latitude</label>
