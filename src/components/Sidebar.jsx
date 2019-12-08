@@ -37,7 +37,7 @@ class Sidebar extends React.Component {
 									<Link to="/create">Create</Link>
 								</li>
 								<li className="active">
-									<Link to="/spots">Spots</Link>
+									<Link to="/">Spots</Link>
 								</li>
 								<li className="active" onClick={e => this.logoutButton(e)}>
 									<Link to="/">Logout</Link>
@@ -56,7 +56,7 @@ class Sidebar extends React.Component {
 									<Link to="/create">Create</Link>
 								</li>
 								<li className="active">
-									<Link to="/spots">Spots</Link>
+									<Link to="/">Spots</Link>
 								</li>
 								<li className="active">
 									<Link to="/login">Login</Link>

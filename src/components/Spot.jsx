@@ -26,6 +26,8 @@ class Spot extends React.Component {
 			},
 			description: '',
 			types: [],
+			eatins: [],
+			takeaways: [],
 			amenities: [],
 			city: '',
 			country: '',
@@ -153,34 +155,34 @@ class Spot extends React.Component {
 										<div className="grid transparent">
 											<h3>Eat In</h3>
 
-											{this.state.spot.amenities.map(amenity => {
+											{this.state.spot.eatins.map(eatin => {
 												return (
-													<div className="content" key={amenity._id}>
+													<div className="content" key={eatin._id}>
 														<li>
-															<i className={amenity.icon}> </i>
-															{amenity.name}
+															<i className={eatin.icon}> </i>
+															{eatin.explanation}
 														</li>
 													</div>
 												)
 											})}
 										</div>
 									</div>
+								</div>
 
-									<div>
-										<div className="grid transparent">
-											<h3>Take Away</h3>
+								<div>
+									<div className="grid transparent">
+										<h3>Take Away</h3>
 
-											{this.state.spot.amenities.map(amenity => {
-												return (
-													<div className="content" key={amenity._id}>
-														<li>
-															<i className={amenity.icon}> </i>
-															{amenity.name}
-														</li>
-													</div>
-												)
-											})}
-										</div>
+										{this.state.spot.takeaways.map(takeaway => {
+											return (
+												<div className="content" key={takeaway._id}>
+													<li>
+														<i className={takeaway.icon}> </i>
+														{takeaway.explanation}
+													</li>
+												</div>
+											)
+										})}
 									</div>
 								</div>
 							</div>
