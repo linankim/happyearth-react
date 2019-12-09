@@ -15,9 +15,10 @@ class Landing extends React.Component {
 				console.log({ res })
 				// if length, set state options
 				// else set state options = "Not found"
-				if (res.data.length > 0) {
+				if (res.data[0]) {
+					console.log('res.data', res.data)
+					console.log('res.data.length', res.data.length)
 					this.setState({ options: res.data })
-					console.log('res.data>>>', res.data)
 				} else {
 					this.setState({
 						options: [
@@ -52,9 +53,7 @@ class Landing extends React.Component {
 		return (
 			<>
 				<Sidebar />
-				<div className="image landinggrid verticalposition">
-					<row1></row1>
-					<row2></row2>
+				<div className="image landingposition">
 					<row3 className="landing">
 						<div>
 							<div className="font spacing">Welcome to Happy Earth</div>
@@ -83,8 +82,6 @@ class Landing extends React.Component {
 							</div>
 						</div>
 					</row3>
-					<row4></row4>
-					<row5></row5>
 				</div>
 			</>
 		)

@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import '../styles/login.css'
 
 class Login extends React.Component {
 	state = {
@@ -41,15 +42,15 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className="grid center middle image">
-				<div className="card small">
-					<div className="content">
-						<div className="logo">
-							<h1>Happy Earth</h1>
+			<div className="loginimage">
+				<div className="loginform">
+					<div>
+						<div className="loginheader">
+							<div>Happy Earth</div>
 						</div>
 						<form>
 							<div className="group">
-								<label>Email</label>
+								<label className="loginfont">Email</label>
 								<input
 									type="email"
 									value={this.state.email}
@@ -57,7 +58,7 @@ class Login extends React.Component {
 								/>
 							</div>
 							<div className="group">
-								<label>Password</label>
+								<label className="loginfont">Password</label>
 								<input
 									type="password"
 									value={this.state.password}
@@ -69,7 +70,9 @@ class Login extends React.Component {
 							</button>
 						</form>
 						<p className="footer">
-							<a href="/Signup">Signup</a>
+							<a className="loginfont" href="/Signup">
+								Signup
+							</a>
 						</p>
 					</div>
 				</div>

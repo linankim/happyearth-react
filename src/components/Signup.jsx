@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import '../styles/login.css'
 
 class Signup extends React.Component {
 	state = {
@@ -69,64 +70,63 @@ class Signup extends React.Component {
 	}
 	render() {
 		return (
-			<div className="grid center middle tall image">
-				<div className="card small">
-					<div className="content">
-						<div className="logo" style={{ backgroundImage: `` }}></div>
-						<h1>Happy Earth</h1>
-						<form>
-							<div className="group">
-								<label>First Name</label>
-								<input
-									type="text"
-									value={this.state.user.firstName}
-									onChange={e => this.changeField(e, 'firstName')}
-								/>
-							</div>
-							<div className="group">
-								<label>Last Name</label>
-								<input
-									type="text"
-									value={this.state.user.lastName}
-									onChange={e => this.changeField(e, 'lastName')}
-								/>
-							</div>
-							<div className="group">
-								<label>Country of Residence</label>
-								<input
-									type="text"
-									value={this.state.user.residenceCountry}
-									onChange={e => this.changeField(e, 'residenceCountry')}
-								/>
-							</div>
-							<div className="group">
-								<label>Email</label>
-								<input
-									type="email"
-									value={this.state.user.email}
-									onChange={e => this.changeField(e, 'email')}
-								/>
-							</div>
-							<div className="group">
-								<label>Password</label>
-								<input
-									type="password"
-									value={this.state.user.password}
-									onChange={e => this.changeField(e, 'password')}
-								/>
-							</div>
-							<div className="group">
-								<label>Profile Picture</label>
-								<input type="file" onChange={this.addFile} />
-							</div>
-							<button className="primary" onClick={this.signup}>
-								Signup
-							</button>
-						</form>
-						<p className="footer">
-							Already have an account? <a href="/Login">Login</a>
-						</p>
+			<div className="loginimage">
+				<div className="loginform">
+					<div className="loginheader">
+						<div>Happy Earth</div>
 					</div>
+					<form>
+						<div className="group">
+							<label className="loginfont">First Name</label>
+							<input
+								type="text"
+								value={this.state.user.firstName}
+								onChange={e => this.changeField(e, 'firstName')}
+							/>
+						</div>
+						<div className="group">
+							<label className="loginfont">Last Name</label>
+							<input
+								type="text"
+								value={this.state.user.lastName}
+								onChange={e => this.changeField(e, 'lastName')}
+							/>
+						</div>
+						<div className="group">
+							<label className="loginfont">Country of Residence</label>
+							<input
+								type="text"
+								value={this.state.user.residenceCountry}
+								onChange={e => this.changeField(e, 'residenceCountry')}
+							/>
+						</div>
+						<div className="group">
+							<label className="loginfont">Email</label>
+							<input
+								type="email"
+								value={this.state.user.email}
+								onChange={e => this.changeField(e, 'email')}
+							/>
+						</div>
+						<div className="group">
+							<label className="loginfont">Password</label>
+							<input
+								type="password"
+								value={this.state.user.password}
+								onChange={e => this.changeField(e, 'password')}
+							/>
+						</div>
+						<div className="group">
+							<label className="loginfont">Profile Picture</label>
+							<input type="file" onChange={this.addFile} />
+						</div>
+						<button className="primary" onClick={this.signup}>
+							Signup
+						</button>
+					</form>
+					<p className="loginfont">
+						Already have an account? <a href="/Login">Login</a>
+					</p>
 				</div>
 			</div>
 		)

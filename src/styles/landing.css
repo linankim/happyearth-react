@@ -2,10 +2,11 @@
 	border: 1px solid #e2e2e2;
 	border-radius: 3px;
 	background-color: rgba(255, 255, 255, 0.9);
-	height: 130px;
+	height: auto;
 	width: 50vw;
 	align-content: center;
-	padding: 10px 20px;
+	justify-content: center;
+	padding: 20px;
 }
 
 .landinggrid {
@@ -13,9 +14,10 @@
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.verticalposition {
+.landingposition {
 	display: grid;
 	justify-content: center;
+	align-content: center;
 	padding-left: 200px;
 }
 
@@ -28,9 +30,10 @@
 .search {
 	border: none;
 	font-size: 19px;
-	width: 50vw;
-	padding: 10px;
+	width: calc(50vw - 10px);
 	box-sizing: border-box;
+	padding: 10px;
+	margin: 10px;
 }
 
 .image {

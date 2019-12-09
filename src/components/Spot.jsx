@@ -189,6 +189,7 @@ class Spot extends React.Component {
 											<div>{this.state.spot.types.name}</div>
 										) : null}
 									</div>
+
 									<div>
 										<div className="user">
 											<div className="name">
@@ -203,13 +204,15 @@ class Spot extends React.Component {
 													<div>
 														{`${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
 													</div>
+													<div>
+														<span>About this Spot</span>
+														<p>{this.state.spot.description}</p>
+													</div>
 												</span>
 											</div>
 										</div>
 									</div>
-									<div>
-										<p>{this.state.spot.description}</p>
-									</div>
+
 									<div>
 										{this.state.spot.toggleEatins ? (
 											<div>
@@ -240,6 +243,9 @@ class Spot extends React.Component {
 												})}
 											</div>
 										) : null}
+									</div>
+
+									<div>
 										{this.state.spot.toggleTakeaways ? (
 											<div>
 												<h3>Take Away</h3>

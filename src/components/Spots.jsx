@@ -90,7 +90,7 @@ class Spots extends React.Component {
 						/>
 
 						<div className="grid two">
-							<div>
+							<div className="fixed">
 								<div className="grid twocards">
 									{this.state.spots.map(spot => (
 										<Card spot={spot} key={spot._id} />
