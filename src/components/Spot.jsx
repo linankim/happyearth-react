@@ -25,7 +25,7 @@ class Spot extends React.Component {
 				avatar: ''
 			},
 			description: '',
-			types: [],
+			types: {},
 			eatins: [],
 			takeaways: [],
 			amenities: [],
@@ -135,6 +135,7 @@ class Spot extends React.Component {
 												{this.state.spot.city}, {this.state.spot.country}
 											</span>
 										</small>
+										<div>{this.state.spot.types.name}</div>
 									</div>
 									<div>
 										<div className="user">
