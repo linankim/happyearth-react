@@ -1,11 +1,8 @@
 .user {
 	text-align: left;
 	font-size: 18px;
-	display: grid;
-	grid-template-columns: 50px auto;
-	grid-column-gap: 10px;
 	cursor: pointer;
-	margin: 30px;
+	margin-top: 30px;
 }
 
 .user .avatar {
