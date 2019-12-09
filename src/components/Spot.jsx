@@ -204,10 +204,6 @@ class Spot extends React.Component {
 													<div>
 														{`${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
 													</div>
-													<div>
-														<span>About this Spot</span>
-														<p>{this.state.spot.description}</p>
-													</div>
 												</span>
 											</div>
 										</div>
@@ -275,6 +271,10 @@ class Spot extends React.Component {
 											</div>
 										) : null}
 									</div>
+								</div>
+								<div>
+									<span>About this Spot</span>
+									<p>{this.state.spot.description}</p>
 								</div>
 							</div>
 						</div>
