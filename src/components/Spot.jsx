@@ -274,7 +274,7 @@ class Spot extends React.Component {
 								</div>
 								<div>
 									<span>About this Spot</span>
-									<p>{this.state.spot.description}</p>
+									<p className="loginfont">{this.state.spot.description}</p>
 								</div>
 							</div>
 						</div>
