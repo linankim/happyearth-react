@@ -39,9 +39,8 @@ class Spot extends React.Component {
 		spotter: {},
 		eatins: [],
 		takeaways: [],
-		eatinsArray: [],
-		newEatins: [],
-		remaining: []
+		remainingEatins: [],
+		remainingTakeaways: []
 	}
 
 	UNSAFE_componentWillMount() {
@@ -75,10 +74,8 @@ class Spot extends React.Component {
 				res.data.selectedImage = res.data.images[0]
 				this.setState({ spot: res.data })
 				console.log({ spot: res.data })
-				let spotEatins = this.state.spot.eatins.map(spotEatin => {
-					return (spotEatin.clicked = !spotEatin.clicked)
-				})
-				this.getRemaining()
+				this.getRemainingEatins()
+				this.getRemainingTakeaways()
 				let spotterId = this.state.spot.spotters
 				axios
 					.get(`${process.env.REACT_APP_API}/users/${spotterId}`)
@@ -112,15 +109,26 @@ class Spot extends React.Component {
 		this.setState({ spot })
 	}
 
-	getRemaining = () => {
-		let remaining = this.state.eatins
+	getRemainingEatins = () => {
+		let remainingEatins = this.state.eatins
 		this.state.spot.eatins.forEach(spotEatin => {
-			remaining = remaining.filter(stateEatin => {
+			remainingEatins = remainingEatins.filter(stateEatin => {
 				return spotEatin._id != stateEatin._id
 			})
 		})
-		console.log({ remaining })
-		this.setState({ remaining })
+		console.log({ remainingEatins })
+		this.setState({ remainingEatins })
+	}
+
+	getRemainingTakeaways = () => {
+		let remainingTakeaways = this.state.takeaways
+		this.state.spot.takeaways.forEach(spotTakeaway => {
+			remainingTakeaways = remainingTakeaways.filter(stateTakeaway => {
+				return spotTakeaway._id != stateTakeaway._id
+			})
+		})
+		console.log({ remainingTakeaways })
+		this.setState({ remainingTakeaways })
 	}
 
 	render() {
@@ -220,7 +228,7 @@ class Spot extends React.Component {
 														</div>
 													)
 												})}
-												{this.state.remaining.map(eatin => {
+												{this.state.remainingEatins.map(eatin => {
 													return (
 														<div className="empty" key={eatin._id}>
 															<li>
@@ -237,7 +245,21 @@ class Spot extends React.Component {
 												<h3>Take Away</h3>
 												{this.state.spot.takeaways.map(takeaway => {
 													return (
-														<div className="content" key={takeaway._id}>
+														<div
+															className="content"
+															style={styles.selected}
+															key={takeaway._id}
+														>
+															<li>
+																<i className={takeaway.icon}> </i>
+																{takeaway.explanation}
+															</li>
+														</div>
+													)
+												})}
+												{this.state.remainingTakeaways.map(takeaway => {
+													return (
+														<div className="empty" key={takeaway._id}>
 															<li>
 																<i className={takeaway.icon}> </i>
 																{takeaway.explanation}
