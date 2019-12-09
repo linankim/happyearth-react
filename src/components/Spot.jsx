@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav.jsx'
 import Map from './Map.jsx'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
