@@ -10,6 +10,9 @@
 	width: 200px;
 }
 
+.sidetransparent {
+	background-color: rgba(255, 255, 255, 0.85);
+}
 .sidebar .font {
 	font-family: 'EB Garamond', serif;
 	padding: 10px;
@@ -32,21 +35,21 @@
 }
 
 .sidebar ul li a {
-	font-size: 16px;
-	padding: 18px 20px;
+	font-size: 30px;
+	padding: 10px 20px 10px 40px;
 	cursor: pointer;
 	border-radius: 4px;
 	transition: background 0.3s;
 	display: block;
 	text-decoration: none;
 	color: black;
+	font-family: 'EB Garamond', serif;
 }
 
 .sidebar li a:hover {
-	background: #f5f4f4;
+	background: white;
 }
 
 .sidebar ul li.active a {
 	color: #1a5320;
-	text-decoration: underline;
 }
