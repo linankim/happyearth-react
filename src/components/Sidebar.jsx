@@ -25,7 +25,7 @@ class Sidebar extends React.Component {
 			<wrapper>
 				{this.state.localStorage ? (
 					<div className="loggedIn">
-						<div className="sidebar image">
+						<div className="sidebar sidetransparent">
 							<ul>
 								<li>
 									<div className="font">Happy Earth</div>
@@ -47,10 +47,10 @@ class Sidebar extends React.Component {
 					</div>
 				) : (
 					<div className="guest">
-						<div className="sidebar image">
+						<div className="sidebar sidetransparent">
 							<ul>
 								<li>
-									<div className="font">Happy Earth</div>
+									<div className="font ">Happy Earth</div>
 								</li>
 								<li className="active">
 									<Link to="/create">Create</Link>
