@@ -147,8 +147,9 @@ class Spot extends React.Component {
 															backgroundImage: `url(${this.state.spotter.avatar})`
 														}}
 													></div>
-													{this.state.spotter.firstName}
-													{this.state.spotter.lastName}
+												</span>
+												<span>
+													{`${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
 												</span>
 											</div>
 										</div>
