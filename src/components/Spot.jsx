@@ -180,7 +180,6 @@ class Spot extends React.Component {
 											</div>
 										) : null}
 									</div>
-
 									<div>
 										{this.state.spot.toggleTakeaways ? (
 											<div>
