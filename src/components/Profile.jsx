@@ -4,6 +4,7 @@ import Nav from './Nav.jsx'
 import Sidebar from './Sidebar.jsx'
 import Popup from './Popup.jsx'
 import '../styles/profile.css'
+import '../styles/profile.css'
 
 class Profile extends React.Component {
 	state = {
@@ -115,12 +116,12 @@ class Profile extends React.Component {
 					<div className="grid sidebar-left">
 						<Sidebar />
 						<div className="grid">
-							<wrapper className="grid center">
-								<div className="grid form transparent">
+							<wrapper className="grid center autoheight">
+								<div className="grid profileform transparent">
 									<form>
-										<h2>My Profile</h2>
+										<div className="loginheader">My Profile</div>
 										<div className="group">
-											<label>First Name</label>
+											<label className="loginfont">First Name</label>
 											<input
 												type="text"
 												value={this.state.user.firstName}
@@ -128,7 +129,7 @@ class Profile extends React.Component {
 											/>
 										</div>
 										<div className="group">
-											<label>Last Name</label>
+											<label className="loginfont">Last Name</label>
 											<input
 												type="text"
 												value={this.state.user.lastName}
@@ -136,7 +137,7 @@ class Profile extends React.Component {
 											/>
 										</div>
 										<div className="group">
-											<label>Email</label>
+											<label className="loginfont">Email</label>
 											<input
 												type="email"
 												value={this.state.user.email}
@@ -144,7 +145,7 @@ class Profile extends React.Component {
 											/>
 										</div>
 										<div className="group">
-											<label>Residence Country</label>
+											<label className="loginfont">Residence Country</label>
 											<input
 												type="text"
 												value={this.state.user.residenceCountry}
@@ -152,7 +153,7 @@ class Profile extends React.Component {
 											/>
 										</div>
 										<div className="group">
-											<label>Profile Picture</label>
+											<label className="loginfont">Profile Picture</label>
 											<div className="user">
 												<div
 													className="avatar"
@@ -160,7 +161,7 @@ class Profile extends React.Component {
 														backgroundImage: `url(${this.state.user.avatar})`
 													}}
 												></div>
-												<div className="name">
+												<div className="name loginfont">
 													<input type="file" onChange={this.changePicture} />
 												</div>
 											</div>
