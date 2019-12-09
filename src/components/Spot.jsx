@@ -1,4 +1,5 @@
 import React from 'react'
+import Nav from './Nav.jsx'
 import Map from './Map.jsx'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
@@ -149,9 +150,9 @@ class Spot extends React.Component {
 															backgroundImage: `url(${this.state.spotter.avatar})`
 														}}
 													></div>
-												</span>
-												<span>
-													{`${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+													<div>
+														{`${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+													</div>
 												</span>
 											</div>
 										</div>
