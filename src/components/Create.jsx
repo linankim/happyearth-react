@@ -1,7 +1,6 @@
 import React from 'react'
 import Nav from './Nav.jsx'
 import Sidebar from './Sidebar.jsx'
-import '../styles/login.css'
 import axios from 'axios'
 
 class Create extends React.Component {
@@ -117,7 +116,7 @@ class Create extends React.Component {
 		} else {
 			console.log('yes')
 			spot.takeaways.push(_id)
-			this.setState({ spot: spot.takeaways })
+			if (spot.takeaways) this.setState({ spot: spot.takeaways })
 			console.log(spot.takeaways)
 			console.log({ spot })
 		}
@@ -201,10 +200,10 @@ class Create extends React.Component {
 							<div className="grid center image">
 								<div className="grid createform">
 									<div className="content">
-										<div className="createheader">Create a new Spot</div>
+										<h2>Create a new Spot</h2>
 										<form>
 											<div>
-												<label className="loginfont">Title</label>
+												<label>Title</label>
 												<input
 													type="text"
 													value={this.state.spot.title}
@@ -212,14 +211,14 @@ class Create extends React.Component {
 												/>
 											</div>
 											<div className="group">
-												<label className="loginfont">Description</label>
+												<label>Description</label>
 												<textarea
 													value={this.state.spot.description}
 													onChange={e => this.changeField(e, 'description')}
 												></textarea>
 											</div>
 											<div className="group">
-												<label className="loginfont">City or Town</label>
+												<label>City or Town</label>
 												<input
 													type="text"
 													value={this.state.spot.city}
@@ -227,7 +226,7 @@ class Create extends React.Component {
 												/>
 											</div>
 											<div className="group">
-												<label className="loginfont">Country</label>
+												<label>Country</label>
 												<input
 													type="text"
 													value={this.state.spot.country}
@@ -235,7 +234,7 @@ class Create extends React.Component {
 												/>
 											</div>
 											<div className="group">
-												<label className="loginfont">Type of Place</label>
+												<label>Type of Place</label>
 												<select onChange={e => this.changeField(e, 'types')}>
 													{this.state.types.map(type => {
 														return <option value={type._id}>{type.name}</option>
@@ -243,14 +242,15 @@ class Create extends React.Component {
 												</select>
 											</div>
 											<div className="group">
-												<label className="loginfont">Upload Photos</label>
+												<label>Upload Photos</label>
 												<input type="file" onChange={this.getFile} multiple />
 											</div>
-											<div className="loginfont">
-												Click on take away and / or eat in
+											<div>
+												Click on take away and / or eat in and select what they
+												will provide for you{' '}
 											</div>
 											<div className="group">
-												<label className="checkbox loginfont">
+												<label className="checkbox">
 													<input
 														type="checkbox"
 														onChange={e => this.toggleTakeaway(e)}
@@ -260,7 +260,7 @@ class Create extends React.Component {
 												{this.state.spot.toggleTakeaways
 													? this.state.takeaways.map(takeaway => {
 															return (
-																<label className="checkbox loginfont">
+																<label className="checkbox">
 																	<input
 																		type="checkbox"
 																		value={takeaway._id}
@@ -274,7 +274,7 @@ class Create extends React.Component {
 													: null}
 											</div>
 											<div className="group">
-												<label className="checkbox loginfont">
+												<label className="checkbox">
 													<input
 														type="checkbox"
 														onChange={e => this.toggleEatin(e)}
@@ -284,7 +284,7 @@ class Create extends React.Component {
 												{this.state.spot.toggleEatins
 													? this.state.eatins.map(eatin => {
 															return (
-																<label className="checkbox loginfont">
+																<label className="checkbox">
 																	<input
 																		type="checkbox"
 																		value={eatin._id}
@@ -298,14 +298,14 @@ class Create extends React.Component {
 													: null}
 											</div>
 											<div className="group">
-												<label className="loginfont">Latitude</label>
+												<label>Latitude</label>
 												<input
 													type="number"
 													value={this.state.spot.lat}
 													onChange={e => this.changeField(e, 'lat')}
 												/>
 
-												<label className="loginfont">Longitude</label>
+												<label>Longitude</label>
 												<input
 													type="number"
 													value={this.state.spot.lng}
