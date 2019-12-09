@@ -15,9 +15,10 @@ class Landing extends React.Component {
 				console.log({ res })
 				// if length, set state options
 				// else set state options = "Not found"
-				if (res.data.length > 0) {
+				if (res.data[0]) {
+					console.log('res.data', res.data)
+					console.log('res.data.length', res.data.length)
 					this.setState({ options: res.data })
-					console.log('res.data>>>', res.data)
 				} else {
 					this.setState({
 						options: [
