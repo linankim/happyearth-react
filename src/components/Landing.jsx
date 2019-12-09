@@ -52,7 +52,7 @@ class Landing extends React.Component {
 		return (
 			<>
 				<Sidebar />
-				<div className="image landinggrid verticalcenter">
+				<div className="image landinggrid verticalposition">
 					<row1></row1>
 					<row2></row2>
 					<row3 className="landing">

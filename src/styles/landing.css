@@ -3,7 +3,7 @@
 	border-radius: 3px;
 	background-color: rgba(255, 255, 255, 0.9);
 	height: 130px;
-	width: 60vw;
+	width: 50vw;
 	align-content: center;
 	padding: 10px 20px;
 }
@@ -13,9 +13,10 @@
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.verticalcenter {
+.verticalposition {
 	display: grid;
 	justify-content: center;
+	padding-left: 200px;
 }
 
 .landing.vercenter {
@@ -27,7 +28,7 @@
 .search {
 	border: none;
 	font-size: 19px;
-	width: 60vw;
+	width: 50vw;
 	padding: 10px;
 	box-sizing: border-box;
 }

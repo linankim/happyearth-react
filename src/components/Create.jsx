@@ -71,7 +71,9 @@ class Create extends React.Component {
 				.then(user => {
 					this.setState({ user: user.data })
 					this.state.spot.spotters = this.state.user._id
+					this.state.spot.types = this.state.types[0]._id
 					console.log('spotter', this.state.spot.spotters)
+					console.log('type', this.state.spot.types)
 					this.setState({ spot })
 					console.log({ spot })
 				})
@@ -84,7 +86,6 @@ class Create extends React.Component {
 		let spot = this.state.spot
 		spot[field] = e.target.value
 		this.setState({ spot })
-		console.log({ spot })
 	}
 
 	//toggle eatins
