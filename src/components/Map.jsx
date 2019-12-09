@@ -30,7 +30,6 @@ class Map extends React.Component {
 		}
 	}
 	render() {
-		console.log('wwwww', process.env.REACT_APP_GOOGLE_MAP)
 		return (
 			<GoogleMap
 				bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP }}

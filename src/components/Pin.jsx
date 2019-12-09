@@ -10,7 +10,6 @@ class Pin extends React.Component {
 		}
 	}
 	UNSAFE_componentWillReceiveProps(props) {
-		console.log({ props })
 		this.setState({
 			title: this.props.spot.title,
 			center: {
