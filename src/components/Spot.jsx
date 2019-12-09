@@ -222,7 +222,7 @@ class Spot extends React.Component {
 														>
 															<li>
 																<i className={eatin.icon}> </i>
-																{eatin.explanation}
+																{` Bring Your Own   ${eatin.explanation}`}
 															</li>
 														</div>
 													)
@@ -253,7 +253,8 @@ class Spot extends React.Component {
 														>
 															<li>
 																<i className={takeaway.icon}> </i>
-																{takeaway.explanation}
+
+																{` Bring Your Own   ${takeaway.explanation}`}
 															</li>
 														</div>
 													)
