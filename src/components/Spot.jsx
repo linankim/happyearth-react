@@ -93,7 +93,7 @@ class Spot extends React.Component {
 					<div className="grid sidebar-left">
 						<Sidebar />
 
-						<div className="grid scroll">
+						<div className="grid full">
 							<div className="grid two">
 								<div className="gallery">
 									<div
@@ -125,24 +125,9 @@ class Spot extends React.Component {
 									<Map spot={this.state.spot} />
 								</div>
 							</div>
-							<div className="grid mediumspot transparent">
-								<div>
-									<div className="user">
-										<div className="name">
-											<small>Spotted by</small>
-											<span>
-												<div
-													className="avatar"
-													style={{
-														backgroundImage: `url(${this.state.spotter.avatar})`
-													}}
-												></div>
-												{this.state.spotter.firstName}
-												{this.state.spotter.lastName}
-											</span>
-										</div>
-									</div>
-									<div className="grid titlespot transparent">
+							<div className="details transparent">
+								<div className="grid two">
+									<div>
 										<h1>{this.state.spot.title}</h1>
 										<small className="padding">
 											<i className="fas fa-map-marker-alt"></i>
@@ -151,13 +136,30 @@ class Spot extends React.Component {
 											</span>
 										</small>
 									</div>
-								</div>
-								<div className="grid twocards">
-									{this.state.spot.toggleEatins ? (
-										<div>
-											<div className="grid transparent">
+									<div>
+										<div className="user">
+											<div className="name">
+												<small>Spotted by</small>
+												<span>
+													<div
+														className="avatar"
+														style={{
+															backgroundImage: `url(${this.state.spotter.avatar})`
+														}}
+													></div>
+													{this.state.spotter.firstName}
+													{this.state.spotter.lastName}
+												</span>
+											</div>
+										</div>
+									</div>
+									<div>
+										<p>{this.state.spot.description}</p>
+									</div>
+									<div>
+										{this.state.spot.toggleEatins ? (
+											<div>
 												<h3>Eat In</h3>
-
 												{this.state.spot.eatins.map(eatin => {
 													return (
 														<div className="content" key={eatin._id}>
@@ -169,13 +171,10 @@ class Spot extends React.Component {
 													)
 												})}
 											</div>
-										</div>
-									) : null}
-									{this.state.spot.toggleTakeaways ? (
-										<div>
-											<div className="grid transparent">
+										) : null}
+										{this.state.spot.toggleTakeaways ? (
+											<div>
 												<h3>Take Away</h3>
-
 												{this.state.spot.takeaways.map(takeaway => {
 													return (
 														<div className="content" key={takeaway._id}>
@@ -187,8 +186,8 @@ class Spot extends React.Component {
 													)
 												})}
 											</div>
-										</div>
-									) : null}
+										) : null}
+									</div>
 								</div>
 							</div>
 						</div>
