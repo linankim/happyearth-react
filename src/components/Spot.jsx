@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav.jsx'
 import Map from './Map.jsx'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
@@ -28,7 +27,6 @@ class Spot extends React.Component {
 			types: {},
 			eatins: [],
 			takeaways: [],
-			amenities: [],
 			city: '',
 			country: '',
 			center: {
@@ -38,27 +36,55 @@ class Spot extends React.Component {
 			toggleEatins: false,
 			toggleTakeaways: false
 		},
-		spotter: {}
+		spotter: {},
+		eatins: [],
+		takeaways: [],
+		eatinsArray: [],
+		newEatins: [],
+		remaining: []
 	}
 
 	UNSAFE_componentWillMount() {
 		let spotId = this.props.match.params.id
+		let spot = this.state.spot
+		let eatins = this.state.eatins
+		let takeaways = this.state.takeaways
+		axios
+			.get(`${process.env.REACT_APP_API}/eatins`)
+			.then(res => {
+				eatins = res.data
+				this.setState({ eatins })
+				console.log({ eatins })
+			})
+			.catch(err => {
+				console.log(err)
+			})
+		axios
+			.get(`${process.env.REACT_APP_API}/takeaways`)
+			.then(res => {
+				takeaways = res.data
+				this.setState({ takeaways })
+				console.log({ takeaways })
+			})
+			.catch(err => {
+				console.log(err)
+			})
 		axios
 			.get(`${process.env.REACT_APP_API}/spots/${spotId}`)
 			.then(res => {
 				res.data.selectedImage = res.data.images[0]
-				console.log('res.data.selectedImage', res.data.selectedImage)
-				console.log('res', res)
 				this.setState({ spot: res.data })
 				console.log({ spot: res.data })
+				let spotEatins = this.state.spot.eatins.map(spotEatin => {
+					return (spotEatin.clicked = !spotEatin.clicked)
+				})
+				this.getRemaining()
 				let spotterId = this.state.spot.spotters
-				console.log('spotterId', spotterId)
 				axios
 					.get(`${process.env.REACT_APP_API}/users/${spotterId}`)
 					.then(user => {
 						console.log({ user: user })
 						this.setState({ spotter: user.data })
-						console.log('spotter', { spotter: user.data })
 					})
 					.catch(err => {
 						console.log(err)
@@ -74,11 +100,11 @@ class Spot extends React.Component {
 		this.setState({ spot })
 	}
 	//Like button
-	getClass = () => {
-		return this.state.spot.liked
-			? 'fas fa-globe-africa'
-			: 'fas fa-globe-americas'
-	}
+	// getClass = () => {
+	// 	return this.state.spot.liked
+	// 		? 'fas fa-globe-africa'
+	// 		: 'fas fa-globe-americas'
+	// }
 
 	toggleLike = () => {
 		let spot = this.state.spot
@@ -86,7 +112,23 @@ class Spot extends React.Component {
 		this.setState({ spot })
 	}
 
+	getRemaining = () => {
+		let remaining = this.state.eatins
+		this.state.spot.eatins.forEach(spotEatin => {
+			remaining = remaining.filter(stateEatin => {
+				return spotEatin._id != stateEatin._id
+			})
+		})
+		console.log({ remaining })
+		this.setState({ remaining })
+	}
+
 	render() {
+		let styles = {
+			selected: {
+				color: 'red'
+			}
+		}
 		return (
 			<>
 				<div className="grid image">
@@ -103,7 +145,7 @@ class Spot extends React.Component {
 										}}
 									>
 										<button className="icon" onClick={() => this.toggleLike()}>
-											<i className={this.getClass()}></i>
+											<i className={this.getClass}></i>
 										</button>
 									</div>
 									<div className="thumbnails">
@@ -166,7 +208,21 @@ class Spot extends React.Component {
 												<h3>Eat In</h3>
 												{this.state.spot.eatins.map(eatin => {
 													return (
-														<div className="content" key={eatin._id}>
+														<div
+															className="content"
+															style={styles.selected}
+															key={eatin._id}
+														>
+															<li>
+																<i className={eatin.icon}> </i>
+																{eatin.explanation}
+															</li>
+														</div>
+													)
+												})}
+												{this.state.remaining.map(eatin => {
+													return (
+														<div className="empty" key={eatin._id}>
 															<li>
 																<i className={eatin.icon}> </i>
 																{eatin.explanation}
