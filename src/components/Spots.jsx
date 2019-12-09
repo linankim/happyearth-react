@@ -14,7 +14,13 @@ import Sidebar from './Sidebar.jsx'
 class Spots extends React.Component {
 	state = {
 		array: true,
-		spots: [],
+		spots: [
+			{
+				images: [],
+				types: {},
+				center: {}
+			}
+		],
 		spotsClone: [],
 		center: {}
 	}

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 class Card extends React.Component {
 	state = {
-		spot: this.props.spot
+		spot: this.props.spot,
+		types: this.props.spot.types
 	}
 
 	selectBackground = background => {
@@ -22,7 +23,9 @@ class Card extends React.Component {
 					style={this.selectBackground(this.state.spot.images[0])}
 				></div>
 				<div className="content">
-					<small className="meta">{this.state.spot.title}</small>
+					{this.state.types ? (
+						<small className="meta">{this.state.types.name}</small>
+					) : null}
 					<h2>{this.state.spot.title}</h2>
 					<small className="location">
 						<span>
