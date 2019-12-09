@@ -25,7 +25,7 @@ class Spot extends React.Component {
 				avatar: ''
 			},
 			description: '',
-			types: [],
+			types: {},
 			eatins: [],
 			takeaways: [],
 			amenities: [],
@@ -34,7 +34,9 @@ class Spot extends React.Component {
 			center: {
 				lat: 59.95,
 				lng: 30.33
-			}
+			},
+			toggleEatins: false,
+			toggleTakeaways: false
 		},
 		spotter: {}
 	}
@@ -133,6 +135,9 @@ class Spot extends React.Component {
 												{this.state.spot.city}, {this.state.spot.country}
 											</span>
 										</small>
+										{this.state.spot.types ? (
+											<div>{this.state.spot.types.name}</div>
+										) : null}
 									</div>
 									<div>
 										<div className="user">
@@ -155,28 +160,36 @@ class Spot extends React.Component {
 										<p>{this.state.spot.description}</p>
 									</div>
 									<div>
-										<h3>Eat In</h3>
-										{this.state.spot.eatins.map(eatin => {
-											return (
-												<div className="content" key={eatin._id}>
-													<li>
-														<i className={eatin.icon}> </i>
-														{eatin.explanation}
-													</li>
-												</div>
-											)
-										})}
-										<h3>Take Away</h3>
-										{this.state.spot.takeaways.map(takeaway => {
-											return (
-												<div className="content" key={takeaway._id}>
-													<li>
-														<i className={takeaway.icon}> </i>
-														{takeaway.explanation}
-													</li>
-												</div>
-											)
-										})}
+										{this.state.spot.toggleEatins ? (
+											<div>
+												<h3>Eat In</h3>
+												{this.state.spot.eatins.map(eatin => {
+													return (
+														<div className="content" key={eatin._id}>
+															<li>
+																<i className={eatin.icon}> </i>
+																{eatin.explanation}
+															</li>
+														</div>
+													)
+												})}
+											</div>
+										) : null}
+										{this.state.spot.toggleTakeaways ? (
+											<div>
+												<h3>Take Away</h3>
+												{this.state.spot.takeaways.map(takeaway => {
+													return (
+														<div className="content" key={takeaway._id}>
+															<li>
+																<i className={takeaway.icon}> </i>
+																{takeaway.explanation}
+															</li>
+														</div>
+													)
+												})}
+											</div>
+										) : null}
 									</div>
 								</div>
 							</div>
