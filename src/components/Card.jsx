@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/login.css'
 
 class Card extends React.Component {
 	state = {
@@ -19,14 +20,14 @@ class Card extends React.Component {
 		return (
 			<Link className="card link" to={`/spots/${this.state.spot._id}`}>
 				<div
-					className="image"
+					className="image loginfont"
 					style={this.selectBackground(this.state.spot.images[0])}
 				></div>
-				<div className="content">
+				<div className="content loginfont">
 					{this.state.types ? (
-						<small className="meta">{this.state.types.name}</small>
+						<small className="meta loginfont">{this.state.types.name}</small>
 					) : null}
-					<h2>{this.state.spot.title}</h2>
+					<h2 className="loginfonttitle">{this.state.spot.title}</h2>
 					<small className="location">
 						<span>
 							{this.state.spot.city}, {this.state.spot.country}
