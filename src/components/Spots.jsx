@@ -89,7 +89,7 @@ class Spots extends React.Component {
 							filterByType={this.filterByType}
 						/>
 
-						<div className="grid two">
+						<div className="grid twospots">
 							<div className="fixed">
 								<div className="grid twocards">
 									{this.state.spots.map(spot => (
