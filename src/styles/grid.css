@@ -39,6 +39,11 @@
 	margin-top: 30px;
 }
 
+.whitebackground {
+	background-color: white;
+	margin-top: 30px;
+}
+
 .grid.center {
 	justify-content: center;
 }
