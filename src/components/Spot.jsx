@@ -215,24 +215,24 @@ class Spot extends React.Component {
 												<h3>Eat In</h3>
 												{this.state.spot.eatins.map(eatin => {
 													return (
-														<div
-															className="content"
-															style={styles.selected}
-															key={eatin._id}
-														>
+														<div className="content" key={eatin._id}>
 															<li>
 																<i className={eatin.icon}> </i>
-																{` Bring Your Own   ${eatin.explanation}`}
+																{eatin.explanation}
 															</li>
 														</div>
 													)
 												})}
 												{this.state.remainingEatins.map(eatin => {
 													return (
-														<div className="empty" key={eatin._id}>
+														<div
+															className="empty"
+															style={styles.selected}
+															key={eatin._id}
+														>
 															<li>
 																<i className={eatin.icon}> </i>
-																{eatin.explanation}
+																{` Bring Your Own   ${eatin.explanation}`}
 															</li>
 														</div>
 													)
@@ -246,25 +246,24 @@ class Spot extends React.Component {
 												<h3>Take Away</h3>
 												{this.state.spot.takeaways.map(takeaway => {
 													return (
-														<div
-															className="content"
-															style={styles.selected}
-															key={takeaway._id}
-														>
+														<div className="content" key={takeaway._id}>
 															<li>
 																<i className={takeaway.icon}> </i>
-
-																{` Bring Your Own   ${takeaway.explanation}`}
+																{takeaway.explanation}
 															</li>
 														</div>
 													)
 												})}
 												{this.state.remainingTakeaways.map(takeaway => {
 													return (
-														<div className="empty" key={takeaway._id}>
+														<div
+															className="empty"
+															style={styles.selected}
+															key={takeaway._id}
+														>
 															<li>
 																<i className={takeaway.icon}> </i>
-																{takeaway.explanation}
+																{` Bring Your Own   ${takeaway.explanation}`}
 															</li>
 														</div>
 													)
