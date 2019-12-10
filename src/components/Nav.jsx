@@ -8,11 +8,22 @@ import Sidebar from './Sidebar.jsx'
 
 class Nav extends React.Component {
 	state = {
-		user: {},
-		menuOpen: false
+		user: {
+			avatar: '',
+			firstName: ''
+		},
+		menuOpen: false,
+		guest: true,
+		firstName: 'Guest',
+		avatar: 'fas fa-smile-beam'
 	}
 
 	componentDidMount() {
+		if (!localStorage.getItem('token')) {
+			this.setState({ guest: true })
+		} else {
+			this.setState({ guest: false })
+		}
 		axios
 			.get(`${process.env.REACT_APP_API}/auth`, {
 				headers: {
@@ -37,13 +48,27 @@ class Nav extends React.Component {
 				></Link>
 				<div className="profile">
 					<Link to="/profile" className="button">
-						<div
-							className="avatar"
-							style={{
-								backgroundImage: `url(${this.state.user.avatar})`
-							}}
-						></div>
-						<span>{this.state.user.firstName}</span>
+						{this.state.guest ? (
+							<wrapper>
+								<div
+									className="fas fa-smile-beam"
+									style={{
+										backgroundImage: `url(${this.state.avatar})`
+									}}
+								></div>
+								<span>{this.state.firstName}</span>
+							</wrapper>
+						) : (
+							<wrapper>
+								<div
+									className="avatar "
+									style={{
+										backgroundImage: `url(${this.state.user.avatar})`
+									}}
+								></div>
+								<span> {this.state.user.firstName} </span>
+							</wrapper>
+						)}
 					</Link>
 				</div>
 			</nav>

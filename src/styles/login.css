@@ -1,0 +1,50 @@
+.loginimage {
+	display: grid;
+	background-image: url('https://images.pexels.com/photos/1779746/pexels-photo-1779746.jpeg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-attachment: fixed;
+	overflow-y: scroll;
+	align-content: center;
+	justify-content: center;
+}
+
+.loginform {
+	height: auto;
+	width: 400px;
+	border-radius: 3px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.loginsignupform {
+	width: 400px;
+	height: 800px;
+	border-radius: 3px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+.loginheader {
+	text-align: center;
+	font-family: 'EB Garamond', serif;
+	font-size: 50px;
+	padding-bottom: 10px;
+}
+
+.createheader {
+	text-align: center;
+	font-family: 'EB Garamond', serif;
+	font-size: 40px;
+}
+
+.loginfont {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+}
+
+.loginfonttitle {
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 20px;
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
-import '../styles/burger.css'
 import '../styles/sidebar.css'
 
 class Sidebar extends React.Component {
@@ -26,10 +25,10 @@ class Sidebar extends React.Component {
 			<wrapper>
 				{this.state.localStorage ? (
 					<div className="loggedIn">
-						<div className="sidebar image">
+						<div className="sidebar sidetransparent">
 							<ul>
 								<li>
-									<h4>Happy Earth</h4>
+									<div className="font">Happy Earth</div>
 								</li>
 								<li className="active">
 									<Link to="/profile">Profile</Link>
@@ -38,9 +37,9 @@ class Sidebar extends React.Component {
 									<Link to="/create">Create</Link>
 								</li>
 								<li className="active">
-									<Link to="/spots">Spots</Link>
+									<Link to="/">Spots</Link>
 								</li>
-								<li className="active">
+								<li className="active" onClick={e => this.logoutButton(e)}>
 									<Link to="/">Logout</Link>
 								</li>
 							</ul>
@@ -48,16 +47,19 @@ class Sidebar extends React.Component {
 					</div>
 				) : (
 					<div className="guest">
-						<div className="sidebar">
+						<div className="sidebar sidetransparent">
 							<ul>
 								<li>
-									<h4>Happy Earth</h4>
+									<div className="font ">Happy Earth</div>
 								</li>
 								<li className="active">
 									<Link to="/create">Create</Link>
 								</li>
 								<li className="active">
-									<Link to="/spots">Spots</Link>
+									<Link to="/">Spots</Link>
+								</li>
+								<li className="active">
+									<Link to="/login">Login</Link>
 								</li>
 								<li className="active">
 									<Link to="/signup">Sign Up</Link>

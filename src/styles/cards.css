@@ -1,7 +1,6 @@
 .card {
-	border: 1px solid #e2e2e2;
 	border-radius: 2px;
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255);
 }
 
 a.card {
@@ -21,7 +20,7 @@ a.card {
 }
 
 .card > .content {
-	padding: 20px;
+	padding: 10px;
 	margin: 0;
 }
 
@@ -76,12 +75,12 @@ a.card {
 	color: rgb(37, 120, 69);
 	text-transform: uppercase;
 	font-family: Arial, sans-serif;
-	font-size: 11px;
+	font-size: 15px;
 	font-weight: bold;
 }
 
 .card .content small.location {
-	margin-bottom: 10px;
+	font-size: 15px;
 }
 
 .card .content small.location i + span {
@@ -89,7 +88,7 @@ a.card {
 }
 
 .card .content h2 {
-	font-size: 18px;
+	font-size: 20px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
@@ -118,7 +117,7 @@ a.card {
 
 .card .location {
 	display: block;
-	font-size: 11px;
+	font-size: 13px;
 	margin-top: 10px;
 }
 

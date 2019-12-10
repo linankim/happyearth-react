@@ -9,14 +9,19 @@ class Pin extends React.Component {
 			lng: this.props.spot.center.lng
 		}
 	}
+	UNSAFE_componentWillReceiveProps(props) {
+		this.setState({
+			title: this.props.spot.title,
+			center: {
+				lat: this.props.spot.center.lat,
+				lng: this.props.spot.center.lng
+			}
+		})
+	}
 	render() {
 		return (
-			<div
-				className="pin"
-				lat={this.state.center.lat}
-				lng={this.state.center.lng}
-			>
-				<label>${this.state.title}</label>
+			<div className="pin">
+				<label>{this.state.title}</label>
 			</div>
 		)
 	}

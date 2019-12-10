@@ -1,17 +1,14 @@
 import React from 'react'
-import Nav from './Nav.jsx'
-import GoogleMap from 'google-map-react'
+import Map from './Map.jsx'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
-import Pin from './Pin.jsx'
 import Sidebar from './Sidebar.jsx'
 import '../styles/buttons.css'
 import '../styles/cards.css'
 import '../styles/forms.css'
-import '../styles/icons.css'
 import '../styles/gallery.css'
-import '../styles/googlemap.css'
 import '../styles/grid.css'
+import '../styles/icons.css'
 import '../styles/sidebar.css'
 import '../styles/users.css'
 
@@ -27,37 +24,64 @@ class Spot extends React.Component {
 				avatar: ''
 			},
 			description: '',
-			types: [],
-			amenities: [],
+			types: {},
+			eatins: [],
+			takeaways: [],
 			city: '',
 			country: '',
-			key: {
-				key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
+			center: {
+				lat: 59.95,
+				lng: 30.33
 			},
-			center: {},
-			zoom: 11
+			toggleEatins: false,
+			toggleTakeaways: false
 		},
-		spotter: {}
+		spotter: {},
+		eatins: [],
+		takeaways: [],
+		remainingEatins: [],
+		remainingTakeaways: []
 	}
 
 	UNSAFE_componentWillMount() {
 		let spotId = this.props.match.params.id
+		let spot = this.state.spot
+		let eatins = this.state.eatins
+		let takeaways = this.state.takeaways
+		axios
+			.get(`${process.env.REACT_APP_API}/eatins`)
+			.then(res => {
+				eatins = res.data
+				this.setState({ eatins })
+				console.log({ eatins })
+			})
+			.catch(err => {
+				console.log(err)
+			})
+		axios
+			.get(`${process.env.REACT_APP_API}/takeaways`)
+			.then(res => {
+				takeaways = res.data
+				this.setState({ takeaways })
+				console.log({ takeaways })
+			})
+			.catch(err => {
+				console.log(err)
+			})
 		axios
 			.get(`${process.env.REACT_APP_API}/spots/${spotId}`)
 			.then(res => {
 				res.data.selectedImage = res.data.images[0]
-				console.log('res.data.selectedImage', res.data.selectedImage)
-				console.log('res', res)
 				this.setState({ spot: res.data })
 				console.log({ spot: res.data })
+				this.getRemainingEatins()
+				this.getRemainingTakeaways()
 				let spotterId = this.state.spot.spotters
-				console.log('spotterId', spotterId)
 				axios
 					.get(`${process.env.REACT_APP_API}/users/${spotterId}`)
 					.then(user => {
 						console.log({ user: user })
 						this.setState({ spotter: user.data })
-						console.log('spotter', { spotter: user.data })
 					})
 					.catch(err => {
 						console.log(err)
@@ -73,11 +97,11 @@ class Spot extends React.Component {
 		this.setState({ spot })
 	}
 	//Like button
-	getClass = () => {
-		return this.state.spot.liked
-			? 'fas fa-globe-africa'
-			: 'fas fa-globe-americas'
-	}
+	// getClass = () => {
+	// 	return this.state.spot.liked
+	// 		? 'fas fa-globe-africa'
+	// 		: 'fas fa-globe-americas'
+	// }
 
 	toggleLike = () => {
 		let spot = this.state.spot
@@ -85,113 +109,172 @@ class Spot extends React.Component {
 		this.setState({ spot })
 	}
 
+	getRemainingEatins = () => {
+		let remainingEatins = this.state.eatins
+		this.state.spot.eatins.forEach(spotEatin => {
+			remainingEatins = remainingEatins.filter(stateEatin => {
+				return spotEatin._id != stateEatin._id
+			})
+		})
+		console.log({ remainingEatins })
+		this.setState({ remainingEatins })
+	}
+
+	getRemainingTakeaways = () => {
+		let remainingTakeaways = this.state.takeaways
+		this.state.spot.takeaways.forEach(spotTakeaway => {
+			remainingTakeaways = remainingTakeaways.filter(stateTakeaway => {
+				return spotTakeaway._id != stateTakeaway._id
+			})
+		})
+		console.log({ remainingTakeaways })
+		this.setState({ remainingTakeaways })
+	}
+
 	render() {
+		let styles = {
+			selected: {
+				color: 'red'
+			}
+		}
 		return (
 			<>
 				<div className="grid image">
 					<div className="grid sidebar-left">
 						<Sidebar />
-						<div className="grid">
-							<Nav />
-							<div className="grid scroll">
-								<div className="grid two">
-									<div className="gallery">
-										<div
-											className="image-main"
-											style={{
-												backgroundImage: `url('${this.state.spot.selectedImage}')`
-											}}
-										>
-											<button
-												className="icon"
-												onClick={() => this.toggleLike()}
-											>
-												<i className={this.getClass()}></i>
-											</button>
-										</div>
-										<div className="thumbnails">
-											{this.state.spot.images.map((image, index) => {
-												return (
-													<div
-														className="thumbnail"
-														style={{
-															backgroundImage: `url(${image})`
-														}}
-														key={index}
-														onClick={() => this.clickedImage(image)}
-													></div>
-												)
-											})}
-										</div>
+
+						<div className="grid full">
+							<div className="grid two">
+								<div className="gallery">
+									<div
+										className="image-main"
+										style={{
+											backgroundImage: `url('${this.state.spot.selectedImage}')`
+										}}
+									>
+										<button className="icon" onClick={() => this.toggleLike()}>
+											<i className={this.getClass}></i>
+										</button>
 									</div>
-									<div>
-										<GoogleMap
-											bootstrapURLKeys={this.state.spot.key}
-											center={this.state.spot.center}
-											zoom={this.state.spot.zoom}
-											className="map"
-										>
-											<Pin spot={this.state.spot} key={this.state.spot._id} />
-										</GoogleMap>
+									<div className="thumbnails">
+										{this.state.spot.images.map((image, index) => {
+											return (
+												<div
+													className="thumbnail"
+													style={{
+														backgroundImage: `url(${image})`
+													}}
+													key={index}
+													onClick={() => this.clickedImage(image)}
+												></div>
+											)
+										})}
 									</div>
 								</div>
-								<div className="grid medium">
+								<div className="map">
+									<Map spot={this.state.spot} />
+								</div>
+							</div>
+							<div className="details transparent">
+								<div className="grid two">
+									<div>
+										<h1>{this.state.spot.title}</h1>
+										<small className="padding">
+											<i className="fas fa-map-marker-alt"></i>
+											<span>
+												{this.state.spot.city}, {this.state.spot.country}
+											</span>
+										</small>
+										{this.state.spot.types ? (
+											<div>{this.state.spot.types.name}</div>
+										) : null}
+									</div>
+
 									<div>
 										<div className="user">
 											<div className="name">
 												<small>Spotted by</small>
 												<span>
-													{this.state.spotter.avatar}
-													{this.state.spotter.firstName}
-													{this.state.spotter.lastName}
+													<div
+														className="avatar"
+														style={{
+															backgroundImage: `url(${this.state.spotter.avatar})`
+														}}
+													></div>
+													<div>
+														{`${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+													</div>
 												</span>
 											</div>
 										</div>
-										<div className="content">
-											<h1>{this.state.spot.title}</h1>
-											<small>
-												<i className="fas fa-map-marker-alt"></i>
-												<span>
-													{this.state.spot.city}, {this.state.spot.country}
-												</span>
-											</small>
-										</div>
 									</div>
-									<div className="grid twocards">
-										<div>
-											<div className="grid">
-												<h3>Amenities</h3>
 
-												{this.state.spot.amenities.map(amenity => {
+									<div>
+										{this.state.spot.toggleEatins ? (
+											<div>
+												<h3>Eat In</h3>
+												{this.state.spot.eatins.map(eatin => {
 													return (
-														<div className="content" key={amenity._id}>
+														<div className="content" key={eatin._id}>
 															<li>
-																<i className={amenity.icon}> </i>
-																{amenity.name}
+																<i className={eatin.icon}> </i>
+																{eatin.explanation}
+															</li>
+														</div>
+													)
+												})}
+												{this.state.remainingEatins.map(eatin => {
+													return (
+														<div
+															className="empty"
+															style={styles.selected}
+															key={eatin._id}
+														>
+															<li>
+																<i className={eatin.icon}> </i>
+																{` Bring Your Own   ${eatin.explanation}`}
 															</li>
 														</div>
 													)
 												})}
 											</div>
-										</div>
-
-										<div>
-											<div className="grid">
-												<h3>Amenities</h3>
-
-												{this.state.spot.amenities.map(amenity => {
+										) : null}
+									</div>
+									<div>
+										{this.state.spot.toggleTakeaways ? (
+											<div>
+												<h3>Take Away</h3>
+												{this.state.spot.takeaways.map(takeaway => {
 													return (
-														<div className="content" key={amenity._id}>
+														<div className="content" key={takeaway._id}>
 															<li>
-																<i className={amenity.icon}> </i>
-																{amenity.name}
+																<i className={takeaway.icon}> </i>
+																{takeaway.explanation}
+															</li>
+														</div>
+													)
+												})}
+												{this.state.remainingTakeaways.map(takeaway => {
+													return (
+														<div
+															className="empty"
+															style={styles.selected}
+															key={takeaway._id}
+														>
+															<li>
+																<i className={takeaway.icon}> </i>
+																{` Bring Your Own   ${takeaway.explanation}`}
 															</li>
 														</div>
 													)
 												})}
 											</div>
-										</div>
+										) : null}
 									</div>
+								</div>
+								<div>
+									<span>About this Spot</span>
+									<p className="loginfont">{this.state.spot.description}</p>
 								</div>
 							</div>
 						</div>

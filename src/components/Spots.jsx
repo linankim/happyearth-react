@@ -4,19 +4,25 @@ import { withRouter } from 'react-router-dom'
 import Card from './Card.jsx'
 import Nav from './Nav.jsx'
 import Filters from './Filters.jsx'
+import Map from './Map.jsx'
+import Pin from './Pin.jsx'
 import '../styles/grid.css'
 import '../styles/spots.css'
+import '../styles/grid.css'
 import Sidebar from './Sidebar.jsx'
-import GoogleMap from 'google-map-react'
-import Pin from './Pin.jsx'
 
 class Spots extends React.Component {
 	state = {
-		spots: [],
+		array: true,
+		spots: [
+			{
+				images: [],
+				types: {},
+				center: {}
+			}
+		],
 		spotsClone: [],
-		key: {
-			key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
-		}
+		center: {}
 	}
 
 	updateSearchField = e => {
@@ -50,10 +56,21 @@ class Spots extends React.Component {
 	}
 
 	componentDidMount() {
+		let spot = this.state.spot
+		let cityName = this.props.location.search.split('=')[1]
 		axios
-			.get(`${process.env.REACT_APP_API}/spots`)
+			.get(`${process.env.REACT_APP_API}/spots?city=${cityName}`)
 			.then(res => {
-				this.setState({ spots: res.data, spotsClone: res.data })
+				// spot.center.lat = res.data[0].center.lat
+				// spot.center.lng = res.data[0].center.lng
+				// console.log('res.data[0].center.lat', res.data[0].center.lat)
+				// console.log('res.data[0].center.lng', res.data[0].center.lng)
+				// console.log(res.data)
+				this.setState({
+					spots: res.data,
+					spotsClone: res.data,
+					center: res.data[0].center
+				})
 				console.log('res data >>>>>>>>>', res.data)
 			})
 			.catch(error => {
@@ -66,20 +83,23 @@ class Spots extends React.Component {
 			<div className="grid image">
 				<div className="grid sidebar-left">
 					<Sidebar />
-					<div className="grid">
-						<Nav />
+					<div>
 						<Filters
 							updateSearchField={this.updateSearchField}
 							filterByType={this.filterByType}
 						/>
 
-						<div className="grid two">
-							<div className="grid twocards">
-								{this.state.spots.map(spot => (
-									<Card spot={spot} key={spot._id} />
-								))}
+						<div className="grid twospots">
+							<div className="fixed">
+								<div className="grid twocards">
+									{this.state.spots.map(spot => (
+										<Card spot={spot} key={spot._id} />
+									))}
+								</div>
 							</div>
-							<div></div>
+							<div className="map">
+								<Map spots={this.state.spots} center={this.state.center} />
+							</div>
 						</div>
 					</div>
 				</div>
