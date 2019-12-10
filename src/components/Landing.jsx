@@ -17,7 +17,6 @@ class Landing extends React.Component {
 				// else set state options = "Not found"
 				if (res.data[0]) {
 					console.log('res.data', res.data)
-					console.log('res.data.length', res.data.length)
 					this.setState({ options: res.data })
 				} else {
 					this.setState({
@@ -73,9 +72,9 @@ class Landing extends React.Component {
 										<div
 											className="option"
 											onClick={this.selectOption}
-											id={option.city}
+											id={option}
 										>
-											{option.city}
+											{option}
 										</div>
 									)
 								})}
