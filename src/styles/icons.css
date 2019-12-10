@@ -22,7 +22,3 @@ i {
 .fa-map-marker-alt {
 	color: #00988f;
 }
-
-small i + span {
-	margin-left: 10px;
-}
