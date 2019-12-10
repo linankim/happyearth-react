@@ -3,6 +3,7 @@ import Map from './Map.jsx'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import Sidebar from './Sidebar.jsx'
+import '../styles/spot.css'
 import '../styles/buttons.css'
 import '../styles/cards.css'
 import '../styles/forms.css'
@@ -134,7 +135,7 @@ class Spot extends React.Component {
 	render() {
 		let styles = {
 			selected: {
-				color: 'red'
+				color: '#27965c'
 			}
 		}
 		return (
@@ -146,15 +147,20 @@ class Spot extends React.Component {
 						<div className="grid full">
 							<div className="grid two">
 								<div className="gallery">
-									<div
-										className="image-main"
-										style={{
-											backgroundImage: `url('${this.state.spot.selectedImage}')`
-										}}
-									>
-										<button className="icon" onClick={() => this.toggleLike()}>
-											<i className={this.getClass}></i>
-										</button>
+									<div className="gallerymain">
+										<div
+											className="image-main"
+											style={{
+												backgroundImage: `url('${this.state.spot.selectedImage}')`
+											}}
+										>
+											<button
+												className="icon"
+												onClick={() => this.toggleLike()}
+											>
+												<i className={this.getClass}></i>
+											</button>
+										</div>
 									</div>
 									<div className="thumbnails">
 										{this.state.spot.images.map((image, index) => {
@@ -175,36 +181,38 @@ class Spot extends React.Component {
 									<Map spot={this.state.spot} />
 								</div>
 							</div>
-							<div className="details transparent">
+							<div className="details whitebackground">
 								<div className="grid two">
 									<div>
-										<h1>{this.state.spot.title}</h1>
-										<small className="padding">
+										<div>
+											{this.state.spot.types ? (
+												<div className="typefont">
+													{this.state.spot.types.name}
+												</div>
+											) : null}
+										</div>
+										<div className="titlefont">{this.state.spot.title}</div>
+										<small className="paddingleftten">
 											<i className="fas fa-map-marker-alt"></i>
-											<span>
+											<span className="locationfont">
 												{this.state.spot.city}, {this.state.spot.country}
 											</span>
 										</small>
-										{this.state.spot.types ? (
-											<div>{this.state.spot.types.name}</div>
-										) : null}
 									</div>
 
 									<div>
-										<div className="user">
-											<div className="name">
-												<small>Spotted by</small>
-												<span>
-													<div
-														className="avatar"
-														style={{
-															backgroundImage: `url(${this.state.spotter.avatar})`
-														}}
-													></div>
-													<div>
-														{`${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
-													</div>
-												</span>
+										<div className="user minitwogrid">
+											<div
+												className="avatar"
+												style={{
+													backgroundImage: `url(${this.state.spotter.avatar})`
+												}}
+											></div>
+											<div>
+												<div className="spottedbyfont">Spotted by:</div>
+												<div className="spottedbyfont">
+													{` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+												</div>
 											</div>
 										</div>
 									</div>
@@ -212,10 +220,10 @@ class Spot extends React.Component {
 									<div>
 										{this.state.spot.toggleEatins ? (
 											<div>
-												<h3>Eat In</h3>
+												<div className="eatinfont">Eat In</div>
 												{this.state.spot.eatins.map(eatin => {
 													return (
-														<div className="content" key={eatin._id}>
+														<div className="amenityfontbold" key={eatin._id}>
 															<li>
 																<i className={eatin.icon}> </i>
 																{eatin.explanation}
@@ -226,7 +234,7 @@ class Spot extends React.Component {
 												{this.state.remainingEatins.map(eatin => {
 													return (
 														<div
-															className="empty"
+															className="amenityfont"
 															style={styles.selected}
 															key={eatin._id}
 														>
@@ -243,10 +251,10 @@ class Spot extends React.Component {
 									<div>
 										{this.state.spot.toggleTakeaways ? (
 											<div>
-												<h3>Take Away</h3>
+												<div className="eatinfont">Take Away</div>
 												{this.state.spot.takeaways.map(takeaway => {
 													return (
-														<div className="content" key={takeaway._id}>
+														<div className="amenityfontbold" key={takeaway._id}>
 															<li>
 																<i className={takeaway.icon}> </i>
 																{takeaway.explanation}
@@ -257,7 +265,7 @@ class Spot extends React.Component {
 												{this.state.remainingTakeaways.map(takeaway => {
 													return (
 														<div
-															className="empty"
+															className="amenityfont"
 															style={styles.selected}
 															key={takeaway._id}
 														>
@@ -273,8 +281,10 @@ class Spot extends React.Component {
 									</div>
 								</div>
 								<div>
-									<span>About this Spot</span>
-									<p className="loginfont">{this.state.spot.description}</p>
+									<div className="aboutspotfont">About this Spot</div>
+									<div className="descriptionfont">
+										{this.state.spot.description}
+									</div>
 								</div>
 							</div>
 						</div>
