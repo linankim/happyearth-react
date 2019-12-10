@@ -2,6 +2,10 @@
 	border-bottom: 1px solid #e2e2e2;
 }
 
+.gallerymain {
+	background-color: white;
+	padding: 20px;
+}
 .gallery .image-main {
 	height: 500px;
 	background-position: center;
