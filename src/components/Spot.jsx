@@ -175,7 +175,7 @@ class Spot extends React.Component {
 									<Map spot={this.state.spot} />
 								</div>
 							</div>
-							<div className="details transparent">
+							<div className="details whitebackground">
 								<div className="grid two">
 									<div>
 										<h1>{this.state.spot.title}</h1>
