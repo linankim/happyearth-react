@@ -7,7 +7,7 @@ class Create extends React.Component {
 	state = {
 		user: {},
 		spot: {
-			file: '',
+			files: [],
 			images: [],
 			types: '',
 			eatins: [],
@@ -150,7 +150,8 @@ class Create extends React.Component {
 		// this.setState({ spot }, () => {
 		// 	console.log('state', this.state)
 		// })
-		spot.file = e.target.files[0]
+		spot.files = e.target.files
+		console.log('spot.files', spot.files)
 		this.setState({ spot }, () => {
 			console.log('state', this.state)
 		})
