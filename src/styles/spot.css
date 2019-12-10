@@ -1,0 +1,61 @@
+.titlefont {
+	font-family: 'EB Garamond', serif;
+	font-size: 50px;
+}
+
+.locationfont {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+
+.typefont {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	padding-top: 10px 10px 0px 10px;
+}
+
+.eatinfont {
+	font-family: 'EB Garamond', serif;
+	font-size: 30px;
+	padding: 10px 0px;
+}
+
+.paddingleftten {
+	padding-left: 10px;
+}
+
+.minitwogrid {
+	grid-template-columns: 1fr 4fr;
+}
+.amenityfont {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	padding-top: 2px;
+}
+
+.amenityfontbold {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	padding-top: 2px;
+	font-weight: bold;
+	color: grey;
+}
+
+.spottedbyfont {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	padding-top: 2px;
+}
+.aboutspotfont {
+	font-family: 'EB Garamond', serif;
+	font-size: 35px;
+	padding-top: 10px;
+}
+
+.descriptionfont {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	padding-top: 10px;
+}
