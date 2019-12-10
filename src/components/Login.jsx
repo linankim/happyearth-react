@@ -29,7 +29,7 @@ class Login extends React.Component {
 						console.log('Problems with login')
 					} else {
 						localStorage.setItem('token', res.data.token)
-						this.props.history.push('/')
+						this.props.history.push('/create')
 					}
 				})
 				.catch(err => {
