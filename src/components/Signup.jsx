@@ -40,7 +40,8 @@ class Signup extends React.Component {
 			this.state.user.lastName !== '' &&
 			this.state.user.email !== '' &&
 			this.state.user.password !== '' &&
-			this.state.user.residenceCountry !== ''
+			this.state.user.residenceCountry !== '' &&
+			this.state.user.avatar !== ''
 		) {
 			let data = new FormData()
 			console.log('i am at this point')
@@ -58,7 +59,7 @@ class Signup extends React.Component {
 						localStorage.setItem('token', res.data.token)
 						this.props.history.push('/')
 					} else {
-						alert('email adress already in use')
+						alert('This email address is already in use.')
 					}
 				})
 				.catch(err => {
@@ -66,7 +67,7 @@ class Signup extends React.Component {
 					console.log('NO')
 				})
 		} else {
-			alert('All fields must entered')
+			alert('All fields must entered.')
 		}
 	}
 	render() {
