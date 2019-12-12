@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import '../styles/login.css'
+import Sidebar from './Sidebar.jsx'
 
 class Login extends React.Component {
 	state = {
@@ -42,38 +43,41 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className="loginimage">
-				<div className="loginform">
-					<div>
-						<div className="loginheader">
-							<div>Happy Earth</div>
+			<div>
+				<Sidebar />
+				<div className="loginimage">
+					<div className="loginform">
+						<div>
+							<div className="loginheader">
+								<div>Happy Earth</div>
+							</div>
+							<form>
+								<div className="group">
+									<label className="loginfont">Email</label>
+									<input
+										type="email"
+										value={this.state.email}
+										onChange={e => this.changeField(e, 'email')}
+									/>
+								</div>
+								<div className="group">
+									<label className="loginfont">Password</label>
+									<input
+										type="password"
+										value={this.state.password}
+										onChange={e => this.changeField(e, 'password')}
+									/>
+								</div>
+								<button className="primary" onClick={this.login}>
+									Login
+								</button>
+							</form>
+							<p className="footer">
+								<a className="loginfont" href="/Signup">
+									Signup
+								</a>
+							</p>
 						</div>
-						<form>
-							<div className="group">
-								<label className="loginfont">Email</label>
-								<input
-									type="email"
-									value={this.state.email}
-									onChange={e => this.changeField(e, 'email')}
-								/>
-							</div>
-							<div className="group">
-								<label className="loginfont">Password</label>
-								<input
-									type="password"
-									value={this.state.password}
-									onChange={e => this.changeField(e, 'password')}
-								/>
-							</div>
-							<button className="primary" onClick={this.login}>
-								Login
-							</button>
-						</form>
-						<p className="footer">
-							<a className="loginfont" href="/Signup">
-								Signup
-							</a>
-						</p>
 					</div>
 				</div>
 			</div>
