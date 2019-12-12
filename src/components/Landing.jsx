@@ -20,11 +20,7 @@ class Landing extends React.Component {
 					this.setState({ options: res.data })
 				} else {
 					this.setState({
-						options: [
-							{
-								city: 'Not Found'
-							}
-						]
+						options: ['Not available']
 					})
 				}
 			})
