@@ -155,7 +155,9 @@ class Signup extends React.Component {
 									onChange={e => this.changeField(e, 'firstName')}
 								/>
 								{this.state.emptyField.firstName ? (
-									<p className="info">Please type in your first name</p>
+									<p className="logininfontalert">
+										Please type in your first name
+									</p>
 								) : null}
 							</div>
 							<div className="group">
@@ -166,7 +168,9 @@ class Signup extends React.Component {
 									onChange={e => this.changeField(e, 'lastName')}
 								/>
 								{this.state.emptyField.lastName ? (
-									<p className="info">Please type in your last name</p>
+									<p className="logininfontalert">
+										Please type in your last name
+									</p>
 								) : null}
 							</div>
 							<div className="group">
@@ -177,7 +181,7 @@ class Signup extends React.Component {
 									onChange={e => this.changeField(e, 'residenceCountry')}
 								/>
 								{this.state.emptyField.residenceCountry ? (
-									<p className="info">
+									<p className="logininfontalert">
 										Please type in your country of residence
 									</p>
 								) : null}
@@ -190,7 +194,7 @@ class Signup extends React.Component {
 									onChange={e => this.changeField(e, 'email')}
 								/>
 								{this.state.emptyField.email ? (
-									<p className="info">Please type in your email</p>
+									<p className="logininfontalert">Please type in your email</p>
 								) : null}
 							</div>
 							<div className="group">
@@ -201,7 +205,9 @@ class Signup extends React.Component {
 									onChange={e => this.changeField(e, 'password')}
 								/>
 								{this.state.emptyField.password ? (
-									<p className="info">Please type in your password</p>
+									<p className="logininfontalert">
+										Please type in your password
+									</p>
 								) : null}
 							</div>
 							<div className="group">
@@ -209,7 +215,7 @@ class Signup extends React.Component {
 								<input type="file" onChange={this.addFile} />
 							</div>
 							{this.state.alert ? (
-								<p className="info">Email already exist</p>
+								<p className="logininfontalert">Email already exist</p>
 							) : null}
 							<button className="primary" onClick={this.signup}>
 								Signup
