@@ -48,3 +48,10 @@
 	font-family: 'Cormorant Garamond', serif;
 	font-size: 20px;
 }
+
+.logininfontalert {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	color: #972822;
+	font-style: italic;
+}
