@@ -99,8 +99,35 @@ class Signup extends React.Component {
 						localStorage.setItem('token', res.data.token)
 						this.props.history.push('/')
 					} else {
+						console.log('else statement triggered')
 						this.state.alert = !this.state.alert
-						this.setState({ alert })
+						this.setState({ alert: this.state.alert })
+					}
+				})
+				.catch(err => {
+					console.log({ err })
+				})
+		} else if (
+			this.state.user.firstName !== '' &&
+			this.state.user.lastName !== '' &&
+			this.state.user.email !== '' &&
+			this.state.user.password !== '' &&
+			this.state.user.residenceCountry !== ''
+		) {
+			console.log('thats it')
+			axios
+				.post(`${process.env.REACT_APP_API}/signup`, this.state.user)
+				.then(res => {
+					console.log('here i am')
+					console.log(res)
+					if (res.data.token) {
+						console.log('at this point')
+						localStorage.setItem('token', res.data.token)
+						this.props.history.push('/')
+					} else {
+						console.log('else statement triggered')
+						this.state.alert = !this.state.alert
+						this.setState({ alert: this.state.alert })
 					}
 				})
 				.catch(err => {
@@ -181,6 +208,9 @@ class Signup extends React.Component {
 								<label className="loginfont">Profile Picture</label>
 								<input type="file" onChange={this.addFile} />
 							</div>
+							{this.state.alert ? (
+								<p className="info">Email already exist</p>
+							) : null}
 							<button className="primary" onClick={this.signup}>
 								Signup
 							</button>
