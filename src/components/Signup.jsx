@@ -29,8 +29,10 @@ class Signup extends React.Component {
 		let user = this.state.user
 		user[field] = e.target.value
 		this.setState({ user })
+		this.emptyField()
 		console.log({ user })
 	}
+
 	addFile = e => {
 		let user = this.state.user
 		user.file = e.target.files[0]
@@ -39,7 +41,7 @@ class Signup extends React.Component {
 	}
 
 	//alert for empty fields in signup form
-	emptyField = (e, field, f) => {
+	emptyField = (field, f) => {
 		let user = this.state.user
 		let emptyField = this.state.emptyField
 		for (field in user) {
