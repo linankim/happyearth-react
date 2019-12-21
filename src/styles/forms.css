@@ -14,7 +14,7 @@ form input[type='file'] {
 
 form label {
 	display: block;
-	margin-bottom: 8px;
+	margin-bottom: 2px;
 	color: #8a8a8a;
 }
 
@@ -23,7 +23,7 @@ form .group + .group {
 }
 
 form .group + button {
-	margin-top: 30px;
+	margin-top: 15px;
 }
 
 form textarea {
