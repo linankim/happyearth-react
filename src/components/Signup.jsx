@@ -156,7 +156,7 @@ class Signup extends React.Component {
 								/>
 								{this.state.emptyField.firstName ? (
 									<p className="logininfontalert">
-										Please type in your first name
+										Please type in your first name.
 									</p>
 								) : null}
 							</div>
@@ -169,7 +169,7 @@ class Signup extends React.Component {
 								/>
 								{this.state.emptyField.lastName ? (
 									<p className="logininfontalert">
-										Please type in your last name
+										Please type in your last name.
 									</p>
 								) : null}
 							</div>
@@ -182,7 +182,7 @@ class Signup extends React.Component {
 								/>
 								{this.state.emptyField.residenceCountry ? (
 									<p className="logininfontalert">
-										Please type in your country of residence
+										Please type in your country of residence.
 									</p>
 								) : null}
 							</div>
@@ -194,7 +194,7 @@ class Signup extends React.Component {
 									onChange={e => this.changeField(e, 'email')}
 								/>
 								{this.state.emptyField.email ? (
-									<p className="logininfontalert">Please type in your email</p>
+									<p className="logininfontalert">Please type in your email.</p>
 								) : null}
 							</div>
 							<div className="group">
@@ -206,7 +206,7 @@ class Signup extends React.Component {
 								/>
 								{this.state.emptyField.password ? (
 									<p className="logininfontalert">
-										Please type in your password
+										Please type in your password.
 									</p>
 								) : null}
 							</div>
