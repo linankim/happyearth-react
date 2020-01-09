@@ -6,7 +6,7 @@ import Nav from './Nav.jsx'
 import Filters from './Filters.jsx'
 import Map from './Map.jsx'
 import Pin from './Pin.jsx'
-import '../styles/grid.css'
+import '../styles/universal.css'
 import '../styles/spots.css'
 import '../styles/grid.css'
 import Sidebar from './Sidebar.jsx'
@@ -80,7 +80,7 @@ class Spots extends React.Component {
 
 	render() {
 		return (
-			<div className="grid image">
+			<div className="spotsbackgroundimage">
 				<div className="grid sidebar-left">
 					<Sidebar />
 					<div>
