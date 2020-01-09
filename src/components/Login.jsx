@@ -65,7 +65,13 @@ class Login extends React.Component {
 						this.setState({ alert: this.state.alert })
 					} else {
 						localStorage.setItem('token', res.data.token)
-						this.props.history.push('/create')
+						if (sessionStorage != undefined) {
+							let path = sessionStorage.getItem('path')
+							this.props.history.push(`${path}`)
+							sessionStorage.removeItem('path')
+						} else {
+							this.props.history.push('/spots')
+						}
 					}
 				})
 				.catch(err => {
