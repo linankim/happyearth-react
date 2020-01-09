@@ -97,7 +97,13 @@ class Signup extends React.Component {
 					console.log(res)
 					if (res.data.token) {
 						localStorage.setItem('token', res.data.token)
-						this.props.history.push('/')
+						if (sessionStorage != undefined) {
+							let path = sessionStorage.getItem('path')
+							this.props.history.push(`${path}`)
+							sessionStorage.removeItem('path')
+						} else {
+							this.props.history.push('/spots')
+						}
 					} else {
 						console.log('else statement triggered')
 						this.state.alert = !this.state.alert
@@ -123,7 +129,13 @@ class Signup extends React.Component {
 					if (res.data.token) {
 						console.log('at this point')
 						localStorage.setItem('token', res.data.token)
-						this.props.history.push('/')
+						if (sessionStorage != undefined) {
+							let path = sessionStorage.getItem('path')
+							this.props.history.push(`${path}`)
+							sessionStorage.removeItem('path')
+						} else {
+							this.props.history.push('/spots')
+						}
 					} else {
 						console.log('else statement triggered')
 						this.state.alert = !this.state.alert
