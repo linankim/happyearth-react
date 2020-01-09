@@ -60,6 +60,7 @@ class Create extends React.Component {
 	componentDidMount() {
 		let spot = this.state.spot
 		if (!localStorage.getItem('token')) {
+			sessionStorage.setItem('path', '/create')
 			this.props.history.push('/Signup')
 		} else {
 			axios
