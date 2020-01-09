@@ -16,7 +16,7 @@ class Profile extends React.Component {
 
 	componentDidMount() {
 		if (!localStorage.getItem('token')) {
-			this.props.history.push('/login')
+			this.props.history.push('/')
 		} else {
 			axios
 				.get(`${process.env.REACT_APP_API}/auth`, {
@@ -39,7 +39,7 @@ class Profile extends React.Component {
 	logout = e => {
 		e.preventDefault()
 		localStorage.removeItem('token')
-		this.props.history.push('/login')
+		this.props.history.push('/')
 	}
 
 	//change profile details

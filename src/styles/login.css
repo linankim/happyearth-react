@@ -15,7 +15,7 @@
 	height: auto;
 	width: 400px;
 	border-radius: 3px;
-	padding: 20px;
+	padding: 15px 20px;
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -47,4 +47,12 @@
 .loginfonttitle {
 	font-family: 'Cormorant Garamond', serif;
 	font-size: 20px;
+}
+
+.logininfontalert {
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
+	color: #972822;
+	font-style: italic;
+	margin: 0px;
 }

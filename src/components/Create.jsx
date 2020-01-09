@@ -61,7 +61,7 @@ class Create extends React.Component {
 	componentDidMount() {
 		let spot = this.state.spot
 		if (!localStorage.getItem('token')) {
-			this.props.history.push('/login')
+			this.props.history.push('/Signup')
 		} else {
 			axios
 				.get(`${process.env.REACT_APP_API}/auth`, {

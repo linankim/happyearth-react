@@ -31,8 +31,8 @@ class Spot extends React.Component {
 			city: '',
 			country: '',
 			center: {
-				lat: 59.95,
-				lng: 30.33
+				lat: 9.471077,
+				lng: 100.04758
 			},
 			toggleEatins: false,
 			toggleTakeaways: false
