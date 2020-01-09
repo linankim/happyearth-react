@@ -57,7 +57,6 @@ class Create extends React.Component {
 				console.log(err)
 			})
 	}
-
 	componentDidMount() {
 		let spot = this.state.spot
 		if (!localStorage.getItem('token')) {
@@ -73,10 +72,7 @@ class Create extends React.Component {
 					this.setState({ user: user.data })
 					this.state.spot.spotters = this.state.user._id
 					this.state.spot.types = this.state.types[0]._id
-					console.log('spotter', this.state.spot.spotters)
-					console.log('type', this.state.spot.types)
 					this.setState({ spot })
-					console.log({ spot })
 				})
 				.catch(error => console.log(error))
 		}
@@ -94,7 +90,6 @@ class Create extends React.Component {
 		let spot = this.state.spot
 		spot.toggleEatins = !spot.toggleEatins
 		this.setState({ spot })
-		console.log({ spot })
 	}
 
 	//toggle takeaways
@@ -102,7 +97,6 @@ class Create extends React.Component {
 		let spot = this.state.spot
 		spot.toggleTakeaways = !spot.toggleTakeaways
 		this.setState({ spot })
-		console.log({ spot })
 	}
 
 	//select Takeaways
@@ -112,14 +106,10 @@ class Create extends React.Component {
 		let takeaways = spot.takeaways
 
 		if (spot.takeaways.find(takeaway => takeaway == _id)) {
-			console.log('no')
 			spot.takeaways = spot.takeaways.filter(takeaway => takeaway != _id)
 		} else {
-			console.log('yes')
 			spot.takeaways.push(_id)
 			if (spot.takeaways) this.setState({ spot: spot.takeaways })
-			console.log(spot.takeaways)
-			console.log({ spot })
 		}
 		this.setState({ spot })
 	}
@@ -131,15 +121,10 @@ class Create extends React.Component {
 		let eatins = spot.eatins
 
 		if (spot.eatins.find(eatin => eatin == _id)) {
-			console.log('no')
 			spot.eatins = spot.eatins.filter(eatin => eatin != _id)
 		} else {
-			console.log('yes')
 			spot.eatins.push(_id)
 			this.setState({ spot: spot.eatins })
-			console.log(spot.eatins)
-
-			console.log({ spot })
 		}
 		this.setState({ spot })
 	}
@@ -147,43 +132,36 @@ class Create extends React.Component {
 	//upload files
 	getFile = e => {
 		let spot = this.state.spot
-		// spot.files = Array.from(e.target.files)
-		// this.setState({ spot }, () => {
-		// 	console.log('state', this.state)
-		// })
 		spot.files = e.target.files
-		console.log('spot.files', spot.files)
 		this.setState({ spot }, () => {
 			console.log('state', this.state)
 		})
 	}
 
-	//button create place
+	//button create place and upload files via cloudinary
 	createPlace = e => {
 		e.preventDefault()
-		console.log('state', this.state)
 		let data = new FormData()
 		for (let key in this.state.spot) {
-			console.log('KEY', this.state.spot[key])
-			console.log('TYPE', typeof this.state.spot[key])
 			if (
 				(typeof this.state.spot[key] == 'object' && key == 'eatins') ||
 				key == 'takeaways'
 			) {
-				console.log('key', key)
 				this.state.spot[key].forEach(val => {
 					data.append(`${key}[]`, val)
 				})
+			} else if (typeof this.state.spot[key] == 'object' && key == 'files') {
+				for (let i = 0; i < this.state.spot[key].length; i++) {
+					data.append(key, this.state.spot[key][i])
+				}
 			} else {
 				data.append(key, this.state.spot[key])
-				console.log('not working', data)
 			}
 		}
 		console.log({ data })
 		axios
 			.post(`${process.env.REACT_APP_API}/spots`, data)
 			.then(res => {
-				console.log('i am here', res)
 				let spotId = res.data.spot._id
 				this.props.history.push(`/spots/${spotId}`)
 			})
