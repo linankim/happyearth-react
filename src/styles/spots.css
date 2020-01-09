@@ -2,3 +2,8 @@
 	height: 100vh;
 	overflow-y: scroll;
 }
+
+.sidebar-left {
+	grid-template-columns: 200px auto;
+	grid-column-gap: 0px;
+}
