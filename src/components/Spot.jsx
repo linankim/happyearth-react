@@ -12,6 +12,7 @@ import '../styles/grid.css'
 import '../styles/icons.css'
 import '../styles/sidebar.css'
 import '../styles/users.css'
+import '../styles/universal.css'
 
 class Spot extends React.Component {
 	state = {
@@ -140,7 +141,7 @@ class Spot extends React.Component {
 		}
 		return (
 			<>
-				<div className="grid image">
+				<div className="spotsbackgroundimage">
 					<div className="grid sidebar-left">
 						<Sidebar />
 
