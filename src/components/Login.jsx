@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import '../styles/login.css'
+import '../styles/backgroundimage.css'
 import Sidebar from './Sidebar.jsx'
 
 class Login extends React.Component {
@@ -86,7 +87,7 @@ class Login extends React.Component {
 		return (
 			<div>
 				<Sidebar />
-				<div className="loginimage">
+				<div className="backgroundimage">
 					<div className="loginform">
 						<div>
 							<div className="loginheader">
