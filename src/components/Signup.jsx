@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import '../styles/login.css'
+import '../styles/backgroundimage.css'
 import Sidebar from './Sidebar.jsx'
 
 class Signup extends React.Component {
@@ -153,7 +154,7 @@ class Signup extends React.Component {
 		return (
 			<div>
 				<Sidebar />
-				<div className="loginimage">
+				<div className="backgroundimage">
 					<div className="loginform">
 						<div className="loginheader">
 							<div>Happy Earth</div>
