@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import '../styles/backgroundimage.css'
 import '../styles/landing.css'
+
 import Sidebar from './Sidebar.jsx'
 
 class Landing extends React.Component {
@@ -48,7 +50,7 @@ class Landing extends React.Component {
 		return (
 			<>
 				<Sidebar />
-				<div className="image landingposition">
+				<div className="image">
 					<row3 className="landing">
 						<div>
 							<div className="font spacing">Welcome to Happy Earth</div>
