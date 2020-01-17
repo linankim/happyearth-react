@@ -145,7 +145,6 @@ class Spot extends React.Component {
 				<div className="spotsbackgroundimage">
 					<div className="grid sidebar-left">
 						<Sidebar />
-
 						<div className="grid full">
 							<div className="spotheading">
 								<div className="grid two">
