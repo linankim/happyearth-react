@@ -1,9 +1,6 @@
 .backgroundimage {
 	display: grid;
-	background-image: url('https://images.pexels.com/photos/1779746/pexels-photo-1779746.jpeg');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
+
 	height: 100vh;
 	justify-content: center;
 	overflow-y: scroll;
