@@ -142,151 +142,156 @@ class Spot extends React.Component {
 		}
 		return (
 			<>
-				<div className="spotsbackgroundimage">
-					<div className="grid sidebar-left">
-						<Sidebar />
-						<div className="grid full">
-							<div className="spotheading">
-								<div className="grid two">
-									<div>
+				<div className="background center">
+					<div>
+						<div className="grid sidebar-left">
+							<Sidebar />
+							<div className="grid full">
+								<div className="spotheading">
+									<div className="grid two">
 										<div>
-											{this.state.spot.types ? (
-												<div className="typefont">
-													{this.state.spot.types.name}
+											<div>
+												{this.state.spot.types ? (
+													<div className="typefont">
+														{this.state.spot.types.name}
+													</div>
+												) : null}
+											</div>
+											<div className="titlefont">{this.state.spot.title}</div>
+											<small className="paddingleftten">
+												<i className="fas fa-map-marker-alt"></i>
+												<span className="locationfont">
+													{this.state.spot.city}, {this.state.spot.country}
+												</span>
+											</small>
+										</div>
+										<div>
+											<div className="user minitwogrid">
+												<div
+													className="avatar"
+													style={{
+														backgroundImage: `url(${this.state.spotter.avatar})`
+													}}
+												></div>
+												<div>
+													<div className="spottedbyfont">Spotted by:</div>
+													<div className="spottedbyfont">
+														{` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div className="grid two">
+									<div className="gallery">
+										<div className="gallerymain">
+											<div
+												className="image-main"
+												style={{
+													backgroundImage: `url('${this.state.spot.selectedImage}')`
+												}}
+											>
+												<button
+													className="icon"
+													onClick={() => this.toggleLike()}
+												>
+													<i className={this.getClass}></i>
+												</button>
+											</div>
+										</div>
+										<div className="thumbnails">
+											{this.state.spot.images.map((image, index) => {
+												return (
+													<div
+														className="thumbnail"
+														style={{
+															backgroundImage: `url(${image})`
+														}}
+														key={index}
+														onClick={() => this.clickedImage(image)}
+													></div>
+												)
+											})}
+										</div>
+									</div>
+									<div className="map">
+										<Map spot={this.state.spot} />
+									</div>
+								</div>
+								<div className="details whitebackground">
+									<div className="grid two">
+										<div>
+											{this.state.spot.toggleEatins ? (
+												<div>
+													<div className="eatinfont">Eat In</div>
+													{this.state.spot.eatins.map(eatin => {
+														return (
+															<div className="amenityfontbold" key={eatin._id}>
+																<li>
+																	<i className={eatin.icon}> </i>
+																	{eatin.explanation}
+																</li>
+															</div>
+														)
+													})}
+													{this.state.remainingEatins.map(eatin => {
+														return (
+															<div
+																className="amenityfont"
+																style={styles.selected}
+																key={eatin._id}
+															>
+																<li>
+																	<i className={eatin.icon}> </i>
+																	{` Bring Your Own   ${eatin.explanation}`}
+																</li>
+															</div>
+														)
+													})}
 												</div>
 											) : null}
 										</div>
-										<div className="titlefont">{this.state.spot.title}</div>
-										<small className="paddingleftten">
-											<i className="fas fa-map-marker-alt"></i>
-											<span className="locationfont">
-												{this.state.spot.city}, {this.state.spot.country}
-											</span>
-										</small>
-									</div>
-									<div>
-										<div className="user minitwogrid">
-											<div
-												className="avatar"
-												style={{
-													backgroundImage: `url(${this.state.spotter.avatar})`
-												}}
-											></div>
-											<div>
-												<div className="spottedbyfont">Spotted by:</div>
-												<div className="spottedbyfont">
-													{` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+										<div>
+											{this.state.spot.toggleTakeaways ? (
+												<div>
+													<div className="eatinfont">Take Away</div>
+													{this.state.spot.takeaways.map(takeaway => {
+														return (
+															<div
+																className="amenityfontbold"
+																key={takeaway._id}
+															>
+																<li>
+																	<i className={takeaway.icon}> </i>
+																	{takeaway.explanation}
+																</li>
+															</div>
+														)
+													})}
+													{this.state.remainingTakeaways.map(takeaway => {
+														return (
+															<div
+																className="amenityfont"
+																style={styles.selected}
+																key={takeaway._id}
+															>
+																<li>
+																	<i className={takeaway.icon}> </i>
+																	{` Bring Your Own   ${takeaway.explanation}`}
+																</li>
+															</div>
+														)
+													})}
 												</div>
-											</div>
+											) : null}
 										</div>
 									</div>
-								</div>
-							</div>
-							<div className="grid two">
-								<div className="gallery">
-									<div className="gallerymain">
-										<div
-											className="image-main"
-											style={{
-												backgroundImage: `url('${this.state.spot.selectedImage}')`
-											}}
-										>
-											<button
-												className="icon"
-												onClick={() => this.toggleLike()}
-											>
-												<i className={this.getClass}></i>
-											</button>
+									<div>
+										<div className="aboutspotfont">About this Spot</div>
+										<div className="descriptionfont">
+											{this.state.spot.description}
 										</div>
-									</div>
-									<div className="thumbnails">
-										{this.state.spot.images.map((image, index) => {
-											return (
-												<div
-													className="thumbnail"
-													style={{
-														backgroundImage: `url(${image})`
-													}}
-													key={index}
-													onClick={() => this.clickedImage(image)}
-												></div>
-											)
-										})}
-									</div>
-								</div>
-								<div className="map">
-									<Map spot={this.state.spot} />
-								</div>
-							</div>
-							<div className="details whitebackground">
-								<div className="grid two">
-									<div>
-										{this.state.spot.toggleEatins ? (
-											<div>
-												<div className="eatinfont">Eat In</div>
-												{this.state.spot.eatins.map(eatin => {
-													return (
-														<div className="amenityfontbold" key={eatin._id}>
-															<li>
-																<i className={eatin.icon}> </i>
-																{eatin.explanation}
-															</li>
-														</div>
-													)
-												})}
-												{this.state.remainingEatins.map(eatin => {
-													return (
-														<div
-															className="amenityfont"
-															style={styles.selected}
-															key={eatin._id}
-														>
-															<li>
-																<i className={eatin.icon}> </i>
-																{` Bring Your Own   ${eatin.explanation}`}
-															</li>
-														</div>
-													)
-												})}
-											</div>
-										) : null}
-									</div>
-									<div>
-										{this.state.spot.toggleTakeaways ? (
-											<div>
-												<div className="eatinfont">Take Away</div>
-												{this.state.spot.takeaways.map(takeaway => {
-													return (
-														<div className="amenityfontbold" key={takeaway._id}>
-															<li>
-																<i className={takeaway.icon}> </i>
-																{takeaway.explanation}
-															</li>
-														</div>
-													)
-												})}
-												{this.state.remainingTakeaways.map(takeaway => {
-													return (
-														<div
-															className="amenityfont"
-															style={styles.selected}
-															key={takeaway._id}
-														>
-															<li>
-																<i className={takeaway.icon}> </i>
-																{` Bring Your Own   ${takeaway.explanation}`}
-															</li>
-														</div>
-													)
-												})}
-											</div>
-										) : null}
-									</div>
-								</div>
-								<div>
-									<div className="aboutspotfont">About this Spot</div>
-									<div className="descriptionfont">
-										{this.state.spot.description}
 									</div>
 								</div>
 							</div>
