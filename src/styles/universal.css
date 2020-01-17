@@ -1,5 +1,4 @@
 .background {
-	display: grid;
 	background-image: -webkit-linear-gradient(130deg, #d1eecc 50%, #94d3ac 50%);
 	/* background: linear-gradient(to left top, #d1eecc, #94d3ac); */
 	/* background-color: #d1eecc; */
@@ -15,9 +14,17 @@
 	align-content: center;
 }
 
-.center {
+.centerforms {
 	padding-left: 200px;
 	justify-content: center;
+}
+
+.center {
+	justify-content: center;
+}
+
+.grid {
+	display: grid;
 }
 
 .spotsbackgroundimage {
