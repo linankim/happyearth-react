@@ -113,7 +113,7 @@ class Profile extends React.Component {
 		return (
 			<div>
 				<Sidebar />
-				<div className="background center">
+				<div className="background centerforms grid">
 					<div>
 						<div className=" profileform transparent">
 							<form>
