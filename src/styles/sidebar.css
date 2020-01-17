@@ -10,8 +10,8 @@
 	width: 200px;
 }
 
-.sidetransparent {
-	background-color: rgba(255, 255, 255, 0.3);
+.sidebar {
+	background-color: #d1eecc;
 }
 .sidebar .font {
 	font-family: 'EB Garamond', serif;
