@@ -1,7 +1,5 @@
 .background {
-	background-image: -webkit-linear-gradient(130deg, #d1eecc 50%, #94d3ac 50%);
-	/* background: linear-gradient(to left top, #d1eecc, #94d3ac); */
-	/* background-color: #d1eecc; */
+	background-image: -webkit-linear-gradient(130deg, #ccedd2 50%, #94d3ac 50%);
 	height: 100vh;
 	overflow-y: scroll;
 	align-content: center;
@@ -9,7 +7,7 @@
 
 .createbackground {
 	display: grid;
-	background-image: -webkit-linear-gradient(130deg, #d1eecc 50%, #94d3ac 50%);
+	background-image: -webkit-linear-gradient(130deg, #ccedd2 50%, #94d3ac 50%);
 	overflow-y: scroll;
 	align-content: center;
 }
