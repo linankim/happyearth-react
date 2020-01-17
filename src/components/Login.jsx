@@ -87,7 +87,7 @@ class Login extends React.Component {
 		return (
 			<div>
 				<Sidebar />
-				<div className="background  center">
+				<div className="background  centerforms grid">
 					<div className="loginform">
 						<div>
 							<div className="loginheader">
