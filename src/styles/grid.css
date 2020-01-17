@@ -52,6 +52,12 @@
 	/* padding: 10px; */
 }
 
+.gridheading {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-column-gap: 30px;
+}
+
 .grid.twospots {
 	grid-template-columns: 3fr 2fr;
 }
