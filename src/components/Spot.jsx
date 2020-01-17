@@ -13,6 +13,7 @@ import '../styles/icons.css'
 import '../styles/sidebar.css'
 import '../styles/users.css'
 import '../styles/universal.css'
+import '../styles/grid.css'
 
 class Spot extends React.Component {
 	state = {
@@ -146,6 +147,42 @@ class Spot extends React.Component {
 						<Sidebar />
 
 						<div className="grid full">
+							<div className="spotheading">
+								<div className="grid two">
+									<div>
+										<div>
+											{this.state.spot.types ? (
+												<div className="typefont">
+													{this.state.spot.types.name}
+												</div>
+											) : null}
+										</div>
+										<div className="titlefont">{this.state.spot.title}</div>
+										<small className="paddingleftten">
+											<i className="fas fa-map-marker-alt"></i>
+											<span className="locationfont">
+												{this.state.spot.city}, {this.state.spot.country}
+											</span>
+										</small>
+									</div>
+									<div>
+										<div className="user minitwogrid">
+											<div
+												className="avatar"
+												style={{
+													backgroundImage: `url(${this.state.spotter.avatar})`
+												}}
+											></div>
+											<div>
+												<div className="spottedbyfont">Spotted by:</div>
+												<div className="spottedbyfont">
+													{` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 							<div className="grid two">
 								<div className="gallery">
 									<div className="gallerymain">
@@ -184,40 +221,6 @@ class Spot extends React.Component {
 							</div>
 							<div className="details whitebackground">
 								<div className="grid two">
-									<div>
-										<div>
-											{this.state.spot.types ? (
-												<div className="typefont">
-													{this.state.spot.types.name}
-												</div>
-											) : null}
-										</div>
-										<div className="titlefont">{this.state.spot.title}</div>
-										<small className="paddingleftten">
-											<i className="fas fa-map-marker-alt"></i>
-											<span className="locationfont">
-												{this.state.spot.city}, {this.state.spot.country}
-											</span>
-										</small>
-									</div>
-
-									<div>
-										<div className="user minitwogrid">
-											<div
-												className="avatar"
-												style={{
-													backgroundImage: `url(${this.state.spotter.avatar})`
-												}}
-											></div>
-											<div>
-												<div className="spottedbyfont">Spotted by:</div>
-												<div className="spottedbyfont">
-													{` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
-												</div>
-											</div>
-										</div>
-									</div>
-
 									<div>
 										{this.state.spot.toggleEatins ? (
 											<div>
