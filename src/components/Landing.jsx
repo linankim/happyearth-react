@@ -49,8 +49,8 @@ class Landing extends React.Component {
 		return (
 			<>
 				<Sidebar />
-				<div className="backgroundimage">
-					<row3 className="landing">
+				<div className="landingbackground ">
+					<div className="landing">
 						<div>
 							<div className="font spacing">Welcome to Happy Earth</div>
 							<input
@@ -77,7 +77,7 @@ class Landing extends React.Component {
 								})}
 							</div>
 						</div>
-					</row3>
+					</div>
 				</div>
 			</>
 		)
