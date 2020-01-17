@@ -111,88 +111,80 @@ class Profile extends React.Component {
 
 	render() {
 		return (
-			<>
-				<div className="grid image">
-					<div className="grid sidebar-left">
-						<Sidebar />
-						<div className="grid">
-							<wrapper className="grid center autoheight">
-								<div className="grid profileform transparent">
-									<form>
-										<div className="loginheader">My Profile</div>
-										<div className="group">
-											<label className="loginfont">First Name</label>
-											<input
-												type="text"
-												value={this.state.user.firstName}
-												onChange={e => this.changeField(e, 'firstName')}
-											/>
-										</div>
-										<div className="group">
-											<label className="loginfont">Last Name</label>
-											<input
-												type="text"
-												value={this.state.user.lastName}
-												onChange={e => this.changeField(e, 'lastName')}
-											/>
-										</div>
-										<div className="group">
-											<label className="loginfont">Email</label>
-											<input
-												type="email"
-												value={this.state.user.email}
-												onChange={e => this.changeField(e, 'email')}
-											/>
-										</div>
-										<div className="group">
-											<label className="loginfont">Residence Country</label>
-											<input
-												type="text"
-												value={this.state.user.residenceCountry}
-												onChange={e => this.changeField(e, 'residenceCountry')}
-											/>
-										</div>
-										<div className="group">
-											<label className="loginfont">Profile Picture</label>
-											<div className="user">
-												<div
-													className="avatar"
-													style={{
-														backgroundImage: `url(${this.state.user.avatar})`
-													}}
-												></div>
-												<div className="name loginfont">
-													<input type="file" onChange={this.changePicture} />
-												</div>
-											</div>
-										</div>
-										<span className="group">
-											<button onClick={this.savesChanges()}>
-												Save Changes
-											</button>
-										</span>
-										<span className="group">
-											<button onClick={e => this.alertButton(e)}>
-												{this.state.showPopup ? (
-													<Popup deleteProfile={this.deleteProfile} />
-												) : null}
-												Delete Profile
-											</button>
-										</span>
-									</form>
+			<div>
+				<Sidebar />
+				<div className="background center">
+					<div>
+						<div className=" profileform transparent">
+							<form>
+								<div className="loginheader">My Profile</div>
+								<div className="group">
+									<label className="loginfont">First Name</label>
+									<input
+										type="text"
+										value={this.state.user.firstName}
+										onChange={e => this.changeField(e, 'firstName')}
+									/>
 								</div>
-							</wrapper>
-							<div>
-								<div className="grid center">
-									<button className="logout" onClick={this.logout}>
-										Logout
+								<div className="group">
+									<label className="loginfont">Last Name</label>
+									<input
+										type="text"
+										value={this.state.user.lastName}
+										onChange={e => this.changeField(e, 'lastName')}
+									/>
+								</div>
+								<div className="group">
+									<label className="loginfont">Email</label>
+									<input
+										type="email"
+										value={this.state.user.email}
+										onChange={e => this.changeField(e, 'email')}
+									/>
+								</div>
+								<div className="group">
+									<label className="loginfont">Residence Country</label>
+									<input
+										type="text"
+										value={this.state.user.residenceCountry}
+										onChange={e => this.changeField(e, 'residenceCountry')}
+									/>
+								</div>
+								<div>
+									<label className="loginfont">Profile Picture</label>
+									<div className="user">
+										<div
+											className="avatar"
+											style={{
+												backgroundImage: `url(${this.state.user.avatar})`
+											}}
+										></div>
+										<div className="name loginfont">
+											<input type="file" onChange={this.changePicture} />
+										</div>
+									</div>
+								</div>
+								<span>
+									<button onClick={this.savesChanges()}>Save Changes</button>
+								</span>
+								<span>
+									<button onClick={e => this.alertButton(e)}>
+										{this.state.showPopup ? (
+											<Popup deleteProfile={this.deleteProfile} />
+										) : null}
+										Delete Profile
 									</button>
-								</div>
-							</div>
+									<div>
+										<button className="logout" onClick={this.logout}>
+											Logout
+										</button>
+									</div>
+								</span>
+							</form>
 						</div>
 					</div>
 				</div>
-			</>
+			</div>
 		)
 	}
 }
