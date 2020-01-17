@@ -176,7 +176,7 @@ class Create extends React.Component {
 		return (
 			<div>
 				<Sidebar />
-				<div className="background center">
+				<div className="background centerforms grid">
 					<div className="createform">
 						<div className="content">
 							<div className="createheader">Create a new Spot</div>
