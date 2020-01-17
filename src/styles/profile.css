@@ -1,3 +1,10 @@
 .form {
 	width: 400px;
 }
+
+.profileform {
+	width: 600px;
+	height: auto;
+	padding: 30px 30px 30px 30px;
+	border-radius: 3px;
+}
