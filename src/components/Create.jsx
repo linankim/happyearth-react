@@ -3,6 +3,7 @@ import Nav from './Nav.jsx'
 import Sidebar from './Sidebar.jsx'
 import axios from 'axios'
 import '../styles/create.css'
+import '../styles/universal.css'
 
 class Create extends React.Component {
 	state = {
@@ -173,140 +174,134 @@ class Create extends React.Component {
 
 	render() {
 		return (
-			<>
-				<div className="grid image">
-					<div className="grid sidebar-left">
-						<Sidebar />
-						<div>
-							<div className="grid center image">
-								<div className="grid createform">
-									<div className="content">
-										<div className="createheader">Create a new Spot</div>
-										<form>
-											<div>
-												<label className="createformfont">Title</label>
-												<input
-													type="text"
-													value={this.state.spot.title}
-													onChange={e => this.changeField(e, 'title')}
-												/>
-											</div>
-											<div className="group">
-												<label className="createformfont">Description</label>
-												<textarea
-													value={this.state.spot.description}
-													onChange={e => this.changeField(e, 'description')}
-												></textarea>
-											</div>
-											<div className="group">
-												<label className="createformfont">City or Town</label>
-												<input
-													type="text"
-													value={this.state.spot.city}
-													onChange={e => this.changeField(e, 'city')}
-												/>
-											</div>
-											<div className="group">
-												<label className="createformfont">Country</label>
-												<input
-													type="text"
-													value={this.state.spot.country}
-													onChange={e => this.changeField(e, 'country')}
-												/>
-											</div>
-											<div className="group">
-												<label className="createformfont">Type of Place</label>
-												<select onChange={e => this.changeField(e, 'types')}>
-													{this.state.types.map(type => {
-														return <option value={type._id}>{type.name}</option>
-													})}
-												</select>
-											</div>
-											<div className="group">
-												<label className="createformfont">Upload Photos</label>
-												<input type="file" onChange={this.getFile} multiple />
-											</div>
-											<div className="createformfont">
-												Click on take away and / or eat in and select what they
-												will provide for you{' '}
-											</div>
-											<div className="group">
-												<label className="checkbox createformfont">
-													<input
-														type="checkbox"
-														onChange={e => this.toggleTakeaway(e)}
-													/>
-													Take away
-												</label>
-												{this.state.spot.toggleTakeaways
-													? this.state.takeaways.map(takeaway => {
-															return (
-																<label className="checkbox createformfont">
-																	<input
-																		type="checkbox"
-																		value={takeaway._id}
-																		onChange={e => this.checkBox(e)}
-																	/>
-																	<i className={takeaway.icon}></i>
-																	<span> {takeaway.explanation}</span>
-																</label>
-															)
-													  })
-													: null}
-											</div>
-											<div className="group">
-												<label className="checkbox createformfont">
-													<input
-														type="checkbox"
-														onChange={e => this.toggleEatin(e)}
-													/>
-													Eat In
-												</label>
-												{this.state.spot.toggleEatins
-													? this.state.eatins.map(eatin => {
-															return (
-																<label className="checkbox createformfont">
-																	<input
-																		type="checkbox"
-																		value={eatin._id}
-																		onChange={e => this.checkBox2(e)}
-																	/>
-																	<i className={eatin.icon}></i>
-																	<span> {eatin.explanation}</span>
-																</label>
-															)
-													  })
-													: null}
-											</div>
-											<div className="group">
-												<label className="createformfont">Latitude</label>
-												<input
-													type="number"
-													value={this.state.spot.lat}
-													onChange={e => this.changeField(e, 'lat')}
-												/>
-
-												<label className="createformfont">Longitude</label>
-												<input
-													type="number"
-													value={this.state.spot.lng}
-													onChange={e => this.changeField(e, 'lng')}
-												/>
-											</div>
-											<button
-												className="primary"
-												onClick={e => this.createPlace(e, this.state.spot)}
-											>
-												Publish this Spot
-											</button>
-										</form>
-									</div>
+			<div>
+				<Sidebar />
+				<div className="background center">
+					<div className="createform">
+						<div className="content">
+							<div className="createheader">Create a new Spot</div>
+							<form>
+								<div>
+									<label className="createformfont">Title</label>
+									<input
+										type="text"
+										value={this.state.spot.title}
+										onChange={e => this.changeField(e, 'title')}
+									/>
 								</div>
-							</div>
+								<div className="group">
+									<label className="createformfont">Description</label>
+									<textarea
+										value={this.state.spot.description}
+										onChange={e => this.changeField(e, 'description')}
+									></textarea>
+								</div>
+								<div className="group">
+									<label className="createformfont">City or Town</label>
+									<input
+										type="text"
+										value={this.state.spot.city}
+										onChange={e => this.changeField(e, 'city')}
+									/>
+								</div>
+								<div className="group">
+									<label className="createformfont">Country</label>
+									<input
+										type="text"
+										value={this.state.spot.country}
+										onChange={e => this.changeField(e, 'country')}
+									/>
+								</div>
+								<div className="group">
+									<label className="createformfont">Type of Place</label>
+									<select onChange={e => this.changeField(e, 'types')}>
+										{this.state.types.map(type => {
+											return <option value={type._id}>{type.name}</option>
+										})}
+									</select>
+								</div>
+								<div className="group">
+									<label className="createformfont">Upload Photos</label>
+									<input type="file" onChange={this.getFile} multiple />
+								</div>
+								<div className="createformfont">
+									Click on take away and / or eat in and select what they will
+									provide for you{' '}
+								</div>
+								<div className="group">
+									<label className="checkbox createformfont">
+										<input
+											type="checkbox"
+											onChange={e => this.toggleTakeaway(e)}
+										/>
+										Take away
+									</label>
+									{this.state.spot.toggleTakeaways
+										? this.state.takeaways.map(takeaway => {
+												return (
+													<label className="checkbox createformfont">
+														<input
+															type="checkbox"
+															value={takeaway._id}
+															onChange={e => this.checkBox(e)}
+														/>
+														<i className={takeaway.icon}></i>
+														<span> {takeaway.explanation}</span>
+													</label>
+												)
+										  })
+										: null}
+								</div>
+								<div className="group">
+									<label className="checkbox createformfont">
+										<input
+											type="checkbox"
+											onChange={e => this.toggleEatin(e)}
+										/>
+										Eat In
+									</label>
+									{this.state.spot.toggleEatins
+										? this.state.eatins.map(eatin => {
+												return (
+													<label className="checkbox createformfont">
+														<input
+															type="checkbox"
+															value={eatin._id}
+															onChange={e => this.checkBox2(e)}
+														/>
+														<i className={eatin.icon}></i>
+														<span> {eatin.explanation}</span>
+													</label>
+												)
+										  })
+										: null}
+								</div>
+								<div className="group">
+									<label className="createformfont">Latitude</label>
+									<input
+										type="number"
+										value={this.state.spot.lat}
+										onChange={e => this.changeField(e, 'lat')}
+									/>
+
+									<label className="createformfont">Longitude</label>
+									<input
+										type="number"
+										value={this.state.spot.lng}
+										onChange={e => this.changeField(e, 'lng')}
+									/>
+								</div>
+								<button
+									className="primary"
+									onClick={e => this.createPlace(e, this.state.spot)}
+								>
+									Publish this Spot
+								</button>
+							</form>
 						</div>
 					</div>
 				</div>
-			</>
+			</div>
 		)
 	}
 }
