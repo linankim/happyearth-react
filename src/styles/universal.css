@@ -4,10 +4,20 @@
 	/* background: linear-gradient(to left top, #d1eecc, #94d3ac); */
 	/* background-color: #d1eecc; */
 	height: 100vh;
-	justify-content: center;
 	overflow-y: scroll;
 	align-content: center;
+}
+
+.createbackground {
+	display: grid;
+	background-image: -webkit-linear-gradient(130deg, #d1eecc 50%, #94d3ac 50%);
+	overflow-y: scroll;
+	align-content: center;
+}
+
+.center {
 	padding-left: 200px;
+	justify-content: center;
 }
 
 .spotsbackgroundimage {
