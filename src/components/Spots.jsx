@@ -80,7 +80,7 @@ class Spots extends React.Component {
 
 	render() {
 		return (
-			<div className="spotsbackgroundimage">
+			<div className="background">
 				<div className="grid sidebar-left">
 					<Sidebar />
 					<div>
