@@ -49,7 +49,7 @@ class Landing extends React.Component {
 		return (
 			<>
 				<Sidebar />
-				<div className="background center">
+				<div className="background centerforms grid">
 					<div className="landing">
 						<div>
 							<div className="font spacing">Welcome to Happy Earth</div>
