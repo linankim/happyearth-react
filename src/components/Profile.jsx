@@ -115,7 +115,7 @@ class Profile extends React.Component {
 				<Sidebar />
 				<div className="background centerforms grid">
 					<div>
-						<div className=" profileform transparent">
+						<div className=" profileform">
 							<form>
 								<div className="loginheader">My Profile</div>
 								<div className="group">
