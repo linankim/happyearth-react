@@ -52,7 +52,7 @@ class Landing extends React.Component {
 				<div className="background centerforms grid">
 					<div className="landing">
 						<div>
-							<div className="font spacing">Welcome to Happy Earth</div>
+							<div className="formheaderfont">Welcome to Happy Earth</div>
 							<input
 								type="text"
 								className="search"
