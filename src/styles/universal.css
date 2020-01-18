@@ -36,6 +36,8 @@
 	align-content: center;
 }
 
-.grid {
-	display: grid;
+.formheaderfont {
+	text-align: center;
+	font-family: 'EB Garamond', serif;
+	font-size: 50px;
 }
