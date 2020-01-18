@@ -156,7 +156,7 @@ class Signup extends React.Component {
 				<Sidebar />
 				<div className="background centerforms grid">
 					<div className="loginform">
-						<div className="loginheader">
+						<div className="formheaderfont">
 							<div>Happy Earth</div>
 						</div>
 						<form>
