@@ -11,6 +11,7 @@
 	padding: 30px;
 	border-radius: 3px;
 	background-color: #effcef;
+	overflow-y: auto;
 }
 
 .createformfont {
