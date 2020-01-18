@@ -156,12 +156,10 @@ class Signup extends React.Component {
 				<Sidebar />
 				<div className="background centerforms grid">
 					<div className="loginform">
-						<div className="formheaderfont">
-							<div>Happy Earth</div>
-						</div>
+						<div className="formheaderfont">Happy Earth</div>
 						<form>
 							<div className="group">
-								<label className="loginfont">First Name</label>
+								<label className="labelfont">First Name</label>
 								<input
 									type="text"
 									value={this.state.user.firstName}
@@ -174,7 +172,7 @@ class Signup extends React.Component {
 								) : null}
 							</div>
 							<div className="group">
-								<label className="loginfont">Last Name</label>
+								<label className="labelfont">Last Name</label>
 								<input
 									type="text"
 									value={this.state.user.lastName}
@@ -187,7 +185,7 @@ class Signup extends React.Component {
 								) : null}
 							</div>
 							<div className="group">
-								<label className="loginfont">Country of Residence</label>
+								<label className="labelfont">Country of Residence</label>
 								<input
 									type="text"
 									value={this.state.user.residenceCountry}
@@ -200,7 +198,7 @@ class Signup extends React.Component {
 								) : null}
 							</div>
 							<div className="group">
-								<label className="loginfont">Email</label>
+								<label className="labelfont">Email</label>
 								<input
 									type="email"
 									value={this.state.user.email}
@@ -211,7 +209,7 @@ class Signup extends React.Component {
 								) : null}
 							</div>
 							<div className="group">
-								<label className="loginfont">Password</label>
+								<label className="labelfont">Password</label>
 								<input
 									type="password"
 									value={this.state.user.password}
@@ -224,7 +222,7 @@ class Signup extends React.Component {
 								) : null}
 							</div>
 							<div className="group">
-								<label className="loginfont">Profile Picture</label>
+								<label className="labelfont">Profile Picture</label>
 								<input type="file" onChange={this.addFile} />
 							</div>
 							{this.state.alert ? (
@@ -234,7 +232,7 @@ class Signup extends React.Component {
 								Signup
 							</button>
 						</form>
-						<p className="loginfont">
+						<p className="labelfont">
 							Already have an account? <a href="/Login">Login</a>
 						</p>
 					</div>
