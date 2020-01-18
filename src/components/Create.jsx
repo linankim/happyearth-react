@@ -213,7 +213,6 @@ class Create extends React.Component {
 								</select>
 								<label className="labelfont">Upload Photos</label>
 								<input type="file" onChange={this.getFile} multiple />
-								// group for takeaways and eatins code
 								<div className="group">
 									<div>
 										<label className="labelfont">
