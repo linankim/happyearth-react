@@ -117,7 +117,7 @@ class Profile extends React.Component {
 					<div>
 						<div className=" profileform">
 							<form>
-								<div className="loginheader">My Profile</div>
+								<div className="formheaderfont">My Profile</div>
 								<div className="group">
 									<label className="loginfont">First Name</label>
 									<input
