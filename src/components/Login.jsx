@@ -95,7 +95,7 @@ class Login extends React.Component {
 							</div>
 							<form>
 								<div className="group">
-									<label className="loginfont">Email</label>
+									<label className="labelfont">Email</label>
 									<input
 										type="email"
 										value={this.state.user.email}
@@ -108,7 +108,7 @@ class Login extends React.Component {
 									) : null}
 								</div>
 								<div className="group">
-									<label className="loginfont">Password</label>
+									<label className="labelfont">Password</label>
 									<input
 										type="password"
 										value={this.state.user.password}
@@ -130,7 +130,7 @@ class Login extends React.Component {
 								</button>
 							</form>
 							<p className="footer">
-								<a className="loginfont" href="/Signup">
+								<a className="labelfont" href="/Signup">
 									Signup
 								</a>
 							</p>
