@@ -1,25 +1,26 @@
 button,
 .button {
-	background: white;
+	font-family: 'EB Garamond', serif;
+	background: #85bd9a;
 	box-sizing: border-box;
 	border-radius: 4px;
-	border: 1px solid #e2e2e2;
-	font-size: 16px;
+	font-size: 24px;
 	height: 50px;
-	padding: 14px 20px;
+	padding: 8px 15px;
 	cursor: pointer;
-	color: black;
+	color: white;
 	transition: background-color 0.3s, border 0.3s, color 0.3s;
+	margin: 10px 10px 0px 10px;
+	border-color: !important;
 }
 
 button:hover,
 .button:hover {
-	background: #f5f5f5;
+	background: #ccedd2;
 }
 
-button.primary,
-.button.primary {
-	background: #1a5320;
+button.primary {
+	background: #85bd9a;
 	color: white;
 	padding: 14px 20px;
 	font-size: 16px;
@@ -29,33 +30,11 @@ button.primary,
 	text-decoration: none;
 	box-sizing: border-box;
 	vertical-align: top;
-}
-
-button.secondary {
-	background: #1a5320;
-	color: white;
-	padding: 14px 20px;
-	font-size: 16px;
-	border: none;
-	border-radius: 4px;
-}
-
-.button.logout {
-	background: rgb(54, 113, 44);
-	color: #1a5320;
-	padding: 14px 20px;
-	font-size: 16px;
-	border: none;
-	border-radius: 4px;
+	text-align: center;
 }
 
 button.secondary:hover {
 	background: #1a5320;
-}
-
-button.small {
-	height: 34px;
-	padding: 4px 15px;
 }
 
 button.cancel,
@@ -74,4 +53,8 @@ button.cancel,
 button.full {
 	width: 100%;
 	font-weight: bold;
+}
+
+.centerbutton {
+	text-align: center;
 }
