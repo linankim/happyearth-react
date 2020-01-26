@@ -164,22 +164,22 @@ class Profile extends React.Component {
 										</div>
 									</div>
 								</div>
-								<span>
+								<div className="centerbutton">
 									<button onClick={this.savesChanges()}>Save Changes</button>
-								</span>
-								<span>
+
 									<button onClick={e => this.alertButton(e)}>
 										{this.state.showPopup ? (
 											<Popup deleteProfile={this.deleteProfile} />
 										) : null}
 										Delete Profile
 									</button>
-									<div>
-										<button className="logout" onClick={this.logout}>
-											Logout
-										</button>
-									</div>
-								</span>
+								</div>
+
+								<div className="centerbutton">
+									<button className="logout" onClick={this.logout}>
+										Logout
+									</button>
+								</div>
 							</form>
 						</div>
 					</div>
