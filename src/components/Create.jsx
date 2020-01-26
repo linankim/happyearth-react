@@ -284,12 +284,11 @@ class Create extends React.Component {
 									onChange={e => this.changeField(e, 'lng')}
 								/>
 							</div>
-							<button
-								className="primary"
-								onClick={e => this.createPlace(e, this.state.spot)}
-							>
-								Publish this spot
-							</button>
+							<div className="centerbutton">
+								<button onClick={e => this.createPlace(e, this.state.spot)}>
+									Publish this spot
+								</button>
+							</div>
 						</form>
 					</div>
 				</div>
