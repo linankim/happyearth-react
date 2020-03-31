@@ -27,6 +27,18 @@
 	color: white;
 }
 
+ctnr-search {
+	margin-top: 36px;
+	outline: none;
+	background: none;
+	border: 0;
+	font-family: 'Lato';
+	padding-right: 5px;
+	background-color: white;
+	opacity: 80%;
+	background-position: 'center';
+}
+
 /* .landing {
 	border-radius: 3px;
 	background-color: #effcef;

@@ -51,13 +51,22 @@ class Landing extends React.Component {
 				<div className="bg-img">
 					<div className="center-img ">
 						<div>
-							<div> Welcome to Happy Earth</div>
+							<h1 style={{ fontSize: '45px' }}> happy earth</h1>
+							<h3>
+								Crowdsourced reviews of your city's most eco-friendly and
+								sustainable restaurants, shops and cafes
+							</h3>
 							<input
+								className="ctnr-search"
 								type="text"
 								className="search"
-								placeholder="Enter City Name"
+								placeholder="search by city"
 								onChange={this.search}
 							></input>
+							<h3>
+								Read Reviews, Leave Reviews and read about your favorite local
+								spots
+							</h3>
 							{/*
 							1. insert dropdown with results
 							2. each option has onClick={this.selectOption}
