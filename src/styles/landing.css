@@ -1,3 +1,32 @@
+.bg-img {
+	width: 100vw;
+	height: 90vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+	background-image: url('https://via.placeholder.com/300/09f/fff.png');
+	min-height: 380px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+/* text on header images */
+.center-img {
+	position: absolute;
+	margin: 50px 50px 1px 50px;
+	padding: 230px;
+	z-index: 5px;
+	background-position: center;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+}
+
 /* .landing {
 	border-radius: 3px;
 	background-color: #effcef;

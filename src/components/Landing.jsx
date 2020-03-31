@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-// import '../styles/landing.css'
+import '../styles/landing.css'
 // import '../styles/universal.css'
 import Sidebar from './Sidebar.jsx'
 
@@ -48,10 +48,10 @@ class Landing extends React.Component {
 	render() {
 		return (
 			<>
-				<div>
-					<div>
+				<div className="bg-img">
+					<div className="center-img ">
 						<div>
-							<div>Welcome to Happy Earth</div>
+							<div> Welcome to Happy Earth</div>
 							<input
 								type="text"
 								className="search"
