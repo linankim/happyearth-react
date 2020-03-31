@@ -1,11 +1,28 @@
 .bg-img {
 	width: 100vw;
+	height: 135vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg');
+	/* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg'); */
+
+	opacity: 0.8;
+	min-height: 380px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.bg-img2 {
+	width: 100vw;
 	height: 90vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	color: white;
+	color: black;
 	background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg');
 	min-height: 380px;
 	background-position: center;
@@ -13,7 +30,6 @@
 	background-size: cover;
 	position: relative;
 }
-
 /* text on header images */
 .center-img {
 	position: absolute;
@@ -26,7 +42,6 @@
 	text-align: center;
 	color: white;
 }
-
 ctnr-search {
 	margin-top: 36px;
 	outline: none;
@@ -38,7 +53,6 @@ ctnr-search {
 	opacity: 80%;
 	background-position: 'center';
 }
-
 /* .landing {
 	border-radius: 3px;
 	background-color: #effcef;

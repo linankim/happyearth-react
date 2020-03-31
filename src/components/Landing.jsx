@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import '../styles/landing.css'
 // import '../styles/universal.css'
-import Sidebar from './Sidebar.jsx'
+import TopNav from './Navbar.jsx'
+import Spots from './Spots.jsx'
 
 class Landing extends React.Component {
 	state = {
@@ -48,44 +49,67 @@ class Landing extends React.Component {
 	render() {
 		return (
 			<>
+				<TopNav />
 				<div className="bg-img">
 					<div className="center-img ">
-						<div>
-							<h1 style={{ fontSize: '45px' }}> happy earth</h1>
-							<h3>
-								Crowdsourced reviews of your city's most eco-friendly and
-								sustainable restaurants, shops and cafes
-							</h3>
-							<input
-								className="ctnr-search"
-								type="text"
-								className="search"
-								placeholder="search by city"
-								onChange={this.search}
-							></input>
-							<h3>
-								Read Reviews, Leave Reviews and read about your favorite local
-								spots
-							</h3>
-							{/*
+						<div
+							style={{
+								marginTop: '0px'
+							}}
+						>
+							<h1
+								style={{
+									fontFamily: 'Pacifico',
+									color: 'white',
+									fontSize: '105px',
+									marginBottom: '50px'
+								}}
+							>
+								{' '}
+								happy earth
+							</h1>
+						</div>
+						<h2
+							style={{
+								fontFamily: 'EB Garamond',
+								fontSize: '35px',
+								lineHeight: '200%',
+								letterSpacing: '8px'
+							}}
+						>
+							Crowd-sourced reviews of your city's most eco-friendly and
+							sustainable restaurants, shops and cafes
+						</h2>
+
+						<input
+							className="ctnr-search"
+							type="text"
+							className="search"
+							placeholder="search for a city"
+							onChange={this.search}
+						></input>
+
+						{/*
 							1. insert dropdown with results
 							2. each option has onClick={this.selectOption}
 						*/}
-							<div className={this.dropdownStatus()}>
-								{this.state.options.map(option => {
-									return (
-										<div
-											className="option"
-											onClick={this.selectOption}
-											id={option}
-										>
-											{option}
-										</div>
-									)
-								})}
-							</div>
+						<div className={this.dropdownStatus()}>
+							{this.state.options.map(option => {
+								return (
+									<div
+										className="option"
+										onClick={this.selectOption}
+										id={option}
+									>
+										{option}
+									</div>
+								)
+							})}
 						</div>
 					</div>
+				</div>
+				<div className="bg-img2">
+					<div className="center-img "></div>
 				</div>
 			</>
 		)
