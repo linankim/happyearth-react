@@ -61,7 +61,7 @@ class Landing extends React.Component {
 								style={{
 									fontFamily: 'Pacifico',
 									color: 'white',
-									fontSize: '105px',
+									fontSize: '150px',
 									marginBottom: '50px'
 								}}
 							>
@@ -80,7 +80,10 @@ class Landing extends React.Component {
 							Crowd-sourced reviews of your city's most eco-friendly and
 							sustainable restaurants, shops and cafes
 						</h2>
-
+					</div>
+				</div>
+				<div className="bg-img2">
+					<div className="center-img ">
 						<input
 							className="ctnr-search"
 							type="text"
@@ -90,9 +93,9 @@ class Landing extends React.Component {
 						></input>
 
 						{/*
-							1. insert dropdown with results
-							2. each option has onClick={this.selectOption}
-						*/}
+													1. insert dropdown with results
+													2. each option has onClick={this.selectOption}
+												*/}
 						<div className={this.dropdownStatus()}>
 							{this.state.options.map(option => {
 								return (
@@ -107,9 +110,6 @@ class Landing extends React.Component {
 							})}
 						</div>
 					</div>
-				</div>
-				<div className="bg-img2">
-					<div className="center-img "></div>
 				</div>
 			</>
 		)

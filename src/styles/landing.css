@@ -1,39 +1,45 @@
+/* top main photo */
 .bg-img {
 	width: 100vw;
-	height: 135vh;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg');
 	/* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg'); */
-
 	opacity: 0.8;
 	min-height: 380px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
+	background-attachment: fixed;
 }
+
+/* second img */
 .bg-img2 {
 	width: 100vw;
-	height: 90vh;
+	height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	color: black;
 	background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg');
+	/* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
 	min-height: 380px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
+	background-attachment: fixed;
 }
+
 /* text on header images */
 .center-img {
 	position: absolute;
-	margin: 50px 50px 1px 50px;
+	/* margin: 50px 50px 1px 50px; */
 	padding: 230px;
 	z-index: 5px;
 	background-position: center;
@@ -42,7 +48,18 @@
 	text-align: center;
 	color: white;
 }
-ctnr-search {
+
+/* center box around content */
+.center-box {
+	box-sizing: border-box;
+	background-color: black;
+	border-radius: 8px;
+	margin: 0px;
+	padding: 82px;
+	opacity: 70%;
+}
+
+.ctnr-search {
 	margin-top: 36px;
 	outline: none;
 	background: none;
