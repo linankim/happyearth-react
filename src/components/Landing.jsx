@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import '../styles/landing.css'
-import '../styles/universal.css'
+// import '../styles/landing.css'
+// import '../styles/universal.css'
 import Sidebar from './Sidebar.jsx'
 
 class Landing extends React.Component {
@@ -48,11 +48,10 @@ class Landing extends React.Component {
 	render() {
 		return (
 			<>
-				<Sidebar />
-				<div className="background centerforms grid">
-					<div className="landing">
+				<div>
+					<div>
 						<div>
-							<div className="formheaderfont">Welcome to Happy Earth</div>
+							<div>Welcome to Happy Earth</div>
 							<input
 								type="text"
 								className="search"
