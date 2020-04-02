@@ -6,7 +6,8 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg');
+	background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg');
+	/* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
 	/* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg'); */
 	opacity: 0.8;
 	min-height: 380px;
@@ -27,7 +28,7 @@
 	text-align: center;
 	color: black;
 	background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg');
-	/* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
+	/* background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg'); */
 	min-height: 380px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -59,17 +60,33 @@
 	opacity: 70%;
 }
 
-.ctnr-search {
-	margin-top: 36px;
-	outline: none;
-	background: none;
-	border: 0;
-	font-family: 'Lato';
-	padding-right: 5px;
-	background-color: white;
-	opacity: 80%;
-	background-position: 'center';
+/* search bar landing page */
+
+.center-search {
+	display: inline-flex;
+	flex: 1 1 300px;
+	position: relative;
+	border: 1px solid;
+	border-radius: 5px;
+	overflow: hidden;
+	width: 300px;
 }
+
+.searchIcon {
+	padding: 0.5rem;
+	background-color: white;
+	color: #ccc;
+	background-position: center;
+}
+
+.center-searchBox {
+	border: 0;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+	flex: 1;
+}
+
+/* end search bar */
+
 /* .landing {
 	border-radius: 3px;
 	background-color: #effcef;

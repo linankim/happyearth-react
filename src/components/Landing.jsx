@@ -4,6 +4,7 @@ import '../styles/landing.css'
 // import '../styles/universal.css'
 import TopNav from './Navbar.jsx'
 import Spots from './Spots.jsx'
+import { FormControl, Form, Button, InputGroup } from 'react-bootstrap'
 
 class Landing extends React.Component {
 	state = {
@@ -80,36 +81,39 @@ class Landing extends React.Component {
 							Crowd-sourced reviews of your city's most eco-friendly and
 							sustainable restaurants, shops and cafes
 						</h2>
+						<div className="center-search">
+							<i className="fas fa-search fa-2x searchIcon"></i>
+							<input
+								className="center-searchBox"
+								type="search"
+								placeholder="Search for a city"
+								onChange={this.search}
+								style={{
+									boxShadow: 'none',
+									fontFamily: 'EB Garamond',
+									fontSize: '20px'
+								}}
+							></input>{' '}
+						</div>
 					</div>
 				</div>
-				<div className="bg-img2">
-					<div className="center-img ">
-						<input
-							className="ctnr-search"
-							type="text"
-							className="search"
-							placeholder="search for a city"
-							onChange={this.search}
-						></input>
 
-						{/*
+				{/*
 													1. insert dropdown with results
 													2. each option has onClick={this.selectOption}
 												*/}
-						<div className={this.dropdownStatus()}>
-							{this.state.options.map(option => {
-								return (
-									<div
-										className="option"
-										onClick={this.selectOption}
-										id={option}
-									>
-										{option}
-									</div>
-								)
-							})}
-						</div>
-					</div>
+				<div className={this.dropdownStatus()}>
+					{this.state.options.map(option => {
+						return (
+							<div className="option" onClick={this.selectOption} id={option}>
+								{option}
+							</div>
+						)
+					})}
+				</div>
+
+				<div className="bg-img2">
+					<div className="center-img "></div>
 				</div>
 			</>
 		)
