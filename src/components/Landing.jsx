@@ -82,7 +82,7 @@ class Landing extends React.Component {
 							sustainable restaurants, shops and cafes
 						</h2>
 						<div className="center-search">
-							<i className="fas fa-search fa-2x searchIcon"></i>
+							<i className="fas fa-search-location fa-2x searchIcon"></i>
 							<input
 								className="center-searchBox"
 								type="search"
@@ -91,7 +91,10 @@ class Landing extends React.Component {
 								style={{
 									boxShadow: 'none',
 									fontFamily: 'EB Garamond',
-									fontSize: '20px'
+									fontSize: '22px',
+									letterSpacing: '3px',
+									color: 'black',
+									padding: '5px'
 								}}
 							></input>{' '}
 						</div>

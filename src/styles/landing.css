@@ -69,13 +69,14 @@
 	border: 1px solid;
 	border-radius: 5px;
 	overflow: hidden;
-	width: 300px;
+	width: 350px;
+	margin-top: 15px;
 }
 
 .searchIcon {
 	padding: 0.5rem;
 	background-color: white;
-	color: #ccc;
+	color: #939393;
 	background-position: center;
 }
 
@@ -83,6 +84,11 @@
 	border: 0;
 	padding: 0.5rem 0.5rem 0.5rem 0;
 	flex: 1;
+}
+
+textarea:focus,
+input:focus {
+	outline: none;
 }
 
 /* end search bar */
