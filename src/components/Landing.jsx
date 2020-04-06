@@ -1,10 +1,19 @@
 import React from 'react'
+import { Link, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import '../styles/landing.css'
 // import '../styles/universal.css'
 import TopNav from './Navbar.jsx'
 import Spots from './Spots.jsx'
-import { FormControl, Form, Button, InputGroup } from 'react-bootstrap'
+import {
+	FormControl,
+	Form,
+	Button,
+	InputGroup,
+	Navbar,
+	Nav,
+	NavLink
+} from 'react-bootstrap'
 
 class Landing extends React.Component {
 	state = {
@@ -50,9 +59,31 @@ class Landing extends React.Component {
 	render() {
 		return (
 			<>
-				<TopNav />
 				<div className="bg-img">
 					<div className="center-img ">
+						<div
+							style={{
+								marginBottom: '8em'
+							}}
+						>
+							<Nav className="topnav" navbar>
+								<NavLink href="/creat">Review a spot</NavLink>
+								<NavLink href="/login">Login</NavLink>
+								<NavLink
+									className="join"
+									href="/signup"
+									style={{
+										borderStyle: 'solid',
+										borderColor: 'white',
+										borderRadius: '8px',
+										backgroundColor: 'white',
+										color: 'black'
+									}}
+								>
+									Join
+								</NavLink>
+							</Nav>
+						</div>
 						<div
 							style={{
 								marginTop: '0px'
