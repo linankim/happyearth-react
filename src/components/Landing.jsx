@@ -20,7 +20,7 @@ class Landing extends React.Component {
 		return (
 			<>
 				<div className="bg-img ">
-					<div className="center-img ">
+					<div className="hero-text ">
 						<div
 							style={{
 								marginBottom: '8em'
@@ -37,7 +37,6 @@ class Landing extends React.Component {
 									color: 'white',
 									fontSize: '130px',
 									letterSpacing: '3px',
-
 									marginBottom: '50px'
 								}}
 							>
@@ -45,19 +44,22 @@ class Landing extends React.Component {
 							</h1>
 						</div>
 
-						<h2
-							style={{
-								fontFamily: 'Open Sans',
-								color: 'white',
-								fontSize: '35px',
-								lineHeight: '200%',
-								letterSpacing: '7px'
-							}}
-						>
+						<h2 class="secondary">
 							Crowd-sourced reviews of your city's most eco-friendly and
 							sustainable restaurants, shops and cafes
 						</h2>
+
+						<Button variant="dark">Browse Spots</Button>
+						<Button class="button" variant="outline-dark">
+							Review a Spot
+						</Button>
 					</div>
+				</div>
+				<div
+					class="center-box"
+					style={{ height: '85vh', backgroundColor: 'white' }}
+				>
+					<h2 class="secondary">cities</h2>{' '}
 				</div>
 			</>
 		)

@@ -1,86 +1,51 @@
-/* top main photo */
+/* body,
+html {
+	height: 100%;
+} */
+
+/* hero img */
 .bg-img {
-	width: 100vw;
-	height: 100vh;
+	/* width: 100vw; */
+	height: 90%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg');
 	opacity: 0.8;
-	/* min-height: 380px; */
-	background-position: center center;
+	background-attachment: fixed;
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: fixed;
-	background-attachment: fixed;
-	overflow: hidden;
 	top: 0;
 }
 
 @media only screen and (max-width: 600px) {
-	/* small screeennssss */
+	height: 50%;
 }
 
-/* the background behind the nav idk css sux*/
-.bg-img-nav {
-	/* width: 100vw;
-	height: 10vh; */
-	display: flex;
-	background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg');
-	opacity: 0.8;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	background-attachment: fixed;
-}
-
-/* second img */
-.bg-img2 {
-	width: 100vw;
-	height: 80vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	color: black;
-	background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg');
-	/* background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg'); */
-	min-height: 380px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	background-attachment: fixed;
-}
-
-/* text on header images */
-.center-img {
-	position: absolute;
-	/* margin: 50px 50px 1px 50px; */
+/* text on hero image */
+.hero-text {
 	padding: 200px;
 	z-index: 5px;
-	background-position: center;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	color: white;
 }
 
-/* center box around content */
-.center-box {
-	box-sizing: border-box;
-	background-color: black;
-	border-radius: 8px;
-	margin: 0px;
-	padding: 82px;
-	opacity: 70%;
+/* fonts */
+
+/* mains */
+
+h2,
+.secondary {
+	color: white;
+	font-family: 'Open-Sans';
+	font-size: 35px;
+	line-height: 200%;
+	letter-spacing: 7px;
 }
 
 /* search bar landing page */
 
-.center-search {
+.center-box {
 	display: inline-flex;
 	flex: 1 1 300px;
 	position: relative;

@@ -1,23 +1,16 @@
 button,
 .button {
-	font-family: 'EB Garamond', serif;
-	background: #85bd9a;
-	box-sizing: border-box;
-	border-radius: 4px;
-	font-size: 24px;
-	height: 50px;
-	padding: 8px 15px;
-	cursor: pointer;
-	color: white;
-	transition: background-color 0.3s, border 0.3s, color 0.3s;
-	margin: 10px 10px 0px 10px;
-	border-color: !important;
+	font-family: 'Pacifico';
+	margin: 1.5em;
+	padding: 2em;
 }
 
 button:hover,
 .button:hover {
 	background: #ccedd2;
 }
+
+/*
 
 button.primary {
 	background: #85bd9a;
@@ -57,4 +50,4 @@ button.full {
 
 .centerbutton {
 	text-align: center;
-}
+} */
