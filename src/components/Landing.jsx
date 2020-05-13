@@ -16,74 +16,16 @@ import {
 } from 'react-bootstrap'
 
 class Landing extends React.Component {
-	state = {
-		options: [],
-		open: false
-	}
-	search = e => {
-		axios
-			.get(`${process.env.REACT_APP_API}/cities?name=${e.target.value}`)
-			.then(res => {
-				console.log({ res })
-				// if length, set state options
-				// else set state options = "Not found"
-				if (res.data[0]) {
-					console.log('res.data', res.data)
-					this.setState({ options: res.data })
-				} else {
-					this.setState({
-						options: ['Not available']
-					})
-				}
-			})
-			.catch(err => {
-				console.log('errorr >>>', { err })
-				// else set state options = "Not found"
-			})
-		this.setState({ open: true })
-	}
-	selectOption = e => {
-		this.props.history.push(`/spots?city=${e.target.id}`)
-	}
-	dropdownStatus = () => {
-		if (this.state.open) {
-			return 'dropdown open'
-		} else {
-			return 'dropdown'
-		}
-	}
-
-	componentWillMount() {
-		console.log('this.state.options', this.state.options)
-	}
 	render() {
 		return (
 			<>
-				<div className="bg-img">
+				<div className="bg-img ">
 					<div className="center-img ">
 						<div
 							style={{
 								marginBottom: '8em'
 							}}
-						>
-							<Nav className="topnav" navbar>
-								<NavLink href="/creat">Review a spot</NavLink>
-								<NavLink href="/login">Login</NavLink>
-								<NavLink
-									className="join"
-									href="/signup"
-									style={{
-										borderStyle: 'solid',
-										borderColor: 'white',
-										borderRadius: '8px',
-										backgroundColor: 'white',
-										color: 'black'
-									}}
-								>
-									Join
-								</NavLink>
-							</Nav>
-						</div>
+						></div>
 						<div
 							style={{
 								marginTop: '0px'
@@ -91,63 +33,31 @@ class Landing extends React.Component {
 						>
 							<h1
 								style={{
-									fontFamily: 'Pacifico',
+									fontFamily: 'Poppins',
 									color: 'white',
-									fontSize: '150px',
+									fontSize: '130px',
+									letterSpacing: '3px',
+
 									marginBottom: '50px'
 								}}
 							>
-								{' '}
-								happy earth
+								{' happy earth'}
 							</h1>
 						</div>
+
 						<h2
 							style={{
-								fontFamily: 'EB Garamond',
+								fontFamily: 'Open Sans',
+								color: 'white',
 								fontSize: '35px',
 								lineHeight: '200%',
-								letterSpacing: '8px'
+								letterSpacing: '7px'
 							}}
 						>
 							Crowd-sourced reviews of your city's most eco-friendly and
 							sustainable restaurants, shops and cafes
 						</h2>
-						<div className="center-search">
-							<i className="fas fa-search-location fa-2x searchIcon"></i>
-							<input
-								className="center-searchBox"
-								type="search"
-								placeholder="Search for a city"
-								onChange={this.search}
-								style={{
-									boxShadow: 'none',
-									fontFamily: 'EB Garamond',
-									fontSize: '22px',
-									letterSpacing: '3px',
-									color: 'black',
-									padding: '5px'
-								}}
-							></input>{' '}
-						</div>
 					</div>
-				</div>
-
-				{/*
-													1. insert dropdown with results
-													2. each option has onClick={this.selectOption}
-												*/}
-				<div className={this.dropdownStatus()}>
-					{this.state.options.map(option => {
-						return (
-							<div className="option" onClick={this.selectOption} id={option}>
-								{option}
-							</div>
-						)
-					})}
-				</div>
-
-				<div className="bg-img2">
-					<div className="center-img "></div>
 				</div>
 			</>
 		)

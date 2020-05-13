@@ -3,19 +3,23 @@
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	/* justify-content: center; */
+	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg');
-	/* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
-	/* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg'); */
+	background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg');
 	opacity: 0.8;
 	/* min-height: 380px; */
-	background-position: center;
+	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: relative;
+	position: fixed;
 	background-attachment: fixed;
+	overflow: hidden;
+	top: 0;
+}
+
+@media only screen and (max-width: 600px) {
+	/* small screeennssss */
 }
 
 /* the background behind the nav idk css sux*/
