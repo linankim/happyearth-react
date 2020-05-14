@@ -65,7 +65,7 @@ class Landing extends React.Component {
 						<Button variant="dark">Browse Spots</Button>
 					</Nav.Item>
 					<Nav.Item>
-						<Button class="button" variant="outline-dark">
+						<Button className="button" variant="outline-dark">
 							+ Post
 						</Button>
 					</Nav.Item>
@@ -98,14 +98,24 @@ class Landing extends React.Component {
 							Review a Spot
 						</Button>*/}
 						{/*search starts here*/}
-						<div class="searchBox">
-							<i class="fas fa-search-location searchIcon"></i>
+						<div className="center-search">
+							<i className="fas fa-search-location searchIcon"></i>
 							<input
-								type="text"
+								className="center-searchBox"
+								type="search"
 								placeholder="Search a city"
 								onChange={this.search}
+								style={{
+									boxShadow: 'none',
+									fontFamily: 'Jost',
+									fontSize: '22px',
+									letterSpacing: '3px',
+									color: 'black',
+									padding: '5px'
+								}}
 							></input>
 						</div>
+
 						{/*
 						1. insert dropdown with results
 						2. each option has onClick={this.selectOption}
