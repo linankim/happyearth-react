@@ -5,7 +5,6 @@ html {
 
 /* hero img */
 .bg-img {
-	/* width: 100vw; */
 	height: 90%;
 	display: flex;
 	justify-content: center;
@@ -37,13 +36,11 @@ html {
 h2,
 .secondary {
 	color: white;
-	font-family: 'Open-Sans';
+	font-family: 'Jost';
 	font-size: 35px;
 	line-height: 200%;
-	letter-spacing: 7px;
+	letter-spacing: 5px;
 }
-
-/* search bar landing page */
 
 /* center box around 2nd row content */
 .center-box {
@@ -55,11 +52,11 @@ h2,
 	margin: 100px;
 	padding: 20px;
 	opacity: 70%;
-	/* background-position: center; */
 	justify-content: center;
-	/* align-items: center; */
 	display: flex;
 }
+
+/* search bar landing page */
 
 .searchIcon {
 	padding: 0.5rem;
@@ -68,10 +65,15 @@ h2,
 	background-position: center;
 }
 
-.center-searchBox {
-	border: 0;
-	padding: 0.5rem 0.5rem 0.5rem 0;
-	flex: 1;
+input,
+.searchBox {
+	width: 65vw;
+	border: none;
+	font-size: 19px;
+	font-family: 'Jost';
+	box-sizing: border-box;
+	padding: 10px;
+	margin-top: 40px;
 }
 
 textarea:focus,

@@ -1,19 +1,17 @@
 button,
 .button {
-	font-family: 'Pacifico';
+	font-family: 'Jost';
 	margin: 1.5em;
+	margin-top: 0;
 	padding: 2em;
 	background: #ccedd2;
+	height: 4em;
+	width: 10em;
 }
 
 button:hover,
 .button:hover {
 	background: #ccedd2;
-}
-
-/* hero-img search bar */
-FormControl > .searchbar {
-	width: 110%;
 }
 
 /*
