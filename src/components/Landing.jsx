@@ -12,7 +12,8 @@ import {
 	InputGroup,
 	Navbar,
 	Nav,
-	NavLink
+	NavLink,
+	Card
 } from 'react-bootstrap'
 
 class Landing extends React.Component {
@@ -53,13 +54,46 @@ class Landing extends React.Component {
 						<Button class="button" variant="outline-dark">
 							Review a Spot
 						</Button>
+						<Form>
+							<FormControl
+								type="text"
+								placeholder="Search"
+								className="searchbar"
+							/>
+							<Button variant="outline-success">Search</Button>
+						</Form>
 					</div>
 				</div>
-				<div
-					class="center-box"
-					style={{ height: '85vh', backgroundColor: 'white' }}
-				>
-					<h2 class="secondary">cities</h2>{' '}
+				<div style={{ height: '85vh', backgroundColor: 'white' }}>
+					<div class="center-box">
+						<div className="grid two">
+							<h2 class="secondary">
+								Browse Happy Earth's Top Reviewed Cities:
+							</h2>{' '}
+							<Card style={{ width: '18rem' }}>
+								<Card.Img variant="top" src="holder.js/100px180" />
+								<Card.Body>
+									<Card.Title>City Name</Card.Title>
+									<Card.Text>
+										Some quick example text to build on the card title and make
+										up the bulk of the card's content.
+									</Card.Text>
+									<Button variant="primary">See $cityname Spots</Button>
+								</Card.Body>
+							</Card>
+							<Card style={{ width: '18rem' }}>
+								<Card.Img variant="top" src="holder.js/100px180" />
+								<Card.Body>
+									<Card.Title>City Name</Card.Title>
+									<Card.Text>
+										Some quick example text to build on the card title and make
+										up the bulk of the card's content.
+									</Card.Text>
+									<Button variant="primary">See $cityname Spots</Button>
+								</Card.Body>
+							</Card>
+						</div>
+					</div>
 				</div>
 			</>
 		)

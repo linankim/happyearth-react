@@ -3,6 +3,7 @@ button,
 	font-family: 'Pacifico';
 	margin: 1.5em;
 	padding: 2em;
+	background: #ccedd2;
 }
 
 button:hover,
@@ -10,7 +11,14 @@ button:hover,
 	background: #ccedd2;
 }
 
+/* hero-img search bar */
+FormControl > .searchbar {
+	width: 110%;
+}
+
 /*
+
+
 
 button.primary {
 	background: #85bd9a;

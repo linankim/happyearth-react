@@ -45,15 +45,20 @@ h2,
 
 /* search bar landing page */
 
+/* center box around 2nd row content */
 .center-box {
-	display: inline-flex;
-	flex: 1 1 300px;
-	position: relative;
-	border: 1px solid;
+	height: 80vh;
+	width: 80vw;
+	box-sizing: border-box;
+	background-color: black;
 	border-radius: 5px;
-	overflow: hidden;
-	width: 350px;
-	margin-top: 25px;
+	margin: 100px;
+	padding: 20px;
+	opacity: 70%;
+	/* background-position: center; */
+	justify-content: center;
+	/* align-items: center; */
+	display: flex;
 }
 
 .searchIcon {
