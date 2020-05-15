@@ -35,7 +35,7 @@ html {
 
 h2,
 .secondary {
-	color: white;
+	color: black;
 	font-family: 'Jost';
 	font-size: 35px;
 	line-height: 200%;
@@ -58,14 +58,40 @@ h2,
 
 /* search bar landing page */
 
-.searchIcon {
-	padding: 0.5rem;
-	background-color: white;
-	color: #7dbb9d;
-	background-position: center;
+/* search bar landing page */
+
+.center-search {
+	display: inline-flex;
+	flex: 1 1 300px;
+	position: relative;
+	border: 1px solid;
+	border-radius: 5px;
+	overflow: hidden;
+	/* width: 350px; */
+	margin-top: 25px;
+	width: 45vw;
+	border: none;
+	/* font-size: 19px;
+	font-family: 'Jost'; */
+	box-sizing: border-box;
+	padding: 10px;
 }
 
-input,
+.searchIcon {
+	padding: 1.3rem 0.5em 1.3rem 1.3rem;
+	background-color: white;
+	color: #8a8a8a;
+	background-position: center;
+	font-size: 1em;
+}
+
+.center-searchBox {
+	border: 0;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+	flex: 1;
+}
+
+/* input,
 .searchBox {
 	width: 65vw;
 	border: none;
@@ -74,7 +100,7 @@ input,
 	box-sizing: border-box;
 	padding: 10px;
 	margin-top: 40px;
-}
+} */
 
 textarea:focus,
 input:focus {

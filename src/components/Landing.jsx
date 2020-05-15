@@ -13,7 +13,11 @@ import {
 	Navbar,
 	Nav,
 	NavLink,
-	Card
+	Card,
+	Dropdown,
+	DropdownButton,
+	ButtonGroup,
+	Alert
 } from 'react-bootstrap'
 
 class Landing extends React.Component {
@@ -54,20 +58,28 @@ class Landing extends React.Component {
 			return 'dropdown'
 		}
 	}
+
 	componentWillMount() {
 		console.log('this.state.options', this.state.options)
 	}
 	render() {
 		return (
 			<>
+				<Alert variant="warning ">
+					{'TRAVEL NOTICE: '}
+					<Alert.Link href="#">COVID-19 Important Info</Alert.Link>
+				</Alert>
 				<Navbar className="justify-content-end">
 					<Nav.Item>
-						<Button variant="dark">Browse Spots</Button>
+						<Button className="button" variant="outline-dark">
+							Browse Spots
+						</Button>
 					</Nav.Item>
 					<Nav.Item>
 						<Button className="button" variant="outline-dark">
-							+ Post
+							+ Post a Review
 						</Button>
+						<Button variant="dark">Sign In</Button>
 					</Nav.Item>
 				</Navbar>
 				<div className="bg-img ">
@@ -80,7 +92,7 @@ class Landing extends React.Component {
 							<h1
 								style={{
 									fontFamily: 'Poppins',
-									color: 'white',
+									color: 'black',
 									fontSize: '130px',
 									letterSpacing: '3px',
 									marginBottom: '50px'

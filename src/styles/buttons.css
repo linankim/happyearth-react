@@ -1,23 +1,30 @@
 button,
 .button {
 	font-family: 'Jost';
-	margin: 1.5em;
+	margin: 0.5em;
 	margin-top: 0;
-	padding: 2em;
-	background: #ccedd2;
-	height: 4em;
-	width: 10em;
-}
-
-button:hover,
-.button:hover {
-	background: #ccedd2;
+	height: 3em;
+	width: 9em;
 }
 
 /*
+button:hover,
+.button:hover {
+	background: #404040;
+} */
 
+/* .link:hover {
+	border-radius: 4px;
+	border: 1px solid #404040;
+	margin: 0.5em;
+	margin-top: 0;
+	height: 4em;
+	width: 10em;
+	background-color: #404040;
+	color: white;
+} */
 
-
+/*
 button.primary {
 	background: #85bd9a;
 	color: white;
