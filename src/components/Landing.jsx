@@ -17,7 +17,8 @@ import {
 	Dropdown,
 	DropdownButton,
 	ButtonGroup,
-	Alert
+	Alert,
+	Modal
 } from 'react-bootstrap'
 
 class Landing extends React.Component {
@@ -59,6 +60,23 @@ class Landing extends React.Component {
 		}
 	}
 
+	UserSigninModal = props => {
+		return (
+			<Modal
+				{...props}
+				size="lg"
+				aria-labelledby="contained-modal-title-vcenter"
+				centered
+			>
+				<Modal.Header closeButton>
+					<Modal.Title id="contained-modal-title-vcenter">
+						Modal heading
+					</Modal.Title>
+				</Modal.Header>
+			</Modal>
+		)
+	}
+
 	componentWillMount() {
 		console.log('this.state.options', this.state.options)
 	}
@@ -80,7 +98,7 @@ class Landing extends React.Component {
 							+ Post a Review
 						</Button>
 						<Button className="sign-in" variant="dark">
-							Sign In
+							Log In
 						</Button>
 					</Nav.Item>
 				</Navbar>

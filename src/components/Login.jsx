@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import '../styles/login.css'
-import '../styles/universal.css'
-import Sidebar from './Sidebar.jsx'
+
+import { Button, Modal } from 'react-bootstrap'
 
 class Login extends React.Component {
 	state = {
@@ -85,59 +85,72 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Sidebar />
-				<div className="background  centerforms grid">
-					<div className="loginform">
-						<div>
-							<div className="formheaderfont">
-								<div>Happy Earth</div>
-							</div>
-							<form>
-								<div className="group">
-									<label className="labelfont">Email</label>
-									<input
-										type="email"
-										value={this.state.user.email}
-										onChange={e => this.changeField(e, 'email')}
-									/>
-									{this.state.emptyField.email ? (
-										<p className="logininfontalert">
-											Please type in your email
-										</p>
-									) : null}
-								</div>
-								<div className="group">
-									<label className="labelfont">Password</label>
-									<input
-										type="password"
-										value={this.state.user.password}
-										onChange={e => this.changeField(e, 'password')}
-									/>
-									{this.state.emptyField.password ? (
-										<p className="logininfontalert">
-											Please type in your password
-										</p>
-									) : null}
-								</div>
-								{this.state.alert ? (
-									<p className="logininfontalert">
-										Either email or password incorrect
-									</p>
+			<>
+				<div className="login-grid">
+					<div className="login-image"></div>
+					<div>
+						<form className="form-container">
+							<h1
+								style={{
+									fontFamily: 'Pacifico',
+									color: 'black',
+									fontSize: '50px',
+									letterSpacing: '3px'
+								}}
+							>
+								happy earth
+							</h1>
+							<h2
+								class="secondary"
+								style={{
+									color: 'black'
+								}}
+							>
+								Please log in using your details
+							</h2>
+							<div className="input-container ">
+								<i className="fas fa-search-location input-icon"></i>
+								<input
+									className="input-box"
+									type="email"
+									placeholder="Email"
+									value={this.state.user.email}
+									onChange={e => this.changeField(e, 'email')}
+								/>
+								{this.state.emptyField.email ? (
+									<p>Please type in your email</p>
 								) : null}
-								<button className="primary" onClick={this.login}>
+							</div>
+							<div className="input-container">
+								{/*pwd*/}
+								<i className="fas fa-search-location input-icon"></i>
+								<input
+									className="input-box"
+									type="password"
+									placeholder="Password"
+									value={this.state.user.password}
+									onChange={e => this.changeField(e, 'password')}
+								/>
+								{this.state.emptyField.password ? (
+									<p>Please type in your password</p>
+								) : null}
+								{this.state.alert ? (
+									<p>Either email or password incorrect</p>
+								) : null}
+							</div>
+							<div>
+								<Button
+									className="button-login"
+									variant="outline-dark"
+									onClick={this.login}
+								>
 									Login
-								</button>
-							</form>
-							<p className="footer">
-								<a className="labelfont" href="/Signup">
-									Signup
-								</a>
-							</p>
-						</div>
+								</Button>
+							</div>
+						</form>
 					</div>
 				</div>
-			</div>
+			</>
 		)
 	}
 }

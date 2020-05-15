@@ -1,4 +1,71 @@
-.loginform {
+.login-grid {
+	display: grid;
+	grid-template-columns: 40% 60%;
+	height: 100vh;
+}
+
+.login-image {
+	background-image: url('https://images.pexels.com/photos/1055408/pexels-photo-1055408.jpeg');
+	background-size: cover;
+	background-position: center;
+	/* opacity: 0.9; */
+}
+
+.form-container {
+	justify-content: center;
+	/* margin: 30px 0 0 130px; */
+	margin: 6vw;
+	padding-top: 100px;
+}
+
+form > h1,
+h3 {
+	/* text-align: center; */
+}
+
+.input-container {
+	/* display: inline-flex; */
+	flex: 1 1 300px;
+	position: relative;
+	border: 1px solid;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 25px 0 35px 5px;
+	width: 45vw;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.input-box {
+	padding: 0.5rem 0.5rem 0.5rem 0;
+	flex: 1;
+	font-family: 'Jost';
+	font-size: 22px;
+	letter-spacing: 3px;
+	color: black;
+	border: none;
+}
+
+.input-icon {
+	padding: 1.3rem 0.5em 1.3rem 1.3rem;
+	background-color: white;
+	color: #8a8a8a;
+	background-position: center;
+	font-size: 1em;
+}
+
+.button-login {
+	margin-top: 25px;
+	margin-left: 15vw;
+	width: 15vw;
+	height: 8vh;
+	align-items: center;
+	justify-content: center;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+/* .loginform {
 	height: auto;
 	width: 400px;
 	border-radius: 3px;
@@ -37,4 +104,4 @@
 	color: #972822;
 	font-style: italic;
 	margin: 0px;
-}
+} */
