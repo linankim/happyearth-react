@@ -10,7 +10,18 @@ html {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg');
+	/* bg imgage options: */
+	/*palm trees in the wind */
+	/* background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg'); */
+
+	/*recyled garden */
+	/* background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg'); */
+
+	/*yellow */
+	background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg');
+
+	/*basic green */
+	/* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg*/
 	opacity: 0.8;
 	background-attachment: fixed;
 	background-position: center;
@@ -30,12 +41,11 @@ html {
 }
 
 /* fonts */
-
 /* mains */
 
 h2,
 .secondary {
-	color: black;
+	color: white;
 	font-family: 'Jost';
 	font-size: 35px;
 	line-height: 200%;
@@ -45,15 +55,21 @@ h2,
 /* center box around 2nd row content */
 .center-box {
 	height: 80vh;
-	width: 80vw;
+	width: 90vw;
 	box-sizing: border-box;
-	background-color: black;
+	background-color: #4b553a;
 	border-radius: 5px;
 	margin: 100px;
 	padding: 20px;
 	opacity: 70%;
 	justify-content: center;
 	display: flex;
+}
+
+.grid .five {
+	grid-template-columns: auto auto auto auto auto;
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
 }
 
 /* search bar landing page */

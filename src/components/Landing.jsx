@@ -65,10 +65,10 @@ class Landing extends React.Component {
 	render() {
 		return (
 			<>
-				<Alert variant="warning ">
+				{/*	<Alert variant="warning ">
 					{'TRAVEL NOTICE: '}
 					<Alert.Link href="#">COVID-19 Important Info</Alert.Link>
-				</Alert>
+				</Alert> */}
 				<Navbar className="justify-content-end">
 					<Nav.Item>
 						<Button className="button" variant="outline-dark">
@@ -79,7 +79,9 @@ class Landing extends React.Component {
 						<Button className="button" variant="outline-dark">
 							+ Post a Review
 						</Button>
-						<Button variant="dark">Sign In</Button>
+						<Button className="sign-in" variant="dark">
+							Sign In
+						</Button>
 					</Nav.Item>
 				</Navbar>
 				<div className="bg-img ">
@@ -91,9 +93,9 @@ class Landing extends React.Component {
 						>
 							<h1
 								style={{
-									fontFamily: 'Poppins',
-									color: 'black',
-									fontSize: '130px',
+									fontFamily: 'Pacifico',
+									color: 'white',
+									fontSize: '150px',
 									letterSpacing: '3px',
 									marginBottom: '50px'
 								}}
@@ -115,7 +117,7 @@ class Landing extends React.Component {
 							<input
 								className="center-searchBox"
 								type="search"
-								placeholder="Search a city"
+								placeholder="Search by city"
 								onChange={this.search}
 								style={{
 									boxShadow: 'none',
@@ -148,22 +150,11 @@ class Landing extends React.Component {
 					</div>
 				</div>
 				<div style={{ height: '85vh', backgroundColor: 'white' }}>
-					<div class="center-box">
-						<div className="grid two">
-							<h2 class="secondary">
+					<div className="center-box">
+						<div className="grid five">
+							<h2 className="secondary">
 								Browse Happy Earth's Top Reviewed Cities:
 							</h2>{' '}
-							<Card style={{ width: '18rem' }}>
-								<Card.Img variant="top" src="holder.js/100px180" />
-								<Card.Body>
-									<Card.Title>City Name</Card.Title>
-									<Card.Text>
-										Some quick example text to build on the card title and make
-										up the bulk of the card's content.
-									</Card.Text>
-									<Button variant="primary">See $cityname Spots</Button>
-								</Card.Body>
-							</Card>
 							<Card style={{ width: '18rem' }}>
 								<Card.Img variant="top" src="holder.js/100px180" />
 								<Card.Body>

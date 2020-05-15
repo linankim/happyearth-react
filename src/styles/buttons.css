@@ -7,11 +7,13 @@ button,
 	width: 9em;
 }
 
-/*
 button:hover,
-.button:hover {
-	background: #404040;
-} */
+.button:hover,
+.sign-in:hover {
+	background-color: #4b553a;
+	border: #4b553a;
+	opacity: 0.8;
+}
 
 /* .link:hover {
 	border-radius: 4px;
