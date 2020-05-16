@@ -87,14 +87,51 @@ class Login extends React.Component {
 		return (
 			<>
 				<div className="login-grid">
-					<div className="login-image"></div>
+					<div
+						className="login-image"
+						style={{ width: '44vw', opacity: '0.9' }}
+					>
+						<h2
+							class="secondary"
+							style={{
+								fontFamily: 'Pacifico',
+								color: 'white'
+							}}
+						>
+							Don't have an account?
+							<h2
+								class="secondary"
+								style={{
+									color: 'white',
+									fontSize: '25px'
+								}}
+							>
+								{
+									' To post reviews and save your favorite spots on happy earth, please create an account.  '
+								}
+							</h2>
+						</h2>
+
+						<a className="link-button" href="/Signup">
+							Signup
+						</a>
+					</div>
 					<div>
 						<form className="form-container">
+							<h2
+								class="secondary"
+								style={{
+									color: 'black',
+									fontSize: '25px'
+								}}
+							>
+								welcome back to{' '}
+							</h2>
 							<h1
 								style={{
 									fontFamily: 'Pacifico',
 									color: 'black',
-									fontSize: '50px',
+									fontSize: '60px',
 									letterSpacing: '3px'
 								}}
 							>
@@ -109,7 +146,7 @@ class Login extends React.Component {
 								Please log in using your details
 							</h2>
 							<div className="input-container ">
-								<i className="fas fa-search-location input-icon"></i>
+								<i className="fas fa-at input-icon"></i>
 								<input
 									className="input-box"
 									type="email"
@@ -123,7 +160,7 @@ class Login extends React.Component {
 							</div>
 							<div className="input-container">
 								{/*pwd*/}
-								<i className="fas fa-search-location input-icon"></i>
+								<i className="fas fa-unlock input-icon"></i>
 								<input
 									className="input-box"
 									type="password"

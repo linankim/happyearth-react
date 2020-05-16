@@ -5,10 +5,44 @@
 }
 
 .login-image {
-	background-image: url('https://images.pexels.com/photos/1055408/pexels-photo-1055408.jpeg');
+	/* background-image: url('https://images.pexels.com/photos/1055408/pexels-photo-1055408.jpeg'); */
+	/* background-image: url('https://images.pexels.com/photos/3737691/pexels-photo-3737691.jpeg'); */
+	/* background-image: url('https://images.pexels.com/photos/788485/pexels-photo-788485.jpeg'); */
+	background-image: url('https://images.pexels.com/photos/1934796/pexels-photo-1934796.jpeg');
+
 	background-size: cover;
 	background-position: center;
-	/* opacity: 0.9; */
+}
+/* text on login-image */
+div.login-image > h2 {
+	font-size: 50px;
+	padding: 30px 40px 0 40px;
+	margin: 25vh 0 6vh 0;
+	/* ^ down x% of the img view height 0 0 0*/
+	text-align: center;
+}
+
+div.login-image .link-button {
+	margin: 0 0 0 15vw;
+	/* margin: 0 0 0 20vw; */
+	text-align: center;
+	border: 1px solid;
+	font-family: 'Jost';
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 18px;
+	color: black;
+	background-color: #fff;
+	opacity: 0.5;
+	padding: 20px 90px 20px 90px;
+	border-radius: 8px;
+	/* padding: 10px; */
+}
+
+div.login-image .link-button:hover {
+	text-decoration: none;
+	background-color: #343a40;
+	border: #343a40;
 }
 
 .form-container {
@@ -17,12 +51,11 @@
 	margin: 6vw;
 	padding-top: 100px;
 }
-
 form > h1,
 h3 {
 	/* text-align: center; */
 }
-
+/* box around input and icons */
 .input-container {
 	/* display: inline-flex; */
 	flex: 1 1 300px;
@@ -35,7 +68,7 @@ h3 {
 	box-sizing: border-box;
 	padding: 10px;
 }
-
+/* box around input alone */
 .input-box {
 	padding: 0.5rem 0.5rem 0.5rem 0;
 	flex: 1;
@@ -45,7 +78,6 @@ h3 {
 	color: black;
 	border: none;
 }
-
 .input-icon {
 	padding: 1.3rem 0.5em 1.3rem 1.3rem;
 	background-color: white;
@@ -53,7 +85,6 @@ h3 {
 	background-position: center;
 	font-size: 1em;
 }
-
 .button-login {
 	margin-top: 25px;
 	margin-left: 15vw;
@@ -64,7 +95,6 @@ h3 {
 	letter-spacing: 3px;
 	text-transform: uppercase;
 }
-
 /* .loginform {
 	height: auto;
 	width: 400px;
