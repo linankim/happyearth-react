@@ -9,7 +9,8 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	text-align: center;
+
+text-align: center;
 	/* bg imgage options: */
 	/*palm trees in the wind */
 	/* background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg'); */
@@ -18,7 +19,12 @@ html {
 	/* background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg'); */
 
 	/*yellow */
-	background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg');
+	/* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
+	/* blue sky green plants */
+	/* background-image: url('https://images.pexels.com/photos/788485/pexels-photo-788485.jpeg'); */
+
+	/*earth */
+	background-image: url('https://images.unsplash.com/photo-1501696057772-02661ce93702');
 
 	/*basic green */
 	/* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg*/

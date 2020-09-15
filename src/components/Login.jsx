@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import '../styles/login.css'
 
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Navbar, Nav, NavLink } from 'react-bootstrap'
 
 class Login extends React.Component {
 	state = {
