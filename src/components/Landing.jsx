@@ -122,7 +122,8 @@ class Landing extends React.Component {
 							</h1>
 						</div>
 						<h2 class="secondary">
-							Crowd-sourced reviews of your city's most eco-friendly and
+							Crowd-sourced reviews of your city's most
+							eco-friendly and
 							sustainable restaurants, shops and cafes.
 						</h2>
 						{/*search starts here<Button variant="dark">Browse Spots</Button>
