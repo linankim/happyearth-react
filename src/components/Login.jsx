@@ -2,7 +2,18 @@ import React from "react";
 import axios from "axios";
 import "../styles/login.css";
 
-import { Button, Modal, Navbar, Nav, NavLink } from "react-bootstrap";
+import {
+  Button,
+  Modal,
+  Navbar,
+  Nav,
+  NavLink,
+  FormControl,
+  Form,
+  FormGroup,
+  FormLabel,
+  FormText,
+} from "react-bootstrap";
 
 class Login extends React.Component {
   state = {
@@ -86,106 +97,42 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <div className="login-grid">
-          <div
-            className="login-image"
-            style={{ width: "44vw", opacity: "0.9" }}
-          >
-            <h2
-              class="secondary"
-              style={{
-                fontFamily: "Pacifico",
-                color: "white",
-              }}
-            >
-              Don't have an account?
-              <h2
-                class="secondary"
-                style={{
-                  color: "white",
-                  fontSize: "25px",
-                }}
-              >
-                {
-                  " To post reviews and save your favorite spots on happy earth, please create an account.  "
-                }
-              </h2>
-            </h2>
+        Please log in using your details
+        <div>
+          <Form>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={this.state.user.email}
+                onChange={(e) => this.changeField(e, "email")}
+              />
+              {this.state.emptyField.email ? (
+                <p>Please type in your email</p>
+              ) : null}
+            </Form.Group>
 
-            <a className="link-button" href="/Signup">
-              Signup
-            </a>
-          </div>
-          <div>
-            <form className="form-container">
-              <h2
-                class="secondary"
-                style={{
-                  color: "black",
-                  fontSize: "25px",
-                }}
-              >
-                welcome back to{" "}
-              </h2>
-              <h1
-                style={{
-                  fontFamily: "Pacifico",
-                  color: "black",
-                  fontSize: "60px",
-                  letterSpacing: "3px",
-                }}
-              >
-                happy earth
-              </h1>
-              <h2
-                class="secondary"
-                style={{
-                  color: "black",
-                }}
-              >
-                Please log in using your details
-              </h2>
-              <div className="input-container ">
-                <i className="fas fa-at input-icon"></i>
-                <input
-                  className="input-box"
-                  type="email"
-                  placeholder="Email"
-                  value={this.state.user.email}
-                  onChange={(e) => this.changeField(e, "email")}
-                />
-                {this.state.emptyField.email ? (
-                  <p>Please type in your email</p>
-                ) : null}
-              </div>
-              <div className="input-container">
-                {/*pwd*/}
-                <i className="fas fa-unlock input-icon"></i>
-                <input
-                  className="input-box"
-                  type="password"
-                  placeholder="Password"
-                  value={this.state.user.password}
-                  onChange={(e) => this.changeField(e, "password")}
-                />
-                {this.state.emptyField.password ? (
-                  <p>Please type in your password</p>
-                ) : null}
-                {this.state.alert ? (
-                  <p>Either email or password incorrect</p>
-                ) : null}
-              </div>
-              <div>
-                <Button
-                  className="button-login"
-                  variant="outline-dark"
-                  onClick={this.login}
-                >
-                  Login
-                </Button>
-              </div>
-            </form>
-          </div>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={this.state.user.password}
+                onChange={(e) => this.changeField(e, "password")}
+              />
+              {this.state.emptyField.password ? (
+                <p>Please type in your password</p>
+              ) : null}
+              {this.state.alert ? (
+                <p>Either email or password incorrect</p>
+              ) : null}{" "}
+            </Form.Group>
+
+            <Button variant="primary" type="submit" onClick={this.login}>
+              Login
+            </Button>
+          </Form>
         </div>
       </>
     );
