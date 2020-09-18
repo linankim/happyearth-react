@@ -5,9 +5,10 @@ import "../styles/landing.css";
 // import '../styles/universal.css'
 import TopNav from "./Navbar.jsx";
 import Spots from "./Spots.jsx";
+import Login from "./Login.jsx";
+import Rodal from "rodal";
+import "rodal/lib/rodal.css";
 import {
-  FormControl,
-  Form,
   Button,
   InputGroup,
   Navbar,
@@ -18,13 +19,14 @@ import {
   DropdownButton,
   ButtonGroup,
   Alert,
-  Modal,
 } from "react-bootstrap";
 
 class Landing extends React.Component {
   state = {
     options: [],
     open: false,
+    visible: false,
+    check: false,
   };
   search = (e) => {
     axios
@@ -60,26 +62,26 @@ class Landing extends React.Component {
     }
   };
 
-  UserSigninModal = (props) => {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-      </Modal>
-    );
-  };
-
   componentWillMount() {
     console.log("this.state.options", this.state.options);
   }
+
+  show = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  hide = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  checkboxToggle = (e) => {
+    this.setState({ check: true });
+  };
+
   render() {
     return (
       <>
@@ -88,7 +90,10 @@ class Landing extends React.Component {
 					<Alert.Link href="#">COVID-19 Important Info</Alert.Link>
 				</Alert> */}
         <div className="bg-img ">
-          <Navbar className="justify-content-end">
+          <Navbar
+            className="justify-content-end"
+            style={{ paddingTop: "25px" }}
+          >
             <Nav.Item>
               <Button variant="outline-light">
                 <i class="fas fa-globe-africa"></i>
@@ -100,10 +105,20 @@ class Landing extends React.Component {
                 <i class="far fa-edit"></i>
                 Post
               </Button>
-              <Button variant="outline-light">
+
+              <Button variant="outline-light" onClick={this.show.bind(this)}>
                 <i class="far fa-user"></i>
                 Account
               </Button>
+
+              <Rodal
+                visible={this.state.visible}
+                onClose={this.hide.bind(this)}
+                width="700"
+                height="740"
+              >
+                <Login />
+              </Rodal>
             </Nav.Item>
           </Navbar>
 
