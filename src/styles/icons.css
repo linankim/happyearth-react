@@ -3,22 +3,26 @@
 } */
 
 .fa-heart.fas {
-	color: tomato;
+  color: tomato;
 }
 
-.fa-globe-africa.fas {
-	color: white;
+/* USER ICON */
+.fa-globe-africa.fas,
+.fa-user,
+.fa-edit {
+  color: white;
+  padding-right: 0.2em;
 }
 
 .fa-globe-americas.fas {
-	color: #00988f;
+  color: #00988f;
 }
 
 .fa-smile-beam.fas {
-	color: #00988f;
+  color: #00988f;
 }
 
 .fa-star,
 .fa-map-marker-alt {
-	color: #00988f;
+  color: #00988f;
 }

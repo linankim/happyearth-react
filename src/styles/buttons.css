@@ -1,18 +1,18 @@
 button,
 .button {
-	font-family: 'Jost';
-	margin: 0.5em;
-	margin-top: 0;
-	height: 3em;
-	width: 9em;
+  font-family: "Jost";
+  margin: 0.5em;
+  margin-top: 0;
+  height: 3em;
+  width: 9em;
 }
 
 button:hover,
 .button:hover,
 .sign-in:hover {
-	background-color: #4b553a;
-	border: #4b553a;
-	opacity: 0.8;
+  background-color: #4b553a;
+  border: #4b553a;
+  opacity: 0.8;
 }
 
 /* .link:hover {

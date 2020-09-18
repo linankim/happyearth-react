@@ -5,45 +5,44 @@ html {
 
 /* hero img */
 .bg-img {
-	height: 90%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  height: 90%;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  text-align: center;
+  /* bg imgage options: */
+  /*palm trees in the wind */
+  /* background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg'); */
 
-text-align: center;
-	/* bg imgage options: */
-	/*palm trees in the wind */
-	/* background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg'); */
+  /*recyled garden */
+  /* background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg'); */
 
-	/*recyled garden */
-	/* background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg'); */
+  /*yellow */
+  /* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
+  /* blue sky green plants */
+  /* background-image: url('https://images.pexels.com/photos/788485/pexels-photo-788485.jpeg'); */
 
-	/*yellow */
-	/* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
-	/* blue sky green plants */
-	/* background-image: url('https://images.pexels.com/photos/788485/pexels-photo-788485.jpeg'); */
+  /*earth */
+  background-image: url("https://images.unsplash.com/photo-1501696057772-02661ce93702");
 
-	/*earth */
-	background-image: url('https://images.unsplash.com/photo-1501696057772-02661ce93702');
-
-	/*basic green */
-	/* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg*/
-	opacity: 0.8;
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	top: 0;
+  /*basic green */
+  /* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg*/
+  opacity: 0.8;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
 }
 
 @media only screen and (max-width: 600px) {
-	height: 50%;
+  height: 50%;
 }
 
 /* text on hero image */
 .hero-text {
-	padding: 250px;
-	z-index: 5px;
+  padding: 10vh 0 30vh 0;
+  /* z-index: 5px; */
 }
 
 /* fonts */
@@ -51,31 +50,32 @@ text-align: center;
 
 h2,
 .secondary {
-	color: white;
-	font-family: 'Jost';
-	font-size: 35px;
-	line-height: 200%;
-	letter-spacing: 5px;
+  color: white;
+  font-family: "Jost";
+  font-size: 35px;
+  line-height: 200%;
+  letter-spacing: 5px;
+  margin: 0 20vw;
 }
 
 /* center box around 2nd row content */
 .center-box {
-	height: 80vh;
-	width: 90vw;
-	box-sizing: border-box;
-	background-color: #4b553a;
-	border-radius: 5px;
-	margin: 100px;
-	padding: 20px;
-	opacity: 70%;
-	justify-content: center;
-	display: flex;
+  height: 80vh;
+  width: 90vw;
+  box-sizing: border-box;
+  background-color: #4b553a;
+  border-radius: 5px;
+  margin: 100px;
+  padding: 20px;
+  opacity: 70%;
+  justify-content: center;
+  display: flex;
 }
 
 .grid .five {
-	grid-template-columns: auto auto auto auto auto;
-	grid-column-gap: 5px;
-	grid-row-gap: 5px;
+  grid-template-columns: auto auto auto auto auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
 }
 
 /* search bar landing page */
@@ -83,34 +83,34 @@ h2,
 /* search bar landing page */
 
 .center-search {
-	display: inline-flex;
-	flex: 1 1 300px;
-	position: relative;
-	border: 1px solid;
-	border-radius: 5px;
-	overflow: hidden;
-	/* width: 350px; */
-	margin-top: 25px;
-	width: 45vw;
-	border: none;
-	/* font-size: 19px;
+  display: inline-flex;
+  flex: 1 1 300px;
+  position: relative;
+  border: 1px solid;
+  border-radius: 5px;
+  overflow: hidden;
+  /* width: 350px; */
+  margin-top: 25px;
+  width: 45vw;
+  border: none;
+  /* font-size: 19px;
 	font-family: 'Jost'; */
-	box-sizing: border-box;
-	padding: 10px;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .searchIcon {
-	padding: 1.3rem 0.5em 1.3rem 1.3rem;
-	background-color: white;
-	color: #8a8a8a;
-	background-position: center;
-	font-size: 1em;
+  padding: 1.3rem 0.5em 1.3rem 1.3rem;
+  background-color: white;
+  color: #8a8a8a;
+  background-position: center;
+  font-size: 1em;
 }
 
 .center-searchBox {
-	border: 0;
-	padding: 0.5rem 0.5rem 0.5rem 0;
-	flex: 1;
+  border: 0;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  flex: 1;
 }
 
 /* input,
@@ -126,7 +126,7 @@ h2,
 
 textarea:focus,
 input:focus {
-	outline: none;
+  outline: none;
 }
 /* end search bar */
 
