@@ -112,10 +112,11 @@ class Landing extends React.Component {
               </Button>
 
               <Rodal
+                className="loginRodal"
                 visible={this.state.visible}
                 onClose={this.hide.bind(this)}
-                width="700"
-                height="740"
+                width="650"
+                height="600"
               >
                 <Login />
               </Rodal>

@@ -1,5 +1,10 @@
-/* IMP!!! LOGIN AND SIGNUP styles are both on this stylesheet scroll to lower half for SIGNUP */
+/*LOGIN AND SIGNUP styles are both on this stylesheet scroll to lower half for SIGNUP */
 
+.loginRodal {
+  /* position: fixed; */
+
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.35);
+}
 .login-grid {
   display: grid;
   grid-template-columns: 40% 60%;

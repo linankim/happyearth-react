@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../styles/login.css";
+import { Link, Route, Switch } from "react-router-dom";
 
 import {
   Button,
@@ -97,42 +98,75 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        Please log in using your details
-        <div>
-          <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                value={this.state.user.email}
-                onChange={(e) => this.changeField(e, "email")}
-              />
-              {this.state.emptyField.email ? (
-                <p>Please type in your email</p>
-              ) : null}
-            </Form.Group>
+        <div style={{}}>
+          <h1
+            style={{
+              fontFamily: "Pacifico",
+              color: "black",
+              fontSize: "70px",
+              letterSpacing: "3px",
+              marginBottom: "50px",
+              marginTop: "50px",
+            }}
+          >
+            {" happy earth"}
+          </h1>
+          <h2
+            style={{
+              color: "black",
+              fontSize: "20px",
+              fontFamily: "Jost",
+              fontSize: "20px",
+              letterSpacing: "1px",
+              margin: "0 0vw 4vh 0",
+            }}
+          >
+            Welcome back! Please log in using your details
+          </h2>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                value={this.state.user.password}
-                onChange={(e) => this.changeField(e, "password")}
-              />
-              {this.state.emptyField.password ? (
-                <p>Please type in your password</p>
-              ) : null}
-              {this.state.alert ? (
-                <p>Either email or password incorrect</p>
-              ) : null}{" "}
-            </Form.Group>
+          <div style={{ padding: "0 15vw" }}>
+            <Form>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  value={this.state.user.email}
+                  onChange={(e) => this.changeField(e, "email")}
+                />
+                {this.state.emptyField.email ? (
+                  <p>Please type in your email</p>
+                ) : null}
+              </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={this.login}>
-              Login
-            </Button>
-          </Form>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={this.state.user.password}
+                  onChange={(e) => this.changeField(e, "password")}
+                />
+                {this.state.emptyField.password ? (
+                  <p>Please type in your password</p>
+                ) : null}
+                {this.state.alert ? (
+                  <p>Either email or password incorrect</p>
+                ) : null}{" "}
+              </Form.Group>
+              <Button
+                style={{ margin: "2vh 0 2vh 0" }}
+                variant="dark"
+                type="submit"
+                onClick={this.login}
+              >
+                Login
+              </Button>
+            </Form>
+            <div style={{ fontFamily: "Jost" }}>
+              Not a member? <Link to="signup">Create an account</Link>
+            </div>
+          </div>
         </div>
       </>
     );
