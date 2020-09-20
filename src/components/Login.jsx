@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 import "../styles/login.css";
 import { Link, Route, Switch } from "react-router-dom";
-
+import Rodal from "rodal";
+import "rodal/lib/rodal.css";
 import {
   Button,
   Modal,
@@ -21,6 +22,7 @@ class Login extends React.Component {
     user: {
       email: "",
       password: "",
+      visible: false,
     },
     emptyField: {
       email: false,
@@ -95,6 +97,22 @@ class Login extends React.Component {
     }
   };
 
+  componentWillMount() {
+    console.log("this.state.options", this.state.options);
+  }
+
+  show = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  hide = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
   render() {
     return (
       <>
@@ -164,7 +182,16 @@ class Login extends React.Component {
               </Button>
             </Form>
             <div style={{ fontFamily: "Jost" }}>
-              Not a member? <Link to="signup">Create an account</Link>
+              Not a member?{" "}
+              <Button variant="link" onClick={this.show.bind(this)}>
+                Create an account
+              </Button>
+              <Rodal
+                visible={this.state.visible}
+                onClose={this.hide.bind(this)}
+                width="680"
+                height="600"
+              ></Rodal>
             </div>
           </div>
         </div>

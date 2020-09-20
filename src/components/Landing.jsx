@@ -26,7 +26,7 @@ class Landing extends React.Component {
     options: [],
     open: false,
     visible: false,
-    check: false,
+    // check: false,
   };
   search = (e) => {
     axios
@@ -78,10 +78,6 @@ class Landing extends React.Component {
     });
   };
 
-  checkboxToggle = (e) => {
-    this.setState({ check: true });
-  };
-
   render() {
     return (
       <>
@@ -115,7 +111,7 @@ class Landing extends React.Component {
                 className="loginRodal"
                 visible={this.state.visible}
                 onClose={this.hide.bind(this)}
-                width="650"
+                width="680"
                 height="600"
               >
                 <Login />
