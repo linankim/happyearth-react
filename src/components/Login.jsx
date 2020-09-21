@@ -4,9 +4,10 @@ import "../styles/login.css";
 import { Link, Route, Switch } from "react-router-dom";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
+import Signup from "./Signup.jsx";
+
 import {
   Button,
-  Modal,
   Navbar,
   Nav,
   NavLink,
@@ -116,7 +117,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <div style={{}}>
+        <div>
           <h1
             style={{
               fontFamily: "Pacifico",
@@ -189,9 +190,11 @@ class Login extends React.Component {
               <Rodal
                 visible={this.state.visible}
                 onClose={this.hide.bind(this)}
-                width="680"
-                height="600"
-              ></Rodal>
+                width="1100"
+                height="650"
+              >
+                <Signup />
+              </Rodal>
             </div>
           </div>
         </div>

@@ -1,14 +1,10 @@
 /*LOGIN AND SIGNUP styles are both on this stylesheet scroll to lower half for SIGNUP */
 
 .loginRodal {
-  /* position: fixed; */
-
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.35);
 }
-.login-grid {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  height: 100vh;
+
+.signupRodal {
 }
 
 .login-image {
@@ -22,13 +18,13 @@
 }
 
 /* text on login-image */
-div.login-image > h2 {
+/* div.login-image > h2 {
   font-size: 50px;
   padding: 30px 40px 0 40px;
   margin: 25vh 0 6vh 0;
   /* ^ down x% of the img view height 0 0 0*/
-  text-align: center;
-}
+/* text-align: center; */
+/* } */
 
 div.login-image .link-button {
   margin: 0 0 0 15vw;
@@ -109,56 +105,16 @@ h3 {
 .signup-image {
   background-image: url("https://images.pexels.com/photos/1934796/pexels-photo-1934796.jpeg");
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
+  height: 84vh;
+  margin: -15px;
 }
 
 .signup-grid {
   display: grid;
-  grid-template-columns: 60% 40%;
-  height: 100vh;
+  grid-template-columns: 40% 60%;
 }
 
 .signup-container {
   padding: 12vh 0 0 6vw;
 }
-
-/* .loginform {
-	height: auto;
-	width: 400px;
-	border-radius: 3px;
-	padding: 15px 20px;
-	background-color: #effcef;
-}
-
-.loginsignupform {
-	width: 400px;
-	height: 800px;
-	border-radius: 3px;
-	padding: 20px;
-	background-color: #effcef;
-}
-.loginheader {
-	text-align: center;
-	font-family: 'EB Garamond', serif;
-	font-size: 50px;
-	padding-bottom: 10px;
-}
-
-.createheader {
-	text-align: center;
-	font-family: 'EB Garamond', serif;
-	font-size: 40px;
-}
-
-.loginfonttitle {
-	font-family: 'Cormorant Garamond', serif;
-	font-size: 20px;
-}
-
-.logininfontalert {
-	font-family: 'EB Garamond', serif;
-	font-size: 20px;
-	color: #972822;
-	font-style: italic;
-	margin: 0px;
-} */
