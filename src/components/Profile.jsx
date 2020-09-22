@@ -1,192 +1,190 @@
-import React from 'react'
-import axios from 'axios'
-import Nav from './Nav.jsx'
-import Sidebar from './Sidebar.jsx'
-import Popup from './Popup.jsx'
-import '../styles/profile.css'
-import '../styles/profile.css'
+import React from "react";
+import axios from "axios";
+import Nav from "./Nav.jsx";
+import Popup from "./Popup.jsx";
+import "../styles/profile.css";
+import "../styles/profile.css";
 
 class Profile extends React.Component {
-	state = {
-		user: {
-			file: ''
-		},
-		showPopup: false
-	}
+  state = {
+    user: {
+      file: "",
+    },
+    showPopup: false,
+  };
 
-	componentDidMount() {
-		if (!localStorage.getItem('token')) {
-			this.props.history.push('/')
-		} else {
-			axios
-				.get(`${process.env.REACT_APP_API}/auth`, {
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('token')}`
-					}
-				})
-				.then(user => {
-					console.log('works')
-					this.setState({ user: user.data })
-					console.log({ user: user.data })
-				})
-				.catch(err => {
-					console.log(err)
-				})
-		}
-	}
+  componentDidMount() {
+    if (!localStorage.getItem("token")) {
+      this.props.history.push("/");
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API}/auth`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((user) => {
+          console.log("works");
+          this.setState({ user: user.data });
+          console.log({ user: user.data });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
 
-	//logout button
-	logout = e => {
-		e.preventDefault()
-		localStorage.removeItem('token')
-		this.props.history.push('/')
-	}
+  //logout button
+  logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    this.props.history.push("/");
+  };
 
-	//change profile details
-	changeField = (e, field) => {
-		let user = this.state.user
-		user[field] = e.target.value
-		console.log(user[field])
-		this.setState({ user })
-		console.log({ user })
-	}
+  //change profile details
+  changeField = (e, field) => {
+    let user = this.state.user;
+    user[field] = e.target.value;
+    console.log(user[field]);
+    this.setState({ user });
+    console.log({ user });
+  };
 
-	//change profile picture
-	changePicture = e => {
-		let user = this.state.user
-		user.file = e.target.files[0]
-		console.log('e.target.files[0]', e.target.files[0])
-		this.setState({ user })
-		console.log({ user })
-	}
+  //change profile picture
+  changePicture = (e) => {
+    let user = this.state.user;
+    user.file = e.target.files[0];
+    console.log("e.target.files[0]", e.target.files[0]);
+    this.setState({ user });
+    console.log({ user });
+  };
 
-	//save changed profile details
-	savesChanges = () => {
-		console.log('button pushed')
-		let userId = this.state.user._id
-		let data = new FormData()
-		console.log('i am at this point')
-		for (let key in this.state.user) {
-			console.log('KEY', this.state.user[key])
-			data.append(key, this.state.user[key])
-			console.log('i am here', data)
-		}
-		console.log({ data })
-		axios
-			.patch(`${process.env.REACT_APP_API}/users/${userId}`, data)
-			.then(res => {
-				console.log('works until here')
-				console.log({ res })
-			})
-			.catch(err => {
-				console.log({ err })
-				console.log('not working in react')
-			})
-	}
+  //save changed profile details
+  savesChanges = () => {
+    console.log("button pushed");
+    let userId = this.state.user._id;
+    let data = new FormData();
+    console.log("i am at this point");
+    for (let key in this.state.user) {
+      console.log("KEY", this.state.user[key]);
+      data.append(key, this.state.user[key]);
+      console.log("i am here", data);
+    }
+    console.log({ data });
+    axios
+      .patch(`${process.env.REACT_APP_API}/users/${userId}`, data)
+      .then((res) => {
+        console.log("works until here");
+        console.log({ res });
+      })
+      .catch((err) => {
+        console.log({ err });
+        console.log("not working in react");
+      });
+  };
 
-	//alert button
-	alertButton = e => {
-		e.preventDefault()
-		let showPopup = this.state.showPopup
-		showPopup = !showPopup
-		this.setState({ showPopup })
-	}
+  //alert button
+  alertButton = (e) => {
+    e.preventDefault();
+    let showPopup = this.state.showPopup;
+    showPopup = !showPopup;
+    this.setState({ showPopup });
+  };
 
-	//delete Profile
-	deleteProfile = e => {
-		e.preventDefault()
-		let userId = this.state.user._id
-		axios
-			.delete(`${process.env.REACT_APP_API}/users/${userId}`)
-			.then(res => {
-				console.log('working')
-				console.log(res)
-				localStorage.removeItem('token')
-				this.props.history.push('/')
-			})
-			.catch(err => {
-				console.log(err)
-			})
-	}
+  //delete Profile
+  deleteProfile = (e) => {
+    e.preventDefault();
+    let userId = this.state.user._id;
+    axios
+      .delete(`${process.env.REACT_APP_API}/users/${userId}`)
+      .then((res) => {
+        console.log("working");
+        console.log(res);
+        localStorage.removeItem("token");
+        this.props.history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-	render() {
-		return (
-			<div>
-				<Sidebar />
-				<div className="background centerforms grid">
-					<div>
-						<div className=" profileform">
-							<form>
-								<div className="formheaderfont">My Profile</div>
-								<div className="group">
-									<label className="loginfont">First Name</label>
-									<input
-										type="text"
-										value={this.state.user.firstName}
-										onChange={e => this.changeField(e, 'firstName')}
-									/>
-								</div>
-								<div className="group">
-									<label className="loginfont">Last Name</label>
-									<input
-										type="text"
-										value={this.state.user.lastName}
-										onChange={e => this.changeField(e, 'lastName')}
-									/>
-								</div>
-								<div className="group">
-									<label className="loginfont">Email</label>
-									<input
-										type="email"
-										value={this.state.user.email}
-										onChange={e => this.changeField(e, 'email')}
-									/>
-								</div>
-								<div className="group">
-									<label className="loginfont">Residence Country</label>
-									<input
-										type="text"
-										value={this.state.user.residenceCountry}
-										onChange={e => this.changeField(e, 'residenceCountry')}
-									/>
-								</div>
-								<div>
-									<label className="loginfont">Profile Picture</label>
-									<div className="user">
-										<div
-											className="avatar"
-											style={{
-												backgroundImage: `url(${this.state.user.avatar})`
-											}}
-										></div>
-										<div className="name loginfont">
-											<input type="file" onChange={this.changePicture} />
-										</div>
-									</div>
-								</div>
-								<div className="centerbutton">
-									<button onClick={this.savesChanges()}>Save Changes</button>
+  render() {
+    return (
+      <div>
+        <div className="background centerforms grid">
+          <div>
+            <div className=" profileform">
+              <form>
+                <div className="formheaderfont">My Profile</div>
+                <div className="group">
+                  <label className="loginfont">First Name</label>
+                  <input
+                    type="text"
+                    value={this.state.user.firstName}
+                    onChange={(e) => this.changeField(e, "firstName")}
+                  />
+                </div>
+                <div className="group">
+                  <label className="loginfont">Last Name</label>
+                  <input
+                    type="text"
+                    value={this.state.user.lastName}
+                    onChange={(e) => this.changeField(e, "lastName")}
+                  />
+                </div>
+                <div className="group">
+                  <label className="loginfont">Email</label>
+                  <input
+                    type="email"
+                    value={this.state.user.email}
+                    onChange={(e) => this.changeField(e, "email")}
+                  />
+                </div>
+                <div className="group">
+                  <label className="loginfont">Residence Country</label>
+                  <input
+                    type="text"
+                    value={this.state.user.residenceCountry}
+                    onChange={(e) => this.changeField(e, "residenceCountry")}
+                  />
+                </div>
+                <div>
+                  <label className="loginfont">Profile Picture</label>
+                  <div className="user">
+                    <div
+                      className="avatar"
+                      style={{
+                        backgroundImage: `url(${this.state.user.avatar})`,
+                      }}
+                    ></div>
+                    <div className="name loginfont">
+                      <input type="file" onChange={this.changePicture} />
+                    </div>
+                  </div>
+                </div>
+                <div className="centerbutton">
+                  <button onClick={this.savesChanges()}>Save Changes</button>
 
-									<button onClick={e => this.alertButton(e)}>
-										{this.state.showPopup ? (
-											<Popup deleteProfile={this.deleteProfile} />
-										) : null}
-										Delete Profile
-									</button>
-								</div>
+                  <button onClick={(e) => this.alertButton(e)}>
+                    {this.state.showPopup ? (
+                      <Popup deleteProfile={this.deleteProfile} />
+                    ) : null}
+                    Delete Profile
+                  </button>
+                </div>
 
-								<div className="centerbutton">
-									<button className="logout" onClick={this.logout}>
-										Logout
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		)
-	}
+                <div className="centerbutton">
+                  <button className="logout" onClick={this.logout}>
+                    Logout
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default Profile
+export default Profile;

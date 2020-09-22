@@ -5,9 +5,7 @@ import "../styles/landing.css";
 // import '../styles/universal.css'
 import TopNav from "./Navbar.jsx";
 import Spots from "./Spots.jsx";
-import Login from "./Login.jsx";
-import Rodal from "rodal";
-import "rodal/lib/rodal.css";
+
 import {
   Button,
   InputGroup,
@@ -24,8 +22,7 @@ import {
 class Landing extends React.Component {
   state = {
     options: [],
-    open: false,
-    visible: false,
+
     // check: false,
   };
   search = (e) => {
@@ -66,18 +63,6 @@ class Landing extends React.Component {
     console.log("this.state.options", this.state.options);
   }
 
-  show = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  hide = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-
   render() {
     return (
       <>
@@ -86,38 +71,7 @@ class Landing extends React.Component {
 					<Alert.Link href="#">COVID-19 Important Info</Alert.Link>
 				</Alert> */}
         <div className="bg-img ">
-          <Navbar
-            className="justify-content-end"
-            style={{ paddingTop: "25px" }}
-          >
-            <Nav.Item>
-              <Button variant="outline-light">
-                <i class="fas fa-globe-africa"></i>
-                Browse
-              </Button>
-            </Nav.Item>
-            <Nav.Item>
-              <Button variant="outline-light">
-                <i class="far fa-edit"></i>
-                Post
-              </Button>
-
-              <Button variant="outline-light" onClick={this.show.bind(this)}>
-                <i class="far fa-user"></i>
-                Account
-              </Button>
-
-              <Rodal
-                className="loginRodal"
-                visible={this.state.visible}
-                onClose={this.hide.bind(this)}
-                width="680"
-                height="600"
-              >
-                <Login />
-              </Rodal>
-            </Nav.Item>
-          </Navbar>
+          <TopNav />
 
           <div className="hero-text ">
             <div

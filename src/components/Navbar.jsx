@@ -1,51 +1,88 @@
-import React from 'react'
-import axios from 'axios'
-import { Link, Route, Switch } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import { slide as Menu } from "react-burger-menu";
+import Login from "./Login.jsx";
+import Rodal from "rodal";
+import "rodal/lib/rodal.css";
 import {
-	Navbar,
-	Nav,
-	NavLink,
-	FormControl,
-	NavDropdown,
-	Form,
-	Button
-} from 'react-bootstrap'
-// import '../styles/nav.css'
+  Button,
+  InputGroup,
+  Navbar,
+  Nav,
+  NavLink,
+  Card,
+  Dropdown,
+  DropdownButton,
+  ButtonGroup,
+  Alert,
+} from "react-bootstrap";
 
 class TopNav extends React.Component {
-	render() {
-		return (
-			<>
-				<Navbar bg="light" expand="lg">
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
-					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="mr-auto">
-							<Nav.Link href="#home">Home</Nav.Link>
-							<Nav.Link href="#link">Link</Nav.Link>
-							<NavDropdown title="Dropdown" id="basic-nav-dropdown">
-								<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-								<NavDropdown.Item href="#action/3.2">
-									Another action
-								</NavDropdown.Item>
-								<NavDropdown.Item href="#action/3.3">
-									Something
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="#action/3.4">
-									Separated link
-								</NavDropdown.Item>
-							</NavDropdown>
-						</Nav>
-						<Nav className="mr-auto">
-							<Nav.Link href="/login">Login</Nav.Link>
-						</Nav>
+  state = {
+    localStorage: false,
+    open: false,
+    visible: false,
+  };
+  logoutButton(e) {
+    e.preventDefault();
+    localStorage.removeItem("token");
+  }
 
-						<Button variant="outline-success">Signup</Button>
-					</Navbar.Collapse>
-				</Navbar>
-			</>
-		)
-	}
+  componentDidMount() {
+    if (!localStorage.getItem("token")) {
+      this.setState({ localStorage: false });
+    } else {
+      this.setState({ localStorage: true });
+    }
+  }
+
+  show = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  hide = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <Navbar className="justify-content-end" style={{ paddingTop: "25px" }}>
+          <Nav.Item>
+            <Button variant="outline-light">
+              <i class="fas fa-globe-africa"></i>
+              Browse
+            </Button>
+          </Nav.Item>
+          <Nav.Item>
+            <Button variant="outline-light">
+              <i class="far fa-edit"></i>
+              Post
+            </Button>
+
+            <Button variant="outline-light" onClick={this.show.bind(this)}>
+              <i class="far fa-user"></i>
+              Account
+            </Button>
+
+            <Rodal
+              className="loginRodal"
+              visible={this.state.visible}
+              onClose={this.hide.bind(this)}
+              width="680"
+              height="600"
+            >
+              <Login />
+            </Rodal>
+          </Nav.Item>
+        </Navbar>
+      </>
+    );
+  }
 }
 
-export default TopNav
+export default TopNav;

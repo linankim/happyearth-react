@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import "../styles/login.css";
 import "../styles/universal.css";
-import Sidebar from "./Sidebar.jsx";
 import {
   Button,
   FormControl,
