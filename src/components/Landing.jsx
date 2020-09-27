@@ -5,9 +5,7 @@ import "../styles/landing.css";
 // import '../styles/universal.css'
 import TopNav from "./Navbar.jsx";
 import Spots from "./Spots.jsx";
-import Login from "./Login.jsx";
-import Rodal from "rodal";
-import "rodal/lib/rodal.css";
+
 import {
   Button,
   InputGroup,
@@ -24,8 +22,7 @@ import {
 class Landing extends React.Component {
   state = {
     options: [],
-    open: false,
-    visible: false,
+
     // check: false,
   };
   search = (e) => {
@@ -66,18 +63,6 @@ class Landing extends React.Component {
     console.log("this.state.options", this.state.options);
   }
 
-  show = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  hide = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-
   render() {
     return (
       <>
@@ -86,38 +71,7 @@ class Landing extends React.Component {
 					<Alert.Link href="#">COVID-19 Important Info</Alert.Link>
 				</Alert> */}
         <div className="bg-img ">
-          <Navbar
-            className="justify-content-end"
-            style={{ paddingTop: "25px" }}
-          >
-            <Nav.Item>
-              <Button variant="outline-light">
-                <i class="fas fa-globe-africa"></i>
-                Browse
-              </Button>
-            </Nav.Item>
-            <Nav.Item>
-              <Button variant="outline-light">
-                <i class="far fa-edit"></i>
-                Post
-              </Button>
-
-              <Button variant="outline-light" onClick={this.show.bind(this)}>
-                <i class="far fa-user"></i>
-                Account
-              </Button>
-
-              <Rodal
-                className="loginRodal"
-                visible={this.state.visible}
-                onClose={this.hide.bind(this)}
-                width="680"
-                height="600"
-              >
-                <Login />
-              </Rodal>
-            </Nav.Item>
-          </Navbar>
+          <TopNav />
 
           <div className="hero-text ">
             <div
@@ -183,21 +137,42 @@ class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{ height: "85vh", backgroundColor: "white" }}>
+        <div style={{ height: "85vh" }}>
           <div className="center-box">
             <div className="grid five">
-              <h2 className="secondary">
+              <h2 className="secondary" style={{ color: "black" }}>
                 Browse Happy Earth's Top Reviewed Cities:
               </h2>{" "}
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+              <Card
+                style={{
+                  width: "22vw",
+                  height: "60vh",
+                  borderRadius: "30px",
+                  backgroundColor: "#fbd2d7",
+                }}
+              >
+                <Card.Img
+                  style={{}}
+                  variant="top"
+                  src="https://source.unsplash.com/AFlG5jpMvYg/1600x900"
+                />
                 <Card.Body>
                   <Card.Title>City Name</Card.Title>
                   <Card.Text>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </Card.Text>
-                  <Button variant="primary">See $cityname Spots</Button>
+                  <Button
+                    variant="primary"
+                    style={{
+                      margin: "5vh 4vw 0 2vw",
+                      width: "200px",
+                      height: "8vh",
+                      borderRadius: "12px",
+                    }}
+                  >
+                    See $cityname Spots
+                  </Button>
                 </Card.Body>
               </Card>
             </div>

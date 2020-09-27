@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import "../styles/login.css";
 import "../styles/universal.css";
-import Sidebar from "./Sidebar.jsx";
 import {
   Button,
   FormControl,
@@ -500,7 +499,7 @@ class Signup extends React.Component {
                       United Arab Emirates
                     </option>
                     <option value="United Kingdom">United Kingdom</option>
-                    <option value="United States">United States</option>
+                    <option selected>United States</option>
                     <option value="United States Minor Outlying Islands">
                       United States Minor Outlying Islands
                     </option>
@@ -508,7 +507,7 @@ class Signup extends React.Component {
                     <option value="Uzbekistan">Uzbekistan</option>
                     <option value="Vanuatu">Vanuatu</option>
                     <option value="Venezuela">Venezuela</option>
-                    <option value="Viet Nam">Vietnam</option>
+                    <option value="Vietnam">Vietnam</option>
                     <option value="Virgin Islands, British">
                       Virgin Islands, British
                     </option>
