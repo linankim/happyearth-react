@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Card from "./Card.jsx";
+import TopNav from "./Navbar.jsx";
 import Nav from "./Nav.jsx";
 import Filters from "./Filters.jsx";
 import Map from "./Map.jsx";
@@ -80,6 +81,8 @@ class Spots extends React.Component {
   render() {
     return (
       <div className="background">
+        <TopNav />
+
         <Filters
           updateSearchField={this.updateSearchField}
           filterByType={this.filterByType}
