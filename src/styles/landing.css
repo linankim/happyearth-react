@@ -63,7 +63,6 @@ h2,
   height: 80vh;
   width: 90vw;
   box-sizing: border-box;
-  background-color: #4b553a;
   border-radius: 5px;
   margin: 100px;
   padding: 20px;
@@ -154,33 +153,34 @@ input:focus {
 	height: 100vh;
 	overflow-y: scroll;
 }
+*/
 
 .dropdown {
-	background: white;
-	box-shadow: rgba(0, 0, 0, 0.6);
-	display: none;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.6);
+  display: none;
 }
 
 .dropdown .option {
-	padding: 20px;
-	border-top: 1px lightGrey solid;
-	display: none;
+  padding: 20px;
+  border-top: 1px lightGrey solid;
+  display: none;
 }
 
 .dropdown .option:hover {
-	background: rgba(0, 0, 0, 0.1);
-	cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .dropdown.open {
-	display: block;
+  display: block;
 }
 
 .dropdown.open .option {
-	display: block;
+  display: block;
 }
 .landing .font {
-	font-family: 'EB Garamond', serif;
-	padding: 10px;
-	font-size: 40px;
-} */
+  font-family: "EB Garamond", serif;
+  padding: 10px;
+  font-size: 40px;
+}

@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import "../styles/landing.css";
-// import '../styles/universal.css'
 import TopNav from "./Navbar.jsx";
 import Spots from "./Spots.jsx";
 
@@ -22,9 +21,9 @@ import {
 class Landing extends React.Component {
   state = {
     options: [],
-
-    // check: false,
+    open: false,
   };
+
   search = (e) => {
     axios
       .get(`${process.env.REACT_APP_API}/cities?name=${e.target.value}`)
@@ -66,10 +65,6 @@ class Landing extends React.Component {
   render() {
     return (
       <>
-        {/*	<Alert variant="warning ">
-					{'TRAVEL NOTICE: '}
-					<Alert.Link href="#">COVID-19 Important Info</Alert.Link>
-				</Alert> */}
         <div className="bg-img ">
           <TopNav />
 
@@ -95,16 +90,12 @@ class Landing extends React.Component {
               Crowd-sourced reviews of your city's most eco-friendly and
               sustainable restaurants, shops and cafes.
             </h2>
-            {/*search starts here<Button variant="dark">Browse Spots</Button>
-						<Button class="button" variant="outline-dark">
-							Review a Spot
-						</Button>*/}
-            {/*search starts here*/}
+
             <div className="center-search">
               <i className="fas fa-search-location searchIcon"></i>
               <input
                 className="center-searchBox"
-                type="search"
+                type="text"
                 placeholder="Search by city"
                 onChange={this.search}
                 style={{
@@ -117,7 +108,6 @@ class Landing extends React.Component {
                 }}
               ></input>
             </div>
-
             {/*
 						1. insert dropdown with results
 						2. each option has onClick={this.selectOption}
