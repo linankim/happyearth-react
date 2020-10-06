@@ -127,7 +127,7 @@ class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{ height: "85vh" }}>
+        <div style={{}}>
           <div className="center-box">
             <div className="grid five">
               <h2 className="secondary" style={{ color: "black" }}>
@@ -135,34 +135,40 @@ class Landing extends React.Component {
               </h2>{" "}
               <Card
                 style={{
-                  width: "22vw",
-                  height: "60vh",
+                  width: "30vw",
+                  height: "80vh",
+                  background: "#FFFFFF",
+                  border: "1px solid #E0E0E0",
                   borderRadius: "30px",
-                  backgroundColor: "#fbd2d7",
+                  margin: "30px 100px",
                 }}
               >
                 <Card.Img
-                  style={{}}
+                  style={{
+                    padding: "20px 20px 0px 20px",
+                    borderRadius: "4px",
+
+                    marginBottom: "0px",
+                  }}
                   variant="top"
-                  src="https://source.unsplash.com/AFlG5jpMvYg/1600x900"
+                  src="https://source.unsplash.com/tPf-9_uMIeU"
                 />
                 <Card.Body>
-                  <Card.Title>City Name</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
                   <Button
-                    variant="primary"
+                    variant="link"
                     style={{
-                      margin: "5vh 4vw 0 2vw",
-                      width: "200px",
-                      height: "8vh",
+                      height: "30px",
                       borderRadius: "12px",
+                      borderColor: "#000",
+                      marginLeft: "1px",
+                      padding: "0 3px 3px 0",
                     }}
                   >
-                    See $cityname Spots
+                    $type of spot{" "}
                   </Button>
+                  <Card.Title style={{ marginTop: "10px" }}>
+                    $City Name, $State
+                  </Card.Title>
                 </Card.Body>
               </Card>
             </div>
