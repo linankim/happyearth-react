@@ -1,15 +1,22 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import Card from "./Card.jsx";
-import TopNav from "./Navbar.jsx";
-import Nav from "./Nav.jsx";
+import TopNav from "./Nav-Top.jsx";
 import Filters from "./Filters.jsx";
+import Cards from "./Cards.jsx";
 import Map from "./Map.jsx";
 import Pin from "./Pin.jsx";
-import "../styles/universal.css";
-import "../styles/spots.css";
 import "../styles/grid.css";
+import {
+  Card,
+  CardImg,
+  CardGroup,
+  CardDeck,
+  Button,
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap";
 
 class Spots extends React.Component {
   state = {
@@ -47,7 +54,7 @@ class Spots extends React.Component {
     console.log(e.target.value);
     let spotsClone = this.state.spotsClone;
     let spotsFound;
-    if (selected !== "All") {
+    if (selected !== "All" && selected !== "Any") {
       spotsFound = spotsClone.filter((s) => s.types.name === selected);
     } else {
       spotsFound = spotsClone;
@@ -80,26 +87,50 @@ class Spots extends React.Component {
 
   render() {
     return (
-      <div className="background">
-        <TopNav />
-
-        <Filters
-          updateSearchField={this.updateSearchField}
-          filterByType={this.filterByType}
-        />
-
-        <div className="grid twospots">
-          <div className="fixed">
-            <div className="grid twocards">
-              {this.state.spots.map((spot) => (
-                <Card spot={spot} key={spot._id} />
-              ))}
+      <div>
+        <Row className="header-img">
+          <div className="hero-text ">
+            <div
+              style={{
+                marginTop: "0px",
+              }}
+            >
+              <h1
+                style={{
+                  fontFamily: "Pacifico",
+                  color: "white",
+                  fontSize: "120px",
+                  letterSpacing: "3px",
+                  margin: "0px 0px 20vh 30vw",
+                }}
+              >
+                {" happy earth"}
+              </h1>
             </div>
           </div>
-          <div className="map">
-            <Map spots={this.state.spots} center={this.state.center} />
-          </div>
-        </div>
+        </Row>
+        <Container>
+          <Row>
+            <Col className="sidebar">
+              <Filters
+                updateSearchField={this.updateSearchField}
+                filterByType={this.filterByType}
+              />
+            </Col>
+            <Col xs={6}>
+              <CardDeck className="grid twocards">
+                {this.state.spots.map((spot) => (
+                  <Cards spot={spot} key={spot._id} />
+                ))}
+              </CardDeck>
+            </Col>
+            <Col>
+              <div className="google-map">
+                <Map spots={this.state.spots} center={this.state.center} />
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
