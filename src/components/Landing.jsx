@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import "../styles/landing.css";
-import TopNav from "./Navbar.jsx";
+import TopNav from "./Nav-Top.jsx";
 import Spots from "./Spots.jsx";
 
 import {
@@ -96,7 +96,7 @@ class Landing extends React.Component {
               <input
                 className="center-searchBox"
                 type="text"
-                placeholder="Search by city"
+                placeholder="Browse by city"
                 onChange={this.search}
                 style={{
                   boxShadow: "none",
