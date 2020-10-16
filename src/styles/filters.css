@@ -61,34 +61,3 @@
 .filters .search input:focus {
   border-color: #00988f;
 } */
-
-/*
-.dropdown {
-  background: white;
-  box-shadow: rgba(0, 0, 0, 0.6);
-  display: none;
-}
-
-.dropdown .option {
-  padding: 20px;
-  border-top: 1px lightGrey solid;
-  display: none;
-}
-
-.dropdown .option:hover {
-  background: rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.dropdown.open {
-  display: block;
-}
-
-.dropdown.open .option {
-  display: block;
-}
-.landing .font {
-  font-family: "EB Garamond", serif;
-  padding: 10px;
-  font-size: 40px;
-} */

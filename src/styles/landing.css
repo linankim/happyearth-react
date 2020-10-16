@@ -159,7 +159,7 @@ input:focus {
 	overflow-y: scroll;
 }
 */
-/*
+/* landing page dropdown */
 .dropdown {
   background: white;
   box-shadow: rgba(0, 0, 0, 0.6);
@@ -188,4 +188,4 @@ input:focus {
   font-family: "EB Garamond", serif;
   padding: 10px;
   font-size: 40px;
-} */
+}
