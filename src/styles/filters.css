@@ -1,58 +1,94 @@
-.filters {
-	background-color: rgba(255, 255, 255, 0.8);
-	padding: 10px 50px;
-	border-bottom: 1px solid #e2e2e2;
-	height: 50px;
+.filter-borders {
+  border-bottom: 1px solid #eeeeef;
 }
 
-.filters button {
-	height: 33px;
-	font-size: 14px;
-	padding: 7px 12px;
-	background: white;
-	border: 1px solid #e2e2e2;
-	margin-right: 10px;
-	border-radius: 5px;
-	cursor: pointer;
+.filter-borders-padding {
+  padding-bottom: 16px !important;
+}
+
+/* .filters {
+  padding: 0 2vw 0 -5vw;
+} */
+
+/* .filters button {
+  height: 33px;
+  font-size: 14px;
+  padding: 7px 12px;
+  background: white;
+  border: 1px solid #e2e2e2;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .filters button:hover {
-	background-color: tomato;
-	border-color: tomato;
-	color: white;
+  background-color: tomato;
+  border-color: tomato;
+  color: white;
 }
 
 .filters select {
-	height: 34px;
-	width: 300px;
-	font-size: 14px;
-	background: white;
-	border: 1px solid #e2e2e2;
-	cursor: pointer;
-	border-radius: 3px;
-	min-width: 100px;
-	margin-right: 10px;
-	box-sizing: border-box;
-	margin: 10px;
-	padding-left: 10px;
+  height: 34px;
+  width: 300px;
+  font-size: 14px;
+  background: white;
+  border: 1px solid #e2e2e2;
+  cursor: pointer;
+  border-radius: 3px;
+  min-width: 100px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  margin: 10px;
+  padding-left: 10px;
 }
 
 .filters .search {
-	min-width: 250px;
+  min-width: 250px;
 }
 
 .filters input {
-	height: 34px;
-	padding: 10px;
-	font-size: 14px;
-	border-radius: 3px;
-	border: 1px solid #e2e2e2;
-	width: 100px;
-	margin-right: 10px;
-	box-sizing: border-box;
-	vertical-align: top;
+  height: 34px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid #e2e2e2;
+  width: 100px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  vertical-align: top;
 }
 
 .filters .search input:focus {
-	border-color: #00988f;
+  border-color: #00988f;
+} */
+
+/*
+.dropdown {
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.6);
+  display: none;
 }
+
+.dropdown .option {
+  padding: 20px;
+  border-top: 1px lightGrey solid;
+  display: none;
+}
+
+.dropdown .option:hover {
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.dropdown.open {
+  display: block;
+}
+
+.dropdown.open .option {
+  display: block;
+}
+.landing .font {
+  font-family: "EB Garamond", serif;
+  padding: 10px;
+  font-size: 40px;
+} */

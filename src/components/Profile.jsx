@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Nav from "./Nav.jsx";
+// import Nav from "./Nav.jsx";
 import Popup from "./Popup.jsx";
 import "../styles/profile.css";
 import "../styles/profile.css";
