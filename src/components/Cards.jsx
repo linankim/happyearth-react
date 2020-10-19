@@ -23,16 +23,18 @@ class Cards extends React.Component {
         <Card
           style={{
             background: "#FFFFFF",
-            border: "1px solid #E0E0E0",
+            border: "1px solid #EOEOEO",
+            width: "16rem",
           }}
         >
-          <Card.Img src={this.state.spot.images[0]} variant="top" />
+          <Card.Img
+            src={this.state.spot.images[0]}
+            variant="top"
+            style={{ width: "100px", height: "160px" }}
+          />
           <Card.Body>
             <Card.Title>{this.state.spot.title}</Card.Title>
             <Card.Text>
-              <span>
-                {this.state.spot.city}, {this.state.spot.country}
-              </span>
               <div>
                 {this.state.types ? (
                   <small>{this.state.types.name}</small>
@@ -43,13 +45,6 @@ class Cards extends React.Component {
               {"view"}
             </Link>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">
-              <span>
-                {this.state.spot.city}, {this.state.spot.country}
-              </span>
-            </small>
-          </Card.Footer>
         </Card>
       </>
     );
