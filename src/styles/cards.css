@@ -1,6 +1,8 @@
 .card {
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255);
+  border-radius: 30px;
+  height: 270px;
+  width: 100%;
+  /* background-color: rgba(255, 255, 255); */
 }
 
 a.card {
@@ -9,7 +11,7 @@ a.card {
   display: inline-block;
 }
 
-.card .logo {
+/* .card .logo {
   width: 200px;
   height: 34px;
   background-position: center;
@@ -17,7 +19,7 @@ a.card {
   background-position: center;
   background-size: 100% auto;
   margin: 20px auto;
-}
+} */
 
 .card > .content {
   padding: 10px;
@@ -42,7 +44,7 @@ a.card {
 }
 
 .card .image {
-  border-radius: 2px 2px 0 0;
+  border-radius: 30px 30px 0 0;
   height: 160px;
   background-size: cover;
   background-position: center;
@@ -63,7 +65,7 @@ a.card {
 }
 
 .card .image > .icon i.far {
-  color: white;
+  color: red; /*white */
 }
 
 .card p.footer {
@@ -74,13 +76,21 @@ a.card {
 .card .content small.meta {
   color: rgb(37, 120, 69);
   text-transform: uppercase;
-  font-family: Arial, sans-serif;
+  letter-spacing: 2px;
+  font-family: "Jost", sans-serif;
   font-size: 15px;
   font-weight: bold;
 }
 
+.type {
+  color: rgb(37, 120, 69);
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  font-family: "Jost", sans-serif;
+  font-size: 8px;
+}
 .card .content small.location {
-  font-size: 18px;
+  /* font-size: 18px; */
 }
 
 .card .content small.location i + span {
@@ -88,9 +98,9 @@ a.card {
 }
 
 .card .content h2 {
-  font-size: 20px;
+  /* font-size: 20px;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 5px; */
 }
 
 .card .content .price,
@@ -118,11 +128,10 @@ a.card {
 .card .location {
   display: block;
   font-size: 13px;
-  margin-top: 10px;
+  /* margin-top: 3px; */
 }
-
+/*
 .card .location i {
-  margin-right: 5px;
 }
 
 .card.specs ul > li {
@@ -135,8 +144,8 @@ a.card {
 
 .card + p {
   margin-top: 40px;
-}
-
+} */
+/*
 .card h3 {
   margin-top: 0;
   font-size: 30px;
@@ -155,4 +164,4 @@ a.card {
   font-size: 14px;
   padding: 5px 8px;
   border-radius: 4px;
-}
+} */

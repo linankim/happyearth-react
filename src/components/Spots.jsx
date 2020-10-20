@@ -7,16 +7,9 @@ import Cards from "./Cards.jsx";
 import Map from "./Map.jsx";
 import Pin from "./Pin.jsx";
 import "../styles/grid.css";
-import {
-  Card,
-  CardImg,
-  CardGroup,
-  CardDeck,
-  Button,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import "../styles/googlemap.css";
+
+import { CardImg, Button, Container, Row, Col } from "react-bootstrap";
 
 class Spots extends React.Component {
   state = {
@@ -118,11 +111,11 @@ class Spots extends React.Component {
               />
             </Col>
             <Col xs={6}>
-              <CardDeck className="grid twocards">
+              <div className="grid twocards">
                 {this.state.spots.map((spot) => (
                   <Cards spot={spot} key={spot._id} />
                 ))}
-              </CardDeck>
+              </div>
             </Col>
             <Col>
               <div className="google-map">
