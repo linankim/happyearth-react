@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardImg, CardGroup, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "../styles/grid.css";
+import "../styles/cards.css";
+import "../styles/spots.css";
 
 class Cards extends React.Component {
   state = {
@@ -9,9 +11,9 @@ class Cards extends React.Component {
     types: this.props.spot.types,
   };
 
-  // selectBackground = (background) => {
-  //   return { backgroundImage: `url('${background}')` };
-  // };
+  selectBackground = (background) => {
+    return { backgroundImage: `url('${background}')` };
+  };
 
   UNSAFE_componentWillReceiveProps() {
     this.setState({ spot: this.props.spot });
@@ -20,32 +22,19 @@ class Cards extends React.Component {
   render() {
     return (
       <>
-        <Card
-          style={{
-            background: "#FFFFFF",
-            border: "1px solid #EOEOEO",
-            width: "16rem",
-          }}
-        >
-          <Card.Img
-            src={this.state.spot.images[0]}
-            variant="top"
-            style={{ width: "100px", height: "160px" }}
-          />
-          <Card.Body>
-            <Card.Title>{this.state.spot.title}</Card.Title>
-            <Card.Text>
-              <div>
-                {this.state.types ? (
-                  <small>{this.state.types.name}</small>
-                ) : null}
-              </div>
-            </Card.Text>
-            <Link className="card link" to={`/spots/${this.state.spot._id}`}>
-              {"view"}
-            </Link>
-          </Card.Body>
-        </Card>
+        <Link className="card link" to={`/spots/${this.state.spot._id}`}>
+          <div
+            className="image"
+            style={this.selectBackground(this.state.spot.images[0])}
+          ></div>
+          <div className="content">
+            <small className="meta">{this.state.spot.title}</small>
+            <div>
+              <h2>{this.state.spot.title}</h2>
+              <small className="type">{this.state.spot.type}</small>
+            </div>
+          </div>
+        </Link>
       </>
     );
   }
