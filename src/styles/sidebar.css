@@ -1,8 +1,22 @@
 .sidebar {
-  border: 1px solid gray;
+  border: 1px solid #c7c4b2;
+  border-radius: 25px;
   padding: 20px;
-  background-color: gray;
+  background-color: #fff;
   margin: 5vh 2vw 0 -5vw; /* temporary margin adjustment */
+}
+
+.sidebar-search {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  margin-top: 8px;
+  font-family: "Jost";
+  box-sizing: border-box;
+}
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
 /*
