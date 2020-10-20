@@ -3,7 +3,16 @@
 }
 
 .filter-borders-padding {
-  padding-bottom: 16px !important;
+  padding-bottom: 35px !important;
+  padding-top: 20px !important;
+}
+
+.form-label {
+  color: black;
+  font-family: "Jost";
+  font-size: 15px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 /* .filters {
