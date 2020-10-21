@@ -198,37 +198,26 @@ class Spot extends React.Component {
           </Row>
 
           <Row>
-            <Col style={{ border: "2px solid black" }}>
-              Images here
-              <div className="grid two">
-                <div className="gallery">
-                  <div className="gallerymain">
+            <Col className="gallery">
+              <div
+                className="image-selected"
+                style={{
+                  backgroundImage: `url('${this.state.spot.selectedImage}')`,
+                }}
+              ></div>
+              <div className="thumbnail-row">
+                {this.state.spot.images.map((image, index) => {
+                  return (
                     <div
-                      className="image-main"
+                      className="thumbnail-img"
                       style={{
-                        backgroundImage: `url('${this.state.spot.selectedImage}')`,
+                        backgroundImage: `url(${image})`,
                       }}
+                      key={index}
+                      onClick={() => this.clickedImage(image)}
                     ></div>
-                  </div>
-                </div>
-              </div>
-              <div className="grid two">
-                <div className="gallery">
-                  <div className="thumbnails">
-                    {this.state.spot.images.map((image, index) => {
-                      return (
-                        <div
-                          className="thumbnail"
-                          style={{
-                            backgroundImage: `url(${image})`,
-                          }}
-                          key={index}
-                          onClick={() => this.clickedImage(image)}
-                        ></div>
-                      );
-                    })}
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </Col>
 
