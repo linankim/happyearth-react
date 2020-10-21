@@ -30,10 +30,10 @@
   justify-content: center;
 }
 
-.grid.sidebar-left {
+/* .grid.sidebar-left {
   grid-template-columns: 200px auto;
   grid-column-gap: 0px;
-}
+} */
 
 .gridheading {
   display: grid;
@@ -125,10 +125,10 @@
   align-items: start;
 }
 
-.grid.full {
+/* .grid.full {
   height: 100vh;
   padding: 30px;
-}
+} */
 
 .details {
   padding: 30px 30px 60px 30px;
