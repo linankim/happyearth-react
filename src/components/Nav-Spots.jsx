@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import "../styles/nav.css";
 
-class Nav extends React.Component {
+class NavSpots extends React.Component {
   state = {
     user: {
       avatar: "",
@@ -74,4 +74,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default NavSpots;

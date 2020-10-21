@@ -92,7 +92,7 @@ class Landing extends React.Component {
             </h2>
 
             <div className="center-search">
-              <i className="fas fa-search-location searchIcon"></i>
+              <i className="fas fa-search-location search-icon"></i>
               <input
                 className="center-searchBox"
                 type="text"
