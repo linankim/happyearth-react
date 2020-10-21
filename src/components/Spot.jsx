@@ -181,11 +181,17 @@ class Spot extends React.Component {
             </Col>
             <Col>
               {" "}
-              <div>
+              <div className="user minitwogrid">
                 <div className="spottedbyfont">Spotted by:</div>
                 <div className="spottedbyfont">
                   {` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
                 </div>
+                <div
+                  className="avatar"
+                  style={{
+                    backgroundImage: `url(${this.state.spotter.avatar})`,
+                  }}
+                ></div>
               </div>
             </Col>
           </Row>
@@ -313,34 +319,6 @@ class Spot extends React.Component {
             </div>
           </Row>
         </Container>
-
-        <div className="background center">
-          <div>
-            <div className="grid sidebar-left">
-              <div className="grid full">
-                <div className="spotheading">
-                  <div className="grid two">
-                    <div></div>
-                    <div>
-                      <div className="user minitwogrid">
-                        <div
-                          className="avatar"
-                          style={{
-                            backgroundImage: `url(${this.state.spotter.avatar})`,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="details whitebackground">
-                  <div className="grid two"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </>
     );
   }
