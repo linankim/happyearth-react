@@ -11,8 +11,9 @@ import "../styles/grid.css";
 import "../styles/icons.css";
 import "../styles/sidebar.css";
 import "../styles/users.css";
-import "../styles/universal.css";
+// import "../styles/universal.css";
 import "../styles/grid.css";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 class Spot extends React.Component {
   state = {
@@ -141,6 +142,21 @@ class Spot extends React.Component {
     };
     return (
       <>
+        <Container>
+          <Row style={{ border: "2px solid black" }}>Title Here</Row>
+          <Row>
+            <Col style={{ border: "2px solid black" }}>Images here</Col>
+            <Col style={{ border: "2px solid black" }}>Map here</Col>
+          </Row>
+          <Row>
+            <Col style={{ border: "2px solid black" }}>Features here</Col>
+            <Col style={{ border: "2px solid black" }}>
+              Business features here
+            </Col>
+          </Row>
+          <Row style={{ border: "2px solid black" }}>About down here</Row>
+        </Container>
+
         <div className="background center">
           <div>
             <div className="grid sidebar-left">
