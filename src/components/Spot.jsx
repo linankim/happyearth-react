@@ -1,7 +1,8 @@
 import React from "react";
 import Map from "./Map.jsx";
-import axios from "axios";
+import NavSpots from "./Nav-Spots.jsx";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 import "../styles/spot.css";
 import "../styles/buttons.css";
 import "../styles/cards.css";
@@ -13,7 +14,7 @@ import "../styles/sidebar.css";
 import "../styles/users.css";
 // import "../styles/universal.css";
 import "../styles/grid.css";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row, Col, Carousel } from "react-bootstrap";
 
 class Spot extends React.Component {
   state = {
@@ -140,9 +141,13 @@ class Spot extends React.Component {
         color: "#27965c",
       },
     };
+
+    let src = this.state.spot.selectedImage;
+
     return (
       <>
         <Row className="header-img">
+          <NavSpots />
           <div className="hero-text ">
             <div
               style={{
@@ -163,27 +168,23 @@ class Spot extends React.Component {
             </div>
           </div>
         </Row>
+
         <Container>
-          <Row style={{ border: "2px solid black" }}>
+          <Row>
             <Col>
               <div>
                 {this.state.spot.types ? (
                   <div className="typefont">{this.state.spot.types.name}</div>
                 ) : null}
               </div>
-              <div className="titlefont">{this.state.spot.title}</div>
-              <small className="paddingleftten">
-                <i className="fas fa-map-marker-alt"></i>
-                <span className="locationfont">
-                  {this.state.spot.city}, {this.state.spot.country}
-                </span>
-              </small>
+
+              <div className="spot-title">{this.state.spot.title}</div>
             </Col>
-            <Col>
-              {" "}
+
+            <Col sm={4}>
               <div className="user minitwogrid">
-                <div className="spottedbyfont">Spotted by:</div>
-                <div className="spottedbyfont">
+                <div>Spotted by:</div>
+                <div>
                   {` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
                 </div>
                 <div
@@ -207,15 +208,12 @@ class Spot extends React.Component {
                       style={{
                         backgroundImage: `url('${this.state.spot.selectedImage}')`,
                       }}
-                    >
-                      <button
-                        className="icon"
-                        onClick={() => this.toggleLike()}
-                      >
-                        <i className={this.getClass}></i>
-                      </button>
-                    </div>
+                    ></div>
                   </div>
+                </div>
+              </div>
+              <div className="grid two">
+                <div className="gallery">
                   <div className="thumbnails">
                     {this.state.spot.images.map((image, index) => {
                       return (
@@ -233,11 +231,13 @@ class Spot extends React.Component {
                 </div>
               </div>
             </Col>
-            <Col style={{ border: "2px solid black" }}>
-              Map Here{" "}
-              <div className="map">
-                <Map spot={this.state.spot} />
-              </div>
+
+            <Col>
+              <Row style={{ border: "2px solid black" }}>Map Here</Row>
+              <Row>
+                <Col style={{ border: "2px solid black" }}>Location</Col>
+                <Col style={{ border: "2px solid black" }}>Hours</Col>
+              </Row>
             </Col>
           </Row>
           <Row>
