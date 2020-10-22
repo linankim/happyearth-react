@@ -44,6 +44,7 @@
   background-image: url("https://images.unsplash.com/photo-1501696057772-02661ce93702");
   opacity: 0.8;
   background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 40vh;
@@ -84,8 +85,6 @@ h2,
 
 /* search bar landing page */
 
-/* search bar landing page */
-
 .center-search {
   display: inline-flex;
   flex: 1 1 300px;
@@ -103,7 +102,7 @@ h2,
   padding: 10px;
 }
 
-.searchIcon {
+.search-icon {
   padding: 1.3rem 0.5em 1.3rem 1.3rem;
   background-color: white;
   color: #8a8a8a;
