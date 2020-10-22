@@ -142,8 +142,6 @@ class Spot extends React.Component {
       },
     };
 
-    let src = this.state.spot.selectedImage;
-
     return (
       <>
         <Row className="header-img">
@@ -172,13 +170,12 @@ class Spot extends React.Component {
         <Container>
           <Row>
             <Col>
-              <div>
-                {this.state.spot.types ? (
-                  <div className="typefont">{this.state.spot.types.name}</div>
-                ) : null}
-              </div>
-
               <div className="spot-title">{this.state.spot.title}</div>
+              <small>
+                {this.state.spot.types ? (
+                  <div className="type-font">{this.state.spot.types.name}</div>
+                ) : null}
+              </small>
             </Col>
 
             <Col sm={4}>
@@ -199,12 +196,26 @@ class Spot extends React.Component {
 
           <Row>
             <Col className="gallery">
-              <div
-                className="image-selected"
-                style={{
-                  backgroundImage: `url('${this.state.spot.selectedImage}')`,
-                }}
-              ></div>
+              <Carousel>
+                {this.state.spot.images.map((image, index) => {
+                  return (
+                    <Carousel.Item>
+                      <div
+                        className="gallery-img"
+                        style={{
+                          backgroundImage: `url(${image})`,
+                        }}
+                        key={index}
+                        onClick={() => this.clickedImage(image)}
+                      ></div>
+                    </Carousel.Item>
+                  );
+                })}
+                <Carousel.Caption>
+                  {" "}
+                  <div>{this.state.spot.types.name}</div>
+                </Carousel.Caption>
+              </Carousel>
               <div className="thumbnail-row">
                 {this.state.spot.images.map((image, index) => {
                   return (
