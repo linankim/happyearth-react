@@ -166,25 +166,22 @@ class Spot extends React.Component {
             </div>
           </div>
         </Row>
-
-        <Container className="body-container">
+        <Container fluid>
           <Row>
-            <Col>
+            <Col style={{ backgroundColor: "#6a7553" }}>
               {" "}
               <div className="spot-title">{this.state.spot.title}</div>
             </Col>
-            <Col xs={5}>
+            <Col style={{ backgroundColor: "#9aa07e" }}>
               <div className="grid two gallery">
                 <div>
-                  <div>
-                    <div
-                      className="image-main"
-                      style={{
-                        backgroundImage: `url('${this.state.spot.selectedImage}')`,
-                      }}
-                    ></div>
-                  </div>
-                  <div className="thumbnail-row">
+                  <div
+                    className="image-main"
+                    style={{
+                      backgroundImage: `url('${this.state.spot.selectedImage}')`,
+                    }}
+                  ></div>
+                  <div className="thumbnails">
                     {this.state.spot.images.map((image, index) => {
                       return (
                         <div
@@ -212,7 +209,6 @@ class Spot extends React.Component {
             <Col style={{ border: "2px solid black" }}>Location & Hours</Col>
           </Row>
         </Container>
-
         <Container style={{ marginTop: "350px" }}>
           <Row>
             <Col>

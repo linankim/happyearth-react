@@ -1,13 +1,10 @@
-body {
-  background-color: #9aa07e;
-}
-
 .spot-title {
   font-family: "Nunito", serif;
   color: #fff;
   font-size: 100px;
-  letter-spacing: "15px";
+  /* letter-spacing: "15px"; */
   line-height: 130px;
+  margin: 10vh 5vw;
 }
 
 .locationfont {
