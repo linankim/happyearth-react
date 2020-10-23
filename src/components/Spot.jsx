@@ -144,7 +144,7 @@ class Spot extends React.Component {
 
     return (
       <>
-        <Row className="header-img">
+        <Row>
           <NavSpots />
           <div className="hero-text ">
             <div
@@ -167,7 +167,53 @@ class Spot extends React.Component {
           </div>
         </Row>
 
-        <Container>
+        <Container className="body-container">
+          <Row>
+            <Col>
+              {" "}
+              <div className="spot-title">{this.state.spot.title}</div>
+            </Col>
+            <Col xs={5}>
+              <div className="grid two gallery">
+                <div>
+                  <div>
+                    <div
+                      className="image-main"
+                      style={{
+                        backgroundImage: `url('${this.state.spot.selectedImage}')`,
+                      }}
+                    ></div>
+                  </div>
+                  <div className="thumbnail-row">
+                    {this.state.spot.images.map((image, index) => {
+                      return (
+                        <div
+                          className="thumbnail"
+                          style={{
+                            backgroundImage: `url(${image})`,
+                          }}
+                          key={index}
+                          onClick={() => this.clickedImage(image)}
+                        ></div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            {" "}
+            <Col style={{ border: "2px solid black" }}>Features 1 </Col>
+            <Col style={{ border: "2px solid black" }}>Features 2</Col>
+          </Row>
+          <Row>
+            <Col style={{ border: "2px solid black" }}>Map</Col>
+            <Col style={{ border: "2px solid black" }}>Location & Hours</Col>
+          </Row>
+        </Container>
+
+        <Container style={{ marginTop: "350px" }}>
           <Row>
             <Col>
               <div className="spot-title">{this.state.spot.title}</div>
@@ -216,7 +262,7 @@ class Spot extends React.Component {
                   <div>{this.state.spot.types.name}</div>
                 </Carousel.Caption>
               </Carousel>
-              <div className="thumbnail-row">
+              <div>
                 {this.state.spot.images.map((image, index) => {
                   return (
                     <div

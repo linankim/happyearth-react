@@ -2,6 +2,12 @@
   display: grid;
 }
 
+.grid.two {
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  /* padding: 10px; */
+}
+
 .grid.form {
   width: 600px;
   height: 700px;
@@ -43,6 +49,45 @@
 
 .grid.twospots {
   grid-template-columns: 3fr 2fr;
+}
+
+/* //gallleryyy */
+
+.gallery {
+  border-bottom: 1px solid #e2e2e2;
+  background-color: white;
+  padding: 20px;
+}
+
+.gallery .image-main {
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.gallery .image-main button {
+  height: 30px;
+}
+
+.gallery .thumbnails {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  background-color: rgba(255, 255, 255);
+  margin-top: 30px;
+}
+
+.gallery .thumbnail {
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
 /* .grid.scroll {
