@@ -169,8 +169,16 @@ class Spot extends React.Component {
         <Container fluid>
           <Row>
             <Col style={{ backgroundColor: "#6a7553" }}>
-              {" "}
               <div className="spot-title">{this.state.spot.title}</div>
+              <Row
+                style={{
+                  margin: "10vh 3vw 3vh 5vw",
+                }}
+              >
+                <div className="spot-description">
+                  <div>{this.state.spot.description}</div>
+                </div>
+              </Row>
             </Col>
             <Col style={{ backgroundColor: "#9aa07e" }}>
               <div className="grid two gallery">
@@ -199,16 +207,19 @@ class Spot extends React.Component {
               </div>
             </Col>
           </Row>
+
           <Row>
             {" "}
             <Col style={{ border: "2px solid black" }}>Features 1 </Col>
             <Col style={{ border: "2px solid black" }}>Features 2</Col>
           </Row>
+
           <Row>
             <Col style={{ border: "2px solid black" }}>Map</Col>
             <Col style={{ border: "2px solid black" }}>Location & Hours</Col>
           </Row>
         </Container>
+
         <Container style={{ marginTop: "350px" }}>
           <Row>
             <Col>

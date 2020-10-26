@@ -1,3 +1,11 @@
+.left-margin {
+  margin: 10vh 5vw;
+}
+
+.spot-right {
+  margin: 10vh 5vw;
+}
+
 .spot-title {
   font-family: "Nunito", serif;
   color: #fff;
@@ -5,6 +13,20 @@
   /* letter-spacing: "15px"; */
   line-height: 130px;
   margin: 10vh 5vw;
+}
+
+.spot-description {
+  font-family: "Nunito", serif;
+  color: #fff;
+  font-size: 20px;
+  line-height: 10vh;
+  letter-spacing: 0.3rem;
+}
+
+.description {
+  font-size: 20px;
+  font-family: "Jost", serif;
+  padding-top: 10px;
 }
 
 .locationfont {
@@ -51,17 +73,6 @@
   font-family: "EB Garamond", serif;
   font-size: 20px;
   padding-top: 2px;
-}
-.aboutspotfont {
-  font-family: "EB Garamond", serif;
-  font-size: 28px;
-  padding-top: 10px;
-}
-
-.descriptionfont {
-  font-family: "EB Garamond", serif;
-  font-size: 20px;
-  padding-top: 10px;
 }
 
 .spotheading {
