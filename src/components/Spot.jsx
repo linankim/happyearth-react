@@ -1,7 +1,8 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import Map from "./Map.jsx";
 import NavSpots from "./Nav-Spots.jsx";
-import { withRouter } from "react-router-dom";
+import TopNav from "./Nav-Top.jsx";
 import axios from "axios";
 import "../styles/spot.css";
 import "../styles/buttons.css";
@@ -144,8 +145,8 @@ class Spot extends React.Component {
 
     return (
       <>
-        <Row>
-          <NavSpots />
+        <Row className="bg-img" style={{ height: "10%" }}>
+          <TopNav />
           <div className="hero-text ">
             <div
               style={{
@@ -158,7 +159,7 @@ class Spot extends React.Component {
                   color: "white",
                   fontSize: "120px",
                   letterSpacing: "3px",
-                  margin: "0px 0px 20vh 30vw",
+                  margin: "0px 0px 15vh 30vw",
                 }}
               >
                 {" happy earth"}
@@ -170,14 +171,74 @@ class Spot extends React.Component {
           <Row>
             <Col style={{ backgroundColor: "#6a7553" }}>
               <div className="spot-title">{this.state.spot.title}</div>
+
+              <div
+                style={{
+                  margin: "-8vh 0 0 5vw",
+                }}
+              >
+                <Row className="spotted-by">{"Spotted by:"}</Row>
+                <Row>
+                  <Col xs lg="2">
+                    <div
+                      className="avatar"
+                      style={{
+                        backgroundImage: `url(${this.state.spotter.avatar})`,
+                      }}
+                    ></div>
+                  </Col>
+                  <Col className="spotted-byuser" xs lg="2">
+                    {" "}
+                    {` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+                  </Col>
+                </Row>
+              </div>
+
               <Row
                 style={{
-                  margin: "10vh 3vw 3vh 5vw",
+                  margin: "5vh 3vw 3vh 5vw",
                 }}
               >
                 <div className="spot-description">
                   <div>{this.state.spot.description}</div>
                 </div>
+              </Row>
+
+              <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
+                <small> Features:</small>{" "}
+                <Button
+                  variant="light"
+                  size="sm"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "1px solid #eeeeef",
+                    borderRadius: "14px",
+                    width: "30%",
+                    fontSize: "12px",
+                  }}
+                >
+                  Plastic Free{" "}
+                </Button>
+                <Button
+                  variant="light"
+                  size="sm"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "1px solid #eeeeef",
+                    borderRadius: "14px",
+                    width: "40%",
+                    fontSize: "12px",
+                  }}
+                >
+                  Vegetarian/Vegan
+                </Button>
+              </Row>
+              <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>Price: $ $ $ </Row>
+              <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
+                Happy Earth Score:
+                <i class="fas fa-globe-africa"></i>{" "}
+                <i class="fas fa-globe-africa"></i>{" "}
+                <i class="fas fa-globe-africa"></i>
               </Row>
             </Col>
             <Col style={{ backgroundColor: "#9aa07e" }}>
@@ -209,12 +270,6 @@ class Spot extends React.Component {
           </Row>
 
           <Row>
-            {" "}
-            <Col style={{ border: "2px solid black" }}>Features 1 </Col>
-            <Col style={{ border: "2px solid black" }}>Features 2</Col>
-          </Row>
-
-          <Row>
             <Col style={{ border: "2px solid black" }}>Map</Col>
             <Col style={{ border: "2px solid black" }}>Location & Hours</Col>
           </Row>
@@ -229,21 +284,6 @@ class Spot extends React.Component {
                   <div className="type-font">{this.state.spot.types.name}</div>
                 ) : null}
               </small>
-            </Col>
-
-            <Col sm={4}>
-              <div className="user minitwogrid">
-                <div>Spotted by:</div>
-                <div>
-                  {` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
-                </div>
-                <div
-                  className="avatar"
-                  style={{
-                    backgroundImage: `url(${this.state.spotter.avatar})`,
-                  }}
-                ></div>
-              </div>
             </Col>
           </Row>
 

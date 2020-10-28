@@ -52,9 +52,15 @@
   padding-left: 10px;
 }
 
-.minitwogrid {
-  grid-template-columns: 1fr 4fr;
+/* //formerly minitwogrid */
+.spotted-by {
+  font-family: "Nunito", serif;
+  color: #fff;
+  font-size: 14px;
+  line-height: 10vh;
+  letter-spacing: 0.3rem;
 }
+
 .amenityfont {
   font-family: "EB Garamond", serif;
   font-size: 20px;
