@@ -206,6 +206,37 @@ class Spot extends React.Component {
 
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
                 <small> Features:</small>{" "}
+                <div>
+                  {this.state.spot.toggleTakeaways ? (
+                    <div>
+                      <div className="eatinfont">Business Features</div>
+                      {this.state.spot.takeaways.map((takeaway) => {
+                        return (
+                          <div className="amenityfontbold" key={takeaway._id}>
+                            <li>
+                              <i className={takeaway.icon}> </i>
+                              {takeaway.explanation}
+                            </li>
+                          </div>
+                        );
+                      })}
+                      {this.state.remainingTakeaways.map((takeaway) => {
+                        return (
+                          <div
+                            className="amenityfont"
+                            style={styles.selected}
+                            key={takeaway._id}
+                          >
+                            <li>
+                              <i className={takeaway.icon}> </i>
+                              {` Bring Your Own   ${takeaway.explanation}`}
+                            </li>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : null}
+                </div>
                 <Button
                   variant="light"
                   size="sm"
@@ -266,12 +297,13 @@ class Spot extends React.Component {
                   </div>
                 </div>
               </div>
-            </Col>
-          </Row>
 
-          <Row>
-            <Col style={{ border: "2px solid black" }}>Map</Col>
-            <Col style={{ border: "2px solid black" }}>Location & Hours</Col>
+              <Row style={{ border: "2px solid black" }}>Map</Row>
+              <Row>
+                <Col style={{ border: "2px solid black" }}>Location</Col>
+                <Col style={{ border: "2px solid black" }}>Hours</Col>
+              </Row>
+            </Col>
           </Row>
         </Container>
 
@@ -323,14 +355,6 @@ class Spot extends React.Component {
                   );
                 })}
               </div>
-            </Col>
-
-            <Col>
-              <Row style={{ border: "2px solid black" }}>Map Here</Row>
-              <Row>
-                <Col style={{ border: "2px solid black" }}>Location</Col>
-                <Col style={{ border: "2px solid black" }}>Hours</Col>
-              </Row>
             </Col>
           </Row>
           <Row>
@@ -401,15 +425,6 @@ class Spot extends React.Component {
                 ) : null}
               </div>{" "}
             </Col>
-          </Row>
-          <Row style={{ border: "2px solid black" }}>
-            {" "}
-            <div>
-              <div className="aboutspotfont">About this Spot</div>
-              <div className="descriptionfont">
-                {this.state.spot.description}
-              </div>
-            </div>
           </Row>
         </Container>
       </>
