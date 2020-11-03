@@ -28,6 +28,7 @@ class Spot extends React.Component {
         name: "",
         avatar: "",
       },
+      features: [],
       description: "",
       types: {},
       eatins: [],
@@ -44,6 +45,8 @@ class Spot extends React.Component {
     spotter: {},
     eatins: [],
     takeaways: [],
+    features: [],
+
     remainingEatins: [],
     remainingTakeaways: [],
   };
@@ -53,6 +56,7 @@ class Spot extends React.Component {
     let spot = this.state.spot;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
+
     axios
       .get(`${process.env.REACT_APP_API}/eatins`)
       .then((res) => {
@@ -63,6 +67,7 @@ class Spot extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+
     axios
       .get(`${process.env.REACT_APP_API}/takeaways`)
       .then((res) => {
@@ -205,38 +210,24 @@ class Spot extends React.Component {
               </Row>
 
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
-                <small> Features:</small>{" "}
-                <div>
-                  {this.state.spot.toggleTakeaways ? (
-                    <div>
-                      <div className="eatinfont">Business Features</div>
-                      {this.state.spot.takeaways.map((takeaway) => {
-                        return (
-                          <div className="amenityfontbold" key={takeaway._id}>
-                            <li>
-                              <i className={takeaway.icon}> </i>
-                              {takeaway.explanation}
-                            </li>
-                          </div>
-                        );
-                      })}
-                      {this.state.remainingTakeaways.map((takeaway) => {
-                        return (
-                          <div
-                            className="amenityfont"
-                            style={styles.selected}
-                            key={takeaway._id}
-                          >
-                            <li>
-                              <i className={takeaway.icon}> </i>
-                              {` Bring Your Own   ${takeaway.explanation}`}
-                            </li>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ) : null}
+                <small>Features:</small>
+
+                <div className="features">
+                  {this.state.spot.features.map((feature) => {
+                    return <div className="feature">{feature.name}</div>;
+                  })}
                 </div>
+                <Button
+                  variant="light"
+                  size="sm"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "1px solid #eeeeef",
+                    borderRadius: "14px",
+                    width: "30%",
+                    fontSize: "12px",
+                  }}
+                ></Button>
                 <Button
                   variant="light"
                   size="sm"

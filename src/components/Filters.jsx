@@ -83,7 +83,7 @@ class Filters extends React.Component {
                   fontSize: "12px",
                 }}
               >
-                Plastic Free{" "}
+                Sustainable{" "}
               </Button>
 
               <Button
