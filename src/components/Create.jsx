@@ -105,10 +105,10 @@ class Create extends React.Component {
   checkBox = (e) => {
     let spot = this.state.spot;
     let _id = e.target.value;
-    let takeaways = spot.takeaways;
+    // let takeaways = spot.takeaways;
 
-    if (spot.takeaways.find((takeaway) => takeaway == _id)) {
-      spot.takeaways = spot.takeaways.filter((takeaway) => takeaway != _id);
+    if (spot.takeaways.find((takeaway) => takeaway === _id)) {
+      spot.takeaways = spot.takeaways.filter((takeaway) => takeaway !== _id);
     } else {
       spot.takeaways.push(_id);
       if (spot.takeaways) this.setState({ spot: spot.takeaways });
@@ -120,10 +120,10 @@ class Create extends React.Component {
   checkbox2 = (e) => {
     let spot = this.state.spot;
     let _id = e.target.value;
-    let eatins = spot.eatins;
+    // let eatins = spot.eatins;
 
-    if (spot.eatins.find((eatin) => eatin == _id)) {
-      spot.eatins = spot.eatis.filter((eatin) => eatin != _id);
+    if (spot.eatins.find((eatin) => eatin === _id)) {
+      spot.eatins = spot.eatis.filter((eatin) => eatin !== _id);
     } else {
       spot.eatins.push(_id);
       this.setState({ spot: spot.eatins });
@@ -146,13 +146,13 @@ class Create extends React.Component {
     let data = new FormData();
     for (let key in this.state.spot) {
       if (
-        (typeof this.state.spot[key] == "object" && key == "eatins") ||
-        key == "takeaways"
+        (typeof this.state.spot[key] == "object" && key === "eatins") ||
+        key === "takeaways"
       ) {
         this.state.spot[key].forEach((val) => {
           data.append(`${key}[]`, val);
         });
-      } else if (typeof this.state.spot[key] == "object" && key == "files") {
+      } else if (typeof this.state.spot[key] == "object" && key === "files") {
         for (let i = 0; i < this.state.spot[key].length; i++) {
           data.append(key, this.state.spot[key][i]);
         }

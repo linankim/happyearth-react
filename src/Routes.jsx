@@ -7,8 +7,8 @@ import Spot from "./components/Spot.jsx";
 import Create from "./components/Create.jsx";
 import Spots from "./components/Spots.jsx";
 import Landing from "./components/Landing.jsx";
-import TopNav from "./components/Nav-Top.jsx";
-import NavSpots from "./components/Nav-Spots.jsx";
+// import TopNav from "./components/Nav-Top.jsx";
+// import NavSpots from "./components/Nav-Spots.jsx";
 
 class Routes extends React.Component {
   render() {

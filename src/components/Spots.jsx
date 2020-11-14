@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import TopNav from "./Nav-Top.jsx";
+// import TopNav from "./Nav-Top.jsx";
 import Filters from "./Filters.jsx";
 import Cards from "./Cards.jsx";
 import Map from "./Map.jsx";
-import Pin from "./Pin.jsx";
+// import Pin from "./Pin.jsx";
 import "../styles/grid.css";
 import "../styles/googlemap.css";
 
-import { CardImg, Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 class Spots extends React.Component {
   state = {
@@ -35,7 +35,6 @@ class Spots extends React.Component {
     } else {
       let filteredSpots = this.state.spotsClone.filter((spot) => {
         return spot.title.toLowerCase().includes(e.target.value.toLowerCase());
-        console.log("filteredSpots>>>>", filteredSpots);
       });
       this.setState({ spots: filteredSpots });
     }
@@ -56,7 +55,7 @@ class Spots extends React.Component {
   };
 
   componentDidMount() {
-    let spot = this.state.spot;
+    // let spot = this.state.spot;
     let cityName = this.props.location.search.split("=")[1];
     axios
       .get(`${process.env.REACT_APP_API}/spots?city=${cityName}`)

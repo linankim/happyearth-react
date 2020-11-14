@@ -1,22 +1,11 @@
 import React from "react";
 import axios from "axios";
 import "../styles/login.css";
-import { Link, Route, Switch } from "react-router-dom";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import Signup from "./Signup.jsx";
 
-import {
-  Button,
-  Navbar,
-  Nav,
-  NavLink,
-  FormControl,
-  Form,
-  FormGroup,
-  FormLabel,
-  FormText,
-} from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 class Login extends React.Component {
   state = {
@@ -46,9 +35,9 @@ class Login extends React.Component {
     let user = this.state.user;
     let emptyField = this.state.emptyField;
     for (field in user) {
-      if (`${user[field]}` == "") {
+      if (`${user[field]}` === "") {
         for (f in emptyField) {
-          if (f == field && emptyField[f] == false) {
+          if (f === field && emptyField[f] === false) {
             emptyField[f] = !emptyField[f];
             this.setState(emptyField);
           } else {
@@ -57,7 +46,7 @@ class Login extends React.Component {
         }
       } else {
         for (f in emptyField) {
-          if (f == field && emptyField[f] == true) {
+          if (f === field && emptyField[f] === true) {
             emptyField[f] = !emptyField[f];
             this.setState(emptyField);
           } else {
@@ -77,11 +66,11 @@ class Login extends React.Component {
         .then((res) => {
           this.setState(this.state.user);
           if (!res.data.token) {
-            this.state.alert = !this.state.alert;
+            // this.state.alert = !this.state.alert;
             this.setState({ alert: this.state.alert });
           } else {
             localStorage.setItem("token", res.data.token);
-            if (sessionStorage != undefined) {
+            if (sessionStorage !== undefined) {
               let path = sessionStorage.getItem("path");
               this.props.history.push(`${path}`);
               sessionStorage.removeItem("path");
@@ -135,7 +124,6 @@ class Login extends React.Component {
               color: "black",
               fontSize: "20px",
               fontFamily: "Jost",
-              fontSize: "20px",
               letterSpacing: "1px",
               margin: "0 0vw 4vh 0",
             }}

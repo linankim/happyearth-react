@@ -2,15 +2,7 @@ import React from "react";
 import axios from "axios";
 import "../styles/login.css";
 import "../styles/universal.css";
-import {
-  Button,
-  FormControl,
-  Form,
-  FormGroup,
-  FormLabel,
-  FormText,
-  Col,
-} from "react-bootstrap";
+import { Button, Form, Col } from "react-bootstrap";
 
 class Signup extends React.Component {
   state = {
@@ -54,9 +46,9 @@ class Signup extends React.Component {
     let user = this.state.user;
     let emptyField = this.state.emptyField;
     for (field in user) {
-      if (`${user[field]}` == "") {
+      if (`${user[field]}` === "") {
         for (f in emptyField) {
-          if (f == field && emptyField[f] == false) {
+          if (f === field && emptyField[f] === false) {
             emptyField[f] = !emptyField[f];
             this.setState(emptyField);
           } else {
@@ -65,12 +57,12 @@ class Signup extends React.Component {
         }
       } else {
         for (f in emptyField) {
-          if (f == "email" && this.state.alert == true) {
+          if (f === "email" && this.state.alert === true) {
             emptyField[f] = !emptyField[f];
             this.setState({ emptyField });
             this.state.alert = !this.state.alert;
             this.setState({ alert });
-          } else if (f == field && emptyField[f] == true) {
+          } else if (f === field && emptyField[f] === true) {
             emptyField[f] = !emptyField[f];
             this.setState({ emptyField });
           } else {
@@ -106,7 +98,7 @@ class Signup extends React.Component {
           console.log(res);
           if (res.data.token) {
             localStorage.setItem("token", res.data.token);
-            if (sessionStorage != undefined) {
+            if (sessionStorage !== undefined) {
               let path = sessionStorage.getItem("path");
               this.props.history.push(`${path}`);
               sessionStorage.removeItem("path");
@@ -138,7 +130,7 @@ class Signup extends React.Component {
           if (res.data.token) {
             console.log("at this point");
             localStorage.setItem("token", res.data.token);
-            if (sessionStorage != undefined) {
+            if (sessionStorage !== undefined) {
               let path = sessionStorage.getItem("path");
               this.props.history.push(`${path}`);
               sessionStorage.removeItem("path");

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup, Button, ButtonGroup } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import "../styles/filters.css";
 
 class Filters extends React.Component {

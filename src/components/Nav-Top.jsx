@@ -1,21 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { slide as Menu } from "react-burger-menu";
+// import { Link } from "react-router-dom";
+// import { slide as Menu } from "react-burger-menu";
 import Login from "./Login.jsx";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
-import {
-  Button,
-  InputGroup,
-  Navbar,
-  Nav,
-  NavLink,
-  Card,
-  Dropdown,
-  DropdownButton,
-  ButtonGroup,
-  Alert,
-} from "react-bootstrap";
+import { Button, Navbar, Nav } from "react-bootstrap";
 
 class TopNav extends React.Component {
   state = {

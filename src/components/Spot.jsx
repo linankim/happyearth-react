@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import Map from "./Map.jsx";
-import NavSpots from "./Nav-Spots.jsx";
+// import Map from "./Map.jsx";
+// import NavSpots from "./Nav-Spots.jsx";
 import TopNav from "./Nav-Top.jsx";
 import axios from "axios";
 import "../styles/spot.css";
@@ -53,7 +53,7 @@ class Spot extends React.Component {
 
   UNSAFE_componentWillMount() {
     let spotId = this.props.match.params.id;
-    let spot = this.state.spot;
+    // let spot = this.state.spot;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
 
@@ -123,7 +123,7 @@ class Spot extends React.Component {
     let remainingEatins = this.state.eatins;
     this.state.spot.eatins.forEach((spotEatin) => {
       remainingEatins = remainingEatins.filter((stateEatin) => {
-        return spotEatin._id != stateEatin._id;
+        return spotEatin._id !== stateEatin._id;
       });
     });
     console.log({ remainingEatins });
@@ -134,7 +134,7 @@ class Spot extends React.Component {
     let remainingTakeaways = this.state.takeaways;
     this.state.spot.takeaways.forEach((spotTakeaway) => {
       remainingTakeaways = remainingTakeaways.filter((stateTakeaway) => {
-        return spotTakeaway._id != stateTakeaway._id;
+        return spotTakeaway._id !== stateTakeaway._id;
       });
     });
     console.log({ remainingTakeaways });
@@ -217,17 +217,7 @@ class Spot extends React.Component {
                     return <div className="feature">{feature.name}</div>;
                   })}
                 </div>
-                <Button
-                  variant="light"
-                  size="sm"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid #eeeeef",
-                    borderRadius: "14px",
-                    width: "30%",
-                    fontSize: "12px",
-                  }}
-                ></Button>
+
                 <Button
                   variant="light"
                   size="sm"

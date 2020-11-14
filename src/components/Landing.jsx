@@ -1,22 +1,11 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
+// import { Link, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import "../styles/landing.css";
 import TopNav from "./Nav-Top.jsx";
-import Spots from "./Spots.jsx";
+// import Spots from "./Spots.jsx";
 
-import {
-  Button,
-  InputGroup,
-  Navbar,
-  Nav,
-  NavLink,
-  Card,
-  Dropdown,
-  DropdownButton,
-  ButtonGroup,
-  Alert,
-} from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 class Landing extends React.Component {
   state = {
