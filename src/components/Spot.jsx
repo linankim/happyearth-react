@@ -53,7 +53,7 @@ class Spot extends React.Component {
 
   UNSAFE_componentWillMount() {
     let spotId = this.props.match.params.id;
-    // let spot = this.state.spot;
+    let spot = this.state.spot;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
 
@@ -113,11 +113,11 @@ class Spot extends React.Component {
   // 		: 'fas fa-globe-americas'
   // }
 
-  toggleLike = () => {
-    let spot = this.state.spot;
-    spot.liked = !spot.liked;
-    this.setState({ spot });
-  };
+  // toggleLike = () => {
+  //   let spot = this.state.spot;
+  //   spot.liked = !spot.liked;
+  //   this.setState({ spot });
+  // };
 
   getRemainingEatins = () => {
     let remainingEatins = this.state.eatins;
@@ -384,7 +384,7 @@ class Spot extends React.Component {
                         >
                           <li>
                             <i className={takeaway.icon}> </i>
-                            {` Bring Your Own   ${takeaway.explanation}`}
+                            {` Bring Your Own ${takeaway.explanation}`}
                           </li>
                         </div>
                       );
