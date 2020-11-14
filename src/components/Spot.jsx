@@ -28,6 +28,7 @@ class Spot extends React.Component {
         name: "",
         avatar: "",
       },
+      features: [],
       description: "",
       types: {},
       eatins: [],
@@ -38,6 +39,7 @@ class Spot extends React.Component {
         lat: 9.471077,
         lng: 100.04758,
       },
+
       toggleEatins: false,
       toggleTakeaways: false,
     },
@@ -205,9 +207,7 @@ class Spot extends React.Component {
               </Row>
 
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
-<<<<<<< HEAD
                 <small>Features:</small>
-
                 <div className="features">
                   {this.state.spot.features.map((feature) => {
                     return (
@@ -227,7 +227,6 @@ class Spot extends React.Component {
                     );
                   })}
                 </div>
-=======
                 <small> Features:</small>{" "}
                 <div>
                   {this.state.spot.toggleTakeaways ? (
@@ -286,7 +285,6 @@ class Spot extends React.Component {
                 >
                   Vegetarian/Vegan
                 </Button>
->>>>>>> parent of 3d2fd66... fixed features not populating in spots
               </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>Price: $ $ $ </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
