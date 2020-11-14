@@ -28,7 +28,6 @@ class Spot extends React.Component {
         name: "",
         avatar: "",
       },
-      features: [],
       description: "",
       types: {},
       eatins: [],
@@ -45,8 +44,6 @@ class Spot extends React.Component {
     spotter: {},
     eatins: [],
     takeaways: [],
-    features: [],
-
     remainingEatins: [],
     remainingTakeaways: [],
   };
@@ -56,7 +53,6 @@ class Spot extends React.Component {
     let spot = this.state.spot;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
-
     axios
       .get(`${process.env.REACT_APP_API}/eatins`)
       .then((res) => {
@@ -67,7 +63,6 @@ class Spot extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-
     axios
       .get(`${process.env.REACT_APP_API}/takeaways`)
       .then((res) => {
