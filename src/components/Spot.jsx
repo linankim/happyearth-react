@@ -214,36 +214,23 @@ class Spot extends React.Component {
 
                 <div className="features">
                   {this.state.spot.features.map((feature) => {
-                    return <div className="feature">{feature.name}</div>;
+                    return (
+                      <Button
+                        variant="light"
+                        size="sm"
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "1px solid #eeeeef",
+                          borderRadius: "14px",
+                          width: "10rem",
+                          fontSize: "12px",
+                        }}
+                      >
+                        {feature.name}
+                      </Button>
+                    );
                   })}
                 </div>
-
-                <Button
-                  variant="light"
-                  size="sm"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid #eeeeef",
-                    borderRadius: "14px",
-                    width: "30%",
-                    fontSize: "12px",
-                  }}
-                >
-                  Plastic Free{" "}
-                </Button>
-                <Button
-                  variant="light"
-                  size="sm"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid #eeeeef",
-                    borderRadius: "14px",
-                    width: "40%",
-                    fontSize: "12px",
-                  }}
-                >
-                  Vegetarian/Vegan
-                </Button>
               </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>Price: $ $ $ </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
