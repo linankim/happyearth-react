@@ -205,6 +205,7 @@ class Spot extends React.Component {
               </Row>
 
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
+<<<<<<< HEAD
                 <small>Features:</small>
 
                 <div className="features">
@@ -226,6 +227,66 @@ class Spot extends React.Component {
                     );
                   })}
                 </div>
+=======
+                <small> Features:</small>{" "}
+                <div>
+                  {this.state.spot.toggleTakeaways ? (
+                    <div>
+                      <div className="eatinfont">Business Features</div>
+                      {this.state.spot.takeaways.map((takeaway) => {
+                        return (
+                          <div className="amenityfontbold" key={takeaway._id}>
+                            <li>
+                              <i className={takeaway.icon}> </i>
+                              {takeaway.explanation}
+                            </li>
+                          </div>
+                        );
+                      })}
+                      {this.state.remainingTakeaways.map((takeaway) => {
+                        return (
+                          <div
+                            className="amenityfont"
+                            style={styles.selected}
+                            key={takeaway._id}
+                          >
+                            <li>
+                              <i className={takeaway.icon}> </i>
+                              {` Bring Your Own   ${takeaway.explanation}`}
+                            </li>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : null}
+                </div>
+                <Button
+                  variant="light"
+                  size="sm"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "1px solid #eeeeef",
+                    borderRadius: "14px",
+                    width: "30%",
+                    fontSize: "12px",
+                  }}
+                >
+                  Plastic Free{" "}
+                </Button>
+                <Button
+                  variant="light"
+                  size="sm"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "1px solid #eeeeef",
+                    borderRadius: "14px",
+                    width: "40%",
+                    fontSize: "12px",
+                  }}
+                >
+                  Vegetarian/Vegan
+                </Button>
+>>>>>>> parent of 3d2fd66... fixed features not populating in spots
               </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>Price: $ $ $ </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
