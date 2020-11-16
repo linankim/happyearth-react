@@ -15,7 +15,7 @@ class Landing extends React.Component {
 
   search = (e) => {
     axios
-      .get(`${process.env.REACT_APP_API}/cities?name=${e.target.value}`)
+      .get(`http://localhost:4000/cities?name=${e.target.value}`)
       .then((res) => {
         console.log({ res });
         // if length, set state options

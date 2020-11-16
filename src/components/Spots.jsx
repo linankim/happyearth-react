@@ -55,13 +55,13 @@ class Spots extends React.Component {
   };
 
   componentDidMount() {
-    // let spot = this.state.spot;
+    let spot = this.state.spot;
     let cityName = this.props.location.search.split("=")[1];
     axios
-      .get(`${process.env.REACT_APP_API}/spots?city=${cityName}`)
+      .get(`http://localhost:4000/spots?city=${cityName}`)
       .then((res) => {
-        // spot.center.lat = res.data[0].center.lat
-        // spot.center.lng = res.data[0].center.lng
+        spot.center.lat = res.data[0].center.lat;
+        spot.center.lng = res.data[0].center.lng;
         // console.log('res.data[0].center.lat', res.data[0].center.lat)
         // console.log('res.data[0].center.lng', res.data[0].center.lng)
         // console.log(res.data)

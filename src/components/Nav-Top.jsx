@@ -43,18 +43,18 @@ class TopNav extends React.Component {
         <Navbar className="justify-content-end" style={{ paddingTop: "25px" }}>
           <Nav.Item>
             <Button variant="outline-light">
-              <i class="fas fa-globe-africa"></i>
+              <i className="fas fa-globe-africa"></i>
               Browse
             </Button>
           </Nav.Item>
           <Nav.Item>
             <Button variant="outline-light">
-              <i class="far fa-edit"></i>
+              <i className="far fa-edit"></i>
               Post
             </Button>
 
             <Button variant="outline-light" onClick={this.show.bind(this)}>
-              <i class="far fa-user"></i>
+              <i className="far fa-user"></i>
               Account
             </Button>
 

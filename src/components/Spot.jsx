@@ -56,7 +56,7 @@ class Spot extends React.Component {
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
     axios
-      .get(`${process.env.REACT_APP_API}/eatins`)
+      .get(`http://localhost:4000/eatins`)
       .then((res) => {
         eatins = res.data;
         this.setState({ eatins });
@@ -66,7 +66,7 @@ class Spot extends React.Component {
         console.log(err);
       });
     axios
-      .get(`${process.env.REACT_APP_API}/takeaways`)
+      .get(`http://localhost:4000/takeaways`)
       .then((res) => {
         takeaways = res.data;
         this.setState({ takeaways });
@@ -76,7 +76,7 @@ class Spot extends React.Component {
         console.log(err);
       });
     axios
-      .get(`${process.env.REACT_APP_API}/spots/${spotId}`)
+      .get(`http://localhost:4000/spots/${spotId}`)
       .then((res) => {
         res.data.selectedImage = res.data.images[0];
         this.setState({ spot: res.data });
@@ -85,7 +85,7 @@ class Spot extends React.Component {
         this.getRemainingTakeaways();
         let spotterId = this.state.spot.spotters;
         axios
-          .get(`${process.env.REACT_APP_API}/users/${spotterId}`)
+          .get(`http://localhost:4000/users/${spotterId}`)
           .then((user) => {
             console.log({ user: user });
             this.setState({ spotter: user.data });
@@ -227,7 +227,6 @@ class Spot extends React.Component {
                     );
                   })}
                 </div>
-                <small> Features:</small>{" "}
                 <div>
                   {this.state.spot.toggleTakeaways ? (
                     <div>
@@ -251,7 +250,7 @@ class Spot extends React.Component {
                           >
                             <li>
                               <i className={takeaway.icon}> </i>
-                              {` Bring Your Own   ${takeaway.explanation}`}
+                              {` Bring Your Own  ${takeaway.explanation}`}
                             </li>
                           </div>
                         );
@@ -259,39 +258,13 @@ class Spot extends React.Component {
                     </div>
                   ) : null}
                 </div>
-                <Button
-                  variant="light"
-                  size="sm"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid #eeeeef",
-                    borderRadius: "14px",
-                    width: "30%",
-                    fontSize: "12px",
-                  }}
-                >
-                  Plastic Free{" "}
-                </Button>
-                <Button
-                  variant="light"
-                  size="sm"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid #eeeeef",
-                    borderRadius: "14px",
-                    width: "40%",
-                    fontSize: "12px",
-                  }}
-                >
-                  Vegetarian/Vegan
-                </Button>
               </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>Price: $ $ $ </Row>
               <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
                 Happy Earth Score:
-                <i class="fas fa-globe-africa"></i>{" "}
-                <i class="fas fa-globe-africa"></i>{" "}
-                <i class="fas fa-globe-africa"></i>
+                <i className="fas fa-globe-africa"></i>{" "}
+                <i className="fas fa-globe-africa"></i>{" "}
+                <i className="fas fa-globe-africa"></i>
               </Row>
             </Col>
             <Col style={{ backgroundColor: "#9aa07e" }}>

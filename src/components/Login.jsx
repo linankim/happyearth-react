@@ -62,7 +62,7 @@ class Login extends React.Component {
     e.preventDefault();
     if (this.state.user.email !== "" && this.state.user.password !== "") {
       axios
-        .post(`${process.env.REACT_APP_API}/login`, this.state.user)
+        .post(`http://localhost:4000/login`, this.state.user)
         .then((res) => {
           this.setState(this.state.user);
           if (!res.data.token) {
