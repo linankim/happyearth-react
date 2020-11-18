@@ -23,7 +23,7 @@ class NavSpots extends React.Component {
       this.setState({ guest: false });
     }
     axios
-      .get(`${process.env.REACT_APP_API}/auth`, {
+      .get(`http://localhost:4000/auth`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

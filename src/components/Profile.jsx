@@ -18,7 +18,7 @@ class Profile extends React.Component {
       this.props.history.push("/");
     } else {
       axios
-        .get(`${process.env.REACT_APP_API}/auth`, {
+        .get(`http://localhost:4000/auth`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -72,7 +72,7 @@ class Profile extends React.Component {
     }
     console.log({ data });
     axios
-      .patch(`${process.env.REACT_APP_API}/users/${userId}`, data)
+      .patch(`http://localhost:4000/users/${userId}`, data)
       .then((res) => {
         console.log("works until here");
         console.log({ res });
@@ -96,7 +96,7 @@ class Profile extends React.Component {
     e.preventDefault();
     let userId = this.state.user._id;
     axios
-      .delete(`${process.env.REACT_APP_API}/users/${userId}`)
+      .delete(`http://localhost:4000/users/${userId}`)
       .then((res) => {
         console.log("working");
         console.log(res);

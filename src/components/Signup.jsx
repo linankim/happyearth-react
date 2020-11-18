@@ -93,7 +93,7 @@ class Signup extends React.Component {
       }
       console.log({ data });
       axios
-        .post(`${process.env.REACT_APP_API}/signup`, data)
+        .post(`http://localhost:4000/signup`, data)
         .then((res) => {
           console.log(res);
           if (res.data.token) {
@@ -123,7 +123,7 @@ class Signup extends React.Component {
     ) {
       console.log("thats it");
       axios
-        .post(`${process.env.REACT_APP_API}/signup`, this.state.user)
+        .post(`http://localhost:4000/signup`, this.state.user)
         .then((res) => {
           console.log("here i am");
           console.log(res);
