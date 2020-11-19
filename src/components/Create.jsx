@@ -1,7 +1,17 @@
 import React from "react";
 import axios from "axios";
-import "../styles/create.css";
-import "../styles/universal.css";
+import {
+  Container,
+  Form,
+  Accordion,
+  Card,
+  Button,
+  Col,
+  Jumbotron,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+// import "../styles/create.css";
+// import "../styles/universal.css";
 
 class Create extends React.Component {
   state = {
@@ -12,13 +22,16 @@ class Create extends React.Component {
       types: "",
       eatins: [],
       takeaways: [],
+      features: [],
       lat: "",
       lng: "",
       toggleEatins: false,
       toggleTakeaways: false,
+      toggleFeatures: false,
     },
     eatins: [],
     takeaways: [],
+    features: [],
     types: [],
   };
 
@@ -26,9 +39,10 @@ class Create extends React.Component {
     let types = this.state.types;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
+    let features = this.state.features;
 
     axios
-      .get(`${process.env.REACT_APP_API}/types`)
+      .get(`http://localhost:4000/types`)
       .then((res) => {
         types = res.data;
         this.setState({ types });
@@ -37,7 +51,7 @@ class Create extends React.Component {
         console.log({ err });
       });
     axios
-      .get(`${process.env.REACT_APP_API}/eatins`)
+      .get(`http://localhost:4000/eatins`)
       .then((res) => {
         eatins = res.data;
         this.setState({ eatins });
@@ -47,11 +61,21 @@ class Create extends React.Component {
         console.log(err);
       });
     axios
-      .get(`${process.env.REACT_APP_API}/takeaways`)
+      .get(`http://localhost:4000/takeaways`)
       .then((res) => {
         takeaways = res.data;
         this.setState({ takeaways });
         console.log({ takeaways });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`http://localhost:4000/features`)
+      .then((res) => {
+        features = res.data;
+        this.setState({ features });
+        console.log({ features });
       })
       .catch((err) => {
         console.log(err);
@@ -65,7 +89,7 @@ class Create extends React.Component {
       this.props.history.push("/Signup");
     } else {
       axios
-        .get(`${process.env.REACT_APP_API}/auth`, {
+        .get(`http://localhost:4000/auth`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -87,7 +111,7 @@ class Create extends React.Component {
     this.setState({ spot });
   };
 
-  //toggle Eatins
+  //toggle eatins
   toggleEatin = (e) => {
     let spot = this.state.spot;
     spot.toggleEatins = !spot.toggleEatins;
@@ -98,6 +122,13 @@ class Create extends React.Component {
   toggleTakeaway = (e) => {
     let spot = this.state.spot;
     spot.toggleTakeaways = !spot.toggleTakeaways;
+    this.setState({ spot });
+  };
+
+  //toggle features
+  toggleFeature = (e) => {
+    let spot = this.state.spot;
+    spot.toggleFeatures = !spot.toggleFeatures;
     this.setState({ spot });
   };
 
@@ -123,10 +154,25 @@ class Create extends React.Component {
     // let eatins = spot.eatins;
 
     if (spot.eatins.find((eatin) => eatin === _id)) {
-      spot.eatins = spot.eatis.filter((eatin) => eatin !== _id);
+      spot.eatins = spot.eatins.filter((eatin) => eatin !== _id);
     } else {
       spot.eatins.push(_id);
       this.setState({ spot: spot.eatins });
+    }
+    this.setState({ spot });
+  };
+
+  //select features
+  checkbox3 = (e) => {
+    let spot = this.state.spot;
+    let _id = e.target.value;
+    // let eatins = spot.eatins;
+
+    if (spot.features.find((feature) => feature === _id)) {
+      spot.features = spot.features.filter((feature) => feature !== _id);
+    } else {
+      spot.features.push(_id);
+      this.setState({ spot: spot.features });
     }
     this.setState({ spot });
   };
@@ -162,7 +208,7 @@ class Create extends React.Component {
     }
     console.log({ data });
     axios
-      .post(`${process.env.REACT_APP_API}/spots`, data)
+      .post(`http://localhost:4000/spots`, data)
       .then((res) => {
         let spotId = res.data.spot._id;
         this.props.history.push(`/spots/${spotId}`);
@@ -175,121 +221,80 @@ class Create extends React.Component {
   render() {
     return (
       <div>
-        <div className="background centerforms grid">
-          <div className="createform">
-            <div className="formheaderfont">Create A New Spot</div>
-            <form>
-              <div>
-                <label className="labelfont">Title</label>
-                <input
-                  type="text"
-                  value={this.state.spot.title}
-                  onChange={(e) => this.changeField(e, "title")}
-                />
-                <label className="labelfont">Description</label>
-                <textarea
-                  value={this.state.spot.description}
-                  onChange={(e) => this.changeField(e, "description")}
-                ></textarea>
-                <label className="labelfont">City or Town</label>
-                <input
-                  type="text"
-                  value={this.state.spot.city}
-                  onChange={(e) => this.changeField(e, "city")}
-                />
-                <label className="labelfont">Country</label>
-                <input
-                  type="text"
-                  value={this.state.spot.country}
-                  onChange={(e) => this.changeField(e, "country")}
-                />
-                <label className="labelfont">Type of Spot</label>
-                <select onChange={(e) => this.changeField(e, "types")}>
-                  {this.state.types.map((type) => {
-                    return <option value={type._id}>{type.name}</option>;
-                  })}
-                </select>
-                <label className="labelfont">Upload Photos</label>
-                <input type="file" onChange={this.getFile} multiple />
-                <div className="group">
-                  <div>
-                    <label className="labelfont">
-                      Click on Take away and/or Eat in and select what they
-                      provide for you.
-                    </label>
-                  </div>
+        <Container>
+          <Form.Group>
+            <Form className="createform">
+              <Form.Label style={{ fontSize: "50px", paddingTop: "20vh" }}>
+                Suggest a spot to Happy Earth
+              </Form.Label>
+              <p style={{ fontSize: "30px" }}>
+                Help us add to Happy Earth! If you've found a spot that meet's
+                Happy Earth's standard, help our community by contirbuting to
+                Happy Earth! Suggest your favorite local small businesses,
+                locally owned and operated shops & eateries, and all around
+                eco-friendly spots!
+              </p>
 
-                  <div>
-                    <label className="checkbox labelfont">
-                      <input
-                        type="checkbox"
-                        onChange={(e) => this.toggleTakeaway(e)}
-                      />
-                      Take Away
-                    </label>
-                    {this.state.spot.toggleTakeaways
-                      ? this.state.takeaways.map((takeaway) => {
-                          return (
-                            <label className="checkbox labelfont">
-                              <input
-                                type="checkbox"
-                                value={takeaway._id}
-                                onChange={(e) => this.checkBox(e)}
-                              />
-                              <i className={takeaway.icon}></i>
-                              <span>{takeaway.explanation}</span>
-                            </label>
-                          );
-                        })
-                      : null}
-                  </div>
+              <Form.Control size="sm" type="text" placeholder="Name of Spot" />
+              <br />
+              <Form.Control
+                as="textarea"
+                type="text"
+                placeholder="Give a brief description of this place and what it offers in comparioson to others. Don't worry about adding sustainability features here, you'll have a chance to add that in Step 2."
+                rows={3}
+              />
+              <br />
 
-                  <div>
-                    <label className="checkbox labelfont">
-                      <input
-                        type="checkbox"
-                        onChange={(e) => this.toggleEatin(e)}
-                      />
-                      Eat In
-                    </label>
-                    {this.state.spot.toggleEatins
-                      ? this.state.eatins.map((eatin) => {
-                          return (
-                            <label className="checkbox labelfont">
-                              <input
-                                type="checkbox"
-                                value={eatin._id}
-                                onChane={(e) => this.checkbox2(e)}
-                              />
-                              <i className={eatin.icon}></i>
-                              <span>{eatin.explanation}</span>
-                            </label>
-                          );
-                        })
-                      : null}
-                  </div>
-                </div>
-                <label className="labelfont">Latitude</label>
-                <input
-                  type="number"
-                  value={this.state.spot.lat}
-                  onChange={(e) => this.changeField(e, "lat")}
-                />
-                <label className="labelfont">Longitude</label>
-                <input
-                  type="number"
-                  value={this.state.spot.lng}
-                  onChange={(e) => this.changeField(e, "lng")}
-                />
-              </div>
-              <div className="centerbutton">
-                <button onClick={(e) => this.createPlace(e, this.state.spot)}>
-                  Publish this spot
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+              <br />
+              <Button>insert scroll here</Button>
+
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridCity">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="..." />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridNighborhood">
+                  <Form.Label>Neighborhood</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    placeholder="Neigborhood"
+                  />
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridCountry">
+                  <Form.Label>Country</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Country" />
+                </Form.Group>
+              </Form.Row>
+              <br />
+
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridLat">
+                  <Form.Label className="labelfont">Latitude</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={this.state.spot.lat}
+                    onChange={(e) => this.changeField(e, "lat")}
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridLng">
+                  <Form.Label className="labelfont">Longitude</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={this.state.spot.lng}
+                    onChange={(e) => this.changeField(e, "lng")}
+                  />
+                </Form.Group>
+              </Form.Row>
+
+              <Button onClick={(e) => this.createPlace(e, this.state.spot)}>
+                Suggest this spot
+              </Button>
+            </Form>
+          </Form.Group>
+        </Container>
       </div>
     );
   }
