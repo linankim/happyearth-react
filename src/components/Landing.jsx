@@ -116,7 +116,7 @@ class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{}}>
+        <div>
           <div className="center-box">
             <div className="grid five">
               <h2 className="secondary" style={{ color: "black" }}>

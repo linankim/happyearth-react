@@ -7,19 +7,21 @@ import {
   Card,
   Button,
   Col,
-  Jumbotron,
+  Row,
+  ProgressBar,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 // import "../styles/create.css";
 // import "../styles/universal.css";
 
-class Create extends React.Component {
+class CreateShopType extends React.Component {
   state = {
     user: {},
     spot: {
       files: [],
       images: [],
-      types: "",
+      types: [],
       eatins: [],
       takeaways: [],
       features: [],
@@ -42,7 +44,7 @@ class Create extends React.Component {
     let features = this.state.features;
 
     axios
-      .get(`http://localhost:4000/types`)
+      .get(`http://localhost:4000/typesshop`)
       .then((res) => {
         types = res.data;
         this.setState({ types });
@@ -221,10 +223,35 @@ class Create extends React.Component {
   render() {
     return (
       <div>
+        <ProgressBar now={50} />
+        <div>
+          <Button variant="light" onClick={(e) => this.toggleTakeaway(e)}>
+            Add features{" "}
+          </Button>
+
+          {this.state.spot.toggleTakeaways
+            ? this.state.takeaways.map((takeaway) => {
+                return (
+                  <label className="checkbox labelfont">
+                    <input
+                      type="checkbox"
+                      value={takeaway._id}
+                      onChange={(e) => this.checkBox(e)}
+                    />
+                    <i className={takeaway.icon}></i>
+                    <span>{takeaway.explanation}</span>
+                  </label>
+                );
+              })
+            : null}
+        </div>
+
         <Container>
           <Form.Group>
             <Form className="createform">
-              <Form.Label style={{ fontSize: "50px", paddingTop: "20vh" }}>
+              <span style={{ fontSize: "20px", color: "gray" }}> Step 1</span>
+
+              <Form.Label style={{ fontSize: "50px", padding: "20vh" }}>
                 Suggest a spot to Happy Earth
               </Form.Label>
               <p style={{ fontSize: "30px" }}>
@@ -235,7 +262,14 @@ class Create extends React.Component {
                 eco-friendly spots!
               </p>
 
-              <Form.Control size="sm" type="text" placeholder="Name of Spot" />
+              <p style={{ fontSize: "30px" }}>Info</p>
+              <Form.Label> Business Name and Description</Form.Label>
+
+              <Form.Control
+                size="sm"
+                type="text"
+                placeholder="Enter business name"
+              />
               <br />
               <Form.Control
                 as="textarea"
@@ -244,54 +278,71 @@ class Create extends React.Component {
                 rows={3}
               />
               <br />
+              <p style={{ fontSize: "30px" }}>Details</p>
+              <Form.Label> Type of Spot </Form.Label>
 
+              <Form.Control
+                size="sm"
+                as="select"
+                onChange={(e) => this.changeField(e, "types")}
+              >
+                {this.state.types.map((type) => {
+                  return <option value={type._id}>{type.name}</option>;
+                })}
+                >
+              </Form.Control>
               <br />
-              <Button>insert scroll here</Button>
+              <div>
+                <p style={{ fontSize: "30px" }}>Location</p>
+                <p style={{ fontSize: "20px" }}>Where is your spot located?</p>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridCity">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control size="sm" type="text" placeholder="..." />
+                  </Form.Group>
 
-              <Form.Row>
-                <Form.Group as={Col} controlId="formGridCity">
-                  <Form.Label>City</Form.Label>
-                  <Form.Control size="sm" type="text" placeholder="..." />
-                </Form.Group>
+                  <Form.Group as={Col} controlId="formGridNighborhood">
+                    <Form.Label>Neighborhood</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      type="text"
+                      placeholder="Neigborhood"
+                    />
+                  </Form.Group>
+                  <Form.Group as={Col} controlId="formGridCountry">
+                    <Form.Label>Country</Form.Label>
+                    <Form.Control size="sm" type="text" placeholder="Country" />
+                  </Form.Group>
+                </Form.Row>
+                <br />
 
-                <Form.Group as={Col} controlId="formGridNighborhood">
-                  <Form.Label>Neighborhood</Form.Label>
-                  <Form.Control
-                    size="sm"
-                    type="text"
-                    placeholder="Neigborhood"
-                  />
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridCountry">
-                  <Form.Label>Country</Form.Label>
-                  <Form.Control size="sm" type="text" placeholder="Country" />
-                </Form.Group>
-              </Form.Row>
-              <br />
-
-              <Form.Row>
-                <Form.Group as={Col} controlId="formGridLat">
-                  <Form.Label className="labelfont">Latitude</Form.Label>
-                  <Form.Control
-                    type="number"
-                    value={this.state.spot.lat}
-                    onChange={(e) => this.changeField(e, "lat")}
-                  />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridLng">
-                  <Form.Label className="labelfont">Longitude</Form.Label>
-                  <Form.Control
-                    type="number"
-                    value={this.state.spot.lng}
-                    onChange={(e) => this.changeField(e, "lng")}
-                  />
-                </Form.Group>
-              </Form.Row>
-
-              <Button onClick={(e) => this.createPlace(e, this.state.spot)}>
-                Suggest this spot
-              </Button>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridLat">
+                    <Form.Label className="labelfont">Latitude</Form.Label>
+                    <Form.Control
+                      type="number"
+                      value={this.state.spot.lat}
+                      onChange={(e) => this.changeField(e, "lat")}
+                    />
+                  </Form.Group>
+                  <Form.Group as={Col} controlId="formGridLng">
+                    <Form.Label className="labelfont">Longitude</Form.Label>
+                    <Form.Control
+                      type="number"
+                      value={this.state.spot.lng}
+                      onChange={(e) => this.changeField(e, "lng")}
+                    />
+                  </Form.Group>
+                </Form.Row>
+                <Row>
+                  <Col>
+                    <Link to="/landing">{"< Back"}</Link>
+                  </Col>
+                  <Col>
+                    <Link to="/create-type">{" Add Details >"}</Link>
+                  </Col>{" "}
+                </Row>
+              </div>
             </Form>
           </Form.Group>
         </Container>
@@ -300,4 +351,4 @@ class Create extends React.Component {
   }
 }
 
-export default Create;
+export default CreateShopType;
