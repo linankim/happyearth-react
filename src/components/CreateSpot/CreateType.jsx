@@ -7,34 +7,32 @@ import {
   Card,
   Button,
   Col,
-  Row,
   ProgressBar,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
 // import "../styles/create.css";
 // import "../styles/universal.css";
+import { Link } from "react-router-dom";
 
-class CreateShopType extends React.Component {
+class Create extends React.Component {
   state = {
     user: {},
     spot: {
-      files: [],
-      images: [],
-      types: [],
+      // files: [],
+      // images: [],
+      types: "",
       eatins: [],
       takeaways: [],
       features: [],
-      lat: "",
-      lng: "",
+      // lat: "",
+      // lng: "",
       toggleEatins: false,
       toggleTakeaways: false,
       toggleFeatures: false,
     },
+    types: [],
     eatins: [],
     takeaways: [],
     features: [],
-    types: [],
   };
 
   UNSAFE_componentWillMount() {
@@ -44,7 +42,7 @@ class CreateShopType extends React.Component {
     let features = this.state.features;
 
     axios
-      .get(`http://localhost:4000/typesshop`)
+      .get(`http://localhost:4000/types`)
       .then((res) => {
         types = res.data;
         this.setState({ types });
@@ -179,14 +177,14 @@ class CreateShopType extends React.Component {
     this.setState({ spot });
   };
 
-  //upload files
-  getFile = (e) => {
-    let spot = this.state.spot;
-    spot.files = e.target.files;
-    this.setState({ spot }, () => {
-      console.log("state", this.state);
-    });
-  };
+  //no file upload on this page
+  // getFile = (e) => {
+  //   let spot = this.state.spot;
+  //   spot.files = e.target.files;
+  //   this.setState({ spot }, () => {
+  //     console.log("state", this.state);
+  //   });
+  // };
 
   //button create place and upload files via cloudinary
   createPlace = (e) => {
@@ -223,126 +221,73 @@ class CreateShopType extends React.Component {
   render() {
     return (
       <div>
-        <ProgressBar now={50} />
-        <div>
-          <Button variant="light" onClick={(e) => this.toggleTakeaway(e)}>
-            Add features{" "}
-          </Button>
-
-          {this.state.spot.toggleTakeaways
-            ? this.state.takeaways.map((takeaway) => {
-                return (
-                  <label className="checkbox labelfont">
-                    <input
-                      type="checkbox"
-                      value={takeaway._id}
-                      onChange={(e) => this.checkBox(e)}
-                    />
-                    <i className={takeaway.icon}></i>
-                    <span>{takeaway.explanation}</span>
-                  </label>
-                );
-              })
-            : null}
-        </div>
-
+        <ProgressBar now={25} />
         <Container>
           <Form.Group>
             <Form className="createform">
-              <span style={{ fontSize: "20px", color: "gray" }}> Step 1</span>
-
-              <Form.Label style={{ fontSize: "50px", padding: "20vh" }}>
-                Suggest a spot to Happy Earth
-              </Form.Label>
-              <p style={{ fontSize: "30px" }}>
-                Help us add to Happy Earth! If you've found a spot that meet's
-                Happy Earth's standard, help our community by contirbuting to
-                Happy Earth! Suggest your favorite local small businesses,
-                locally owned and operated shops & eateries, and all around
-                eco-friendly spots!
-              </p>
-
-              <p style={{ fontSize: "30px" }}>Info</p>
-              <Form.Label> Business Name and Description</Form.Label>
-
-              <Form.Control
-                size="sm"
-                type="text"
-                placeholder="Enter business name"
-              />
-              <br />
-              <Form.Control
-                as="textarea"
-                type="text"
-                placeholder="Give a brief description of this place and what it offers in comparioson to others. Don't worry about adding sustainability features here, you'll have a chance to add that in Step 2."
-                rows={3}
-              />
-              <br />
-              <p style={{ fontSize: "30px" }}>Details</p>
-              <Form.Label> Type of Spot </Form.Label>
-
-              <Form.Control
-                size="sm"
-                as="select"
-                onChange={(e) => this.changeField(e, "types")}
+              <Link
+                className="card link"
+                to={`/create-food-drink-spot`}
+                style={{ width: "15rem" }}
               >
-                {this.state.types.map((type) => {
-                  return <option value={type._id}>{type.name}</option>;
-                })}
-                >
-              </Form.Control>
-              <br />
-              <div>
-                <p style={{ fontSize: "30px" }}>Location</p>
-                <p style={{ fontSize: "20px" }}>Where is your spot located?</p>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="..." />
-                  </Form.Group>
+                <div style={{ margin: "5vh 7vw" }}>
+                  <i class="fas fa-utensils">{" + "}</i>
 
-                  <Form.Group as={Col} controlId="formGridNighborhood">
-                    <Form.Label>Neighborhood</Form.Label>
-                    <Form.Control
-                      size="sm"
-                      type="text"
-                      placeholder="Neigborhood"
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="formGridCountry">
-                    <Form.Label>Country</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="Country" />
-                  </Form.Group>
-                </Form.Row>
-                <br />
+                  <i class="fas fa-glass-cheers"></i>
+                </div>
+                <Card.Title style={{ textAlign: "center" }}>
+                  Food/Drink
+                </Card.Title>{" "}
+                <div className="content">
+                  <Card.Text
+                    className="mb-2 text-muted"
+                    style={{ textAlign: "center" }}
+                  >
+                    Bars, Cafes, Food Trucks, Restaurants, etc.
+                  </Card.Text>
+                </div>
+              </Link>
 
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridLat">
-                    <Form.Label className="labelfont">Latitude</Form.Label>
-                    <Form.Control
-                      type="number"
-                      value={this.state.spot.lat}
-                      onChange={(e) => this.changeField(e, "lat")}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="formGridLng">
-                    <Form.Label className="labelfont">Longitude</Form.Label>
-                    <Form.Control
-                      type="number"
-                      value={this.state.spot.lng}
-                      onChange={(e) => this.changeField(e, "lng")}
-                    />
-                  </Form.Group>
-                </Form.Row>
-                <Row>
-                  <Col>
-                    <Link to="/landing">{"< Back"}</Link>
-                  </Col>
-                  <Col>
-                    <Link to="/create-type">{" Add Details >"}</Link>
-                  </Col>{" "}
-                </Row>
-              </div>
+              <Link
+                className="card link"
+                to={`/create-shop-spot`}
+                style={{ width: "15rem", margin: "5em" }}
+              >
+                <i
+                  class="fas fa-shopping-basket"
+                  style={{ margin: "5vh 8vw" }}
+                ></i>
+                <Card.Title style={{ textAlign: "center" }}>
+                  Food Shop
+                </Card.Title>{" "}
+                <div className="content">
+                  <Card.Text
+                    className="mb-2 text-muted"
+                    style={{ textAlign: "center" }}
+                  >
+                    Grocery stores, Health Food Shops, Mini Markets, Co-ops etc.
+                  </Card.Text>
+                </div>
+              </Link>
+              <Link
+                className="card link"
+                to={`/create-misc-spot`}
+                style={{ width: "15rem", margin: "5em" }}
+              >
+                <i class="fas fa-store-alt" style={{ margin: "5vh 8vw" }}></i>
+                <Card.Title style={{ textAlign: "center" }}>
+                  Misc
+                </Card.Title>{" "}
+                <div className="content">
+                  <Card.Text
+                    className="mb-2 text-muted"
+                    style={{ textAlign: "center" }}
+                  >
+                    Secondhand Shops, Community Gardens, Laundromats, Eco
+                    Friendly Stores etc.
+                  </Card.Text>
+                </div>
+              </Link>
             </Form>
           </Form.Group>
         </Container>
@@ -351,4 +296,4 @@ class CreateShopType extends React.Component {
   }
 }
 
-export default CreateShopType;
+export default Create;

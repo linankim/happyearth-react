@@ -249,10 +249,9 @@ class CreateFoodType extends React.Component {
         <Container>
           <Form.Group>
             <Form className="createform">
-              <span style={{ fontSize: "20px", color: "gray" }}> Step 1</span>
+              <span style={{ fontSize: "20px", color: "gray" }}> </span>
 
-              <p style={{ fontSize: "30px" }}>Info</p>
-              <Form.Label> Business Name and Description</Form.Label>
+              <Form.Label>Details</Form.Label>
 
               <Form.Control
                 size="sm"
@@ -260,9 +259,10 @@ class CreateFoodType extends React.Component {
                 placeholder="Enter business name"
               />
               <br />
-              <Form.Label> Type of Spot </Form.Label>
+              <Form.Label> Subcategory </Form.Label>
               <Form.Control
                 size="sm"
+                placeholder="Subcategory"
                 as="select"
                 onChange={(e) => this.changeField(e, "types")}
               >
@@ -282,16 +282,15 @@ class CreateFoodType extends React.Component {
 
               <br />
               <div>
-                <p style={{ fontSize: "30px" }}>Location</p>
-                <p style={{ fontSize: "20px" }}>Where is your spot located?</p>
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="..." />
+                    <Form.Label>Location</Form.Label>
+                    <Form.Control size="sm" type="text" placeholder="City" />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridNighborhood">
-                    <Form.Label>Neighborhood</Form.Label>
+                    <Form.Label> Neighborhood </Form.Label>
+
                     <Form.Control
                       size="sm"
                       type="text"
@@ -299,8 +298,9 @@ class CreateFoodType extends React.Component {
                     />
                   </Form.Group>
                   <Form.Group as={Col} controlId="formGridCountry">
-                    <Form.Label>Country</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="Country" />
+                    <Form.Label> Country </Form.Label>
+
+                    <Form.Control size="sm" type="text" />
                   </Form.Group>
                 </Form.Row>
                 <br />
@@ -328,7 +328,7 @@ class CreateFoodType extends React.Component {
                     <Link to="/landing">{"< Back"}</Link>
                   </Col>
                   <Col>
-                    <Link to="/create-type">{" Add Details >"}</Link>
+                    <Link to="/add-features-1">{" Add Features >"}</Link>
                   </Col>{" "}
                 </Row>
               </div>
