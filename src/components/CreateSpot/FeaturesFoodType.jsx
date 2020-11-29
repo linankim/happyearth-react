@@ -24,6 +24,8 @@ class FeaturesFoodType extends React.Component {
       types: [],
       eatins: [],
       takeaways: [],
+      products: [],
+
       features: [],
       lat: "",
       lng: "",
@@ -32,6 +34,7 @@ class FeaturesFoodType extends React.Component {
       toggleFeatures: false,
     },
     eatins: [],
+    products: [],
     takeaways: [],
     features: [],
     types: [],
@@ -42,6 +45,7 @@ class FeaturesFoodType extends React.Component {
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
     let features = this.state.features;
+    let products = this.state.products;
 
     axios
       .get(`http://localhost:4000/typesfood`)
@@ -82,6 +86,17 @@ class FeaturesFoodType extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+
+    axios
+      .get(`http://localhost:4000/products`)
+      .then((res) => {
+        features = res.data;
+        this.setState({ products });
+        console.log({ products });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   componentDidMount() {
@@ -99,7 +114,7 @@ class FeaturesFoodType extends React.Component {
         .then((user) => {
           this.setState({ user: user.data });
           this.state.spot.spotters = this.state.user._id;
-          this.state.spot.types = this.stae.types[0]._id;
+          this.state.spot.types = this.state.types[0]._id;
           this.setState({ spot });
         })
         .catch((err) => console.log(err));
