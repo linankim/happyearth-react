@@ -22,19 +22,13 @@ class Filters extends React.Component {
 
         <Form.Group className="filter-borders ">
           <div className="filter-borders-padding">
-            <Form.Label className="form-label">Category</Form.Label>
+            <Form.Label className="form-label">Caegory</Form.Label>
             <Form.Control
               as="select"
               onChange={(e) => this.props.filterByType(e)}
               style={{ margin: "5px 0 25px" }}
             >
               <option value="All">All</option>
-              <option value="Bar">Bars</option>
-              <option value="Bulk Food">Bulk Food</option>
-              <option value="Cafe">Cafes</option>
-              <option value="Bulk Food">Grocery</option>
-              <option value="Restaurant">Restaurants</option>
-              <option value="Water Refill Station">Water Refill Station</option>
             </Form.Control>
             <Form.Label>Price Range</Form.Label>
             <Form.Control

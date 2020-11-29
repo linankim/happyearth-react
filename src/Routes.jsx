@@ -4,7 +4,8 @@ import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
 import Profile from "./components/Profile.jsx";
 import Spot from "./components/Spot.jsx";
-import Create from "./components/CreateSpot/CreateType.jsx";
+import Create from "./components/CreateSpot/Create.jsx";
+import CategoryCards from "./components/CreateSpot/CategoryCards.jsx";
 import CreateFoodType from "./components/CreateSpot/CreateFoodType.jsx";
 import FeaturesFoodType from "./components/CreateSpot/FeaturesFoodType.jsx";
 
@@ -24,10 +25,9 @@ class Routes extends React.Component {
           <Route path="/create-food-drink-spot" component={CreateFoodType} />
           <Route path="/add-features-1" component={FeaturesFoodType} />
           <Route path="/create-shop-spot" component={CreateShopType} />
-
           <Route path="/create-misc-spot" component={CreateMiscType} />
 
-          <Route path="/create-type" component={Create} />
+          <Route path="/create" component={Create} />
           <Route path="/Login" component={Login} />
           <Route path="/Profile" component={Profile} />
           <Route path="/Signup" component={Signup} />
