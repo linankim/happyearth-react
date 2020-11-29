@@ -46,7 +46,7 @@ class Spots extends React.Component {
     console.log(e.target.value);
     let spotsClone = this.state.spotsClone;
     let spotsFound;
-    if (selected !== "All" && selected !== "Any") {
+    if (selected !== "All" || selected !== "Any") {
       spotsFound = spotsClone.filter((s) => s.types.name === selected);
     } else {
       spotsFound = spotsClone;
