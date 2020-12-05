@@ -108,14 +108,18 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 60px;
   grid-row-gap: 60px;
+  grid-row-gap: 60px;
   padding: 60px;
 }
 
 .grid.four {
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  padding: 30px;
+  /* grid-column-gap: 20px; */
+  grid-column-gap: 5px;
+  /* grid-row-gap: 20px; */
+  padding: 20px;
+
+  /* padding: 30px; */
 }
 
 .grid.five {
