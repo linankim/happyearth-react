@@ -52,7 +52,7 @@ class Spot extends React.Component {
 
   UNSAFE_componentWillMount() {
     let spotId = this.props.match.params.id;
-    let spot = this.state.spot;
+    // let spot = this.state.spot;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
     axios
@@ -159,7 +159,7 @@ class Spot extends React.Component {
                 style={{
                   fontFamily: "Pacifico",
                   color: "white",
-                  fontSize: "120px",
+                  fontSize: "70px",
                   letterSpacing: "3px",
                   margin: "0px 0px 15vh 30vw",
                 }}
@@ -169,105 +169,137 @@ class Spot extends React.Component {
             </div>
           </div>
         </Row>
-        <Container fluid>
-          <Row>
-            <Col style={{ backgroundColor: "#6a7553" }}>
-              <div className="spot-title">{this.state.spot.title}</div>
-
-              <div
-                style={{
-                  margin: "-8vh 0 0 5vw",
-                }}
-              >
-                <Row className="spotted-by">{"Spotted by:"}</Row>
-                <Row>
-                  <Col xs lg="2">
-                    <div
-                      className="avatar"
-                      style={{
-                        backgroundImage: `url(${this.state.spotter.avatar})`,
-                      }}
-                    ></div>
-                  </Col>
-                  <Col className="spotted-byuser" xs lg="2">
-                    {" "}
-                    {` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
-                  </Col>
-                </Row>
-              </div>
-
-              <Row
-                style={{
-                  margin: "5vh 3vw 3vh 5vw",
-                }}
-              >
-                <div className="spot-description">
-                  <div>{this.state.spot.description}</div>
-                </div>
-              </Row>
-
-              <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
-                <small>Features:</small>
-                <div className="features">
-                  {this.state.spot.features.map((feature) => {
-                    return (
-                      <Button
-                        variant="light"
-                        size="sm"
-                        style={{
-                          backgroundColor: "transparent",
-                          border: "1px solid #eeeeef",
-                          borderRadius: "14px",
-                          width: "10rem",
-                          fontSize: "12px",
-                        }}
-                      >
-                        {feature.name}
-                      </Button>
-                    );
-                  })}
-                </div>
-                <div>
-                  {this.state.spot.toggleTakeaways ? (
-                    <div>
-                      <div className="eatinfont">Business Features</div>
-                      {this.state.spot.takeaways.map((takeaway) => {
-                        return (
-                          <div className="amenityfontbold" key={takeaway._id}>
-                            <li>
-                              <i className={takeaway.icon}> </i>
-                              {takeaway.explanation}
-                            </li>
-                          </div>
-                        );
-                      })}
-                      {this.state.remainingTakeaways.map((takeaway) => {
-                        return (
-                          <div
-                            className="amenityfont"
-                            style={styles.selected}
-                            key={takeaway._id}
-                          >
-                            <li>
-                              <i className={takeaway.icon}> </i>
-                              {` Bring Your Own  ${takeaway.explanation}`}
-                            </li>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ) : null}
-                </div>
-              </Row>
-              <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>Price: $ $ $ </Row>
-              <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
-                Happy Earth Score:
-                <i className="fas fa-globe-africa"></i>{" "}
-                <i className="fas fa-globe-africa"></i>{" "}
-                <i className="fas fa-globe-africa"></i>
+        <Container>
+          <Row style={{ border: "1px solid black" }}>name of spot here</Row>
+          <Row style={{ border: "1px solid black" }}>
+            <Col style={{ border: "1px solid black" }}>
+              col 2: spot type here
+            </Col>
+            <Col style={{ border: "1px solid black" }}>
+              col 1: location here
+            </Col>
+          </Row>
+          <Row style={{ border: "1px solid black" }}>
+            <Col style={{ borderTop: "1px solid black" }}>
+              bio here
+              <Row> Offers: Dietary</Row>
+              <Row>Features</Row>
+              <Row>
+                <Col style={{ border: "1px solid black" }}>
+                  Dine In
+                  <Row>
+                    <Col>Left Col</Col>
+                    <Col>Right Col</Col>
+                  </Row>
+                </Col>
+                <Col style={{ border: "1px solid black" }}>
+                  Takeway
+                  <Row>
+                    <Col>Left Col</Col>
+                    <Col>Right Col</Col>
+                  </Row>{" "}
+                </Col>
               </Row>
             </Col>
-            <Col style={{ backgroundColor: "#9aa07e" }}>
+
+            <Col style={{ border: "1px solid black" }}>images here</Col>
+          </Row>
+        </Container>
+
+        <Container fluid>
+          <Row>
+            <div className="spot-title">{this.state.spot.title}</div>{" "}
+            <div
+              style={{
+                margin: "-8vh 0 0 5vw",
+              }}
+            >
+              <Row className="spotted-by">{"Spotted by:"}</Row>
+              <Row>
+                <Col xs lg="2">
+                  <div
+                    className="avatar"
+                    style={{
+                      backgroundImage: `url(${this.state.spotter.avatar})`,
+                    }}
+                  ></div>
+                </Col>
+                <Col className="spotted-byuser" xs lg="2">
+                  {" "}
+                  {` ${this.state.spotter.firstName} ${this.state.spotter.lastName}`}
+                </Col>
+              </Row>
+            </div>
+            <Row
+              style={{
+                margin: "5vh 3vw 3vh 5vw",
+              }}
+            >
+              <div className="spot-description">
+                <div>{this.state.spot.description}</div>
+              </div>
+            </Row>
+            <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
+              <small>Features:</small>
+              <div className="features">
+                {this.state.spot.features.map((feature) => {
+                  return (
+                    <Button
+                      variant="light"
+                      size="sm"
+                      style={{
+                        backgroundColor: "transparent",
+                        border: "1px solid #eeeeef",
+                        borderRadius: "14px",
+                        width: "10rem",
+                        fontSize: "12px",
+                      }}
+                    >
+                      {feature.name}
+                    </Button>
+                  );
+                })}
+              </div>
+              <div>
+                {this.state.spot.toggleTakeaways ? (
+                  <div>
+                    <div className="eatinfont">test</div>
+                    {this.state.spot.takeaways.map((takeaway) => {
+                      return (
+                        <div className="amenityfontbold" key={takeaway._id}>
+                          <li>
+                            <i className={takeaway.icon}> </i>
+                            {takeaway.explanation}
+                          </li>
+                        </div>
+                      );
+                    })}
+                    {this.state.remainingTakeaways.map((takeaway) => {
+                      return (
+                        <div
+                          className="amenityfont"
+                          style={styles.selected}
+                          key={takeaway._id}
+                        >
+                          <li>
+                            <i className={takeaway.icon}> </i>
+                            {` BYO  ${takeaway.explanation}`}
+                          </li>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
+              </div>
+            </Row>
+            <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>Price: $ $ $ </Row>
+            <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
+              Happy Earth Score:
+              <i className="fas fa-globe-africa"></i>{" "}
+              <i className="fas fa-globe-africa"></i>{" "}
+              <i className="fas fa-globe-africa"></i>
+            </Row>
+            <Col>
               <div className="grid two gallery">
                 <div>
                   <div
