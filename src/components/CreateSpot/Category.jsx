@@ -34,41 +34,41 @@ class Category extends React.Component {
   }
 
   // UNSAFE_componentWillMount() {
-  //   let categories = this.state.categories;
+  //   let category = this.state.category;
   //   let about = this.state.about;
-  //
+
   //   axios
   //     .get(`http://localhost:4000/categories`)
   //     .then((res) => {
-  //       categories = res.data;
-  //       this.setState({ categories });
+  //       category = res.data;
+  //       this.setState({ category });
   //     })
   //     .catch((err) => {
   //       console.log({ err });
   //     });
   // }
 
-  // componentDidMount() {
-  //   let spot = this.state.spot;
-  //   if (!localStorage.getItem("token")) {
-  //     sessionStorage.setItem("path", "/create");
-  //     this.props.history.push("/Signup");
-  //   } else {
-  //     axios
-  //       .get(`http://localhost:4000/auth`, {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //         },
-  //       })
-  //       .then((user) => {
-  //         this.setState({ user: user.data });
-  //         this.state.spot.spotters = this.state.user._id;
-  //         // this.state.spot.types = this.stae.types[0]._id;
-  //         this.setState({ spot });
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // }
+  componentDidMount() {
+    let spot = this.state.spot;
+    if (!localStorage.getItem("token")) {
+      sessionStorage.setItem("path", "/create");
+      this.props.history.push("/Signup");
+    } else {
+      axios
+        .get(`http://localhost:4000/auth`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((user) => {
+          this.setState({ user: user.data });
+          this.state.spot.spotters = this.state.user._id;
+          // this.state.spot.types = this.stae.types[0]._id;
+          this.setState({ spot });
+        })
+        .catch((err) => console.log(err));
+    }
+  }
 
   //setState with input
   // changeField = (e, field) => {
@@ -114,7 +114,7 @@ class Category extends React.Component {
           <Form className="createform">
             <Link
               className=" card link "
-              to={`/create/${this.state.category.linkTitle}`}
+              to={`/create-${this.state.category.linkTitle}`}
             >
               <div
                 className="image"

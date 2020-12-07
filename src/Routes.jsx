@@ -26,7 +26,7 @@ class Routes extends React.Component {
           <Route path="/create-shop-spot" component={CreateShopType} />
           // <Route path="/create-misc-spot" component={CreateMiscType} />
           <Route path="/create" component={Create} />
-          <Route path="/create/Food-Drink" component={CreateFoodDrink} />
+          <Route path="/create-Food-Drink" component={CreateFoodDrink} />
           <Route path="/Login" component={Login} />
           <Route path="/Profile" component={Profile} />
           <Route path="/Signup" component={Signup} />

@@ -1,19 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 import {
   Container,
   Form,
-  Accordion,
-  Card,
   Button,
   Col,
   Row,
   ProgressBar,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-// import "../styles/create.css";
-// import "../styles/universal.css";
 
 class CreateFoodDrink extends React.Component {
   state = {
@@ -233,7 +229,6 @@ class CreateFoodDrink extends React.Component {
   render() {
     return (
       <div>
-        <ProgressBar now={50} />
         <div>
           <Button variant="light" onClick={(e) => this.toggleTakeaway(e)}>
             Add features{" "}
