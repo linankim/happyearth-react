@@ -5,7 +5,7 @@ import Signup from "./components/Signup.jsx";
 import Profile from "./components/Profile.jsx";
 import Spot from "./components/Spot.jsx";
 import Create from "./components/CreateSpot/Create.jsx";
-import CategoryCards from "./components/CreateSpot/CategoryCards.jsx";
+import Category from "./components/CreateSpot/Category.jsx";
 import CreateFoodType from "./components/CreateSpot/CreateFoodType.jsx";
 import FeaturesFoodType from "./components/CreateSpot/FeaturesFoodType.jsx";
 
