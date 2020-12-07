@@ -15,9 +15,10 @@ import { Link } from "react-router-dom";
 // import "../styles/create.css";
 // import "../styles/universal.css";
 
-class CreateFoodType extends React.Component {
+class CreateFoodDrink extends React.Component {
   state = {
     user: {},
+    category: {},
     spot: {
       files: [],
       images: [],
@@ -38,11 +39,20 @@ class CreateFoodType extends React.Component {
   };
 
   UNSAFE_componentWillMount() {
+    let categoryId = this.props.match.params.id;
     let types = this.state.types;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
     let features = this.state.features;
 
+    axios
+      .get(`http://localhost:4000/create/${categoryId}`)
+      .then((res) => {
+        this.setState({ category: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     axios
       .get(`http://localhost:4000/typesfood`)
       .then((res) => {
@@ -340,4 +350,4 @@ class CreateFoodType extends React.Component {
   }
 }
 
-export default CreateFoodType;
+export default CreateFoodDrink;
