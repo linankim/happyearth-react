@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 // import "../styles/create.css";
 // import "../styles/universal.css";
-import CategoryCards from "./CategoryCards.jsx";
+import Category from "./Category.jsx";
 import { Link, withRouter } from "react-router-dom";
 
 class Create extends React.Component {
@@ -27,26 +27,22 @@ class Create extends React.Component {
     ],
   };
 
-  selectBackground = (background) => {
-    return { backgroundImage: `url('${background}')` };
-  };
+  // UNSAFE_componentWillMount() {
+  // let about = this.state.about;
 
-  UNSAFE_componentWillMount() {
-    let categories = this.state.categories;
-    // let about = this.state.about;
-
-    axios
-      .get(`http://localhost:4000/categories`)
-      .then((res) => {
-        categories = res.data;
-        this.setState({ categories });
-      })
-      .catch((err) => {
-        console.log({ err });
-      });
-  }
+  // axios
+  //   .get(`http://localhost:4000/categories`)
+  //   .then((res) => {
+  //     categories = res.data;
+  //     this.setState({ categories });
+  //   })
+  //   .catch((err) => {
+  //     console.log({ err });
+  //   });
+  // }
   componentDidMount() {
     let spot = this.state.spot;
+    let categories = this.state.categories;
     if (!localStorage.getItem("token")) {
       sessionStorage.setItem("path", "/create");
       this.props.history.push("/Signup");
@@ -65,7 +61,22 @@ class Create extends React.Component {
         })
         .catch((err) => console.log(err));
     }
+
+    axios
+      .get(`http://localhost:4000/categories`)
+      .then((res) => {
+        categories = res.data;
+        this.setState({ categories });
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
   }
+
+  //  moved to category.jsx
+  // selectBackground = (background) => {
+  //   return { backgroundImage: `url('${background}')` };
+  // };
 
   //setState with input
   changeField = (e, field) => {
@@ -96,8 +107,8 @@ class Create extends React.Component {
     axios
       .post(`http://localhost:4000/spots`, data)
       .then((res) => {
-        let spotId = res.data.spot._id;
-        this.props.history.push(`/spots/${spotId}`);
+        let categoryId = res.data.category._id;
+        this.props.history.push(`/create/${categoryId}`);
       })
       .catch((err) => {
         console.log(err);
@@ -110,7 +121,7 @@ class Create extends React.Component {
         <Container>
           <div className="grid four">
             {this.state.categories.map((category) => (
-              <CategoryCards category={category} key={category._id} />
+              <Category category={category} key={category._id} />
             ))}
           </div>
         </Container>
