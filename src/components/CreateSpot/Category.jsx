@@ -10,8 +10,7 @@ import {
   Col,
   ProgressBar,
 } from "react-bootstrap";
-// import "../styles/create.css";
-// import "../styles/universal.css";
+// import "../../styles/create.css";
 
 class Category extends React.Component {
   state = {
@@ -114,22 +113,20 @@ class Category extends React.Component {
         <Container>
           <Form className="createform">
             <Link
-              className="card link"
-              to={`/create/${this.state.category._id}`}
-              style={{ width: "15rem" }}
+              className=" card link "
+              to={`/create/${this.state.category.linkTitle}`}
             >
               <div
                 className="image"
                 style={this.selectBackground(this.state.category.image)}
               ></div>
 
-              <small className="meta" style={{ textAlign: "center" }}>
-                {this.state.category.name}
+              <small style={{ textAlign: "center" }}>
+                {this.state.category.displayTitle}
               </small>
 
               <div>
-                <h2>{this.state.category.about}</h2>
-                <small className="type">{this.state.category.about}</small>
+                <small>{this.state.category.about}</small>
               </div>
             </Link>
           </Form>
