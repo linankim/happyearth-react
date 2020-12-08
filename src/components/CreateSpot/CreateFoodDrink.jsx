@@ -281,7 +281,7 @@ class CreateFoodDrink extends React.Component {
               <Form.Control
                 as="textarea"
                 type="text"
-                placeholder="Give a brief description of this place and what it offers in comparioson to others. Don't worry about adding sustainability features here, you'll have a chance to add that in Step 2."
+                placeholder="Note to dev: Come back to this^ figure out how to show subcategories in each type"
                 rows={3}
               />
 
