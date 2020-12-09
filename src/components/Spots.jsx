@@ -1,8 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import axios from "axios";
-
-// import TopNav from "./Nav-Top.jsx";
+import TopNav from "./Nav-Top.jsx";
 import Filters from "./Filters.jsx";
 import Cards from "./Cards.jsx";
 import Map from "./Map.jsx";
@@ -11,6 +9,7 @@ import "../styles/grid.css";
 import "../styles/googlemap.css";
 
 import { Container, Row, Col } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 class Spots extends React.Component {
   state = {
@@ -18,7 +17,7 @@ class Spots extends React.Component {
     spots: [
       {
         images: [],
-        types: {},
+        types: "",
         center: {},
       },
     ],
@@ -55,26 +54,41 @@ class Spots extends React.Component {
     this.setState({ spots: spotsFound });
   };
 
+  // UNSAFE_componentWillMount() {
   componentDidMount() {
     let spot = this.state.spot;
+    let spots = this.state.spots;
+
     let cityName = this.props.location.search.split("=")[1];
     axios
       .get(`http://localhost:4000/spots?city=${cityName}`)
       .then((res) => {
         spot.center.lat = res.data[0].center.lat;
         spot.center.lng = res.data[0].center.lng;
-        // console.log('res.data[0].center.lat', res.data[0].center.lat)
-        // console.log('res.data[0].center.lng', res.data[0].center.lng)
-        // console.log(res.data)
+        // ********* DELETE UNTIL GOOGLE MAP API IS FIXED**********
+        console.log("res.data[0].center.lat", res.data[0].center.lat);
+        console.log("res.data[0].center.lng", res.data[0].center.lng);
+        console.log(res.data);
+
         this.setState({
           spots: res.data,
           spotsClone: res.data,
           center: res.data[0].center,
         });
-        console.log("res data >>>>>>>>>", res.data);
+        console.log("THESE ARE THE SPOTS >> ", res.data);
       })
       .catch((error) => {
         console.log({ error });
+      });
+
+    axios
+      .get(`http://localhost:4000/spots`)
+      .then((res) => {
+        spots = res.data;
+        this.setState({ spots });
+      })
+      .catch((err) => {
+        console.log({ err });
       });
   }
 
