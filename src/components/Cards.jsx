@@ -30,9 +30,13 @@ class Cards extends React.Component {
           <div className="content">
             <small className="meta">{this.state.spot.title}</small>
             <div>
+              <small className="meta loginfont">{this.state.types.name}</small>
+
               <h2>{this.state.spot.title}</h2>
-              <small className="type">{this.state.spot.type}</small>
             </div>
+            <span>
+              {this.state.spot.city} test{this.state.spot.country}
+            </span>
           </div>
         </Link>
       </>

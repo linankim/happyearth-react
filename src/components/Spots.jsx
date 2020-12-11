@@ -57,18 +57,17 @@ class Spots extends React.Component {
   // UNSAFE_componentWillMount() {
   componentDidMount() {
     let spot = this.state.spot;
-    // let spots = this.state.spots;
-
+    let spots = this.state.spots;
     let cityName = this.props.location.search.split("=")[1];
     axios
       .get(`http://localhost:4000/spots?city=${cityName}`)
       .then((res) => {
-        spot.center.lat = res.data[0].center.lat;
-        spot.center.lng = res.data[0].center.lng;
+        // spot.center.lat = res.data[0].center.lat;
+        // spot.center.lng = res.data[0].center.lng;
         // ********* DELETE UNTIL GOOGLE MAP API IS FIXED**********
-        console.log("res.data[0].center.lat", res.data[0].center.lat);
-        console.log("res.data[0].center.lng", res.data[0].center.lng);
-        console.log(res.data);
+        // console.log("res.data[0].center.lat", res.data[0].center.lat);
+        // console.log("res.data[0].center.lng", res.data[0].center.lng);
+        // console.log(res.data);
 
         this.setState({
           spots: res.data,
@@ -81,15 +80,15 @@ class Spots extends React.Component {
         console.log({ error });
       });
 
-    // axios
-    //   .get(`http://localhost:4000/spots`)
-    //   .then((res) => {
-    //     spots = res.data;
-    //     this.setState({ spots });
-    //   })
-    //   .catch((err) => {
-    //     console.log({ err });
-    //   });
+    axios
+      .get(`http://localhost:4000/spots?city=${cityName}`)
+      .then((res) => {
+        spots = res.data;
+        this.setState({ spots });
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
   }
 
   render() {
