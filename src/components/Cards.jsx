@@ -35,7 +35,7 @@ class Cards extends React.Component {
               <h2>{this.state.spot.title}</h2>
             </div>
             <span>
-              {this.state.spot.city} test{this.state.spot.country}
+              {this.state.spot.city} Loading ...{this.state.spot.country}
             </span>
           </div>
         </Link>
