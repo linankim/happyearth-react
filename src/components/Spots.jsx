@@ -17,7 +17,7 @@ class Spots extends React.Component {
     spots: [
       {
         images: [],
-        types: "",
+        types: {},
         center: {},
       },
     ],
@@ -57,7 +57,7 @@ class Spots extends React.Component {
   // UNSAFE_componentWillMount() {
   componentDidMount() {
     let spot = this.state.spot;
-    let spots = this.state.spots;
+    // let spots = this.state.spots;
 
     let cityName = this.props.location.search.split("=")[1];
     axios
@@ -81,15 +81,15 @@ class Spots extends React.Component {
         console.log({ error });
       });
 
-    axios
-      .get(`http://localhost:4000/spots`)
-      .then((res) => {
-        spots = res.data;
-        this.setState({ spots });
-      })
-      .catch((err) => {
-        console.log({ err });
-      });
+    // axios
+    //   .get(`http://localhost:4000/spots`)
+    //   .then((res) => {
+    //     spots = res.data;
+    //     this.setState({ spots });
+    //   })
+    //   .catch((err) => {
+    //     console.log({ err });
+    //   });
   }
 
   render() {
