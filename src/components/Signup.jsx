@@ -193,7 +193,8 @@ class Signup extends React.Component {
                     placeholder="Please create a password"
                     value={this.state.user.password}
                     onChange={(e) => this.changeField(e, "password")}
-                  />
+                  />{" "}
+                  <i className="fa fa-eye password-icon" />
                   {this.state.emptyField.password ? (
                     <p className="logininfontalert">
                       Please type in your password.

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/login.css";
 import Rodal from "rodal";
@@ -12,7 +13,6 @@ class Login extends React.Component {
     user: {
       email: "",
       password: "",
-      visible: false,
     },
     emptyField: {
       email: false,
@@ -66,7 +66,7 @@ class Login extends React.Component {
         .then((res) => {
           this.setState(this.state.user);
           if (!res.data.token) {
-            // this.state.alert = !this.state.alert;
+            this.state.alert = !this.state.alert;
             this.setState({ alert: this.state.alert });
           } else {
             localStorage.setItem("token", res.data.token);
@@ -75,7 +75,7 @@ class Login extends React.Component {
               this.props.history.push(`${path}`);
               sessionStorage.removeItem("path");
             } else {
-              this.props.history.push("/spots");
+              this.props.history.push("/spots"); ///wtf does this go to??
             }
           }
         })
@@ -90,18 +90,6 @@ class Login extends React.Component {
   componentWillMount() {
     console.log("this.state.options", this.state.options);
   }
-
-  show = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  hide = () => {
-    this.setState({
-      visible: false,
-    });
-  };
 
   render() {
     return (
@@ -132,7 +120,7 @@ class Login extends React.Component {
           </h2>
 
           <div style={{ padding: "0 15vw" }}>
-            <Form>
+            <Form style={{ width: "30%" }}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
@@ -154,6 +142,7 @@ class Login extends React.Component {
                   value={this.state.user.password}
                   onChange={(e) => this.changeField(e, "password")}
                 />
+                <i className="fa fa-eye password-icon" />
                 {this.state.emptyField.password ? (
                   <p>Please type in your password</p>
                 ) : null}
@@ -172,17 +161,9 @@ class Login extends React.Component {
             </Form>
             <div style={{ fontFamily: "Jost" }}>
               Not a member?{" "}
-              <Button variant="link" onClick={this.show.bind(this)}>
-                Create an account
-              </Button>
-              <Rodal
-                visible={this.state.visible}
-                onClose={this.hide.bind(this)}
-                width="1100"
-                height="650"
-              >
-                <Signup />
-              </Rodal>
+              <Link to={`/signup`}>
+                <Button variant="link">Create an account</Button>
+              </Link>
             </div>
           </div>
         </div>

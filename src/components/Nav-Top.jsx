@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { slide as Menu } from "react-burger-menu";
 import Login from "./Login.jsx";
 import Rodal from "rodal";
@@ -48,25 +48,18 @@ class TopNav extends React.Component {
             </Button>
           </Nav.Item>
           <Nav.Item>
-            <Button variant="outline-light">
-              <i className="far fa-edit"></i>
-              Post
-            </Button>
-
-            <Button variant="outline-light" onClick={this.show.bind(this)}>
-              <i className="far fa-user"></i>
-              Account
-            </Button>
-
-            <Rodal
-              className="loginRodal"
-              visible={this.state.visible}
-              onClose={this.hide.bind(this)}
-              width="680"
-              height="600"
-            >
-              <Login />
-            </Rodal>
+            <Link to={`/create`}>
+              <Button variant="outline-light">
+                <i className="far fa-edit"></i>
+                Post
+              </Button>
+            </Link>
+            <Link to={`/login`}>
+              <Button variant="outline-light">
+                <i className="far fa-user"></i>
+                Account
+              </Button>
+            </Link>
           </Nav.Item>
         </Navbar>
       </>

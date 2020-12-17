@@ -1,11 +1,11 @@
 /*LOGIN AND SIGNUP styles are both on this stylesheet scroll to lower half for SIGNUP */
 
-.loginRodal {
+/* .loginRodal {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.35);
 }
 
 .signupRodal {
-}
+} */
 
 .login-image {
   /* background-image: url('https://images.pexels.com/photos/1055408/pexels-photo-1055408.jpeg'); */
@@ -98,6 +98,14 @@ h3 {
   justify-content: center;
   letter-spacing: 3px;
   text-transform: uppercase;
+}
+
+.password-icon {
+  position: absolute;
+  top: 95vh;
+  right: 65vw;
+  cursor: pointer;
+  color: #fff;
 }
 
 /* //////SIGNUP CUSTOM STYLES START HERE */
