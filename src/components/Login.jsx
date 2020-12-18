@@ -104,7 +104,7 @@ class Login extends React.Component {
       <>
         <Row style={{ height: "100vh" }}>
           <Col className="login-image"></Col>
-          <Col style={{ margin: "10vw" }}>
+          <Col style={{ margin: "12vh -4vw 0 10vw" }}>
             <Row>
               <h1
                 style={{

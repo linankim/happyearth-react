@@ -107,7 +107,7 @@ h3 {
 .password-icon {
   position: absolute;
   top: 45vh;
-  right: 8vw;
+  right: 15vw;
   cursor: pointer;
   color: gray;
 }
