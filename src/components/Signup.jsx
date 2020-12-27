@@ -11,6 +11,7 @@ class Signup extends React.Component {
       file: "",
       firstName: "",
       lastName: "",
+      dateofbirth: "",
       email: "",
       password: "",
       residenceCountry: "",
@@ -258,7 +259,7 @@ class Signup extends React.Component {
                     <Form.Control
                       className="signup-form-control"
                       type="date"
-                      value="today"
+                      value={this.state.user.dateofbirth}
                     />
                   </Form.Group>
                   <Form.Group as={Col}>
