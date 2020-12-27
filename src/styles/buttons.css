@@ -1,24 +1,44 @@
 button,
 .button {
-	font-family: 'EB Garamond', serif;
-	background: #85bd9a;
-	box-sizing: border-box;
-	border-radius: 4px;
-	font-size: 24px;
-	height: 50px;
-	padding: 8px 15px;
-	cursor: pointer;
-	color: white;
-	transition: background-color 0.3s, border 0.3s, color 0.3s;
-	margin: 10px 10px 0px 10px;
-	border-color: !important;
+  font-family: "Jost";
+  margin: 0.5em;
+  margin-top: 0;
+  height: 3em;
+  width: 9em;
 }
 
 button:hover,
-.button:hover {
-	background: #ccedd2;
+.button:hover,
+.sign-in:hover {
+  background-color: #4b553a;
+  border: #4b553a;
+  opacity: 0.8;
 }
 
+/* Create an account button link on modal sizing and spacing */
+.btn-link {
+  width: 150px;
+  margin: 0 -1vw;
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #fff !important;
+  text-decoration: none;
+  border-color: #fff;
+}
+/* .link:hover {
+	border-radius: 4px;
+	border: 1px solid #404040;
+	margin: 0.5em;
+	margin-top: 0;
+	height: 4em;
+	width: 10em;
+	background-color: #404040;
+	color: white;
+} */
+
+/*
 button.primary {
 	background: #85bd9a;
 	color: white;
@@ -57,4 +77,4 @@ button.full {
 
 .centerbutton {
 	text-align: center;
-}
+} */

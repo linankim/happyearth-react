@@ -1,4 +1,41 @@
-nav {
+/* positions the navbar inside bg-img */
+/* .nav-container {
+	position: absolute;
+	margin: 20px;
+} */
+
+/* landing page nav bar hereeeeeeeee */
+.topnav {
+	overflow: hidden;
+	float: right;
+	padding: 0;
+	margin: 0;
+}
+
+.topnav a {
+	float: left;
+	color: white;
+	/* padding: 14px 16px; */
+	text-decoration: none;
+	font-size: 25px;
+	display: inline-flex;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+/* all on hover */
+.topnav a:hover {
+	border-style: solid;
+}
+
+.join a:hover {
+	text-transform: capitalize;
+}
+/* landing page nav bar endsssssssssss */
+
+/* general nav bar on other pages */
+
+/* nav {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 10px 50px;
 	display: grid;
@@ -48,4 +85,4 @@ nav .profile .avatar {
 
 nav .profile a span {
 	vertical-align: right;
-}
+} */

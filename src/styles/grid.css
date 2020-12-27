@@ -31,16 +31,10 @@
 	grid-column-gap: 0px;
 }
 
-.grid.two {
-	grid-template-columns: 1fr 1fr;
-	grid-column-gap: 30px;
-	/* padding: 10px; */
-}
-
 .gridheading {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	grid-column-gap: 30px;
+	grid-column-gap: 10px;
 }
 
 .grid.twospots {
@@ -145,7 +139,7 @@
 .details li i {
 	margin-right: 10px;
 }
-
+/*
 .grid.image > .card {
 	background: white;
 	border: none;
@@ -163,4 +157,4 @@ ul.grid.two {
 
 .grid + h2 {
 	margin-top: 50px;
-}
+} */

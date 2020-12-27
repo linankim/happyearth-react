@@ -1,40 +1,119 @@
-.loginform {
-	height: auto;
-	width: 400px;
-	border-radius: 3px;
-	padding: 15px 20px;
-	background-color: #effcef;
+/*LOGIN AND SIGNUP styles are both on this stylesheet scroll to lower half for SIGNUP */
+
+.loginRodal {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.35);
 }
 
-.loginsignupform {
-	width: 400px;
-	height: 800px;
-	border-radius: 3px;
-	padding: 20px;
-	background-color: #effcef;
-}
-.loginheader {
-	text-align: center;
-	font-family: 'EB Garamond', serif;
-	font-size: 50px;
-	padding-bottom: 10px;
+.signupRodal {
 }
 
-.createheader {
-	text-align: center;
-	font-family: 'EB Garamond', serif;
-	font-size: 40px;
+.login-image {
+  /* background-image: url('https://images.pexels.com/photos/1055408/pexels-photo-1055408.jpeg'); */
+  /* background-image: url('https://images.pexels.com/photos/3737691/pexels-photo-3737691.jpeg'); */
+  /* background-image: url('https://images.pexels.com/photos/788485/pexels-photo-788485.jpeg'); */
+  background-image: url("https://images.pexels.com/photos/1934796/pexels-photo-1934796.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
-.loginfonttitle {
-	font-family: 'Cormorant Garamond', serif;
-	font-size: 20px;
+/* text on login-image */
+/* div.login-image > h2 {
+  font-size: 50px;
+  padding: 30px 40px 0 40px;
+  margin: 25vh 0 6vh 0;
+  /* ^ down x% of the img view height 0 0 0*/
+/* text-align: center; */
+/* } */
+
+div.login-image .link-button {
+  margin: 0 0 0 15vw;
+  /* margin: 0 0 0 20vw; */
+  text-align: center;
+  border: 1px solid;
+  font-family: "Jost";
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 18px;
+  color: black;
+  background-color: #fff;
+  opacity: 0.5;
+  /* SIGNUP BUTTON */
+  padding: 2vh 2vw 2vh 2vw;
+  border-radius: 8px;
 }
 
-.logininfontalert {
-	font-family: 'EB Garamond', serif;
-	font-size: 20px;
-	color: #972822;
-	font-style: italic;
-	margin: 0px;
+div.login-image .link-button:hover {
+  text-decoration: none;
+  background-color: #fff;
+  padding: 2.5vh 2.5vw 2.5vh 2.5vw;
+  border: #343a40;
+}
+
+.form-container {
+  justify-content: center;
+  /* margin: 30px 0 0 130px; */
+  margin: 6vw;
+  padding-top: 100px;
+}
+form > h1,
+h3 {
+  /* text-align: center; */
+}
+/* box around input and icons */
+.input-container {
+  /* display: inline-flex; */
+  flex: 1 1 300px;
+  position: relative;
+  border: 1px solid;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 25px 0 35px 5px;
+  width: 45vw;
+  box-sizing: border-box;
+  padding: 10px;
+}
+/* box around input alone */
+.input-box {
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  flex: 1;
+  font-family: "Jost";
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: black;
+  border: none;
+}
+.input-icon {
+  padding: 1.3rem 0.5em 1.3rem 1.3rem;
+  background-color: white;
+  color: #8a8a8a;
+  background-position: center;
+  font-size: 1em;
+}
+.button-login {
+  margin-top: 25px;
+  margin-left: 15vw;
+  width: 15vw;
+  height: 8vh;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* //////SIGNUP CUSTOM STYLES START HERE */
+.signup-image {
+  background-image: url("https://images.pexels.com/photos/1934796/pexels-photo-1934796.jpeg");
+  background-size: cover;
+  /* background-position: center; */
+  height: 84vh;
+  margin: -15px;
+}
+
+.signup-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.signup-container {
+  padding: 12vh 0 0 6vw;
 }
