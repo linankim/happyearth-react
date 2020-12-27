@@ -8,7 +8,7 @@ import Create from "./components/Create.jsx";
 import Spots from "./components/Spots.jsx";
 import Landing from "./components/Landing.jsx";
 import TopNav from "./components/Navbar.jsx";
-import LoginModal from "./components/LoginModal.jsx";
+
 
 class Routes extends React.Component {
   render() {
