@@ -1,158 +1,167 @@
 .card {
-	border-radius: 2px;
-	background-color: rgba(255, 255, 255);
+  border-radius: 30px;
+  height: 270px;
+  width: 100%;
+  /* background-color: rgba(255, 255, 255); */
 }
 
 a.card {
-	text-decoration: none;
-	color: black;
-	display: inline-block;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
 }
 
-.card .logo {
-	width: 200px;
-	height: 34px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% auto;
-	margin: 20px auto;
-}
+/* .card .logo {
+  width: 200px;
+  height: 34px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  margin: 20px auto;
+} */
 
 .card > .content {
-	padding: 10px;
-	margin: 0;
+  padding: 10px;
+  margin: 0;
 }
 
 .card > .content.large {
-	padding: 40px;
+  padding: 40px;
 }
 
 .card.shadow {
-	border: none;
-	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card.link {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .card.link:hover {
-	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card .image {
-	border-radius: 2px 2px 0 0;
-	height: 160px;
-	background-size: cover;
-	background-position: center;
-	position: relative;
+  border-radius: 30px 30px 0 0;
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
 .card .image > .icon {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	cursor: pointer;
-	font-size: 20px;
-	padding: 0;
-	background: transparent;
-	border: none;
-	color: white;
-	height: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  height: 24px;
 }
 
 .card .image > .icon i.far {
-	color: white;
+  color: red; /*white */
 }
 
 .card p.footer {
-	margin-bottom: 0;
-	font-size: 15px;
+  margin-bottom: 0;
+  font-size: 15px;
 }
 
 .card .content small.meta {
-	color: rgb(37, 120, 69);
-	text-transform: uppercase;
-	font-family: Arial, sans-serif;
-	font-size: 15px;
-	font-weight: bold;
+  color: rgb(37, 120, 69);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
 }
 
+.type {
+  color: rgb(37, 120, 69);
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  font-family: "Jost", sans-serif;
+  font-size: 8px;
+}
 .card .content small.location {
-	font-size: 18px;
+  /* font-size: 18px; */
 }
 
 .card .content small.location i + span {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 .card .content h2 {
-	font-size: 20px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+  /* font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px; */
 }
 
 .card .content .price,
 .card .content .rating {
-	font-size: 13px;
-	color: #5e5e5e;
-	display: block;
+  font-size: 13px;
+  color: #5e5e5e;
+  display: block;
 }
 
 .card .content .rating {
-	color: #8a8a8a;
-	margin-top: 8px;
-	font-size: 10px;
-	vertical-align: baseline;
+  color: #8a8a8a;
+  margin-top: 8px;
+  font-size: 10px;
+  vertical-align: baseline;
 }
 
 .card .content .rating span {
-	margin-left: 5px;
+  margin-left: 5px;
 }
 
 .card .content .likes i:last-child {
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .card .location {
-	display: block;
-	font-size: 13px;
-	margin-top: 10px;
+  display: block;
+  font-size: 13px;
+  /* margin-top: 3px; */
 }
-
+/*
 .card .location i {
-	margin-right: 5px;
 }
 
 .card.specs ul > li {
-	line-height: 30px;
+  line-height: 30px;
 }
 
 .card.specs ul > li > i {
-	margin-right: 8px;
+  margin-right: 8px;
 }
 
 .card + p {
-	margin-top: 40px;
-}
-
+  margin-top: 40px;
+} */
+/*
 .card h3 {
-	margin-top: 0;
-	font-size: 30px;
-	margin-bottom: 10px;
+  margin-top: 0;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
 .card small + form {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 .date {
-	display: inline-block;
-	margin-top: 14px;
-	background: tomato;
-	color: white;
-	font-size: 14px;
-	padding: 5px 8px;
-	border-radius: 4px;
-}
+  display: inline-block;
+  margin-top: 14px;
+  background: tomato;
+  color: white;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 4px;
+} */

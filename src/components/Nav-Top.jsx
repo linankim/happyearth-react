@@ -1,21 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { slide as Menu } from "react-burger-menu";
+// import { slide as Menu } from "react-burger-menu";
 import Login from "./Login.jsx";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
-import {
-  Button,
-  InputGroup,
-  Navbar,
-  Nav,
-  NavLink,
-  Card,
-  Dropdown,
-  DropdownButton,
-  ButtonGroup,
-  Alert,
-} from "react-bootstrap";
+import { Button, Navbar, Nav } from "react-bootstrap";
 
 class TopNav extends React.Component {
   state = {
@@ -54,30 +43,23 @@ class TopNav extends React.Component {
         <Navbar className="justify-content-end" style={{ paddingTop: "25px" }}>
           <Nav.Item>
             <Button variant="outline-light">
-              <i class="fas fa-globe-africa"></i>
+              <i className="fas fa-globe-africa"></i>
               Browse
             </Button>
           </Nav.Item>
           <Nav.Item>
-            <Button variant="outline-light">
-              <i class="far fa-edit"></i>
-              Post
-            </Button>
-
-            <Button variant="outline-light" onClick={this.show.bind(this)}>
-              <i class="far fa-user"></i>
-              Account
-            </Button>
-
-            <Rodal
-              className="loginRodal"
-              visible={this.state.visible}
-              onClose={this.hide.bind(this)}
-              width="680"
-              height="600"
-            >
-              <Login />
-            </Rodal>
+            <Link to={`/create`}>
+              <Button variant="outline-light">
+                <i className="far fa-edit"></i>
+                Post
+              </Button>
+            </Link>
+            <Link to={`/login`}>
+              <Button variant="outline-light">
+                <i className="far fa-user"></i>
+                Account
+              </Button>
+            </Link>
           </Nav.Item>
         </Navbar>
       </>

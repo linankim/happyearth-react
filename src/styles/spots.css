@@ -1,9 +1,10 @@
 .fixed {
-	height: calc(100vh - 71px);
-	overflow-y: scroll;
+  height: calc(100vh - 71px);
+  overflow: hidden;
 }
 
+/*
 .sidebar-left {
 	grid-template-columns: 200px auto;
 	grid-column-gap: 0px;
-}
+} */

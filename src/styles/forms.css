@@ -81,9 +81,8 @@ h2 + form {
 	cursor: pointer;
 	font-size: 14px;
 	margin: 10px 0;
-}
-
+}*/
 .labelfont {
-	font-family: 'EB Garamond', serif;
-	font-size: 20px;
-} */
+  font-family: "EB Garamond", serif;
+  font-size: 20px;
+}

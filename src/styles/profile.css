@@ -1,11 +1,23 @@
 .form {
-	width: 400px;
+  width: 400px;
 }
 
 .profileform {
-	width: 500px;
-	height: auto;
-	padding: 30px 30px 30px 30px;
-	border-radius: 3px;
-	background-color: #effcef;
+  width: 500px;
+  height: auto;
+  padding: 30px 30px 30px 30px;
+  border-radius: 3px;
+  background-color: #effcef;
+}
+
+.user {
+  text-align: right;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: gray;
 }

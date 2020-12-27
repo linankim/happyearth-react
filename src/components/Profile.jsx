@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
-import Nav from "./Nav.jsx";
+// import Nav from "./Nav.jsx";
 import Popup from "./Popup.jsx";
 import "../styles/profile.css";
-import "../styles/profile.css";
+import "../styles/forms.css";
+import { Button, Form, Col, Container, Row } from "react-bootstrap";
 
 class Profile extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class Profile extends React.Component {
       this.props.history.push("/");
     } else {
       axios
-        .get(`${process.env.REACT_APP_API}/auth`, {
+        .get(`http://localhost:4000/auth`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -72,7 +73,7 @@ class Profile extends React.Component {
     }
     console.log({ data });
     axios
-      .patch(`${process.env.REACT_APP_API}/users/${userId}`, data)
+      .patch(`http://localhost:4000/users/${userId}`, data)
       .then((res) => {
         console.log("works until here");
         console.log({ res });
@@ -96,7 +97,7 @@ class Profile extends React.Component {
     e.preventDefault();
     let userId = this.state.user._id;
     axios
-      .delete(`${process.env.REACT_APP_API}/users/${userId}`)
+      .delete(`http://localhost:4000/users/${userId}`)
       .then((res) => {
         console.log("working");
         console.log(res);
@@ -110,79 +111,104 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="background centerforms grid">
-          <div>
-            <div className=" profileform">
-              <form>
-                <div className="formheaderfont">My Profile</div>
-                <div className="group">
-                  <label className="loginfont">First Name</label>
-                  <input
-                    type="text"
-                    value={this.state.user.firstName}
-                    onChange={(e) => this.changeField(e, "firstName")}
-                  />
-                </div>
-                <div className="group">
-                  <label className="loginfont">Last Name</label>
-                  <input
-                    type="text"
-                    value={this.state.user.lastName}
-                    onChange={(e) => this.changeField(e, "lastName")}
-                  />
-                </div>
-                <div className="group">
-                  <label className="loginfont">Email</label>
-                  <input
-                    type="email"
-                    value={this.state.user.email}
-                    onChange={(e) => this.changeField(e, "email")}
-                  />
-                </div>
-                <div className="group">
-                  <label className="loginfont">Residence Country</label>
-                  <input
-                    type="text"
-                    value={this.state.user.residenceCountry}
-                    onChange={(e) => this.changeField(e, "residenceCountry")}
-                  />
-                </div>
-                <div>
-                  <label className="loginfont">Profile Picture</label>
-                  <div className="user">
-                    <div
-                      className="avatar"
-                      style={{
-                        backgroundImage: `url(${this.state.user.avatar})`,
-                      }}
-                    ></div>
-                    <div className="name loginfont">
-                      <input type="file" onChange={this.changePicture} />
-                    </div>
-                  </div>
-                </div>
-                <div className="centerbutton">
-                  <button onClick={this.savesChanges()}>Save Changes</button>
+      <Container>
+        <Form style={{ margin: "2vh 0 0 2vh" }}>
+          <Form.Row>Profile</Form.Row>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label className="loginfont">Change Profile Pic</Form.Label>
 
-                  <button onClick={(e) => this.alertButton(e)}>
-                    {this.state.showPopup ? (
-                      <Popup deleteProfile={this.deleteProfile} />
-                    ) : null}
-                    Delete Profile
-                  </button>
-                </div>
+              <Form.Control
+                className="avatar"
+                style={{
+                  backgroundImage: `url(${this.state.user.avatar})`,
+                }}
+              />
+            </Form.Group>
 
-                <div className="centerbutton">
-                  <button className="logout" onClick={this.logout}>
-                    Logout
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+            <Form.Group as={Col}>
+              <Form.Control type="file" onChange={this.changePicture} />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label> First Name</Form.Label>
+              <Form.Control
+                style={{ height: "10vh ", padding: "1em " }}
+                type="text"
+                value={this.state.user.firstName}
+                onChange={(e) => this.changeField(e, "firstName")}
+              />
+            </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label> Last Name</Form.Label>
+              <Form.Control
+                style={{ height: "10vh ", padding: "1em " }}
+                type="text"
+                value={this.state.user.lastName}
+                onChange={(e) => this.changeField(e, "lastName")}
+              />{" "}
+            </Form.Group>{" "}
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label> Email</Form.Label>
+              <Form.Control
+                style={{ height: "10vh ", padding: "1em " }}
+                type="email"
+                value={this.state.user.email}
+                onChange={(e) => this.changeField(e, "email")}
+              />
+            </Form.Group>{" "}
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label>Country of Residence</Form.Label>
+              <Form.Control
+                style={{ height: "10vh ", padding: "1em " }}
+                type="text"
+                value={this.state.user.residenceCountry}
+                onChange={(e) => this.changeField(e, "residenceCountry")}
+              />
+            </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label>DOB</Form.Label>
+              <Form.Control
+                style={{ height: "10vh ", padding: "1em " }}
+                type="text"
+                value={this.state.user.dateofbirth}
+              />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Form.Group style={{ width: "100%", paddingLeft: "1vh" }}>
+              <Form.Label>Bio</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                style={{ height: "30vh ", padding: "2em " }}
+              />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Button onClick={this.savesChanges()}>Save Changes</Button>
+          </Form.Row>
+          <Form.Row>
+            <Button onClick={(e) => this.alertButton(e)}>
+              {this.state.showPopup ? (
+                <Popup deleteProfile={this.deleteProfile} />
+              ) : null}
+              Delete My Profile
+            </Button>
+            <Button className="logout" onClick={this.logout}>
+              Logout
+            </Button>
+          </Form.Row>
+        </Form>
+      </Container>
     );
   }
 }
