@@ -1,55 +1,74 @@
 .gallery {
-	border-bottom: 1px solid #e2e2e2;
+  display: grid;
+  /* border-bottom: 1px solid #e2e2e2; */
+  /* margin-bottom: 10vh; */
+  padding: 0px;
+  background-color: inherit;
 }
 
-.gallerymain {
-	background-color: white;
-	padding: 20px;
-}
-.gallery .image-main {
-	height: 500px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
+.image-selected {
+  /* height: 100vh; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 20px;
 }
 
 .gallery .image-main button {
-	height: 30px;
+  height: 30px;
 }
 
 .gallery .image-main .icon {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	cursor: pointer;
-	font-size: 30px;
-	line-height: 0;
-	padding: 0;
-	background: transparent;
-	border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 
 .gallery .thumbnails {
-	padding: 20px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 30px;
-	grid-row-gap: 30px;
-	background-color: rgba(255, 255, 255);
-	margin-top: 30px;
+  padding: 2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1vw;
+  grid-row-gap: 30px;
+  background-color: inherit;
 }
+/*
+.gallery .thumbnails {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  background-color: rgba(255, 255, 255);
+  margin-top: 30px;
+} */
 
 .gallery .thumbnail {
-	height: 100px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	cursor: pointer;
-	transition: opacity 0.3s;
+  width: 10vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.gallery-img {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
 .gallery .thumbnail:hover,
 .gallery .thumbnail.selected {
-	opacity: 0.5;
+  opacity: 0.5;
 }

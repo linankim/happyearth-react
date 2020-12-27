@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
-import "../styles/create.css";
-import "../styles/universal.css";
+import { Container, Form, Accordion, Card, Button, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+// import "../styles/create.css";
+// import "../styles/universal.css";
 
 class Create extends React.Component {
   state = {
@@ -12,13 +14,16 @@ class Create extends React.Component {
       types: "",
       eatins: [],
       takeaways: [],
+      features: [],
       lat: "",
       lng: "",
       toggleEatins: false,
       toggleTakeaways: false,
+      toggleFeatures: false,
     },
     eatins: [],
     takeaways: [],
+    features: [],
     types: [],
   };
 
@@ -26,9 +31,10 @@ class Create extends React.Component {
     let types = this.state.types;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
+    let features = this.state.features;
 
     axios
-      .get(`${process.env.REACT_APP_API}/types`)
+      .get(`http://localhost:4000/types`)
       .then((res) => {
         types = res.data;
         this.setState({ types });
@@ -37,7 +43,7 @@ class Create extends React.Component {
         console.log({ err });
       });
     axios
-      .get(`${process.env.REACT_APP_API}/eatins`)
+      .get(`http://localhost:4000/eatins`)
       .then((res) => {
         eatins = res.data;
         this.setState({ eatins });
@@ -47,11 +53,21 @@ class Create extends React.Component {
         console.log(err);
       });
     axios
-      .get(`${process.env.REACT_APP_API}/takeaways`)
+      .get(`http://localhost:4000/takeaways`)
       .then((res) => {
         takeaways = res.data;
         this.setState({ takeaways });
         console.log({ takeaways });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`http://localhost:4000/features`)
+      .then((res) => {
+        features = res.data;
+        this.setState({ features });
+        console.log({ features });
       })
       .catch((err) => {
         console.log(err);
@@ -65,7 +81,7 @@ class Create extends React.Component {
       this.props.history.push("/Signup");
     } else {
       axios
-        .get(`${process.env.REACT_APP_API}/auth`, {
+        .get(`http://localhost:4000/auth`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -87,7 +103,7 @@ class Create extends React.Component {
     this.setState({ spot });
   };
 
-  //toggle Eatins
+  //toggle eatins
   toggleEatin = (e) => {
     let spot = this.state.spot;
     spot.toggleEatins = !spot.toggleEatins;
@@ -101,14 +117,21 @@ class Create extends React.Component {
     this.setState({ spot });
   };
 
+  //toggle features
+  toggleFeature = (e) => {
+    let spot = this.state.spot;
+    spot.toggleFeatures = !spot.toggleFeatures;
+    this.setState({ spot });
+  };
+
   //select takeaways
   checkBox = (e) => {
     let spot = this.state.spot;
     let _id = e.target.value;
-    let takeaways = spot.takeaways;
+    // let takeaways = spot.takeaways;
 
-    if (spot.takeaways.find((takeaway) => takeaway == _id)) {
-      spot.takeaways = spot.takeaways.filter((takeaway) => takeaway != _id);
+    if (spot.takeaways.find((takeaway) => takeaway === _id)) {
+      spot.takeaways = spot.takeaways.filter((takeaway) => takeaway !== _id);
     } else {
       spot.takeaways.push(_id);
       if (spot.takeaways) this.setState({ spot: spot.takeaways });
@@ -120,13 +143,28 @@ class Create extends React.Component {
   checkbox2 = (e) => {
     let spot = this.state.spot;
     let _id = e.target.value;
-    let eatins = spot.eatins;
+    // let eatins = spot.eatins;
 
-    if (spot.eatins.find((eatin) => eatin == _id)) {
-      spot.eatins = spot.eatis.filter((eatin) => eatin != _id);
+    if (spot.eatins.find((eatin) => eatin === _id)) {
+      spot.eatins = spot.eatins.filter((eatin) => eatin !== _id);
     } else {
       spot.eatins.push(_id);
       this.setState({ spot: spot.eatins });
+    }
+    this.setState({ spot });
+  };
+
+  //select features
+  checkbox3 = (e) => {
+    let spot = this.state.spot;
+    let _id = e.target.value;
+    // let eatins = spot.eatins;
+
+    if (spot.features.find((feature) => feature === _id)) {
+      spot.features = spot.features.filter((feature) => feature !== _id);
+    } else {
+      spot.features.push(_id);
+      this.setState({ spot: spot.features });
     }
     this.setState({ spot });
   };
@@ -146,13 +184,13 @@ class Create extends React.Component {
     let data = new FormData();
     for (let key in this.state.spot) {
       if (
-        (typeof this.state.spot[key] == "object" && key == "eatins") ||
-        key == "takeaways"
+        (typeof this.state.spot[key] == "object" && key === "eatins") ||
+        key === "takeaways"
       ) {
         this.state.spot[key].forEach((val) => {
           data.append(`${key}[]`, val);
         });
-      } else if (typeof this.state.spot[key] == "object" && key == "files") {
+      } else if (typeof this.state.spot[key] == "object" && key === "files") {
         for (let i = 0; i < this.state.spot[key].length; i++) {
           data.append(key, this.state.spot[key][i]);
         }
@@ -162,7 +200,7 @@ class Create extends React.Component {
     }
     console.log({ data });
     axios
-      .post(`${process.env.REACT_APP_API}/spots`, data)
+      .post(`http://localhost:4000/spots`, data)
       .then((res) => {
         let spotId = res.data.spot._id;
         this.props.history.push(`/spots/${spotId}`);
@@ -175,6 +213,116 @@ class Create extends React.Component {
   render() {
     return (
       <div>
+        <Container>
+          <Form.Group>
+            <Form className="createform">
+              <Form.Label>Suggest a spot to Happy Earth</Form.Label>
+              <p>
+                Help us add to Happy Earth! Suggest your favorite local small
+                businesses, locally owned and operated shops & eateries, and all
+                around eco-friendly spots!
+              </p>
+
+              <Form.Control size="sm" type="text" placeholder="Name of Spot" />
+              <br />
+              <Form.Control
+                as="textarea"
+                type="text"
+                placeholder="Write a description here! "
+                rows={3}
+              />
+              <br />
+              <Accordion>
+                <Accordion.Toggle as={Button} variant="light" eventKey="1">
+                  Food Shop
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="1">
+                  <p>something</p>
+                </Accordion.Collapse>
+
+                <Accordion.Toggle as={Button} variant="light" eventKey="1">
+                  Food Shop
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="1">
+                  <p>something</p>
+                </Accordion.Collapse>
+              </Accordion>
+
+              <Form.Control
+                size="sm"
+                as="select"
+                onChange={(e) => this.changeField(e, "types")}
+              >
+                {this.state.types.map((type) => {
+                  return <option value={type._id}>{type.name}</option>;
+                })}
+                >
+              </Form.Control>
+
+              <br />
+              <span>Where is it located?</span>
+              <br />
+              <br />
+
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridCity">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="..." />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridNighborhood">
+                  <Form.Label>Neighborhood</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    placeholder="Neigborhood"
+                  />
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridCountry">
+                  <Form.Label>Country</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Country" />
+                </Form.Group>
+              </Form.Row>
+              <br />
+
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridLat">
+                  <Form.Label className="labelfont">Latitude</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={this.state.spot.lat}
+                    onChange={(e) => this.changeField(e, "lat")}
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridLng">
+                  <Form.Label className="labelfont">Longitude</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={this.state.spot.lng}
+                    onChange={(e) => this.changeField(e, "lng")}
+                  />
+                </Form.Group>
+              </Form.Row>
+
+              <Form.File
+                id="exampleFormControlFile1"
+                label="Upload Photos"
+                onChange={this.getFile}
+                multiple
+              />
+              <div className="centerbutton">
+                <Button
+                  variant="light"
+                  onClick={(e) => this.createPlace(e, this.state.spot)}
+                >
+                  Suggest this spot
+                </Button>
+              </div>
+            </Form>
+          </Form.Group>
+        </Container>
+
         <div className="background centerforms grid">
           <div className="createform">
             <div className="formheaderfont">Create A New Spot</div>
@@ -212,13 +360,6 @@ class Create extends React.Component {
                 <label className="labelfont">Upload Photos</label>
                 <input type="file" onChange={this.getFile} multiple />
                 <div className="group">
-                  <div>
-                    <label className="labelfont">
-                      Click on Take away and/or Eat in and select what they
-                      provide for you.
-                    </label>
-                  </div>
-
                   <div>
                     <label className="checkbox labelfont">
                       <input
@@ -263,6 +404,32 @@ class Create extends React.Component {
                               />
                               <i className={eatin.icon}></i>
                               <span>{eatin.explanation}</span>
+                            </label>
+                          );
+                        })
+                      : null}
+                  </div>
+
+                  <h6>trying features</h6>
+
+                  <div>
+                    <label className="checkbox labelfont">
+                      <input
+                        type="checkbox"
+                        onChange={(e) => this.toggleFeature(e)}
+                      />
+                      Features
+                    </label>
+                    {this.state.spot.toggleFeatures
+                      ? this.state.features.map((feature) => {
+                          return (
+                            <label className="checkbox labelfont">
+                              <input
+                                type="checkbox"
+                                value={feature._id}
+                                onChane={(e) => this.checkbox3(e)}
+                              />
+                              <span>{feature.name}</span>
                             </label>
                           );
                         })

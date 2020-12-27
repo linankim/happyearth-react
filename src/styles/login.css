@@ -1,21 +1,30 @@
 /*LOGIN AND SIGNUP styles are both on this stylesheet scroll to lower half for SIGNUP */
 
-.loginRodal {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.35);
-}
-
-.signupRodal {
-}
-
 .login-image {
-  /* background-image: url('https://images.pexels.com/photos/1055408/pexels-photo-1055408.jpeg'); */
   /* background-image: url('https://images.pexels.com/photos/3737691/pexels-photo-3737691.jpeg'); */
   /* background-image: url('https://images.pexels.com/photos/788485/pexels-photo-788485.jpeg'); */
   background-image: url("https://images.pexels.com/photos/1934796/pexels-photo-1934796.jpeg");
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
+}
+.signup-label {
+  color: white !important;
+  letter-spacing: 2px !important;
+}
+.signup-form-control {
+  padding: 1.8rem;
 }
 
+/* #formGridSurname {
+ border: 3px dotted red; */
+/* test
+} */
+
+.login-font {
+  color: black;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
 /* text on login-image */
 /* div.login-image > h2 {
   font-size: 50px;
@@ -82,6 +91,7 @@ h3 {
   color: black;
   border: none;
 }
+
 .input-icon {
   padding: 1.3rem 0.5em 1.3rem 1.3rem;
   background-color: white;
@@ -99,14 +109,26 @@ h3 {
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+# SignupForm .form-label {
+  color: white;
+}
+.password-icon {
+  position: absolute;
+  top: 45vh;
+  right: 15vw;
+  cursor: pointer;
+  color: gray;
+}
 
 /* //////SIGNUP CUSTOM STYLES START HERE */
 .signup-image {
   background-image: url("https://images.pexels.com/photos/1934796/pexels-photo-1934796.jpeg");
   background-size: cover;
-  /* background-position: center; */
-  height: 84vh;
-  margin: -15px;
+  opacity: 0.9;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 150vh;
 }
 
 .signup-grid {

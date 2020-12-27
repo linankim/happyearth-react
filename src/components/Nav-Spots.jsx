@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import "../styles/nav.css";
 
-class Nav extends React.Component {
+class NavSpots extends React.Component {
   state = {
     user: {
       avatar: "",
@@ -23,7 +23,7 @@ class Nav extends React.Component {
       this.setState({ guest: false });
     }
     axios
-      .get(`${process.env.REACT_APP_API}/auth`, {
+      .get(`http://localhost:4000/auth`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -74,4 +74,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default NavSpots;

@@ -1,35 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/login.css";
-import { Link, Route, Switch } from "react-router-dom";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import Signup from "./Signup.jsx";
 
-import {
-  Button,
-  Navbar,
-  Nav,
-  NavLink,
-  FormControl,
-  Form,
-  FormGroup,
-  FormLabel,
-  FormText,
-} from "react-bootstrap";
+import { Button, Form, Col, Row, Container } from "react-bootstrap";
 
 class Login extends React.Component {
   state = {
     user: {
       email: "",
       password: "",
-      visible: false,
     },
     emptyField: {
       email: false,
       password: false,
     },
     alert: false,
+    isPasswordShown: false,
   };
 
   // change value of state for login
@@ -46,9 +36,9 @@ class Login extends React.Component {
     let user = this.state.user;
     let emptyField = this.state.emptyField;
     for (field in user) {
-      if (`${user[field]}` == "") {
+      if (`${user[field]}` === "") {
         for (f in emptyField) {
-          if (f == field && emptyField[f] == false) {
+          if (f === field && emptyField[f] === false) {
             emptyField[f] = !emptyField[f];
             this.setState(emptyField);
           } else {
@@ -57,7 +47,7 @@ class Login extends React.Component {
         }
       } else {
         for (f in emptyField) {
-          if (f == field && emptyField[f] == true) {
+          if (f === field && emptyField[f] === true) {
             emptyField[f] = !emptyField[f];
             this.setState(emptyField);
           } else {
@@ -73,7 +63,7 @@ class Login extends React.Component {
     e.preventDefault();
     if (this.state.user.email !== "" && this.state.user.password !== "") {
       axios
-        .post(`${process.env.REACT_APP_API}/login`, this.state.user)
+        .post(`http://localhost:4000/login`, this.state.user)
         .then((res) => {
           this.setState(this.state.user);
           if (!res.data.token) {
@@ -81,12 +71,12 @@ class Login extends React.Component {
             this.setState({ alert: this.state.alert });
           } else {
             localStorage.setItem("token", res.data.token);
-            if (sessionStorage != undefined) {
+            if (sessionStorage !== undefined) {
               let path = sessionStorage.getItem("path");
               this.props.history.push(`${path}`);
               sessionStorage.removeItem("path");
             } else {
-              this.props.history.push("/spots");
+              this.props.history.push("/spots"); ///wtf does this go to??
             }
           }
         })
@@ -102,105 +92,104 @@ class Login extends React.Component {
     console.log("this.state.options", this.state.options);
   }
 
-  show = () => {
-    this.setState({
-      visible: true,
-    });
+  //show-hide password
+  togglePasswordVisibility = () => {
+    const { isPasswordShown } = this.state;
+    this.setState({ isPasswordShown: !isPasswordShown });
   };
 
-  hide = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-
-  render() {
+  render = () => {
+    const { isPasswordShown } = this.state;
     return (
       <>
-        <div>
-          <h1
-            style={{
-              fontFamily: "Pacifico",
-              color: "black",
-              fontSize: "70px",
-              letterSpacing: "3px",
-              marginBottom: "50px",
-              marginTop: "50px",
-            }}
-          >
-            {" happy earth"}
-          </h1>
-          <h2
-            style={{
-              color: "black",
-              fontSize: "20px",
-              fontFamily: "Jost",
-              fontSize: "20px",
-              letterSpacing: "1px",
-              margin: "0 0vw 4vh 0",
-            }}
-          >
-            Welcome back! Please log in using your details
-          </h2>
+        <Row style={{ height: "100vh" }}>
+          <Col className="login-image"></Col>
+          <Col style={{ margin: "12vh -4vw 0 10vw" }}>
+            <Row>
+              <h1
+                style={{
+                  fontFamily: "Pacifico",
+                  color: "black",
+                  fontSize: "70px",
+                  letterSpacing: "3px",
+                  marginBottom: "50px",
+                  marginTop: "50px",
+                }}
+              >
+                {" happy earth"}
+              </h1>
+            </Row>
+            <Row>
+              <Form style={{ width: "35vw" }}>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={this.state.user.email}
+                    onChange={(e) => this.changeField(e, "email")}
+                  />
+                  {this.state.emptyField.email ? (
+                    <p>Please type in your email</p>
+                  ) : null}
+                </Form.Group>
 
-          <div style={{ padding: "0 15vw" }}>
-            <Form>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  value={this.state.user.email}
-                  onChange={(e) => this.changeField(e, "email")}
-                />
-                {this.state.emptyField.email ? (
-                  <p>Please type in your email</p>
-                ) : null}
-              </Form.Group>
-
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  value={this.state.user.password}
-                  onChange={(e) => this.changeField(e, "password")}
-                />
-                {this.state.emptyField.password ? (
-                  <p>Please type in your password</p>
-                ) : null}
-                {this.state.alert ? (
-                  <p>Either email or password incorrect</p>
-                ) : null}{" "}
-              </Form.Group>
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    // type="password"
+                    type={isPasswordShown ? "text" : "password"}
+                    value={this.state.user.password}
+                    onChange={(e) => this.changeField(e, "password")}
+                  />
+                  <i
+                    className={`fa ${
+                      isPasswordShown ? "fa-eye-slash" : "fa-eye"
+                    } password-icon`}
+                    onClick={this.togglePasswordVisibility}
+                  />
+                  {this.state.emptyField.password ? (
+                    <p>Please type in your password</p>
+                  ) : null}
+                  {this.state.alert ? (
+                    <p>Either email or password incorrect</p>
+                  ) : null}{" "}
+                </Form.Group>
+              </Form>
+            </Row>
+            <Row>
               <Button
-                style={{ margin: "2vh 0 2vh 0" }}
+                style={{
+                  color: "#000",
+                  backgroundColor: "#fff",
+                  borderColor: "black",
+                  marginTop: "15px",
+                  padding: "5px",
+                }}
                 variant="dark"
                 type="submit"
                 onClick={this.login}
               >
                 Login
               </Button>
-            </Form>
-            <div style={{ fontFamily: "Jost" }}>
-              Not a member?{" "}
-              <Button variant="link" onClick={this.show.bind(this)}>
-                Create an account
-              </Button>
-              <Rodal
-                visible={this.state.visible}
-                onClose={this.hide.bind(this)}
-                width="1100"
-                height="650"
-              >
-                <Signup />
-              </Rodal>
-            </div>
-          </div>
-        </div>
+              <Link to={`/signup`}>
+                <Button
+                  style={{
+                    color: "#000",
+                    backgroundColor: "#fff",
+                    borderColor: "black",
+                    marginTop: "15px",
+                    padding: "5px",
+                  }}
+                >
+                  Create an account
+                </Button>
+              </Link>
+            </Row>
+          </Col>
+        </Row>
       </>
     );
-  }
+  };
 }
 
 export default Login;

@@ -1,7 +1,6 @@
-/* body,
-html {
-	height: 100%;
-} */
+@media only screen and (max-width: 600px) {
+  height: 50%;
+}
 
 /* hero img */
 .bg-img {
@@ -35,14 +34,21 @@ html {
   /* top: 0; */
 }
 
-@media only screen and (max-width: 600px) {
-  height: 50%;
-}
-
 /* text on hero image */
 .hero-text {
-  padding: 10vh 0 30vh 0;
+  padding: 10vh 0 10vh 0;
   /* z-index: 5px; */
+}
+
+.header-img {
+  background-image: url("https://images.unsplash.com/photo-1501696057772-02661ce93702");
+  opacity: 0.8;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40vh;
+  align-items: center;
 }
 
 /* fonts */
@@ -79,8 +85,6 @@ h2,
 
 /* search bar landing page */
 
-/* search bar landing page */
-
 .center-search {
   display: inline-flex;
   flex: 1 1 300px;
@@ -98,7 +102,7 @@ h2,
   padding: 10px;
 }
 
-.searchIcon {
+.search-icon {
   padding: 1.3rem 0.5em 1.3rem 1.3rem;
   background-color: white;
   color: #8a8a8a;
@@ -154,7 +158,7 @@ input:focus {
 	overflow-y: scroll;
 }
 */
-
+/* landing page dropdown */
 .dropdown {
   background: white;
   box-shadow: rgba(0, 0, 0, 0.6);
