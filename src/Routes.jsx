@@ -16,6 +16,8 @@ import Landing from "./components/Landing.jsx";
 // import TopNav from "./components/Nav-Top.jsx";
 // import NavSpots from "./components/Nav-Spots.jsx";
 
+
+
 class Routes extends React.Component {
   render() {
     return (
